@@ -1,0 +1,79 @@
+/*@import "./scss/custom.home.css";*/
+
+/*HOMEPAGE CUSTOM STSYLE*/
+/*==============================================================================*/
+.scroll .row.home-category-grid-icons {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/*STYLE FOR HEADER*/
+.bar-royal.bar.bar-header .buttons.buttons-right .right-buttons {
+  margin-left: inherit;
+}
+.bar-royal.bar.bar-header .buttons.buttons-right .button.button {
+  background-color: #8cc63f;
+}
+.bar-royal.bar.bar-header {
+  background-color: #8cc63f;
+}
+.buttons.buttons-right .ion-android-cart:before {
+  padding-right: 2px;
+  padding-left: 2px;
+  font-size: 30px;
+  line-height: 32px;
+}
+.buttons.buttons-right .button.ion-chatbubble-working:before {
+  font-size: 30px;
+  line-height: 39px;
+  font-weight: bold;
+  position: relative;
+  bottom: 3px;
+}
+/*STYLE FOR CONTENT*/
+.scroll .row.home-category-grid-icons {
+  margin-top: 55px;
+}
+/*STYLE FOR FOOTERBAR*/
+.tab-nav.tabs {
+  background-color: #f7f7f7;
+}
+.tab-nav.tabs i {
+  color: #515151;
+  font-size: 30px;
+  padding-top: 3px;
+}
+.tab-nav.tabs .tab-title.ng-binding {
+  color: #515151;
+}
+.tab-nav.tabs .icon.ion-plus-round {
+  border: 1px solid #8cc63f;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 3px;
+  background: #8cc63f;
+  color: #ffffff;
+}
+/*STYLE FOR SLIDE*/
+.home-slider.slider .slider-slide {
+  height: 200px;
+}
+.home-slider .slider-slide img {
+  height: 200px;
+}
+
+
+
+/*SEARCH PAGE CUSTOM STYLE*/
+/*========================================================================*/
+
+
+
+
+
+
+
+
+
+
+
