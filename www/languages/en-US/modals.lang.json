@@ -84,5 +84,16 @@
   "button_create_account": "Create Account",
 
   "error_password_reset_inappbrowser": "Please use browser and navigate to i2csmobile.com to change your password",
-  "error_loading_zones": "Error while loading zones"
+  "error_loading_zones": "Error while loading zones",
+
+  "register_username": "Username",
+  "register_realname": "Name",
+  "register_your_information": "Your Information",
+  "register_your_profile": "Profile",
+  "button_feedback": "Send Feedback",
+  "feedback_title": "Title",
+  "feedback_type": "Type",
+  "feedback_rate": "Rate",
+  "feedback_description": "Description"
+
 }
