@@ -52,4 +52,36 @@ angular.module('info.module')
                    }
                }
            })
+          .state('app.menu.info.favorite', {
+            url: '/favorite',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-favorite.html'
+              }
+            }
+          })
+          .state('app.menu.info.feedback', {
+            url: '/feedback',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-feedback.html'
+              }
+            }
+          })
+          .state('app.menu.info.account-info', {
+            url: '/account-info',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-account-info.html'
+              }
+            }
+          })
+          .state('app.menu.info.transaction-history', {
+            url: '/transaction-history',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-transaction-history.html'
+              }
+            }
+          })
     });
