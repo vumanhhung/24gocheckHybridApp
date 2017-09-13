@@ -14,7 +14,7 @@
 * @requires appService
 * @description
 * Entrypoint of the app. Welcome screen renders the loading status of the app. i.e, connecting to API, logged in etc.
-* This controller sets the default language and creates a valid session with the API server. 
+* This controller sets the default language and creates a valid session with the API server.
 */
 angular.module('starter')
     .controller('WelcomeCtrl', function ($scope, $rootScope, $timeout, $state, $ionicModal, $ionicPlatform, $localStorage, locale, i18nService, dataService, appService, STATUSBAR_COLOR) {
@@ -99,7 +99,7 @@ angular.module('starter')
 * @requires FORGOT_LINK
 * @requires EMAIL
 * @requires PHONE
-* 
+*
 * @description
 * This controller is the parent of all the controller states. Contains generic functions and procedures of the
 * app. `$scope.user` variable holds the customer object of currently logged in mobile user.
@@ -332,7 +332,7 @@ angular.module('starter')
 
                 appService.Register($scope.register).then(function (data) {
                     $scope.validations.registrationErrors = [];
-                    ["error_firstname", "error_lastname", "error_email", "error_password", "error_telephone", "error_warning", "error_confirm", "error_address_1", "error_city", "error_country", "error_postcode", "error_zone"].forEach(function (e) {
+                    ["error_username", "error_realname", "error_email", "error_password", "error_telephone", "error_warning", "error_confirm", "error_address_1", "error_city", "error_country", "error_postcode", "error_zone"].forEach(function (e) {
                         var msg = data[e];
                         if (msg) {
                             $scope.validations.registrationErrors.push(msg);
@@ -397,7 +397,7 @@ angular.module('starter')
 /**
 * @ngdoc controller
 * @name starter.controller:MenuCtrl
-* 
+*
 * @description
 * This controller is the parent of all the controller states with main menu.
 */
@@ -409,7 +409,7 @@ angular.module('starter')
 /**
 * @ngdoc controller
 * @name starter.controller:MainCtrl
-* 
+*
 * @description
 * This controller is the parent of all the controller states without main menu.
 */

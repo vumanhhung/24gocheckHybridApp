@@ -21,10 +21,8 @@
             </form>
 
             <div class="text-center">
-                <div i18n="modals.login_modal_not_a_customer"></div>
-                <p i18n="modals.not_signup_modal_desc"></p>
                 <a class="button button-outline button-balanced button-block" ng-click="openRegisterModal()" i18n="modals.button_create_account"></a>
-                <a class="button button-outline button-assertive button-block" ng-click="closeLoginModal()" ui-sref="app.main.auth.home({back:currentState()})">Connect with Existing Account</a>
+              <a class="button button-outline button-positive button-block" ng-click="facebookLogin()"><i class="icon ion-social-facebook-outline"></i> Facebook</a>
             </div>
         </div>
 

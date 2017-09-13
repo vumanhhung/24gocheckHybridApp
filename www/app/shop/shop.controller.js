@@ -26,7 +26,7 @@ angular
     $scope.data.latestPage = 1;
 
     if (!$scope.data.slides)
-      $scope.data.slides = [{image: "app/shop/images/slide.png"}];
+      $scope.data.slides = [{image: "app/shop/images/slide.png"}];//cai tren di
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;
@@ -236,7 +236,8 @@ angular
           $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
           $rootScope.cartItemCount += parseInt($scope.cart.quantity);
           $ionicTabsDelegate.select(2);
-          $state.go('app.menu.cart.home', {}, {reload: true});
+          $state.go('app.menu.cart.home', {}, { reload: true });
+
           $ionicLoading.hide();
         }, function (error) {
           alert("Error. Can't add to the cart");
@@ -267,12 +268,14 @@ angular
           template: "Item added to cart. What would you like to do?",
           buttons: [
             {text: 'Shop more'},
+
             {
               text: 'Go to cart',
               type: 'button-positive',
               onTap: function (e) {
                 $ionicTabsDelegate.select(2);
-                $state.go('app.menu.cart.home', {}, {reload: true});
+
+                $state.go('app.menu.cart.home', {}, { reload: true });
               }
             }
           ]

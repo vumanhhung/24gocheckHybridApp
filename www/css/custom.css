@@ -56,6 +56,101 @@ select {
   text-overflow: '';
 }
 
+/*@import "./scss/custom.home.css";*/
+
+/*HOMEPAGE CUSTOM STSYLE*/
+/*==============================================================================*/
+.scroll .row.home-category-grid-icons {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/*STYLE FOR HEADER*/
+.bar-royal.bar.bar-header .buttons.buttons-right .right-buttons {
+  margin-left: inherit;
+}
+.bar-royal.bar.bar-header .buttons.buttons-right .button.button {
+  background-color: #8cc63f;
+}
+.bar-royal.bar.bar-header {
+  background-color: #8cc63f;
+}
+
+.buttons.buttons-right .icon.ion-ios-search:before {
+  padding-right: 2px;
+  padding-left: 2px;
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: bold;
+}
+.buttons.buttons-right .button.ion-chatbubble-working:before {
+  font-size: 30px;
+  line-height: 39px;
+  font-weight: bold;
+  position: relative;
+  bottom: 3px;
+}
+/*STYLE FOR CONTENT*/
+.scroll .row.home-category-grid-icons {
+  margin-top: 55px;
+}
+/* custom css goes here */
+.searchTab ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /*height: 20qpx;*/
+  overflow: hidden;
+  background-color: lightgrey;
+}
+
+.searchTab li {
+  float: left;
+  width: 33%;
+  /*height: 100%;*/
+}
+.searchTab li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 2% 2%;
+  text-decoration: none;
+}
+
+.searchTab li a:hover {
+  color: orangered;
+}
+
+.searchTab div {
+  border: none;
+  background-color: lightgrey;
+  width: 95%;
+  /*height: 100%;*/
+}
+
+.searchTab select {
+  border: none;
+  background-color: lightgrey;
+  width: 95%;
+  padding: 2% 2%;
+  text-align: center;
+  text-align-last: center;
+  /*height: 100%;*/
+}
+.searchTab select option {
+  text-align: center;
+}
+
+.searchTab select option:hover{
+  color: #FF9B29;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
 .badge.badge-assertive, .tabs .tab-item .badge.badge-assertive{
   background-color: #FF9B29;
 }

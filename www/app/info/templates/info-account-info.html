@@ -1,0 +1,56 @@
+<ion-view view-title="{{ 'info.title_info_orders' | i18n }}">
+
+  <ion-content>
+    <div class="list">
+      <form name="forms.registerForm" ng-submit="postRegisterData()" novalidate>
+        <div class="item item-divider" i18n="modals.register_your_information"></div>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_username"></span>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_username'}" ng-model="register.username" name="firstname" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_password"></span>
+          <input type="password" data-i18n-attr="{placeholder: 'modals.register_password'}" name="password" ng-model="register.password" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_confirm"></span>
+          <input type="password" data-i18n-attr="{placeholder: 'modals.register_confirm'}" name="confirm" ng-model="register.confirm" required>
+        </label>
+
+
+        <div class="item item-divider" i18n="modals.register_your_profile"></div>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_realname"></span>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_realname'}" ng-model="register.realname" name="realname" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_email"></span>
+          <input type="email" data-i18n-attr="{placeholder: 'modals.register_email'}" ng-model="register.email" name="email" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_telephone"></span>
+          <input type="tel" data-i18n-attr="{placeholder: 'modals.register_telephone'}" ng-model="register.telephone" name="telephone" required>
+        </label>
+
+
+        <div class="item item-divider" i18n="modals.register_your_address"></div>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_address1"></span>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="register.address_1" name="address_1" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_city"></span>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_city'}" ng-model="register.city" name="city" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" i18n="modals.register_postal"></span>
+          <input type="number" data-i18n-attr="{placeholder: 'modals.register_postal'}" string-to-number ng-model="register.postcode" maxlength="5" minlength="5" name="postal_code" required>
+        </label>
+
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive" i18n="info.button_edit_account"></button>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
