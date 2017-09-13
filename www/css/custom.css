@@ -16,11 +16,13 @@
 .bar-royal.bar.bar-header {
   background-color: #8cc63f;
 }
-.buttons.buttons-right .ion-android-cart:before {
+
+.buttons.buttons-right .icon.ion-ios-search:before {
   padding-right: 2px;
   padding-left: 2px;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 32px;
+  font-weight: bold;
 }
 .buttons.buttons-right .button.ion-chatbubble-working:before {
   font-size: 30px;

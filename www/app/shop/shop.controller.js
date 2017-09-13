@@ -26,7 +26,7 @@ angular
         $scope.data.latestPage = 1;
 
         if (!$scope.data.slides)
-            $scope.data.slides = [{ image: "app/shop/images/slide.png" }];
+            $scope.data.slides = [{ image: "app/shop/images/introapp.png" }];
 
         $scope.refreshUI = function () {
             $scope.data.latestPage = 1;
@@ -44,7 +44,7 @@ angular
                 $ionicSlideBoxDelegate.update();
             });
         }
-        
+
         $scope.loadFeatured = function () {
             ShopService.GetFeaturedProducts().then(function (data) {
                 $scope.data.featuredItems = data.products;
@@ -95,7 +95,7 @@ angular
         $scope.$on('$ionicView.enter', function () {
             $ionicSlideBoxDelegate.update();
         });
-		
+
 		$scope.$on('i2csmobile.shop.refresh', function () {
             $scope.refreshUI();
         });
@@ -134,13 +134,13 @@ angular
         $scope.cart = {};
         $scope.cart.quantity = 1;
         $scope.id = $stateParams.id;
-        
+
         $scope.$on('$ionicView.enter', function () {
             $timeout(function () {
                 $ionicTabsDelegate.$getByHandle('product-tabs').select(0);
             }, 0)
         });
-        
+
         $localStorage.item_cache = $localStorage.item_cache || {};
         $scope.item_cache = $localStorage.item_cache;
 
@@ -187,7 +187,7 @@ angular
             $scope.item.rating = data.rating;
             $scope.item.entry_name = data.entry_name;
             $scope.item.entry_review = data.entry_review;
-            
+
             $scope.item.related = data.products;
 
             $scope.item.images = data.images;
@@ -197,7 +197,7 @@ angular
             $scope.item_cache.items[$stateParams.id] = $scope.item;
 
             $ionicSlideBoxDelegate.update();
-            $timeout(function () { 
+            $timeout(function () {
                 $ionicLoading.hide();
             }, 500);
         });
@@ -350,7 +350,7 @@ angular
         var vm = this;
 
 		$scope.id = $stateParams.id;
-		
+
         if (!$stateParams.id) {
             $state.go('app.menu.shop.home');
         }

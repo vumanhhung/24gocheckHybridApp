@@ -1,57 +1,57 @@
 'use strict';
 
 angular.module('shop.module')
-    .config(function config($stateProvider) {
-        $stateProvider
-            .state('app.menu.shop', {
-                url: '/shop',
-                abstract: true,
-                views: {
-                    'tab-shop': {
-                        templateUrl: 'app/shop/templates/layout.html'
-                    },
-                    'menu': {
-                        templateUrl: 'app/shop/templates/layout.html'
-                    }
-                }
-            })
-        .state('app.menu.shop.home', {
-            url: '/home',
-            views: {
-                'shopContent': {
-                    templateUrl: 'app/shop/templates/shop-list.html',
-                    controller: 'ShopHomeCtrl'
-                }
-            }
-        })
-        .state('app.menu.shop.item', {
-            url: '/item/:id',
-            views: {
-                'shopContent': {
-                    templateUrl: 'app/shop/templates/shop-item.html',
-                    controller: 'ShopItemCtrl'
-                }
-            }
-        })
-        .state('app.menu.shop.search', {
-            url: '/search',
-            views: {
-                'shopContent': {
-                    templateUrl: 'app/shop/templates/shop-search.html',
-                    controller: 'ShopSearchCtrl'
-                }
-            }
-        })
-        .state('app.menu.shop.category', {
-            url: '/category/:id',
-            views: {
-                'shopContent': {
-                    templateUrl: 'app/shop/templates/shop-category.html',
-                    controller: 'ShopCategoryCtrl'
-                }
-            }
-        })
-    });
+  .config(function config($stateProvider) {
+    $stateProvider
+      .state('app.menu.shop', {
+        url: '/shop',
+        abstract: true,
+        views: {
+          'tab-shop': {
+            templateUrl: 'app/shop/templates/layout.html'
+          },
+          'menu': {
+            templateUrl: 'app/shop/templates/layout.html'
+          }
+        }
+      })
+      .state('app.menu.shop.home', {
+        url: '/home',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/shop-list.html',
+            controller: 'ShopHomeCtrl'
+          }
+        }
+      })
+      .state('app.menu.shop.item', {
+        url: '/item/:id',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/shop-item.html',
+            controller: 'ShopItemCtrl'
+          }
+        }
+      })
+      .state('app.menu.shop.search', {
+        url: '/search',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/shop-search.html',
+            controller: 'ShopSearchCtrl'
+          }
+        }
+      })
+      .state('app.menu.shop.category', {
+        url: '/category/:id',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/shop-category.html',
+            controller: 'ShopCategoryCtrl'
+          }
+        }
+      })
+  });
 
 /**
 * @ngdoc directive
