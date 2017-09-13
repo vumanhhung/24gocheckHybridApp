@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
     angular
         .module('i2cs_alipay.module')

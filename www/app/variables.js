@@ -1,4 +1,4 @@
-﻿angular.module('starter')
+angular.module('starter')
     //.constant('BASE_URL', 'http://localhost/opencart-2.3.0.2/upload/index.php')
     .constant('BASE_URL', 'http://ocdemo.i2csmobile.com/index.php')
     //.constant('BASE_API_URL', 'http://localhost/opencart-2.3.0.2/upload/index.php?route=api2')
