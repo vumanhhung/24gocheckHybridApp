@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 angular.module('auth.module')
     .config(function config($stateProvider) {
