@@ -1,1 +1,40 @@
-/* add custom scss content here */
+﻿
+.searchTab {
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: lightgrey;
+  }
+
+  li{
+    float: left;
+    width: 33%;
+  }
+
+  li a{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 2% 2%;
+    text-decoration: none;
+  }
+
+  li a:hover{
+    color: orangered;
+  }
+  div{
+    border: none;
+    background-color: lightgrey;
+    width: 95%;
+  }
+  select{
+    border: none;
+    background-color: lightgrey;
+    width: 95%;
+  }
+  option{
+    text-align: center;
+  }
+}
