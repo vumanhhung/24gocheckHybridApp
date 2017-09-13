@@ -1,7 +1,6 @@
 <ion-view view-title="{{ 'shop.title_list_page' | i18n }}">
     <ion-nav-buttons side="right">
-      <a class="button button" href="#/app/menu/shop/cart"><i class="ion-android-cart"></i></a>
-      <button class="button ion-chatbubble-working"></button>
+        <a class="button button-positive" href="#/app/menu/shop/search"><i class="icon ion-ios-search"></i></a>
     </ion-nav-buttons>
     <ion-content elastic-header="example-elastic-header" delegate-handle="example-scroller">
         <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
@@ -13,8 +12,8 @@
             </ion-slide>
         </ion-slide-box>
 
-        <!--<category-list thumbnail="true" mode="vertical"></category-list>-->
-      <category-list thumbnail="false" mode="icons"></category-list>
+        <category-list thumbnail="true" mode="vertical"></category-list>
+
         <ion-slide-box show-pager="false" class="home-slider" does-continue="true" auto-play="true">
             <ion-slide ng-repeat="slide in data.offers">
                 <a ng-href="{{::slide.link}}">

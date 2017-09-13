@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 angular.module('advertikon_stripe.module')
     .config(function config($stateProvider, StripeCheckoutProvider) {
