@@ -122,6 +122,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
     //list of languages currently supported
     .value('localeSupported', [
         'en-US',
+        'vi-VN',
         'fr-FR',
         'zh-CN',
         'ar-EG'
@@ -129,6 +130,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
     //fallbacks when a particular language is present but not for the region from which the app is being opened (e.g. en-GB will use en-US)
     .value('localeFallbacks', {
         'en': 'en-US',
+        'vi': 'vi-VN',
         'fr': 'fr-FR',
         'zh': 'zh-CN',
         'ar': 'ar-EG'

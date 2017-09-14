@@ -1,10 +1,10 @@
 {
   "title_order_added": "Order Added",
-  "title_cart_home": "Cart",
+  "title_cart_home": "Giỏ hàng",
   "title_checkout": "Checkout",
   "title_delivery_payment": "Delivery and Payment",
   "title_invoice": "Invoice",
-  
+
   "enter_coupon_title":  "Have a cupon?",
   "enter_coupon_label": "Enter your coupon here",
   "added_coupon_text":  "Coupon added!",

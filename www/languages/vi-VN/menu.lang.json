@@ -1,7 +1,10 @@
-{
-  "shop": "Shop",
-  "offers": "Offers",
-  "cart": "Cart",
-  "more": "More",
-  "login": "Login"
+﻿{
+  "shop": "Trang chủ",
+  "offers": "Gợi ý",
+  "cart": "Giỏ hàng",
+  "more": "Thêm",
+  "login": "Đăng nhập",
+  "notification": "Thông báo",
+  "account": "Tài khoản",
+  "options": " "
 }

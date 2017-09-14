@@ -3,7 +3,7 @@
   "latest_title": "Latest Products",
   "off": "{percent}% OFF",
 
-  "title_shop_search": "Search",
+  "title_shop_search": "Tìm kiếm",
   "search_hint": "Start typing something to search",
   "errors_search_no_results": "There is no product that matches the search criteria",
 
@@ -20,7 +20,7 @@
   "item_related_products": "Related Products",
   "item_button_add_to_cart": "ADD TO CART",
   "item_button_buy_now": "BUY NOW",
-  "categories": "Categories",
+  "categories": "Danh mục",
 
   "item_tabs_details": "Details",
   "item_tabs_photos": "Photos",

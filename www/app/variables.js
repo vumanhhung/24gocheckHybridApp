@@ -12,6 +12,7 @@
     .constant('STATUSBAR_COLOR', "#387ef5")
     .constant('LANGUAGES', [
             { name: "English", language_id: "en-US" },
+            { name: "Vietnamese", language_id: "vi-VN" },
             { name: "French", language_id: "fr-FR" },
             { name: "Chinese", language_id: "zh-CN" },
             { name: "Arabic", language_id: "ar-EG" }])
