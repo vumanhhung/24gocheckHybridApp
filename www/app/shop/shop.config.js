@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 angular.module('shop.module')
   .config(function config($stateProvider) {
