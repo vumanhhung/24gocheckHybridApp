@@ -4,7 +4,7 @@
 * @ngdoc directive
 * @name shop.module.directive:itemSearch
 * @description
-* Widget to render product search page. 
+* Widget to render product search page.
 * @example
 <pre>
     <item-search></item-search>
@@ -73,6 +73,7 @@ angular.module('shop.module')
                    $scope.searchProducts();
                }
            }],
-           templateUrl: 'app/shop/widgets/item-search/search-template.html'
+           templateUrl: 'app/shop/widgets/item-search/search-template' +
+           '.html'
        };
    });

@@ -26,6 +26,9 @@
   "item_tabs_photos": "Photos",
   "item_tabs_reviews": "Reviews",
   "item_tabs_share": "Share",
+  "item_tabs_near": "Around me",
+  "item_tabs_cate": "Categories",
+  "item_tabs_city": "Cities",
 
   "item_rating_name": "Your Name",
   "item_rating_comment": "Your Review",
