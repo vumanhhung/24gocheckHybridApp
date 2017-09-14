@@ -1,6 +1,14 @@
-<ion-view view-title="{{ 'info.title_info_orders' | i18n }}">
+<ion-view view-title="Favorite">
+  <ion-tabs class="tabs-top tabs-dark">
+    <ion-tab title="Shops" icon="" ui-sref="app.menu.info.favorite.favorite-shops">
+      <ion-nav-view name="shops-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Products" icon="" ui-sref="app.menu.info.favorite.favorite-products">
+      <ion-nav-view name="products-tab"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
 
   <ion-content>
-    Favorite
+
   </ion-content>
 </ion-view>

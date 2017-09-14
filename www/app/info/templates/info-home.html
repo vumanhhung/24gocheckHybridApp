@@ -1,35 +1,34 @@
 <ion-view view-title="{{ 'info.title_info_home' | i18n }}">
     <ion-content>
         <div class="list">
-            <div ng-if="data.user && data.user.customer_id" class="item item-icon-left item-button-right">
-                <i class="icon ion-ios-person-outline"></i> {{::data.user.firstname}} {{::data.user.lastname}}
-                <button class="button button-assertive button-small" ng-click="logout()" i18n="info.buttons_logout"></button>
-            </div>
-            <div ng-if="!data.user || !data.user.customer_id" class="item item-icon-left" ng-click="openLoginModal()">
-                <i class="icon ion-ios-person-outline"></i> <span i18n="info.buttons_login"></span>
-            </div>
-            <a class="item item-icon-left" href="#/app/menu/info/orders" ng-class="{'item-disabled' : !data.user || !data.user.customer_id}">
-                <i class="icon ion-ios-pricetags-outline"></i> <span i18n="info.buttons_orders"></span>
-            </a>
+            <!--<div ng-if="data.user && data.user.customer_id" class="item item-icon-left item-button-right">-->
+                <!--<i class="icon ion-ios-person-outline"></i> {{::data.user.firstname}} {{::data.user.lastname}}-->
+                <!--<button class="button button-assertive button-small" ng-click="logout()" i18n="info.buttons_logout"></button>-->
+            <!--</div>-->
+            <!--<div ng-if="!data.user || !data.user.customer_id" class="item item-icon-left" ng-click="openLoginModal()">-->
+                <!--<i class="icon ion-ios-person-outline"></i> <span i18n="info.buttons_login"></span>-->
+            <!--</div>-->
+            <!--<a class="item item-icon-left" href="#/app/menu/info/orders" ng-class="{'item-disabled' : !data.user || !data.user.customer_id}">-->
+                <!--<i class="icon ion-ios-pricetags-outline"></i> <span i18n="info.buttons_orders"></span>-->
+            <!--</a>-->
 
-            <a class="item item-icon-left" href="#/app/menu/info/wishlist" ng-class="{'item-disabled' : !data.user || !data.user.customer_id}">
-                <i class="icon ion-ios-bookmarks-outline"></i> <span i18n="info.buttons_wishlist"></span>
-            </a>
+            <!--<a class="item item-icon-left" href="#/app/menu/info/wishlist" ng-class="{'item-disabled' : !data.user || !data.user.customer_id}">-->
+                <!--<i class="icon ion-ios-bookmarks-outline"></i> <span i18n="info.buttons_wishlist"></span>-->
+            <!--</a>-->
 
-            <ion-toggle class="item item-icon-left" ng-model="info.notifications" ng-checked="info.notifications" ng-change="toggleNotifications()" toggle-class="toggle-calm"><i class="icon ion-ios-bell-outline"></i> <span i18n="info.buttons_notifications"></span></ion-toggle>
+            <!--<ion-toggle class="item item-icon-left" ng-model="info.notifications" ng-checked="info.notifications" ng-change="toggleNotifications()" toggle-class="toggle-calm"><i class="icon ion-ios-bell-outline"></i> <span i18n="info.buttons_notifications"></span></ion-toggle>-->
 
-            <a class="item item-icon-left" ng-click="openContactUsModal()">
-                <i class="icon ion-ios-email-outline"></i> <span i18n="info.buttons_contact"></span>
-            </a>
-            <a class="item item-icon-left" ng-click="openAboutModal()">
-                <i class="icon ion-ios-information-outline"></i> <span i18n="info.buttons_about"></span>
-            </a>
+            <!--<a class="item item-icon-left" ng-click="openContactUsModal()">-->
+                <!--<i class="icon ion-ios-email-outline"></i> <span i18n="info.buttons_contact"></span>-->
+            <!--</a>-->
 
           <a class="item item-icon-left" href="#/app/menu/info/account-info">
           <i class="icon ion-ios-star-outline"></i> <span i18n="info.buttons_account_info"></span>
           </a>
 
-          <ion-toggle class="item item-icon-left" ng-model="info.open_close_shop" ng-checked="info.notifications" ng-change="" toggle-class="toggle-calm"><i class="icon ion-ios-bell-outline"></i> <span i18n="info.buttons_open_close_shop"></span></ion-toggle>
+          <ion-toggle class="item item-icon-left" ng-model="info.open_close_shop" ng-checked="info.open_close_shop.value" ng-true-value="'Opened'" ng-false-value="'Closed'" toggle-class="toggle-calm"><i class="icon ion-ios-bell-outline"></i> <span i18n="info.buttons_open_close_shop"></span>
+            <p>{{info.open_close_shop}}</p>
+          </ion-toggle>
 
           <a class="item item-icon-left" href="#/app/menu/info/favorite">
             <i class="icon ion-ios-star-outline"></i> <span i18n="info.buttons_favorite"></span>
@@ -40,6 +39,9 @@
           <a class="item item-icon-left" href="#/app/menu/info/feedback">
             <i class="icon ion-ios-flag-outline"></i> <span i18n="info.buttons_feedback"></span>
           </a>
+          <a class="item item-icon-left" ng-click="openAboutModal()">
+            <i class="icon ion-ios-information-outline"></i> <span i18n="info.buttons_about"></span>
+          </a>
           <a class="item item-icon-left" href="#/app/menu/info/orders">
             <i class="icon ion-ios-close-outline"></i> <span i18n="info.buttons_logout"></span>
           </a>
@@ -49,10 +51,11 @@
                 <div class="input-label" i18n="info.buttons_language"></div>
                 <language-switch></language-switch>
             </label>
-			<label class="item item-input item-select">
-                <div class="input-label" i18n="info.buttons_currency"></div>
-                <currency-switch></currency-switch>
-            </label>
+
+			      <!--<label class="item item-input item-select">-->
+                <!--<div class="input-label" i18n="info.buttons_currency"></div>-->
+                <!--<currency-switch></currency-switch>-->
+            <!--</label>-->
         </div>
     </ion-content>
 </ion-view>

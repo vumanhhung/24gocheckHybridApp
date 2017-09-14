@@ -10,10 +10,10 @@
 * @description
 * Show the home page of cart module. Contains the items of current shopping cart. Lists down
 * all items added to the cart. Can proceed to the next step of the checkout process.
-* 
-* Here we check for the existance of any payment module within the app. It checks if any valid $state route exists 
+*
+* Here we check for the existance of any payment module within the app. It checks if any valid $state route exists
 * with selected payment method name. These payment modules are registered in `payment_modules` folder. Please check
-* `www/app/payment_modules/payment_modules.module.js`. 
+* `www/app/payment_modules/payment_modules.module.js`.
 * If a payment module is found the order is not placed from here. The payment module is responsible for placing the order
 * or handling any 3rd party API call done and finally to place the order. Most of the payment gateways in OpenCart create
 * the order first, with state_id = 0. These orders can be found in admin panel, orders section when filters for `missing` state.
@@ -101,9 +101,9 @@ angular
 * @requires $ionicPopup
 * @requires appService
 * @requires CartService
-* 
+*
 * @description
-* Contains checkout process. Customer can place an order by providing personal information, selecting 
+* Contains checkout process. Customer can place an order by providing personal information, selecting
 * a shipping method and a payment method. If selected payment method is registered as a module in the app,
 * it initiates the online payment flow as the last step of the checkout procedure.
 */
@@ -146,7 +146,7 @@ angular
 
         $scope.$on('$ionicView.enter', function () {
             $scope.checkout.personaInfo = 3;
-            
+
 
             // each view of cart tab, load the shopping cart and update with latest info
             $scope.loadCart();
@@ -317,9 +317,9 @@ angular
                     templateUrl: 'app/cart/templates/popups/missing-step2.html'
                 });
             } else {
-                // here we check for the existance of any payment module within the app. It checks if any valid $state route exists 
+                // here we check for the existance of any payment module within the app. It checks if any valid $state route exists
                 // with selected payment method name. These payment modules are registered in `payment_modules` folder. Please check
-                // `www/app/payment_modules/payment_modules.module.js`. 
+                // `www/app/payment_modules/payment_modules.module.js`.
                 // If a payment module is found the order is not placed from here. The payment module is responsible for placing the order
                 // or handling any 3rd party API call done and finally to place the order. Most of the payment gateways in OpenCart create
                 // the order first, with state_id = 0. These orders can be found in admin panel, orders section when filters for `missing` state.
@@ -375,7 +375,7 @@ angular
 * @requires $state
 * @requires $ionicTabsDelegate
 * @description
-* Show the last step of the checkout process. 
+* Show the last step of the checkout process.
 */
 angular
     .module('cart.module')
