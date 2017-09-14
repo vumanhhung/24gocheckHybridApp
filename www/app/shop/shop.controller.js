@@ -26,7 +26,7 @@ angular
     $scope.data.latestPage = 1;
 
     if (!$scope.data.slides)
-      $scope.data.slides = [{ image: "app/shop/images/introapp.png" }];
+      $scope.data.slides = [{ image: "app/shop/images/logo.png" }];
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;
@@ -419,3 +419,4 @@ angular
   .controller('ShopSearchCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
 
   });
+

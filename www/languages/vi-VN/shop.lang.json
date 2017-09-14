@@ -7,7 +7,7 @@
   "search_hint": "Start typing something to search",
   "errors_search_no_results": "There is no product that matches the search criteria",
 
-  "title_list_page": "Shop",
+  "title_list_page": "Cửa hàng",
   "item_page_off": "{percent}% OFF",
   "share_product_with_friends": "Share this product with your friends",
   "special_price": "price for mobile registered users",
@@ -44,5 +44,9 @@
   "wishlist_go_to": "Go to Wishlist",
 
   "item_view_button" :  "View",
-  "item_add_to_wishlist_button" :  "Add to Wishlist"
+  "item_add_to_wishlist_button" :  "Add to Wishlist",
+
+  "offer_promotion":"Khuyến Mại",
+  "offer_top":"Nổi Bật",
+  "offer_trend":"Xu Hướng"
 }

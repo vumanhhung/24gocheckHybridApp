@@ -5,9 +5,9 @@
 * @name shop.module.ShopService
 * @requires ng.$q
 * @requires dateService
-* @description 
-* Service contains methods to communicate with the API. All methods returns a `promise` object containing 
-* the requested data. On a success response it returns the data from the server, and on an error the promise 
+* @description
+* Service contains methods to communicate with the API. All methods returns a `promise` object containing
+* the requested data. On a success response it returns the data from the server, and on an error the promise
 * rejects with the HTTP server response.
 */
 angular
@@ -19,10 +19,10 @@ angular
          * @name shop.module.ShopService#GetBannerById
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets banner images by banner id
-         * 
+         *
          * @example
          <pre>
          ShopService.GetBannerById(1).then(function (data) {
@@ -39,7 +39,7 @@ angular
             }]
          }
          </pre>
-         * 
+         *
          * @param {number} banner_id Banner id
          * @param {number} width Banner width. 1140px is default if left blank
          * @param {number} height Banner height. 380px is default if left blank
@@ -60,11 +60,11 @@ angular
          * @name shop.module.ShopService#GetBanners
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets main banners configured in the system. Additional configuration is needed from
          * OpenCart i2CSMobile module end.
-         * 
+         *
          * @example
          <pre>
          ShopService.GetBanners().then(function (data) {
@@ -91,7 +91,7 @@ angular
             ]
          }
          </pre>
-         * 
+         *
          * @returns {promise} Returns a promise of the API call.
          */
         this.GetBanners = function () {
@@ -109,10 +109,10 @@ angular
          * @name shop.module.ShopService#GetCategories
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets categories configured in the system. if none is configured, returns all parent categories
-         * 
+         *
          * @example
          <pre>
          ShopService.GetCategories().then(function (data) {
@@ -151,10 +151,10 @@ angular
          * @name shop.module.ShopService#GetCategoryProducts
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets product list of a category
-         * 
+         *
          * @example
          <pre>
          ShopService.GetCategoryProducts(1, 1).then(function (data) {
@@ -202,8 +202,8 @@ angular
           "limit": 10
          }
          </pre>
-         * 
-         * 
+         *
+         *
          * @param {number} id Category id
          * @param {number} page Page number
          * @returns {promise} Returns a promise of the API call.
@@ -230,10 +230,10 @@ angular
          * @name shop.module.ShopService#GetProduct
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets details of a product
-         * 
+         *
          * @example
          <pre>
          ShopService.GetProduct($stateParams.id).then(function (data) {
@@ -335,7 +335,7 @@ angular
           "recurrings": []
          }
          </pre>
-         * 
+         *
          * @param {number} id Product id
          * @returns {promise} Returns a promise of the API call.
          */
@@ -367,10 +367,10 @@ angular
         * @name shop.module.ShopService#GetProductReviews
         * @methodOf shop.module.ShopService
         * @kind function
-        * 
+        *
         * @description
         * Get product reviews of a product
-        * 
+        *
         * @example
         <pre>
         ShopService.GetProductReviews($scope.item.product_id, $scope.page).then(function (data) {
@@ -393,7 +393,7 @@ angular
           "results": "Showing 1 to 1 of 1 (1 Pages)"
         }
         </pre>
-        * 
+        *
         * @param {number} id Product id
         * @param {number} page Page number
         * @returns {promise} Returns a promise of the API call.
@@ -407,22 +407,22 @@ angular
         * @name shop.module.ShopService#AddProductReview
         * @methodOf shop.module.ShopService
         * @kind function
-        * 
+        *
         * @description
         * Get product reviews of a product
-        * 
+        *
         * @example
         <pre>
         ShopService.AddProductReview(id, name, rating, text).then(function (data) {
            $scope.success_message = data.success;
         });
         </pre>
-        * 
+        *
         * @param {number} product_id Product id
         * @param {string} name Reviewer name
         * @param {number} rating Rating
         * @param {string} text User review text
-        * 
+        *
         * @returns {promise} Returns a promise of the API call.
         */
         this.AddProductReview = function (id, name, rating, text) {
@@ -434,10 +434,10 @@ angular
          * @name shop.module.ShopService#GetRingSizeImage
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets ring size guid image. This is a sample service call to retrieve a banner by `id`
-         * 
+         *
          * @returns {promise} Returns a promise of the API call.
          */
         this.GetRingSizeImage = function () {
@@ -456,10 +456,10 @@ angular
          * @name shop.module.ShopService#GetFeaturedProducts
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets featured products list. Needs configuration settings in the OpenCart module.
-         * 
+         *
          * @example
          <pre>
          ShopService.GetFeaturedProducts().then(function (data) {
@@ -494,7 +494,7 @@ angular
               ]
             }
          </pre>
-         * 
+         *
          * @returns {promise} Returns a promise of the API call.
          */
         this.GetFeaturedProducts = function () {
@@ -517,10 +517,10 @@ angular
          * @name shop.module.ShopService#GetLatestProducts
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Gets latest products list
-         * 
+         *
          * @example
          <pre>
          ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
@@ -553,7 +553,7 @@ angular
               ]
             }
          </pre>
-         * 
+         *
          * @param {number} page Page number
          * @returns {promise} Returns a promise of the API call.
          */
@@ -580,10 +580,10 @@ angular
          * @name shop.module.ShopService#SearchProducts
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Search for products by a given search term
-         * 
+         *
          * @example
          <pre>
          ShopService.SearchProducts(vm.search.value, $scope.page).then(function (data) {
@@ -626,7 +626,7 @@ angular
               "limit": 10
             }
          </pre>
-         * 
+         *
          * @param {string} search Search term
          * @param {number} page Page number
          * @returns {promise} Returns a promise of the API call.
@@ -653,17 +653,17 @@ angular
          * @name shop.module.ShopService#AddToWishlist
          * @methodOf shop.module.ShopService
          * @kind function
-         * 
+         *
          * @description
          * Adds a product to the wishlist
-         * 
+         *
          * @example
          <pre>
          ShopService.AddToWishlist(46).then(function (data) {
                 //success
          });
          </pre>
-         * 
+         *
          * @param {number} id Product id
          * @returns {promise} Returns a promise of the API call.
          */
@@ -677,3 +677,4 @@ angular
             });
         }
     })
+

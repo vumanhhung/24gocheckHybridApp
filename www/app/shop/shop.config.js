@@ -42,6 +42,30 @@ angular.module('shop.module')
           }
         }
       })
+      .state('app.menu.shop.promotion', {
+        url: '/promotion',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/offers/offers-promotion.html'
+          }
+        }
+      })
+      .state('app.menu.shop.top', {
+        url: '/top',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/offers/offers-top.html'
+          }
+        }
+      })
+      .state('app.menu.shop.trend', {
+        url: '/trend',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/offers/offers-trend.html'
+          }
+        }
+      })
       .state('app.menu.shop.category', {
         url: '/category/:id',
         views: {
@@ -50,7 +74,7 @@ angular.module('shop.module')
             controller: 'ShopCategoryCtrl'
           }
         }
-      })
+      });
   });
 
 /**
@@ -127,3 +151,5 @@ angular.module('shop.module').directive('filterBox', function () {
                     '</div>'
     };
 })
+
+

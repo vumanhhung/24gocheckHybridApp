@@ -1,0 +1,65 @@
+<ion-view view-title="{{ 'shop.offer_promotion' | i18n }}">
+  <ion-content>
+    <!--<a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="item-template-link">-->
+      <!--<img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png"-->
+           <!--fallback-image="app/shop/images/placeholder.png"/>-->
+      <!--<h2 ng-bind-html="item.name"></h2>-->
+      <!--<span style="color:#FF4635;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>-->
+      <!--<span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">-->
+            <!--<i class="icon ion-iphone"></i> {{::item.mobile_special}}-->
+        <!--</span>-->
+      <!--<span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>-->
+      <!--&lt;!&ndash;<p class="product-description" ng-bind-html="item.description"></p>&ndash;&gt;-->
+
+    <!--</a>-->
+    <!--<div class="row">-->
+      <!--<h2 ng-bind-html="item.shopName"></h2>-->
+      <!--<div class="col" style="display: inline-block">-->
+        <!--<ionic-ratings class="col-33 item-ratings"-->
+                       <!--ratingsobj="{rating : 5, readOnly : true, minRating : 1, iconOnColor: '#EEDE00', iconOffColor: 'white'}"></ionic-ratings>-->
+        <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
+                <!--class="col-20 button button-full button-clear item-price-button"-->
+                <!--style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">-->
+          <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
+        <!--</button>-->
+      <!--</div>-->
+    <div class="list" style="padding: 4%;">
+
+      <div ng-repeat="n in [1,2,3,4,5,6]" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
+
+        <a class="row" href="#" style="height: 120px;">
+          <div class="col-35">
+            <img class="full-image"
+                 src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
+                 default-image="app/shop/images/placeholder.png"
+                 fallback-image="app/shop/images/placeholder.png"/>
+            <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+          </div>
+          <div class="col-67" style="text-align: left; padding: 0 1em;">
+            <h2><!--ng-bind-html="item.shopName"-->Công ty AlVietJS</h2>
+
+            <p><i class="icon ion-ios-location-outline"></i> 169 Nguyễn Ngọc Vũ, P.Trung Hòa</p>
+            <p>
+              <span style="color:#FF4635;">1000000000 đ</span>
+              <span class="mobile-offer-item">
+              <i class="icon ion-iphone"></i> 111111 đ
+            </span>
+            </p>
+            <p>
+            <div style="display: block">
+              <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
+                             ratingsobj="{rating : 5, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+              <button analytics-click="Wishlist" data-product-name="{{item.name}}"
+                      class="col-20 button button-full button-clear item-price-button"
+                      style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">
+                <i class="icon ion-ios-heart-outline"> 14</i>
+              </button>
+            </div>
+            </p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
