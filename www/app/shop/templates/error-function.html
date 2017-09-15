@@ -1,0 +1,11 @@
+<ion-nav-view>
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="loadCart()"></ion-refresher>
+    <div ng-if="dataLoaded && items.length == 0" class="large-icon-message">
+            <span class="large-app-icon large-app-icon-red">
+                <i class="icon ion-close-round"></i>
+            </span>
+      <p i18n="cart.empty_message"></p>
+    </div>
+  </ion-content>
+</ion-nav-view>
