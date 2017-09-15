@@ -8,14 +8,13 @@
   <!--</ion-nav-buttons>-->
 
 
-
   <ion-content elastic-header="example-elastic-header" delegate-handle="example-scroller">
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
     <ion-slide-box show-pager="false" class="home-slider" does-continue="true" auto-play="true">
     <ion-slide ng-repeat="slide in data.offers">
     <a ng-href="{{::slide.link}}">
-    <img preload-image ng-src="{{::slide.image}}" default-image="app/shop/images/slide.png" fallback-image="app/shop/images/slide.png" />
+    <img preload-image ng-src="{{::slide.image}}" />
     </a>
     </ion-slide>
     </ion-slide-box>
@@ -35,16 +34,19 @@
     <div class="suggest">
       <div class="suggest promotion">
         <a href="#/app/menu/shop/promotion">
+          <i class="ion-ios-pricetag-outline"></i>
           <span>Khuyến mại</span>
         </a>
       </div>
       <div class="suggest topproduct">
         <a href="#/app/menu/shop/top">
+          <i class="ion-ios-cart-outline"></i>
           <span>Bán chạy</span>
         </a>
       </div>
       <div class="suggest trend">
         <a href="#/app/menu/shop/trend">
+          <i class="ion-ios-ionic-outline"></i>
           <span>Xu hướng</span>
         </a>
       </div>

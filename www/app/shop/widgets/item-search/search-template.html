@@ -1,31 +1,6 @@
 ﻿<div>
   <filter-box placeholder="Search" filtertext="search" ng-model-options="{debounce: 1000}"
               change="onSearchKeyDown"></filter-box>
-  <div class="searchTab">
-    <ul>
-      <li>
-        <a href="#">
-          <i class="ion-android-locate"> Gần tôi</i>
-        </a>
-      </li>
-      <li>
-        <select>
-          <option selected value="null" disabled="disabled"><i class="ion-ios-drag">Danh Mục</i></option>
-          <option>Đồng hồ</option>
-          <option>Điện thoại - Máy tính</option>
-          <option>Túi xách - Ví</option>
-        </select>
-      </li>
-      <li>
-        <select>
-          <option selected value="null" disabled="disabled"><i class="ion-ios-navigate-outline">Địa điểm</i></option>
-          <option>Hà Nội</option>
-          <option>TP Hồ Chí Minh</option>
-          <option>Đà Nẵng</option>
-        </select>
-      </li>
-    </ul>
-  </div>
   <ion-list class="recent-items-list">
     <ion-item ng-repeat="item in items">
       <item-template item="item"></item-template>

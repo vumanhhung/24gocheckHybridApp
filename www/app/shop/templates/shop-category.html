@@ -11,9 +11,9 @@
                 <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
             </button>
         </div>
-		
-		<category-list thumbnail="false" mode="vertical" category="id"></category-list>
-		
+
+		<category-list thumbnail="true" mode="collapse" category="id"></category-list>
+
         <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
             <div class="item" ng-repeat="item in items" ng-class="{'col-50' : grid_mode}">
                 <item-template item="item" mode="3"></item-template>
