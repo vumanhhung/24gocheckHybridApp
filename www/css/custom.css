@@ -103,8 +103,6 @@
 
 
 
-
-
 /*STYLE FOR FOOTERBAR*/
 .tab-nav.tabs {
   background-color: #f7f7f7;
@@ -122,10 +120,17 @@
   width: 69px;
   height: 69px;
   border-radius: 50%;
-  background: #63ac03;
+  background: #8cc63f;
   color: #e8e8e8;
   position: absolute;
   bottom: -8px;
+  left: 0;
+  right: 0;
+  margin: 0px auto;
+}
+
+.tab-nav.tabs .tab-item {
+  opacity: 1;
 }
 .tab-nav.tabs .icon.ion-plus-round:before{
   font-size: 60px;
