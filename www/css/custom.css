@@ -94,9 +94,21 @@
   font-weight:bold;
 }
 
-.popup-container.popup-showing {
+.ng-dirty.ng-valid.ng-valid-parse {
+  display: flex;
+  justify-content: center;
 }
 
+.ng-dirty.ng-valid.ng-valid-parse li {
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 2.5;
+}
+.ng-dirty.ng-valid.ng-valid-parse i:before {
+  font-size: 25px;
+
+}
 
 
 

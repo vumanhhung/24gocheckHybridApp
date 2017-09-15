@@ -1,5 +1,38 @@
 <ion-view view-title="{{ 'shop.title_shop_search' | i18n }}">
+
     <ion-content has-subheader>
-        <item-search></item-search>
+      <item-search></item-search>
+
+      <ion-segment ng-model="categories" full="true"  assertive>
+        <ion-segment-button value="movies">
+          <i class="ion-android-locate"></i>
+          <span>Gần tôi</span>
+        </ion-segment-button>
+        <ion-segment-button value="series">
+          <i class="ion-ios-list-outline"></i>
+          <span>Danh mục</span>
+        </ion-segment-button>
+        <ion-segment-button value="animation">
+          <i class="ion-ios-location-outline"></i>
+          <span>Thành phố</span>
+        </ion-segment-button>
+      </ion-segment>
+      <div ng-switch="categories">
+        <ion-list ng-switch-when="movies">
+          <ion-item>
+
+          </ion-item>
+        </ion-list>
+        <ion-list ng-switch-when="series">
+          <ion-item>
+            Danh mục
+          </ion-item>
+        </ion-list>
+        <ion-list ng-switch-when="animation">
+          <ion-item>
+            Thành phố
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-content>
 </ion-view>

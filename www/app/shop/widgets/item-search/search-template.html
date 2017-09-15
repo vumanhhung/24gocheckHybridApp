@@ -13,12 +13,12 @@
       <p i18n="shop.errors_search_no_results"></p>
     </div>
 
-    <div ng-if="noSearchword" class="large-icon-message">
-            <span class="large-app-icon large-app-icon-yellow">
-                <i class="icon ion-ios-search"></i>
-            </span>
-      <p i18n="shop.search_hint"></p>
-    </div>
+    <!--<div ng-if="noSearchword" class="large-icon-message">-->
+            <!--<span class="large-app-icon large-app-icon-yellow">-->
+                <!--<i class="icon ion-ios-search"></i>-->
+            <!--</span>-->
+      <!--<p i18n="shop.search_hint"></p>-->
+    <!--</div>-->
 
     <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
   </ion-list>

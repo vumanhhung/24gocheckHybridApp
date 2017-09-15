@@ -66,6 +66,14 @@ angular.module('shop.module')
           }
         }
       })
+      .state('app.menu.shop.nearby', {
+        url: '/nearby',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/filter/filter-nearby.html'
+          }
+        }
+      })
       .state('app.menu.shop.category', {
         url: '/category/:id',
         views: {
