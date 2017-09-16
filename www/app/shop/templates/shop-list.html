@@ -7,7 +7,6 @@
   <!--<a class="button button-positive" href="#/app/menu/chatbox/home"><i class="ion-chatbubble-working"></i></a>-->
   <!--</ion-nav-buttons>-->
 
-
   <ion-content elastic-header="example-elastic-header" delegate-handle="example-scroller">
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
@@ -18,7 +17,6 @@
     <!--</a>-->
     <!--</ion-slide>-->
     <!--</ion-slide-box>-->
-
     <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
                    auto-play="true">
       <ion-slide ng-repeat="slide in data.slides">
@@ -51,9 +49,7 @@
         </a>
       </div>
     </div>
-
-
-    <category-list thumbnail="false" mode="collapse"></category-list>
+    <category-list thumbnail="false" mode="icons"></category-list>
 
 
     <ion-list class="recent-items-list">
