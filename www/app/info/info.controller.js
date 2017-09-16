@@ -10,7 +10,7 @@
 * @requires $localStorage
 * @requires notificationService
 * @requires LANGUAGES
-* 
+*
 * @description
 * Shows the home page of info module. Contains user language switch which invokes a method
 * defined in `rootScope`. Need to change `$scope.lanuages` variable if new languages are added or
@@ -43,7 +43,9 @@ angular
                 $localStorage.silent = true;
                 notificationService.unsubscribeFromPush();
             }
-        }
+        };
+
+        $scope.open_close_shop = {value: 'Opened'};
     });
 
 /**

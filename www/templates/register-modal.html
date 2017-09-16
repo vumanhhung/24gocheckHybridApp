@@ -9,11 +9,11 @@
         <div class="item item-divider" i18n="modals.register_your_information"></div>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_username"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_username'}" ng-model="register.username" name="firstname" required>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_username'}" ng-model="register.username" name="username" required  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" >
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_password"></span>
-          <input type="password" data-i18n-attr="{placeholder: 'modals.register_password'}" name="password" ng-model="register.password" required>
+          <input type="password" data-i18n-attr="{placeholder: 'modals.register_password'}" name="password" ng-model="register.password" required ng-minlength="6">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_confirm"></span>
@@ -24,7 +24,7 @@
         <div class="item item-divider" i18n="modals.register_your_profile"></div>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_realname"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_realname'}" ng-model="register.realname" name="realname" required>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_realname'}" ng-model="register.realname" name="realname" required  ng-pattern="/^[a-zA-Z0-9]*$/">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_email"></span>
@@ -39,11 +39,11 @@
         <div class="item item-divider" i18n="modals.register_your_address"></div>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_address1"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="register.address_1" name="address_1" required>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="register.address_1" name="address_1" required  ng-pattern="/^[a-zA-Z0-9]*$/">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_city"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_city'}" ng-model="register.city" name="city" required>
+          <input type="text" data-i18n-attr="{placeholder: 'modals.register_city'}" ng-model="register.city" name="city" required  ng-pattern="/^[a-zA-Z0-9]*$/">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label" i18n="modals.register_postal"></span>
@@ -51,7 +51,7 @@
         </label>
         <label class="item item-input item-select">
           <div class="input-label" i18n="modals.register_country"></div>
-          <select ng-model="register.country_id" ng-init="register.country_id = '196'" ng-change="countryChanged()" name="country_id" required>
+          <select ng-model="register.country_id" ng-init="register.country_id = '230'" ng-change="countryChanged()" name="country_id" required>
               <option value="{{::country.country_id}}" ng-selected="country.country_id == register.country_id" ng-repeat="country in countries">{{::country.name}}</option>
           </select>
         </label>

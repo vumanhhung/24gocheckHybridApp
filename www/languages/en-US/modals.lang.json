@@ -55,7 +55,7 @@
   "error_email_required": "Please enter your email address",
   "error_email_invalid": "Please enter a valid email address",
   "error_telephone_required": "Please enter your telephone number",
-  "error_address_1_required": "Please enter your address line 1",
+  "error_address_1_required": "Please enter your address",
   "error_city_required": "Please enter your city",
   "error_postal_code_required": "Please enter your postal code",
   "error_postal_code_minlength": "Postal code is a 5 digit number",
@@ -94,6 +94,9 @@
   "feedback_title": "Title",
   "feedback_type": "Type",
   "feedback_rate": "Rate",
-  "feedback_description": "Description"
+  "feedback_description": "Description",
 
+  "error_username_required": "Please enter your username",
+  "error_username_ngpattern": "Username must contain characters and numbers only",
+  "error_realname_required": "Please enter you name"
 }

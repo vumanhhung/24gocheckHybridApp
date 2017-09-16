@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('info.module')
-    .config(function config($stateProvider) {
+    .config(function config($stateProvider, $urlRouterProvider) {
         $stateProvider
            .state('app.menu.info', {
                url: '/info',
@@ -84,4 +84,21 @@ angular.module('info.module')
               }
             }
           })
+          .state('app.menu.info.favorite.favorite-shops', {
+            url: '/favorite-shops',
+            views: {
+              'shops-tab': {
+                templateUrl: 'app/info/templates/info-favorite-shops.html'
+              }
+            }
+          })
+          .state('app.menu.info.favorite.favorite-products', {
+            url: '/favorite-products',
+            views: {
+              'products-tab': {
+                templateUrl: 'app/info/templates/info-favorite-products.html'
+              }
+            }
+          });
+      $urlRouterProvider.otherwise('/favorite/favorite-products');
     });

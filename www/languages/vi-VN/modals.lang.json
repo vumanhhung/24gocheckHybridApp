@@ -94,6 +94,9 @@
   "feedback_title": "Title",
   "feedback_type": "Type",
   "feedback_rate": "Rate",
-  "feedback_description": "Description"
+  "feedback_description": "Description",
 
+  "error_username_required": "Please enter your username",
+  "error_username_pattern": "Username must contain characters and numbers only",
+  "error_realname_required": "Please enter you name"
 }

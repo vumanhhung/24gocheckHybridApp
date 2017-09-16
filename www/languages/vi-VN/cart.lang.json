@@ -58,6 +58,11 @@
   "order_city": "City",
   "order_postal": "Postal Code",
   "order_country": "Country",
-  "order_region": "Region / State"
+  "order_region": "Region / State",
+
+  "error_username_required": "Please enter your username",
+  "error_username_pattern": "Username must contain characters and numbers only",
+  "error_realname_required": "Please enter you name"
+
 
 }
