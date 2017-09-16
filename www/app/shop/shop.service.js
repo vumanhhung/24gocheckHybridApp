@@ -678,3 +678,18 @@ angular
         }
     })
 
+  .factory('Categories', function () {
+    return [
+      { code: 'dt', text: 'Điện thoại - Máy tính'},
+      { code: 'dh', text: 'Đồng hồ'},
+      { code: 'vi', text: 'Túi xách - Ví'}
+    ];
+  })
+
+  .factory('Cities', function () {
+    return [
+      {code: 'HN', text: 'Hà Nội'},
+      {code: 'ĐN', text: 'Đà Năng'},
+      {code: 'HCM', text: 'TP Hồ Chí Minh'}
+    ];
+  });

@@ -1,5 +1,18 @@
-<ion-view view-title="{{ 'shop.offer_trend' | i18n }}">
+
+<ion-view view-title="{{'shop.offer_cate' | i18n}}" >
   <ion-content>
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          {{'shop.offer_cate' | i18n}}
+        </div>
+        <select>
+          <option selected>Điện thoại</option>
+          <option>Đồng hồ</option>
+          <option>Ví</option>
+        </select>
+      </label>
+    </div>
     <div class="list" style="padding: 4%;">
 
       <div ng-repeat="n in [1,2,3,4,5,6]" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
@@ -23,7 +36,7 @@
             </p>
             <p>
             <div style="display: block">
-              <ionic-ratings class="col-40" style="float: left; font-size: 14px; white-space: nowrap;"
+              <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
                              ratingsobj="{rating : 5, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
               <button analytics-click="Wishlist" data-product-name="{{item.name}}"
                       class="col-20 button button-full button-clear item-price-button"

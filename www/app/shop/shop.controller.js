@@ -135,6 +135,7 @@ angular
     $scope.cart.quantity = 1;
     $scope.id = $stateParams.id;
 
+
     $scope.$on('$ionicView.enter', function () {
       $timeout(function () {
         $ionicTabsDelegate.$getByHandle('product-tabs').select(0);
