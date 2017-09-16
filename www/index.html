@@ -10,17 +10,19 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <link href="lib/angular-localization/angular-localization.min.css" rel="stylesheet">
-
     <!-- cordova script (this will be a 404 during development) -->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-    <!--<script src="cordova.js"></script>--> 
+    <!--<script src="cordova.js"></script>-->
+    <link rel="stylesheet" href="ionic-segment/dist/ionic.segment.css">
+    <script src="ionic-segment/dist/ionic.segment.js"></script>
 
     <!--<script src="js/platformOverrides.js"></script>-->
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <!-- other JS libs from bower-->
-
+    <script src="lib/ionic-ratings/src/ionic-ratings.js"></script>
+    <script src="lib/ionic-ratings/dist/ionic-ratings.min.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="lib/ngstorage/ngStorage.min.js"></script>
     <script src="lib/ng-messages/angular-messages.min.js"></script>
@@ -98,8 +100,22 @@
     <script src="app/auth/auth.config.js"></script>
     <script src="app/auth/auth.controller.js"></script>
     <script src="app/auth/auth.service.js"></script>
+
+    <!--AlvietJS Custom Module-->
+
+    <script src="app/notification/notification.module.js"></script>
+    <script src="app/notification/notification.config.js"></script>
+    <script src="app/notification/notification.controllers.js"></script>
+    <script src="app/notification/notification.service.js"></script>
+
+    <script src="app/chatbox/chatbox.module.js"></script>
+    <script src="app/chatbox/chatbox.config.js"></script>
+    <script src="app/chatbox/chatbox.controllers.js"></script>
+    <script src="app/chatbox/chatbox.service.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxywWEl9qwGbudLPY6DUcUpqaMQHuoPjE&libraries=places&callback=initAutocomplete"
+          async defer></script>
 </head>
 <body ng-app="starter" dir="{{lang_dir}}">
-    <ion-nav-view></ion-nav-view>
+<ion-nav-view></ion-nav-view>
 </body>
 </html>

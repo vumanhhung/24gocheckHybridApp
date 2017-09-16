@@ -26,6 +26,9 @@
   "item_tabs_photos": "Photos",
   "item_tabs_reviews": "Reviews",
   "item_tabs_share": "Share",
+  "item_tabs_near": "Around me",
+  "item_tabs_cate": "Categories",
+  "item_tabs_city": "Cities",
 
   "item_rating_name": "Your Name",
   "item_rating_comment": "Your Review",
@@ -44,5 +47,9 @@
   "wishlist_go_to": "Go to Wishlist",
 
   "item_view_button" :  "View",
-  "item_add_to_wishlist_button" :  "Add to Wishlist"
+  "item_add_to_wishlist_button" :  "Add to Wishlist",
+
+  "offer_promotion":"For Sales",
+  "offer_top":"Top Product",
+  "offer_trend":"Trending"
 }

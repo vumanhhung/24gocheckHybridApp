@@ -28,10 +28,24 @@
 
   "errors_no_orders": "Your don't have any order yet!",
   "errors_empty_wishlist": "Wishlist is empty!",
-  
+
   "contact_success": "Your message sent successfully",
   "contact_name": "Your Name",
   "contact_email": "Your Email",
   "contact_enquiry": "Enquiry",
-  "contact_send_button": "Send"
+  "contact_send_button": "Send",
+
+  "buttons_open_close_shop": "Open/Close shop",
+  "buttons_favorite": "Favorite",
+  "buttons_feedback": "Feedback",
+  "buttons_logout": "Logout",
+  "buttons_account_info": "Account Info",
+
+  "button_edit_account": "Edit account",
+  "buttons_transaction_history": "Transaction History",
+
+  "title_info_feedback": "Feedback",
+  "title_info_favorite": "Favorite",
+  "title_info_favorite_shops": "Shops",
+  "title_info_favorite_products": "Products"
 }

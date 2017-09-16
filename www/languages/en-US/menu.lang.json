@@ -1,7 +1,10 @@
-{
+﻿{
   "shop": "Shop",
   "offers": "Offers",
   "cart": "Cart",
   "more": "More",
-  "login": "Login"
+  "login": "Login",
+  "notification": "Notification",
+  "account": "Account",
+  "options": " "
 }

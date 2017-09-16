@@ -1,0 +1,52 @@
+{
+  "featured_title": "Sản phẩm nổi bật",
+  "latest_title": "Sản phẩm mới nhất",
+  "off": "{percent}%",
+
+  "title_shop_search": "Tìm kiếm",
+  "search_hint": "Gõ vào đây để tìm kiếm",
+  "errors_search_no_results": "Sản phẩm bạn đang tìm không có",
+
+  "title_list_page": "Cửa hàng",
+  "item_page_off": "{percent}% ",
+  "share_product_with_friends": "Chia sẻ sản phẩm",
+  "special_price": "giá sản phẩm dành cho người dùng đã đăng ký",
+  "item_description": "Miêu tả",
+  "item_view_all": "Hiển thị tất cả",
+  "item_view_less": "Hiển thị ít",
+  "item_specification": "Đặc điểm",
+  "item_available_options": "Tùy chọn",
+  "item_quantity": "Số lượng",
+  "item_related_products": "Sản phẩm liên quan",
+  "item_button_add_to_cart": "Thêm Vào Giỏ",
+  "item_button_buy_now": "Mua Hàng",
+  "categories": "Danh mục",
+
+  "item_tabs_details": "Chi tiết",
+  "item_tabs_photos": "Ảnh",
+  "item_tabs_reviews": "Đánh giá",
+  "item_tabs_share": "Chia sẻ",
+
+  "item_rating_name": "Tên của bạn",
+  "item_rating_comment": "Đánh giá của bạn",
+  "item_rating_load_more": "Tải thêm",
+  "item_rating_author": "Bởi {author} {added}",
+  "item_rating_post_review": "Đăng đánh giá",
+
+  "error_required_fields": "Xin vui lòng điền đầy đủ thông tin",
+  "error_not_connected_cache_failed": "Vui lòng kết nối mạng để xem sản phẩm",
+  "error_not_connected_cache_success": "Sản tải từ bộ nhớ cache. Vui lòng kết nối mạng để xem cập nhật mới nhất",
+
+  "wishlist_updated": "Danh sách đã được cập nhật!",
+  "wishlist_item_added_to_list": "Sản phẩm đã được thêm vào danh sách",
+  "wishlist_item_added_to_list_login_to_save": "Sản phẩm đã được thêm vào danh sách. Vui lòng đăng nhập hoặc đăng ký để lưu danh sách",
+  "wishlist_item_added_already": "Sản phẩm đã được thêm vào danh sách",
+  "wishlist_go_to": "Danh sách",
+
+  "item_view_button" :  "Hiển thị",
+  "item_add_to_wishlist_button" :  "Thêm vào danh sách",
+
+  "offer_promotion":"Khuyến Mại",
+  "offer_top":"Nổi Bật",
+  "offer_trend":"Xu Hướng"
+}

@@ -55,7 +55,7 @@
   "error_email_required": "Please enter your email address",
   "error_email_invalid": "Please enter a valid email address",
   "error_telephone_required": "Please enter your telephone number",
-  "error_address_1_required": "Please enter your address line 1",
+  "error_address_1_required": "Please enter your address",
   "error_city_required": "Please enter your city",
   "error_postal_code_required": "Please enter your postal code",
   "error_postal_code_minlength": "Postal code is a 5 digit number",
@@ -84,5 +84,19 @@
   "button_create_account": "Create Account",
 
   "error_password_reset_inappbrowser": "Please use browser and navigate to i2csmobile.com to change your password",
-  "error_loading_zones": "Error while loading zones"
+  "error_loading_zones": "Error while loading zones",
+
+  "register_username": "Username",
+  "register_realname": "Name",
+  "register_your_information": "Your Information",
+  "register_your_profile": "Profile",
+  "button_feedback": "Send Feedback",
+  "feedback_title": "Title",
+  "feedback_type": "Type",
+  "feedback_rate": "Rate",
+  "feedback_description": "Description",
+
+  "error_username_required": "Please enter your username",
+  "error_username_ngpattern": "Username must contain characters and numbers only",
+  "error_realname_required": "Please enter you name"
 }

@@ -1,25 +1,52 @@
-<div>
-    <filter-box placeholder="Search" filtertext="search" ng-model-options="{debounce: 1000}" change="onSearchKeyDown"></filter-box>
+﻿<div>
+  <filter-box placeholder="Search" filtertext="search" ng-model-options="{debounce: 1000}"
+              change="onSearchKeyDown"></filter-box>
 
-    <ion-list class="recent-items-list">
-        <ion-item ng-repeat="item in items">
-            <item-template item="item"></item-template>
-        </ion-item>
+  <!--<ion-tabs class="tabs-icon-left tabs-positive tabs-top searchTab">-->
+    <!--<ion-tab title="{{ 'shop.item_tabs_near' | i18n }}" icon-on="ion-android-locate" icon-off="ion-android-locate" href="#/app/menu/shop/nearby">-->
+      <!--<ion-nav-view name="nearby-tab"></ion-nav-view>-->
+    <!--</ion-tab>-->
 
-        <div ng-if="!noSearchword && !loadingItems && items.length == 0" class="large-icon-message">
+    <!--<ion-tab title="{{ 'shop.item_tabs_cate' | i18n }}" icon-on="ion-ios-list-outline" icon-off="ion-ios-list-outline" href="#/app/menu/shop/cate">-->
+      <!--<ion-nav-view name="cate-tab"></ion-nav-view>-->
+    <!--</ion-tab>-->
+
+    <!--<ion-tab title="{{ 'shop.item_tabs_city' | i18n }}" icon-on="ion-ios-paperplane-outline" icon-off="ion-ios-paperplane-outline" ui-sref=".city">-->
+      <!--<ion-nav-view name="city-tab"></ion-nav-view>-->
+    <!--</ion-tab>-->
+  <!--</ion-tabs>-->
+
+    <!--<div class="nearby">-->
+      <!--<a href="#/app/menu/shop/nearby">Gần tôi</a>-->
+    <!--</div>-->
+    <!--<div class="cate">-->
+
+      <!--<a href="#/app/menu/shop/cate">Danh mục</a>-->
+    <!--</div>-->
+    <!--<div class="city">-->
+
+      <!--<a href="#/app/menu/shop/city">Thành phố</a>-->
+    <!--</div>-->
+
+  <ion-list class="recent-items-list">
+    <ion-item ng-repeat="item in items">
+      <item-template item="item"></item-template>
+    </ion-item>
+
+    <div ng-if="!noSearchword && !loadingItems && items.length == 0" class="large-icon-message">
             <span class="large-app-icon large-app-icon-red">
                 <i class="icon ion-ios-search"></i>
             </span>
-            <p i18n="shop.errors_search_no_results"></p>
-        </div>
+      <p i18n="shop.errors_search_no_results"></p>
+    </div>
 
-        <div ng-if="noSearchword" class="large-icon-message">
-            <span class="large-app-icon large-app-icon-yellow">
-                <i class="icon ion-ios-search"></i>
-            </span>
-            <p i18n="shop.search_hint"></p>
-        </div>
+    <!--<div ng-if="noSearchword" class="large-icon-message">-->
+            <!--<span class="large-app-icon large-app-icon-yellow">-->
+                <!--<i class="icon ion-ios-search"></i>-->
+            <!--</span>-->
+      <!--<p i18n="shop.search_hint"></p>-->
+    <!--</div>-->
 
-        <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
-    </ion-list>
+    <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
+  </ion-list>
 </div>

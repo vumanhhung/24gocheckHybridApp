@@ -1,0 +1,48 @@
+{
+  "title_info_home": "Thông tin",
+  "title_info_orders": "Đơn Hàng",
+  "title_info_order": "Đơn hàng",
+  "title_info_wishlist":  "Danh sách",
+
+  "order_invoice_data": "Dữ liệu hóa đơn",
+  "order_invoice_number": "Hóa đơn #",
+  "order_order_number": "Đơn hàng",
+  "order_date": "Ngày",
+  "order_address": "Địa chỉ",
+  "order_method": "Phương thức",
+  "order_invoice_items": "",
+  "order_product_code": "Mã sản phẩm:{code}",
+  "order_history": "Lịch sử mua hàng",
+
+
+  "buttons_logout": "Đăng xuất",
+  "buttons_login": "Đăng nhập",
+  "buttons_orders": "Đơn hàng",
+  "buttons_notifications": "Thông báo",
+  "buttons_contact": "Liên hệ",
+  "buttons_about": "Về chúng tôi",
+  "buttons_language": "Ngôn ngữ",
+  "buttons_currency": "Tiền tệ",
+  "buttons_more": "Thêm",
+  "buttons_wishlist": "Danh sách",
+
+  "errors_no_orders": "Hiện bạn vẫn chưa đặt hàng",
+  "errors_empty_wishlist": "Danh mục đang trống",
+
+  "contact_success": "Tin nhắn của bạn đã được gửi thành công",
+  "contact_name": "Tên của bạn",
+  "contact_email": "Email của bạn",
+  "contact_enquiry": "Yêu cầu",
+  "contact_send_button": "Gửi",
+
+  "buttons_open_close_shop": "Mở đóng gian hàng",
+  "buttons_favorite": "Thích",
+  "buttons_feedback": "Phản hồi",
+  "buttons_logout": "Đăng xuất",
+  "buttons_account_info": "Thông tin tài khoản",
+
+  "button_edit_account": "Sửa tài khoản",
+  "buttons_transaction_history": "Lịch sử giao dịch",
+
+  "title_info_feedback": "Phản hồi"
+}

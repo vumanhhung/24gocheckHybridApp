@@ -14,7 +14,7 @@
 * @requires appService
 * @description
 * Entrypoint of the app. Welcome screen renders the loading status of the app. i.e, connecting to API, logged in etc.
-* This controller sets the default language and creates a valid session with the API server. 
+* This controller sets the default language and creates a valid session with the API server.
 */
 angular.module('starter')
     .controller('WelcomeCtrl', function ($scope, $rootScope, $timeout, $state, $ionicModal, $ionicPlatform, $localStorage, locale, i18nService, dataService, appService, STATUSBAR_COLOR) {
@@ -99,7 +99,7 @@ angular.module('starter')
 * @requires FORGOT_LINK
 * @requires EMAIL
 * @requires PHONE
-* 
+*
 * @description
 * This controller is the parent of all the controller states. Contains generic functions and procedures of the
 * app. `$scope.user` variable holds the customer object of currently logged in mobile user.
@@ -206,6 +206,8 @@ angular.module('starter')
             CartService.LoadZones($scope.register['country_id']).then(function (data) {
                 $ionicLoading.hide();
                 $scope.zones = data.zones;
+
+                zones.setDefaultOptions(230);
             }, function (data) {
                 alert(locale.getString('modals.error_loading_zones'));
                 $ionicLoading.hide();
@@ -332,7 +334,7 @@ angular.module('starter')
 
                 appService.Register($scope.register).then(function (data) {
                     $scope.validations.registrationErrors = [];
-                    ["error_firstname", "error_lastname", "error_email", "error_password", "error_telephone", "error_warning", "error_confirm", "error_address_1", "error_city", "error_country", "error_postcode", "error_zone"].forEach(function (e) {
+                    ["error_username", "error_realname", "error_email", "error_password", "error_telephone", "error_warning", "error_confirm", "error_address_1", "error_city", "error_country", "error_postcode", "error_zone"].forEach(function (e) {
                         var msg = data[e];
                         if (msg) {
                             $scope.validations.registrationErrors.push(msg);
@@ -397,7 +399,7 @@ angular.module('starter')
 /**
 * @ngdoc controller
 * @name starter.controller:MenuCtrl
-* 
+*
 * @description
 * This controller is the parent of all the controller states with main menu.
 */
@@ -409,7 +411,7 @@ angular.module('starter')
 /**
 * @ngdoc controller
 * @name starter.controller:MainCtrl
-* 
+*
 * @description
 * This controller is the parent of all the controller states without main menu.
 */
@@ -417,3 +419,62 @@ angular.module('starter')
     .controller('MainCtrl', function () {
 
     });
+
+angular.module('starter')
+  .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+
+      var mapOptions = {
+        center: myLatlng,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+
+      //Marker + infowindow + angularjs compiled ng-click
+      var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+      var compiled = $compile(contentString)($scope);
+
+      var infowindow = new google.maps.InfoWindow({
+        content: compiled[0]
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Uluru (Ayers Rock)'
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
+
+      $scope.map = map;
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    $scope.centerOnMe = function() {
+      if(!$scope.map) {
+        return;
+      }
+
+      $scope.loading = $ionicLoading.show({
+        content: 'Getting current location...',
+        showBackdrop: false
+      });
+
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        $scope.loading.hide();
+      }, function(error) {
+        alert('Unable to get location: ' + error.message);
+      });
+    };
+
+    $scope.clickTest = function() {
+      alert('Example of infowindow with ng-click')
+    };
+
+  })

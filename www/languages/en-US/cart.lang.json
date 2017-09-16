@@ -4,7 +4,7 @@
   "title_checkout": "Checkout",
   "title_delivery_payment": "Delivery and Payment",
   "title_invoice": "Invoice",
-  
+
   "enter_coupon_title":  "Have a cupon?",
   "enter_coupon_label": "Enter your coupon here",
   "added_coupon_text":  "Coupon added!",
@@ -58,6 +58,10 @@
   "order_city": "City",
   "order_postal": "Postal Code",
   "order_country": "Country",
-  "order_region": "Region / State"
+  "order_region": "Region / State",
+
+  "error_username_required": "Please enter your username",
+  "error_username_pattern": "Username must contain characters and numbers only",
+  "error_realname_required": "Please enter you name"
 
 }

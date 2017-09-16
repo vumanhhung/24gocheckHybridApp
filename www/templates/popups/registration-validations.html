@@ -1,12 +1,13 @@
-<div ng-repeat="msg in validations.registrationErrors" role="alert">
+﻿<div ng-repeat="msg in validations.registrationErrors" role="alert">
     <div>{{ msg }}</div>
 </div>
 
-<div ng-messages="forms.registerForm.firstname.$error" role="alert">
-    <div ng-message="required">{{ 'modals.error_firstname_required' | i18n }}</div>
+<div ng-messages="forms.registerForm.username.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_username_required' | i18n }}</div>
+    <div ng-message="pattern">{{ 'modals.error_username_pattern' | i18n }}</div>
 </div>
-<div ng-messages="forms.registerForm.lastname.$error" role="alert">
-    <div ng-message="required">{{ 'modals.error_lastname_required' | i18n }}</div>
+<div ng-messages="forms.registerForm.realname.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_realname_required' | i18n }}</div>
 </div>
 <div ng-messages="forms.registerForm.email.$error" role="alert">
     <div ng-message="required">{{ 'modals.error_email_required' | i18n }}</div>

@@ -62,7 +62,7 @@ $stateProvider
     })
 * ```
 */
-var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-image', 'ionic-ratings', 'ngLocalize', 'ngLocalize.InstalledLanguages', 'ngLocalize.Events', 'ionic.service.core', 'ngStorage', 'ngMessages', 'shop.module', 'offers.module', 'cart.module', 'info.module', 'payments.module', 'auth.module'])
+var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-image', 'ionic-ratings', 'ngLocalize', 'ngLocalize.InstalledLanguages', 'ngLocalize.Events', 'ionic.service.core', 'ngStorage', 'ngMessages', 'shop.module', 'offers.module', 'cart.module', 'info.module', 'payments.module', 'auth.module', 'notification.module', 'chatbox.module'])
     .run(function ($ionicPlatform, $ionicPopup, $ionicLoading, $localStorage, $ionicNavBarDelegate, $ionicScrollDelegate, $rootScope, $timeout, $state, notificationService, updateService, analyticsService, intercomService) {
         $ionicPlatform.ready(function () {
 
@@ -122,6 +122,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
     //list of languages currently supported
     .value('localeSupported', [
         'en-US',
+        'vi-VN',
         'fr-FR',
         'zh-CN',
         'ar-EG'
@@ -129,6 +130,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
     //fallbacks when a particular language is present but not for the region from which the app is being opened (e.g. en-GB will use en-US)
     .value('localeFallbacks', {
         'en': 'en-US',
+        'vi': 'vi-VN',
         'fr': 'fr-FR',
         'zh': 'zh-CN',
         'ar': 'ar-EG'
@@ -186,4 +188,60 @@ starter.config(function ($ionicConfigProvider) {
 starter.constant('$ionicLoadingConfig', {
     templateUrl: 'templates/loading.html',
     duration: 30000
-});
+})
+
+.directive('ionSegment', function() {
+  return {
+    restrict: 'E',
+    require: "ngModel",
+    transclude: true,
+    replace: true,
+    scope: {
+      full: '@full'
+    },
+    template: '<ul id="ion-segment" ng-transclude></ul>',
+    link: function($scope, $element, $attr, ngModelCtrl) {
+      console.log("ion-segment link")
+      if ($scope.full == "true") {
+        $element.find("li").addClass("full");
+      }
+      var segment = $element.find("li").eq(0).attr("value");
+      $element.find("li").eq(0).addClass("active");
+
+      ngModelCtrl.$setViewValue(segment);
+
+    }
+  }
+})
+  .directive('ionSegmentButton', function() {
+    return {
+      restrict: 'E',
+      require: "^ngModel",
+      transclude: true,
+      replace: true,
+      template: '<li ng-transclude></li>',
+      link: function($scope, $element, $attr, ngModelCtrl) {
+        var value;
+        function onChange(){
+          if(value === ngModelCtrl.$modelValue){
+            $element.parent().find("li").removeClass("active");
+            $element.addClass("active");
+          }
+        }
+        $scope.$watch(function(){
+          return ngModelCtrl.$modelValue;
+        }, onChange);
+        $attr.$observe("value", function(_value){
+          value = _value;
+          onChange();
+        });
+
+        var clickingCallback = function() {
+          ngModelCtrl.$setViewValue(value);
+        };
+
+        $element.bind('click', clickingCallback);
+
+      }
+    }
+  })
