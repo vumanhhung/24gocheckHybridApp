@@ -110,9 +110,25 @@
 
 }
 
-
-
-
+/*CONTENT ITEM*/
+.recent-items-list.row.grid_mode {
+  padding:10px;
+}
+.recent-items-list.row.grid_mode .item {
+  margin: 0px;
+  border: none;
+  padding:5px;
+}
+.item.item-divider.item-button-right {
+  border:none;
+}
+.recent-items-list.list .item {
+  border:none;
+}
+.recent-items-list.row.grid_mode .item img {
+  border-radius: 2%;
+  padding: 10px;
+}
 
 
 /*STYLE FOR FOOTERBAR*/
