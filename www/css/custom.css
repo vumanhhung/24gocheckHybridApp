@@ -1,7 +1,13 @@
 /*@import "./scss/custom.home.css";*/
-
+@import "custom.menu.css";
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
+.item-divider {
+  border-top: 5px solid #cfced3;
+}
+.pane {
+  background-color: #f7f7f7;
+}
 .scroll .row.home-category-grid-icons {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -40,8 +46,6 @@
 /*STYLE FOR CONTENT*/
 .scroll .row.home-category-grid-icons {
   padding: 0px;
-  margin-top: 25px;
-  margin-bottom: 25px;
 }
 
 .scroll .row.home-category-grid-icons>a {
@@ -63,15 +67,15 @@
   display: flex;
   justify-content: center;
   height: 104px;
-  background: #e8e8e8;
+  background: #f7f7f7;
 
 }
 
-.suggest i{
+.suggest img{
   display: block;
   border-radius: 50%;
   background: #ddd;
-  width: 60px;
+  width: 55px;
   height: 55px;
 }
 
@@ -118,6 +122,9 @@
   margin: 0px;
   border: none;
   padding:5px;
+}
+.item.item-divider {
+  border-width: 0px;
 }
 .item.item-divider.item-button-right {
   border:none;

@@ -91,32 +91,6 @@ angular.module('shop.module')
           }
         }
       })
-      // .state('app.menu.shop.search.nearby', {
-      //   url: '/nearby',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/item-search/item-search-nearby.html'
-      //     }
-      //   }
-      // })
-      // .state('app.menu.shop.search.cate', {
-      //   url: '/cate',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/item-search/item-search-cate.html',
-      //       controller: 'ShopSearchCtrl'
-      //     }
-      //   }
-      // })
-      // .state('app.menu.shop.category', {
-      //   url: '/category/:id',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/shop-category.html',
-      //       controller: 'ShopCategoryCtrl'
-      //     }
-      //   }
-      // });
   });
 
 /**

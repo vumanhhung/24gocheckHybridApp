@@ -1,0 +1,13 @@
+.ion-ios-home-outline{
+  /*background-image: url("https://raw.githubusercontent.com/thuannp95/24gocheckHybridApp/master/www/img/introapp.png");*/
+  /*background-color: black;*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px 30px;
+
+}
+.ion-ios-home-outline:before {
+  /*content: none;*/
+}
+
+
