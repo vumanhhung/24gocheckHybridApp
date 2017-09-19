@@ -1,0 +1,20 @@
+#iconSlide {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  white-space: nowrap;
+}
+#iconSlide li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 180px;
+}
+#iconSlide li a span {
+  display: block;
+  font-size: 9px;
+}
+
+#iconSlide li a {
+  text-align: center;
+}
