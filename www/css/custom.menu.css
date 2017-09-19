@@ -1,13 +1,36 @@
+.ion-ios-home-outline:before, .ion-ios-cart-outline:before, .ion-ios-bell-outline:before, .ion-ios-person-outline:before {
+  content: none;
+}
 .ion-ios-home-outline{
-  /*background-image: url("https://raw.githubusercontent.com/thuannp95/24gocheckHybridApp/master/www/img/introapp.png");*/
-  /*background-color: black;*/
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/home_zpsxartb2sb.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 25px 30px;
-
-}
-.ion-ios-home-outline:before {
-  /*content: none;*/
+  background-size: 27px 28px;
 }
 
+.ion-ios-bell-outline {
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/Notification_zpsydu5sij9.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+
+.ion-ios-cart-outline {
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/cart_zpscauw6w6v.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+.ion-ios-person-outline {
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/user_zpshwuxkoob.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+.icon-plus-round:before {
+  font-size: 48px;
+  position: relative;
+  top: 7px;
+  font-weight: 600;
+}
 

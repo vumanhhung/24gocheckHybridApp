@@ -91,6 +91,15 @@ angular.module('shop.module')
           }
         }
       })
+      .state('app.menu.shop.category', {
+        url: '/category/:id',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/shop-category.html',
+            controller: 'ShopCategoryCtrl'
+          }
+        }
+      })
   });
 
 /**

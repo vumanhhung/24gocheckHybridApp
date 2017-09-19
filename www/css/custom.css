@@ -1,5 +1,6 @@
 /*@import "./scss/custom.home.css";*/
 @import "custom.menu.css";
+@import "categories.slide.css";
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
 .item-divider {
@@ -181,56 +182,6 @@
 .searchTab{
   margin: 0 2%;
 }
-/*!* custom css goes here *!*/
-/*.searchTab ul {*/
-  /*list-style-type: none;*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*!*height: 20qpx;*!*/
-  /*overflow: hidden;*/
-  /*background-color: lightgrey;*/
-/*}*/
-
-/*.searchTab li {*/
-  /*float: left;*/
-  /*width: 33%;*/
-  /*!*height: 100%;*!*/
-/*}*/
-/*.searchTab li a {*/
-  /*display: block;*/
-  /*color: black;*/
-  /*text-align: center;*/
-  /*padding: 2% 2%;*/
-  /*text-decoration: none;*/
-/*}*/
-
-/*.searchTab li a:hover {*/
-  /*color: orangered;*/
-/*}*/
-
-/*.searchTab div {*/
-  /*border: none;*/
-  /*background-color: lightgrey;*/
-  /*width: 95%;*/
-  /*!*height: 100%;*!*/
-/*}*/
-
-/*.searchTab select {*/
-  /*border: none;*/
-  /*background-color: lightgrey;*/
-  /*width: 95%;*/
-  /*padding: 2% 2%;*/
-  /*text-align: center;*/
-  /*text-align-last: center;*/
-  /*!*height: 100%;*!*/
-/*}*/
-/*.searchTab select option {*/
-  /*text-align: center;*/
-/*}*/
-
-/*.searchTab select option:hover{*/
-  /*color: #FF9B29;*/
-/*}*/
 
 select {
   -webkit-appearance: none;
