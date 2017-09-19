@@ -99,21 +99,21 @@
   font-weight:bold;
 }
 
-.ng-dirty.ng-valid.ng-valid-parse {
-  display: flex;
-  justify-content: center;
-}
+/*.ng-dirty.ng-valid.ng-valid-parse {*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+/*}*/
 
-.ng-dirty.ng-valid.ng-valid-parse li {
-  height: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
-  line-height: 2.5;
-}
-.ng-dirty.ng-valid.ng-valid-parse i:before {
-  font-size: 25px;
+/*.ng-dirty.ng-valid.ng-valid-parse li {*/
+  /*height: 40px;*/
+  /*margin-left: 20px;*/
+  /*margin-right: 20px;*/
+  /*line-height: 2.5;*/
+/*}*/
+/*.ng-dirty.ng-valid.ng-valid-parse i:before {*/
+  /*font-size: 25px;*/
 
-}
+/*}*/
 
 /*CONTENT ITEM*/
 .recent-items-list.row.grid_mode {

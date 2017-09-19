@@ -9,7 +9,7 @@
         <div class="list list-inset" ng-if="!userLoggedIn()">
             <form name="loginForm" ng-submit="postLoginData()">
                 <label class="item item-input">
-                    <input type="email" data-i18n-attr="{placeholder: 'modals.login_email'}" name="email" ng-model="login.email" required>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.login_email'}" name="email" ng-model="login.email" required>
                 </label>
                 <label class="item item-input">
                     <input type="password" data-i18n-attr="{placeholder: 'modals.login_password'}" name="password" ng-model="login.password" required>
