@@ -55,7 +55,8 @@ angular.module('shop.module')
         url: '/promotion',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/offers/offers-promotion.html'
+            templateUrl: 'app/shop/templates/offers/offers-promotion.html',
+            controller: 'ShopPromotionCtrl'
           }
         }
       })

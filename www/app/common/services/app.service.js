@@ -14,10 +14,10 @@ angular.module('starter')
          * @name starter.appService#Register
          * @methodOf starter.appService
          * @kind function
-         * 
+         *
          * @description
          * Registers a new user
-         * 
+         *
          * @param {object} register Registration information
          * @param {string} register.firstname Customers first name. must be between 1 and 32 characters
          * @param {string} register.lastname Customers last name. must be between 1 and 32 characters
@@ -33,7 +33,7 @@ angular.module('starter')
          * @param {string} register.zone_id Zone id
          * @param {number=} register.customer_group_id Customer group id. if none provided config_customer_group_id will be assigned
          * @param {boolean=} register.newsletter Sign up for newsletters
-         * 
+         *
          * @returns {promise} Promise of the API call
          */
         this.Register = function (register) {
@@ -45,13 +45,13 @@ angular.module('starter')
          * @name starter.appService#Login
          * @methodOf starter.appService
          * @kind function
-         * 
+         *
          * @description
          * Logs in a user
          * @param {object} login Object containing login data
          * @param {string} login.username Customers email address. must be a valid email address
          * @param {string} login.password Password. must be between 4 and 20 characters and must match with the account of the email address provided
-         * 
+         *
          * @returns {promise} Promise of the API call
          */
         this.Login = function (login) {
@@ -67,7 +67,7 @@ angular.module('starter')
          * @name starter.appService#Logout
          * @methodOf starter.appService
          * @kind function
-         * 
+         *
          * @description
          * Logout current session from API
          * @returns {promise} Promise of the API call
