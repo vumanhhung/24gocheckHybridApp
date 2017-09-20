@@ -192,7 +192,7 @@ angular
 
       $scope.item.related = data.products;
 
-      $scope.item.images = data.images;
+      $scope.item.image = data.image;
 
       if (!$scope.item_cache.items)
         $scope.item_cache.items = {};

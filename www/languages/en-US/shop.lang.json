@@ -18,7 +18,9 @@
   "item_available_options": "Available Options",
   "item_quantity": "Quantity",
   "item_related_products": "Related Products",
-  "item_button_add_to_cart": "ADD TO CART",
+  "item_button_add_to_cart": " Add Cart",
+  "item_button_call": " Call",
+  "item_button_review": " Reviews",
   "item_button_buy_now": "BUY NOW",
   "categories": "Categories",
 
@@ -52,4 +54,6 @@
   "offer_promotion":"For Sales",
   "offer_top":"Top Product",
   "offer_trend":"Trending"
+
+
 }
