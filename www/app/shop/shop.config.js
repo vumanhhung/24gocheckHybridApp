@@ -64,7 +64,8 @@ angular.module('shop.module')
         url: '/top',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/offers/offers-top.html'
+            templateUrl: 'app/shop/templates/offers/offers-top.html',
+            controller: 'OffersTopCtrl'
           }
         }
       })
@@ -72,7 +73,8 @@ angular.module('shop.module')
         url: '/trend',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/offers/offers-trend.html'
+            templateUrl: 'app/shop/templates/offers/offers-trend.html',
+            controller: 'OffersTrendCtrl'
           }
         }
       })
