@@ -164,6 +164,8 @@ angular
       }
     }
 
+    sho
+
     ShopService.GetProduct($stateParams.id).then(function (data) {
       $scope.item = {};
 
@@ -172,7 +174,7 @@ angular
       $scope.item.text_stock = data.text_stock;
       $scope.item.text_model = data.text_model;
       $scope.item.attribure_groups = data.attribute_groups;
-
+      $scope.item.shop_name = data.shop_name;
       $scope.item.price = data.price;
       $scope.item.special = data.special;
       $scope.item.description = data.description;
