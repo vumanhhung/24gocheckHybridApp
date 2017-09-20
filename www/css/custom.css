@@ -1,6 +1,7 @@
 /*@import "./scss/custom.home.css";*/
 @import "custom.menu.css";
 @import "categories.slide.css";
+@import "custom.segment.css";
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
 .item-divider {
@@ -15,13 +16,10 @@
 }
 /*STYLE FOR HEADER*/
 
-.bar .title.title-left {
-  text-align: center;
-}
 
 .header-logo {
   position: relative;
-  left: 26px;
+  left: 80px;
   top: 6px;
 }
 

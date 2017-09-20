@@ -1,7 +1,4 @@
 <ion-view view-title="{{ 'cart.title_cart_home' | i18n }}" cache-view="false">
-    <ion-nav-buttons side="right">
-        <a class="button button-positive" ng-click="openLoginModal()"><i class="icon ion-ios-person-outline"></i></a>
-    </ion-nav-buttons>
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh" on-refresh="loadCart()"></ion-refresher>
         <div ng-if="dataLoaded && items.length == 0" class="large-icon-message">
@@ -24,7 +21,7 @@
 					<a class="button button-positive" ng-click="submitCoupon(coupon)" i18n="cart.enter_coupon_button"></a>
 				</div>
 			</div>
-			
+
             <ion-item class="item item-thumbnail-left cart-item" ng-repeat="item in items">
                 <img class="cart-image" ng-src="{{::item.thumb}}">
                 <h3 class="cart-item-title" ng-bind-html="::item.name"></h3>
