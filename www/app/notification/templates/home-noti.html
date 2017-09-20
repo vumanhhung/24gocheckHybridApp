@@ -1,10 +1,34 @@
 <ion-view view-title="{{ 'notification.title_notification_home' | i18n }}">
   <ion-content class="padding">
-    <div class="large-icon-message">
+    <ion-segment ng-model="notification" full="true"  assertive>
+      <ion-segment-button value="event">
+        <span>{{'notification.title_notification_event' | i18n}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="own">
+        <span>{{'notification.title_notification_own' | i18n}}</span>
+      </ion-segment-button>
+    </ion-segment>
+    <div ng-switch="notification">
+      <ion-list ng-switch-when="event">
+        <ion-item>
+          <div class="large-icon-message">
             <span class="large-app-icon large-app-icon-red">
                 <i class="icon ion-ios-bell-outline"></i>
             </span>
-      <p i18n="notification.empty_message"></p>
+            <p i18n="notification.empty_message"></p>
+          </div>
+        </ion-item>
+      </ion-list>
+      <ion-list ng-switch-when="own">
+        <ion-item>
+          <div class="large-icon-message">
+            <span class="large-app-icon large-app-icon-red">
+                <i class="icon ion-ios-bell-outline"></i>
+            </span>
+            <p i18n="notification.empty_message"></p>
+          </div>
+        </ion-item>
+      </ion-list>
     </div>
   </ion-content>
 </ion-view>
