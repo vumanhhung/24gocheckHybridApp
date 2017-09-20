@@ -11,23 +11,23 @@
 	.constant('COUPONS_ENABLED', true)
     .constant('STATUSBAR_COLOR', "#387ef5")
     .constant('LANGUAGES', [
-            { name: "English", language_id: "en-US" },
             { name: "Vietnamese", language_id: "vi-VN" },
+            { name: "English", language_id: "en-US" },
             { name: "French", language_id: "fr-FR" },
             { name: "Chinese", language_id: "zh-CN" },
             { name: "Arabic", language_id: "ar-EG" }])
     .constant('LOCAL_NOTIFICATIONS_ARRAY', [
             {
                 text: 'Come and see new arrivals and offers! Exclusive for mobile app users',
-                title: 'New Arrivals and Offers at i2CS'
+                title: 'New Arrivals and Offers at 24gocheck'
             },
             {
                 text: 'Exclusive offers for mobile app users',
-                title: 'See New Offers at i2CS'
+                title: 'See New Offers at 24gocheck'
             },
             {
                 text: 'Hi :*, check our new collection!',
-                title: 'Hi from i2CS :)'
+                title: 'Hi from 24gocheck :)'
             }
     ])
     .constant('RTL_LANGUAGES', ['ar'])

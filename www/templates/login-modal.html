@@ -1,8 +1,7 @@
 ﻿<ion-modal-view>
     <ion-header-bar>
-        <h1 class="title" ng-if="!userLoggedIn()" i18n="modals.login_title_guest"></h1>
-        <h1 class="title" ng-if="userLoggedIn()" i18n="modals.login_title_user"></h1>
-
+        <h1 class="title ionic-login" ng-if="!userLoggedIn()" i18n="modals.login_title_guest"></h1>
+        <h1 class="title ionic-login" ng-if="userLoggedIn()" i18n="modals.login_title_user"></h1>
         <button class="button button-clear button-positive" ng-click="closeLoginModal();" i18n="modals.button_close"></button>
     </ion-header-bar>
     <ion-content class="padding">

@@ -1,6 +1,34 @@
 <ion-view view-title="{{ 'notification.title_notification_home' | i18n }}">
+
   <ion-content class="padding">
-    <ion-segment ng-model="notification" full="true"  assertive>
+
+    <ion-segment class="noti-segment" ng-model="categories" full="true" assertive>
+      <ion-segment-button value="event">
+        <span>{{'notification.title_notification_event' | i18n}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="own">
+        <span>{{'notification.title_notification_own' | i18n}}</span>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div ng-switch="categories">
+      <ion-list ng-switch-when="event">
+        <ion-item>
+          <p>Hùng bắt thông tin Event ở đây</p>
+        </ion-item>
+      </ion-list>
+      <ion-list ng-switch-when="own">
+        <ion-item>
+          <p>Hùng bắt thông tin Own ở đây</p>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </ion-content>
+
+
+  <!--<ion-content class="padding">
+    <ion-segment class="noti-segment" ng-model="notification" full="true"  assertive>
       <ion-segment-button value="event">
         <span>{{'notification.title_notification_event' | i18n}}</span>
       </ion-segment-button>
@@ -30,5 +58,5 @@
         </ion-item>
       </ion-list>
     </div>
-  </ion-content>
+  </ion-content>-->
 </ion-view>
