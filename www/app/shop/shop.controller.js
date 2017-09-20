@@ -426,6 +426,8 @@ angular
 .module('shop.module')
 .controller('ShopPromotionCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
   $scope.shika = "Shikamaru";
+  // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
+  $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
   // $scope.shop = {};
   // $scope.shop.shopName = "Công ty AlVietJS";
   // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";
@@ -445,7 +447,7 @@ angular
   $scope.data.latestPage = 1;
 
   if (!$scope.data.slides)
-    $scope.data.slides = [{ image: "app/shop/images/logo.png" }];
+    $scope.data.slides = [{ image: "app/shop/images/introcompany.png" }];
 
   $scope.refreshUI = function () {
     $scope.data.latestPage = 1;

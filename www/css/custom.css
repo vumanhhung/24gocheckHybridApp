@@ -14,6 +14,17 @@
   padding-bottom: 15px;
 }
 /*STYLE FOR HEADER*/
+
+.bar .title.title-left {
+  text-align: center;
+}
+
+.header-logo {
+  position: relative;
+  left: 26px;
+  top: 6px;
+}
+
 .bar-royal.bar.bar-header .buttons.buttons-right .right-buttons {
   margin-left: inherit;
 }
@@ -168,9 +179,7 @@
 .tab-nav.tabs .tab-item {
   opacity: 1;
 }
-.tab-nav.tabs .icon.ion-plus-round:before{
-  font-size: 60px;
-}
+
 /*STYLE FOR SLIDE*/
 .home-slider.slider .slider-slide {
   height: 200px;
