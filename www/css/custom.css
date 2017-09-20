@@ -305,3 +305,13 @@ hr {
 .img-icon{
   width: 5%;
 }
+
+.recent-items-list.row.grid_mode .list-home{
+  margin: 5px;
+  padding: 5px;
+  background-color: lightgray;
+  border-radius: 5px;
+  max-width: 48%;
+}
+
+
