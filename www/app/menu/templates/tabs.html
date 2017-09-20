@@ -2,23 +2,23 @@
     <ion-nav-back-button></ion-nav-back-button>
 </ion-nav-bar>
 
-<ion-tabs class="tabs-icon-top tabs-color-active-standard">
-  <ion-tab title="{{ 'menu.shop' | i18n }}" icon-off="ion-ios-home-outline" icon-on="ion-ios-home-outline" href="#/app/menu/shop/home">
+<ion-tabs class="tabs-icon-top tabs-color-active-standard" id="tabsmenu">
+  <ion-tab title="{{ 'menu.shop' | i18n }}" icon-off="ionic-shop-icon" icon-on="ionic-shop-icon" href="#/app/menu/shop/home">
     <ion-nav-view name="tab-shop"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.notification' | i18n }}" icon-off="ion-ios-bell-outline" icon-on="ion-ios-bell-outline" href="#/app/menu/notification/home">
+  <ion-tab title="{{ 'menu.notification' | i18n }}" icon-off="ionic-notification-icon" icon-on="ionic-notification-icon" href="#/app/menu/notification/home">
     <ion-nav-view name="tab-notification"></ion-nav-view>
   </ion-tab>
   <ion-tab title="{{ 'menu.options' | i18n }}" icon-off="ion-plus-round" icon-on="ion-plus-round" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/shop/error">
     <ion-nav-view name="tab-plus"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.cart' | i18n }}" icon-off="ion-ios-cart-outline" icon-on="ion-ios-cart-outline" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/cart/home">
+  <ion-tab title="{{ 'menu.cart' | i18n }}" icon-off="ionic-cart-icon" icon-on="ionic-cart-icon" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/cart/home">
     <ion-nav-view name="tab-cart"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ion-ios-person-outline" icon-on="ion-ios-person-outline" ng-click="openLoginModal()" hidden="{{userLoggedIn()}}" >
+  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" ng-click="openLoginModal()" hidden="{{userLoggedIn()}}" >
     <ion-nav-view name="tab-info"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ion-ios-person-outline" icon-on="ion-ios-person-outline" hidden="{{!userLoggedIn()}}" href="#/app/menu/info/home">
+  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" hidden="{{!userLoggedIn()}}" href="#/app/menu/info/home">
     <ion-nav-view name="tab-info"></ion-nav-view>
   </ion-tab>
 
