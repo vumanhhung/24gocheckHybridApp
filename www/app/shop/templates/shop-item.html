@@ -15,8 +15,8 @@
           </ion-slide-box>
         </div>
         <div class="detail-content">
-          <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}"><h2
-            ng-bind-html="item.name"></h2></a>
+          <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
+            <h2 ng-bind-html="item.name"></h2></a>
           <p>
             <span style="color:#FF4635; font-size: 18px"
                   ng-class="{'has-special' : item.special}">{{::item.price}}</span>
