@@ -15,7 +15,7 @@
   <ion-tab title="{{ 'menu.cart' | i18n }}" icon-off="ionic-cart-icon" icon-on="ionic-cart-icon" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/cart/home">
     <ion-nav-view name="tab-cart"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" ng-click="openLoginModal()" hidden="{{userLoggedIn()}}" >
+  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" ng-click="openLoginModal()" hidden="{{userLoggedIn() ? true : false}}" >
     <ion-nav-view name="tab-info"></ion-nav-view>
   </ion-tab>
   <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" hidden="{{!userLoggedIn()}}" href="#/app/menu/info/home">
