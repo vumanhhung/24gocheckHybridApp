@@ -163,8 +163,6 @@ angular
       }
     }
 
-    sho
-
     ShopService.GetProduct($stateParams.id).then(function (data) {
       $scope.item = {};
 
