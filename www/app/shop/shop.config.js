@@ -152,15 +152,16 @@ angular.module('shop.module').directive('filterBox', function () {
         scope.change();
       };
     },
-    template: ' <div id="filter-box" class="item-input-inset">' +
-    '<div class="item-input-wrapper">' +
-    '<i class="icon ion-android-search"></i>' +
-    '<input type="search" placeholder="{{placeholder}}" style="width: 100%;" ng-model="search.value" ng-change="change()">' +
-    '</div>' +
-
-    '<button class="button button-clear ion-close button-small" style="color: #333" ng-if="search.value.length > 0" ng-click="clearSearch()">' +
-    '</button>' +
-    '</div>'
+    // template: ' <div id="filter-box" class="item-input-inset">' +
+    // '<div class="item-input-wrapper search-bar">' +
+    // '<i class="icon ion-android-search"></i>' +
+    // '<input class="search-input" type="search" placeholder="{{placeholder}}" style="width: 100%;" ng-model="search.value" ng-change="change()">' +
+    // '</div>' +
+    //
+    // '<button class="button button-clear ion-close button-small" style="color: #333" ng-if="search.value.length > 0" ng-click="clearSearch()">' +
+    // '</button>' +
+    // '</div>'
+        templateUrl: 'app/shop/templates/search-bar.html'
   };
 })
 

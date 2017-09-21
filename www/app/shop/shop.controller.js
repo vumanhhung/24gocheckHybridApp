@@ -163,8 +163,6 @@ angular
       }
     }
 
-    sho
-
     ShopService.GetProduct($stateParams.id).then(function (data) {
       $scope.item = {};
 
@@ -424,6 +422,13 @@ angular
   });
 
 angular
+  .module('shop.module')
+  .controller('FilterCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
+      $scope.filter = 'Xu hướng';
+
+  });
+
+angular
 .module('shop.module')
 .controller('ShopPromotionCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
 
@@ -564,7 +569,6 @@ angular
   .module('shop.module')
   .controller('OffersTopCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
     // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
-    $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
     // $scope.shop = {};
     // $scope.shop.shopName = "Công ty AlVietJS";
     // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";

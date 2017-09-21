@@ -2,21 +2,23 @@
 
   <ion-content has-subheader>
     <item-search></item-search>
+    <div class="mysegment">
 
-    <ion-segment ng-model="categories" full="true"  assertive>
-      <ion-segment-button value="nearby">
-        <i class="ion-android-locate"></i>
-        <span>{{'shop.item_tabs_near' | i18n}}</span>
-      </ion-segment-button>
-      <ion-segment-button value="category">
-        <i class="ion-ios-list-outline"></i>
-        <span>{{'shop.item_tabs_cate' | i18n}}</span>
-      </ion-segment-button>
-      <ion-segment-button value="city">
-        <i class="ion-ios-location-outline"></i>
-        <span>{{'shop.item_tabs_city' | i18n}}</span>
-      </ion-segment-button>
-    </ion-segment>
+      <ion-segment class="search-segment" ng-model="categories" full="true" assertive>
+        <ion-segment-button value="nearby">
+          <i class="ion-android-locate"></i>
+          <span>{{'shop.item_tabs_near' | i18n}}</span>
+        </ion-segment-button>
+        <ion-segment-button value="category">
+          <i class="ion-ios-list-outline"></i>
+          <span>{{'shop.item_tabs_cate' | i18n}}</span>
+        </ion-segment-button>
+        <ion-segment-button value="city">
+          <i class="ion-ios-location-outline"></i>
+          <span>{{'shop.item_tabs_city' | i18n}}</span>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
     <div ng-switch="categories">
       <ion-list ng-switch-when="nearby">
         <ion-item>
@@ -47,7 +49,8 @@
                        src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
                        default-image="app/shop/images/placeholder.png"
                        fallback-image="app/shop/images/placeholder.png"/>
-                  <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+                  <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
+                        data-percent="{{item.off}}"></span>
                 </div>
                 <div class="col-67" style="text-align: left; padding: 0 1em;">
                   <h2><!--ng-bind-html="item.shopName"-->Công ty AlVietJS</h2>
@@ -99,7 +102,8 @@
                        src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
                        default-image="app/shop/images/placeholder.png"
                        fallback-image="app/shop/images/placeholder.png"/>
-                  <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+                  <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
+                        data-percent="{{item.off}}"></span>
                 </div>
                 <div class="col-67" style="text-align: left; padding: 0 1em;">
                   <h2><!--ng-bind-html="item.shopName"-->Công ty AlVietJS</h2>

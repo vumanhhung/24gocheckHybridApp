@@ -1,7 +1,9 @@
 /*@import "./scss/custom.home.css";*/
 @import "custom.menu.css";
-@import "categories.slide.css";
+@import "custom.categories.slide.css";
 @import "custom.segment.css";
+@import "custom.search-bar.css";
+
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
 .item-divider {
