@@ -284,6 +284,8 @@ angular.module('starter')
             }, function (data) {
                 $ionicLoading.hide();
             });
+
+            $location.path("app/menu/shop/home");
         }
 
         $scope.postLoginData = function () {

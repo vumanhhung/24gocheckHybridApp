@@ -133,7 +133,7 @@ angular.module('shop.module').directive("fileread", ['dataService', '$ionicLoadi
  <filter-box placeholder="Search" filtertext="vm.search" ng-model-options="{debounce: 1000}"></filter-box>
  </pre>
  */
-angular.module('shop.module').directive('filterBox', function () {
+angular.module('shop.module').directive('filterBox', function ($rootScope) {
   return {
     restrict: 'E',
     replace: true,
@@ -147,8 +147,23 @@ angular.module('shop.module').directive('filterBox', function () {
       scope.placeholder = attrs.placeholder || '';
       scope.search = {value: ''};
 
+
+      scope.check = function(){
+        if(scope.search.value.length > 0 ){
+
+          $rootScope.checking = true;
+
+        }else{
+          $rootScope.checking = false;
+        }
+      }
+
+
+
+
       scope.clearSearch = function () {
         scope.search.value = "";
+        $rootScope.checking = false;
         scope.change();
       };
     },

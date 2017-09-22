@@ -504,6 +504,9 @@ angular
 
     $scope.loadFeatured();
     $scope.loadBanners();
+
+    $rootScope.checking = false;
+
   });
 
 angular
