@@ -21,18 +21,23 @@
 
 .header-logo {
   position: relative;
-  left: 80px;
-  top: 6px;
+  width: 100%;
+}
+
+.header-logo img{
+  height: 25px;
+  width: 110px;
+  margin-top: 10px;
 }
 
 .bar-royal.bar.bar-header .buttons.buttons-right .right-buttons {
   margin-left: inherit;
 }
 .bar-royal.bar.bar-header .buttons.buttons-right .button.button {
-  background-color: #8cc63f;
+  background-color: #03c320;
 }
 .bar-royal.bar.bar-header {
-  background-color: #8cc63f;
+  background-color: #03c320;
 }
 
 .buttons.buttons-right .icon.ion-ios-search:before {
@@ -53,7 +58,7 @@
   color: #ffffff;
 }
 .right-buttons .button.button-positive.button-outline {
-  border-color: #8cc63f;
+  border-color: #03c320;
 }
 /*STYLE FOR CONTENT*/
 .scroll .row.home-category-grid-icons {
@@ -163,11 +168,11 @@
   color: #515151;
 }
 .tab-nav.tabs .icon.ion-plus-round {
-  border: 1px solid #8cc63f;
+  border: 1px solid #03c320;
   width: 69px;
   height: 69px;
   border-radius: 50%;
-  background: #8cc63f;
+  background: #03c320;
   color: #e8e8e8;
   position: absolute;
   bottom: -8px;
@@ -267,7 +272,7 @@ hr {
 }
 
 .mobile-offer-items{
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 300!important;
 }
 
@@ -304,4 +309,49 @@ hr {
 
 .img-icon{
   width: 5%;
+}
+
+.recent-items-list.row.grid_mode .list-home{
+  margin: 1%;
+  padding: 0px;
+  border-radius: 10px;
+  max-width: 48%;
+  background-color: transparent;
+}
+
+.recent-items-list.row.grid_mode .item .full-image{
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: -5px;
+  background-color: white;
+}
+
+
+.recent-items-list.row.grid_mode .item .icon-image{
+  border-radius: 50%;
+  height: 40px;
+  border: solid 1px #4cd964;
+  background: #e8e8e8;
+  float: left;
+  margin-right: 2%;
+  padding: 0;
+}
+
+.detail-item-product{
+  background-color: white;
+  border-radius: 10px;
+}
+
+.recent-items-list.row.grid_mode .item .detail-item-product .icon-image{
+  border-radius: 50%;
+  height: 23px;
+  border: solid 1px #4cd964;
+  float: left;
+  margin-right: 2%;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.recent-items-list.row.grid_mode .item .detail-item-product div{
+  font-size: 90%;
 }

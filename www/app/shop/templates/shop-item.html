@@ -7,8 +7,8 @@
       <ion-content>
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
-            <ion-slide ng-repeat="img in ::item.images">
-              <div style="width: 100%; height: "><img style="width: 60%" preload-image ng-src="{{::img.preview}}"
+            <ion-slide>
+              <div style="width: 100%; height: "><img style="width: 60%" preload-image ng-src="{{item.thumb}}"
                                                       default-image="app/shop/images/placeholder.png"
                                                       fallback-image="app/shop/images/placeholder.png"/></div>
             </ion-slide>
@@ -16,7 +16,7 @@
         </div>
         <div class="detail-content">
           <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}"><h2
-            ng-bind-html="item.shop_name"></h2></a>
+            ng-bind-html="item.name"></h2></a>
           <p>
             <span style="color:#FF4635; font-size: 18px"
                   ng-class="{'has-special' : item.special}">{{::item.price}}</span>
