@@ -8,10 +8,10 @@
 * @requires ng.$httpParamSerializerJQLike
 * @requires starter.BASE_API_URL
 * @description
-* Calls the http API endpoints and resolves the response. Contains authentication call, `apiLogin` which should be 
-called before using apiSecuredPost method. otherwise it will reject the request with error status of 0 on API 
-calls which needs the authentication. The `dataService` is responsible for providing a `promise` object containing 
-the requested data. On a success response it returns the data from the server, and on an error the promise rejects 
+* Calls the http API endpoints and resolves the response. Contains authentication call, `apiLogin` which should be
+called before using apiSecuredPost method. otherwise it will reject the request with error status of 0 on API
+calls which needs the authentication. The `dataService` is responsible for providing a `promise` object containing
+the requested data. On a success response it returns the data from the server, and on an error the promise rejects
 with the HTTP server response. i.e, HTTP server response object contains,
 
 ```
@@ -30,10 +30,10 @@ angular.module('starter')
          * @name starter.dataService#apiSecuredPost
          * @methodOf starter.dataService
          * @kind function
-         * 
+         *
          * @description
          * Calls the http API endpoints and resolves the response
-         * 
+         *
          * @example
          <pre>
          this.GetSomething = function () {
@@ -95,10 +95,10 @@ angular.module('starter')
          * @name starter.dataService#apiFilePost
          * @methodOf starter.dataService
          * @kind function
-         * 
+         *
          * @description
          * Posts a file to the server via `$http` service
-         * 
+         *
          * @param {string} url Relative URL of the API endpoint. Ex "/layout/banners"
          * @param {object} data Data to be sent via Http post params
          * @returns {promise} Returns a promise of the API call.

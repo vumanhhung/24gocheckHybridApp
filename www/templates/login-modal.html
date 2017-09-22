@@ -1,15 +1,14 @@
 ﻿<ion-modal-view>
     <ion-header-bar>
-        <h1 class="title" ng-if="!userLoggedIn()" i18n="modals.login_title_guest"></h1>
-        <h1 class="title" ng-if="userLoggedIn()" i18n="modals.login_title_user"></h1>
-
+        <h1 class="title ionic-login" ng-if="!userLoggedIn()" i18n="modals.login_title_guest"></h1>
+        <h1 class="title ionic-login" ng-if="userLoggedIn()" i18n="modals.login_title_user"></h1>
         <button class="button button-clear button-positive" ng-click="closeLoginModal();" i18n="modals.button_close"></button>
     </ion-header-bar>
     <ion-content class="padding">
         <div class="list list-inset" ng-if="!userLoggedIn()">
             <form name="loginForm" ng-submit="postLoginData()">
                 <label class="item item-input">
-                    <input type="email" data-i18n-attr="{placeholder: 'modals.login_email'}" name="email" ng-model="login.email" required>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.login_email'}" name="email" ng-model="login.email" required>
                 </label>
                 <label class="item item-input">
                     <input type="password" data-i18n-attr="{placeholder: 'modals.login_password'}" name="password" ng-model="login.password" required>

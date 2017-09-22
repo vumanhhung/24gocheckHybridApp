@@ -55,7 +55,8 @@ angular.module('shop.module')
         url: '/promotion',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/offers/offers-promotion.html'
+            templateUrl: 'app/shop/templates/offers/offers-promotion.html',
+            controller: 'ShopPromotionCtrl'
           }
         }
       })
@@ -63,7 +64,8 @@ angular.module('shop.module')
         url: '/top',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/offers/offers-top.html'
+            templateUrl: 'app/shop/templates/offers/offers-top.html',
+            controller: 'OffersTopCtrl'
           }
         }
       })
@@ -71,52 +73,20 @@ angular.module('shop.module')
         url: '/trend',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/offers/offers-trend.html'
+            templateUrl: 'app/shop/templates/offers/offers-trend.html',
+            controller: 'OffersTrendCtrl'
           }
         }
       })
-      .state('app.menu.shop.nearby', {
-        url: '/nearby',
+      .state('app.menu.shop.category', {
+        url: '/category/:id',
         views: {
           'shopContent': {
-            templateUrl: 'app/shop/templates/filter/filter-nearby.html'
+            templateUrl: 'app/shop/templates/shop-category.html',
+            controller: 'ShopCategoryCtrl'
           }
         }
       })
-      .state('app.menu.shop.city', {
-        url: '/city',
-        views: {
-          'shopContent': {
-            templateUrl: 'app/shop/templates/item-search/item-search-city.html'
-          }
-        }
-      })
-      // .state('app.menu.shop.search.nearby', {
-      //   url: '/nearby',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/item-search/item-search-nearby.html'
-      //     }
-      //   }
-      // })
-      // .state('app.menu.shop.search.cate', {
-      //   url: '/cate',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/item-search/item-search-cate.html',
-      //       controller: 'ShopSearchCtrl'
-      //     }
-      //   }
-      // })
-      // .state('app.menu.shop.category', {
-      //   url: '/category/:id',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/shop-category.html',
-      //       controller: 'ShopCategoryCtrl'
-      //     }
-      //   }
-      // });
   });
 
 /**

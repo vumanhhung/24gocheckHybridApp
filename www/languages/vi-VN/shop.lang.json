@@ -18,7 +18,9 @@
   "item_available_options": "Tùy chọn",
   "item_quantity": "Số lượng",
   "item_related_products": "Sản phẩm liên quan",
-  "item_button_add_to_cart": "Thêm Vào Giỏ",
+  "item_button_add_to_cart": " Giỏ hàng",
+  "item_button_call": " Gọi điện",
+  "item_button_review": " Đánh giá",
   "item_button_buy_now": "Mua Hàng",
   "categories": "Danh mục",
 
@@ -26,6 +28,9 @@
   "item_tabs_photos": "Ảnh",
   "item_tabs_reviews": "Đánh giá",
   "item_tabs_share": "Chia sẻ",
+  "item_tabs_near": "Gần tôi",
+  "item_tabs_cate": "Danh mục",
+  "item_tabs_city": "Thành phố",
 
   "item_rating_name": "Tên của bạn",
   "item_rating_comment": "Đánh giá của bạn",

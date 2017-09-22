@@ -1,0 +1,34 @@
+.ionic-shop-icon{
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/home_zpsxartb2sb.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+
+.ionic-notification-icon {
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/Notification_zpsydu5sij9.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+
+.ionic-cart-icon {
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/cart_zpscauw6w6v.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+.ionic-account-icon {
+  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/user_zpshwuxkoob.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 28px;
+}
+
+.ion-plus-round:before {
+  font-size: 50px;
+  font-weight: 800;
+  position: relative;
+  top: 6px;
+}
+

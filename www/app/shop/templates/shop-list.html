@@ -1,8 +1,11 @@
-<ion-view view-title="{{ 'shop.title_list_page' | i18n }}">
+<ion-view>
   <ion-nav-buttons side="right">
     <a class="button button-positive" href="#/app/menu/shop/search"><i class="icon ion-ios-search"></i></a>
   </ion-nav-buttons>
 
+  <ion-nav-title class="header-logo" >
+      <img src="../../../img/iconpng/24gocheck.png"/>
+  </ion-nav-title>
   <!--<ion-nav-buttons side="right">-->
   <!--<a class="button button-positive" href="#/app/menu/chatbox/home"><i class="ion-chatbubble-working"></i></a>-->
   <!--</ion-nav-buttons>-->
@@ -11,12 +14,14 @@
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
     <!--<ion-slide-box show-pager="false" class="home-slider" does-continue="true" auto-play="true">-->
-    <!--<ion-slide ng-repeat="slide in data.offers">-->
-    <!--<a ng-href="{{::slide.link}}">-->
-    <!--<img preload-image ng-src="{{::slide.image}}" />-->
-    <!--</a>-->
-    <!--</ion-slide>-->
+      <!--<ion-slide ng-repeat="slide in data.offers">-->
+        <!--<a ng-href="{{::slide.link}}">-->
+          <!--<img preload-image ng-src="{{::slide.image}}"/>-->
+        <!--</a>-->
+      <!--</ion-slide>-->
     <!--</ion-slide-box>-->
+
+
     <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
                    auto-play="true">
       <ion-slide ng-repeat="slide in data.slides">
@@ -27,24 +32,22 @@
       </ion-slide>
     </ion-slide-box>
 
-    <!--<category-list thumbnail="true" mode="vertical"></category-list>-->
-
     <div class="suggest">
       <div class="suggest promotion">
         <a href="#/app/menu/shop/promotion">
-          <i class="ion-ios-pricetag-outline"></i>
+          <img src="../../../img/iconpng/Sale.png"/>
           <span>Khuyến mại</span>
         </a>
       </div>
       <div class="suggest topproduct">
         <a href="#/app/menu/shop/top">
-          <i class="ion-ios-cart-outline"></i>
+          <img src="../../../img/iconpng/Ban chay.png" />
           <span>Bán chạy</span>
         </a>
       </div>
       <div class="suggest trend">
         <a href="#/app/menu/shop/trend">
-          <i class="ion-ios-ionic-outline"></i>
+          <img src="../../../img/iconpng/xu huong.png" />
           <span>Xu hướng</span>
         </a>
       </div>
@@ -63,18 +66,27 @@
       </ion-slide-box>
     </ion-list>
 
-    <div class="item item-divider item-button-right">
-      <span i18n="shop.latest_title"></span>
-      <button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">
-        <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
-      </button>
-    </div>
-    <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
-      <div class="item" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">
+    <!--<div class="item item-divider item-button-right">-->
+    <!--<span i18n="shop.latest_title"></span>-->
+    <!--<button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">-->
+    <!--<i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+
+    <div class="recent-items-list list-home" style="background-color: lightgrey" ng-class="{'row grid_mode': !grid_mode}">
+      <div class="list-home item col-50" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">
         <item-template item="item" mode="2"></item-template>
       </div>
       <ion-infinite-scroll ng-if="!endOfRecentItems" on-infinite="loadNextRecentPage()"
                            distance="5%"></ion-infinite-scroll>
     </div>
+
+    <!--<div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">-->
+    <!--<div class="item" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">-->
+    <!--<item-template item="item" mode="2"></item-template>-->
+    <!--</div>-->
+    <!--<ion-infinite-scroll ng-if="!endOfRecentItems" on-infinite="loadNextRecentPage()"-->
+    <!--distance="5%"></ion-infinite-scroll>-->
+    <!--</div>-->
   </ion-content>
 </ion-view>
