@@ -2,7 +2,7 @@
   <div class="item-input-wrapper search-bar">
     <i class="icon ion-android-search"></i>
     <input id="search-input" type="search" placeholder="{{placeholder}}" style="width: 100%;" ng-model="search.value"
-           ng-change="change()">
+           ng-change="change();check()">
   </div>
   <button class="button button-clear ion-close button-small" style="color: #333" ng-if="search.value.length > 0"
           ng-click="clearSearch()">
