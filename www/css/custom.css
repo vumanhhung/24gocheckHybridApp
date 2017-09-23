@@ -339,7 +339,7 @@ hr {
 
 .detail-item-product{
   background-color: white;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .recent-items-list.row.grid_mode .item .detail-item-product .icon-image{
@@ -354,4 +354,17 @@ hr {
 
 .recent-items-list.row.grid_mode .item .detail-item-product div{
   font-size: 90%;
+}
+
+.bar.bar-assertive{
+  background-color: #03c320;
+}
+
+.bar-assertive .button{
+  background-color: #03c320;
+}
+
+.shop-detail-image{
+  width: 20%;
+  border-radius: 10px;
 }
