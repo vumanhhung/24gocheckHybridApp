@@ -515,6 +515,12 @@ angular
       $scope.filter = 'Xu hướng';
 
   });
+angular
+  .module('shop.module')
+  .controller('ShopDetailCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
+    $scope.detail = 'Shop detail';
+  });
+
 
 angular
 .module('shop.module')
