@@ -17,7 +17,8 @@ angular.module('shop.module')
     return {
       scope: {
         thumbnail: "@thumbnail",
-        category: "=category"
+        category: "=category",
+        selectedCategory: "=selectedCategory"
       },
       link: function (scope, element, attrs) {
         scope.loadCategories();

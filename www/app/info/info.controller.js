@@ -47,6 +47,7 @@ angular
 
         $scope.info.open_close_shop = "Mở";
         $scope.user.user_group_id = $localStorage.user.customer_group_id;
+        $scope.user.customer_id = $localStorage.user.customer_id;
     });
 
 /**
@@ -170,6 +171,12 @@ angular
     $scope.edit.postal_code = $localStorage.user.postal_code;
     $scope.edit.country_id = $localStorage.user.country_id;
     $scope.edit.zone_id = $localStorage.user.zone_id;
+
+    // var str = JSON.stringify($localStorage.user);
+    // str = JSON.stringify($localStorage.user, null, 4); // (Optional) beautiful indented output.
+    // console.log(str); // Logs output to dev tools console.
+    // alert(str); // Displays output using window.alert()
+
   });
 
 
