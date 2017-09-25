@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<ion-view view-title="{{item.shop_name | i18n}}">
-=======
 <ion-view view-title="{{item.shop_name}}">
->>>>>>> Giao dien Shop Detail
   <ion-nav-buttons side="right" ng-click="">
     <a class="button button-positive"><i class="icon ion-ios-heart-outline"></i></a>
   </ion-nav-buttons>
@@ -12,7 +8,7 @@
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
             <ion-slide ng-repeat="img in ::item.images">
-              <div style="width: 100%;"><img style="width: 60%" preload-image ng-src="{{::img.preview}}"
+              <div style="width: 100%; height:"><img style="width: 60%" preload-image ng-src="{{::img.preview}}"
                                                      default-image="app/shop/images/placeholder.png"
                                                      fallback-image="app/shop/images/placeholder.png"/></div>
             </ion-slide>
@@ -40,7 +36,6 @@
 
         <div style="display: inline-flex; width: 100%; margin-top: 10px;">
           <div class="buttons-detail">
-<<<<<<< HEAD
             <button style="background-color: #FA3E16; color: whitesmoke"
                     class="button-details-product icon ion-ios-cart" i18n="shop.item_button_add_to_cart"></button>
           </div>
@@ -52,16 +47,6 @@
           <div class="buttons-detail">
             <button style="background-color: #27FD6A; color: whitesmoke"
                     class="button-details-product icon ion-chatbox-working"
-=======
-            <button style="background-color: #FA3E16; color: whitesmoke" class="button-details-product icon ion-ios-cart" i18n="shop.item_button_add_to_cart"></button>
-          </div>
-          <div class="buttons-detail">
-            <button style="background-color: #5A87FF; color: whitesmoke" class="button-details-product icon ion-android-call"
-                    ng-click="buyNow()" i18n="shop.item_button_call"></button>
-          </div>
-          <div class="buttons-detail">
-            <button style="background-color: #27FD6A; color: whitesmoke" class="button-details-product icon ion-chatbox-working"
->>>>>>> Giao dien Shop Detail
                     ng-click="buyNow()" i18n="shop.item_button_review"></button>
           </div>
         </div>
@@ -69,7 +54,6 @@
         <div>
           <p class="product-description" ng-bind-html="item.description"></p>
           <div>
-<<<<<<< HEAD
             <a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_website_zpsdflursa8.png">{{item.website}}</img>
             </a><br/>
             <a><img class="img-icon"
@@ -80,13 +64,6 @@
                     src="http://i956.photobucket.com/albums/ae49/monki3010/ic_facebook_zpsrqi3xfxz.png"></img>{{item.facebook}}</a><br/>
             <a><img class="img-icon"
                     src="http://i956.photobucket.com/albums/ae49/monki3010/ic_mail_zpstbow4kws.png"></img>{{item.mail}}</a><br/>
-=======
-            <a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_website_zpsdflursa8.png">{{item.website}}</img></a><br/>
-            <a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_phone_green_zpsg0ow4iju.png"></img>{{item.phone}}</a><br/>
-            <a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_map_marker_zpshudn5ari.png"></img>{{item.address}}</a><br/>
-            <a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_facebook_zpsrqi3xfxz.png"></img>{{item.facebook}}</a><br/>
-            <a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_mail_zpstbow4kws.png"></img>{{item.mail}}</a><br/>
->>>>>>> Giao dien Shop Detail
           </div>
         </div>
       </ion-content>
