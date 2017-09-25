@@ -30,12 +30,13 @@
                 <div class="input-label">
                   {{'shop.item_tabs_cate' | i18n}}
                 </div>
-                <select>
-                  <option selected>{{'shop.item_tabs_cate' | i18n}}</option>
-                  <option>Điện thoại</option>
-                  <option>Đồng hồ</option>
-                  <option>Ví</option>
-                </select>
+                <!--<select>-->
+
+                <!--<option>Điện thoại</option>-->
+                <!--<option>Đồng hồ</option>-->
+                <!--<option>Ví</option>-->
+                <!--</select>-->
+                <category-list thumbnail="false" mode="options"></category-list>
               </label>
             </div>
             <div class="list">
@@ -118,8 +119,8 @@
                         <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                         <span ng-if="item.special != item.mobile_special && item.mobile_special"
                               class="mobile-offer-items">
-            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
-        </span>
+                            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
+                        </span>
                         <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
                               data-percent="{{item.off}}"></span>
                       </div>

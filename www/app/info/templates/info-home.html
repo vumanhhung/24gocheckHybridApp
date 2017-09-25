@@ -26,7 +26,7 @@
           <i class="icon ion-ios-star-outline"></i> <span i18n="info.buttons_account_info"></span>
           </a>
 
-          <ion-toggle class="item item-icon-left" ng-model="info.open_close_shop" ng-checked="info.open_close_shop.value" ng-true-value="'Opened'" ng-false-value="'Closed'" toggle-class="toggle-calm"><i class="icon ion-ios-bell-outline"></i> <span i18n="info.buttons_open_close_shop"></span>
+          <ion-toggle ng-show="user.user_group_id == 1 ? true : false" class="item item-icon-left" ng-model="info.open_close_shop" ng-checked="info.open_close_shop" ng-true-value="'Mở'" ng-false-value="'Đóng'" toggle-class="toggle-calm"><i class="icon ion-ios-bell-outline"></i> <span i18n="info.buttons_open_close_shop"></span>
             <p>{{info.open_close_shop}}</p>
           </ion-toggle>
 
