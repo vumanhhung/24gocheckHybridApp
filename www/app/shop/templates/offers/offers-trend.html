@@ -10,8 +10,8 @@
             <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
           </div>
           <div class="col-67" style="text-align: left; padding: 0 1em; white-space: nowrap;">
-            <h2><!--ng-bind-html="item.shopName"-->{{item.name}}</h2>
-            <p><i class="icon ion-ios-location-outline"></i>{{shop.location}}</p>
+            <h2 style="overflow: hidden; text-overflow: ellipsis;  white-space: nowrap;"><!--ng-bind-html="item.shopName"-->{{item.name}}</h2>
+            <p><i class="icon ion-ios-location-outline"></i>{{item.location}}</p>
             <p>
               <span style="color:#FF4635;">{{item.price}}</span>
               <span class="mobile-offer-item">

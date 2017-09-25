@@ -79,7 +79,6 @@
     </platform>
     <plugin name="cordova-plugin-app-event" spec="^1.2.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.8" />
-    <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-device-orientation" spec="^1.0.3" />
     <plugin name="cordova-plugin-google-analytics" spec="^0.8.1" />

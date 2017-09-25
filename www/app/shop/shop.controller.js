@@ -163,8 +163,6 @@ angular
       }
     }
 
-    sho
-
     ShopService.GetProduct($stateParams.id).then(function (data) {
       $scope.item = {};
 
@@ -455,7 +453,6 @@ angular
         $ionicSlideBoxDelegate.update();
       });
     }
-
     $scope.loadLatest = function (refresh) {
       if ($scope.loadingLatest) {
         return;
@@ -515,7 +512,56 @@ angular
   .module('shop.module')
   .controller('FilterCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
       $scope.filter = 'Xu hướng';
+    $scope.loadLatest = function (refresh) {
+      if ($scope.loadingLatest) {
+        return;
+      }
 
+      $scope.loadingLatest = true;
+      $scope.data.latestItems = $scope.data.latestItems || [];
+
+      ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+        if (refresh) {
+          $scope.data.latestItems = data.products;
+          $scope.data.latestPage = 1;
+        } else {
+          if ($scope.data.latestPage == 1) {
+            $scope.data.latestItems = [];
+          }
+
+          $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
+          $scope.data.latestPage++;
+        }
+        if (data.products && data.products.length < 1)
+          $scope.endOfRLatestItems = true;
+        $scope.loadingLatest = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }, function (data) {
+        $scope.loadingLatest = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    }
+
+    $scope.loadNextRecentPage = function () {
+      if (!$scope.endOfRLatestItems) {
+        $scope.loadLatest();
+      } else {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      }
+    }
+
+    $scope.$on('$ionicView.enter', function () {
+      $ionicSlideBoxDelegate.update();
+    });
+
+    $scope.$on('i2csmobile.shop.refresh', function () {
+      $scope.refreshUI();
+    });
+
+    $scope.loadFeatured();
+    $scope.loadBanners();
   });
 angular
   .module('shop.module')
@@ -665,6 +711,10 @@ angular
   .module('shop.module')
   .controller('OffersTopCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
     // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
+<<<<<<< HEAD
+=======
+    $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
+>>>>>>> fix something
     // $scope.shop = {};
     // $scope.shop.shopName = "Công ty AlVietJS";
     // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";

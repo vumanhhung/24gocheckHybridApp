@@ -1,9 +1,14 @@
 /*@import "./scss/custom.home.css";*/
 @import "custom.menu.css";
+<<<<<<< HEAD
 @import "custom.categories.slide.css";
 @import "custom.segment.css";
 @import "custom.search-bar.css";
 
+=======
+@import "categories.slide.css";
+@import "custom.segment.css";
+>>>>>>> fix something
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
 .item-divider {
@@ -18,14 +23,26 @@
 }
 /*STYLE FOR HEADER*/
 
+<<<<<<< HEAD
 .title.title-center.header-item {
   left:0;
   right:0;
 }
+=======
+>>>>>>> fix something
 
 .header-logo {
   position: relative;
   width: 100%;
+<<<<<<< HEAD
+=======
+}
+
+.header-logo img{
+  height: 25px;
+  width: 110px;
+  margin-top: 10px;
+>>>>>>> fix something
 }
 
 .bar-royal.bar.bar-header .buttons.buttons-right .right-buttons {
@@ -327,9 +344,55 @@ hr {
   padding: 0;
   margin-bottom: -5px;
   background-color: white;
+<<<<<<< HEAD
+=======
 }
 
 
+.recent-items-list.row.grid_mode .item .icon-image{
+  border-radius: 50%;
+  height: 40px;
+  border: solid 1px #4cd964;
+  background: #e8e8e8;
+  float: left;
+  margin-right: 2%;
+  padding: 0;
+}
+
+.detail-item-product{
+  background-color: white;
+  border-radius: 5px;
+}
+
+.recent-items-list.row.grid_mode .item .detail-item-product .icon-image{
+  border-radius: 50%;
+  height: 23px;
+  border: solid 1px #4cd964;
+  float: left;
+  margin-right: 2%;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.recent-items-list.row.grid_mode .item .detail-item-product div{
+  font-size: 90%;
+}
+
+.bar.bar-assertive{
+  background-color: #03c320;
+}
+
+.bar-assertive .button{
+  background-color: #03c320;
+>>>>>>> fix something
+}
+
+.shop-detail-image{
+  width: 20%;
+  border-radius: 10px;
+}
+
+<<<<<<< HEAD
 .recent-items-list.row.grid_mode .item .icon-image{
   border-radius: 50%;
   height: 40px;
@@ -370,4 +433,17 @@ hr {
 .shop-detail-image{
   width: 20%;
   border-radius: 10px;
+=======
+.item-notifi{
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  margin: -1px;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px;
+>>>>>>> fix something
 }

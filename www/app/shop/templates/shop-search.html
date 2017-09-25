@@ -2,6 +2,7 @@
 
   <ion-content has-subheader>
     <item-search></item-search>
+<<<<<<< HEAD
     <div class="mysegment" ng-hide="checking">
 
       <ion-segment class="search-segment" ng-model="categories" full="true" assertive>
@@ -70,32 +71,100 @@
                               style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">
                         <i class="icon ion-ios-heart-outline"> 14</i>
                       </button>
+=======
+
+    <ion-segment ng-model="categories" full="true"  assertive>
+      <ion-segment-button value="nearby">
+        <i class="ion-android-locate"></i>
+        <span>{{'shop.item_tabs_near' | i18n}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="category">
+        <i class="ion-ios-list-outline"></i>
+        <span>{{'shop.item_tabs_cate' | i18n}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="city">
+        <i class="ion-ios-location-outline"></i>
+        <span>{{'shop.item_tabs_city' | i18n}}</span>
+      </ion-segment-button>
+    </ion-segment>
+    <div ng-switch="categories">
+      <ion-list ng-switch-when="nearby">
+        <ion-item>
+          Map
+        </ion-item>
+      </ion-list>
+      <ion-list ng-switch-when="category">
+        <ion-item>
+          <div class="list">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                {{'shop.item_tabs_cate' | i18n}}
+              </div>
+              <select>
+                <option selected>Danh Mục</option>
+                <option>Điện thoại</option>
+                <option>Đồng hồ</option>
+                <option>Ví</option>
+              </select>
+            </label>
+          </div>
+          <div class="list" style="padding: 4%;">
+
+            <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
+              <a class="row" href="#" style="height: 120px;">
+                <div class="col-35">
+                  <img class="full-image" ng-src="{{item.thumb}}"
+                       default-image="app/shop/images/placeholder.png"
+                       fallback-image="app/shop/images/placeholder.png"/>
+                  <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+                </div>
+                <div class="col-67" style="text-align: left; padding: 0 1em;">
+                  <h2 ng-bind-html="item.name"></h2>
+                  <p><i class="icon ion-ios-location-outline"></i> 169 Nguyễn Ngọc Vũ, P.Trung Hòa</p>
+                  <p>
+                    <span style="color:#FF4635;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                    <!-- <span class="mobile-offer-item">
+              <i class="icon ion-iphone"></i>{{::item.mobile_special}}
+            </span> -->
+                  </p>
+                  <p>
+                  <div style="display: block">
+                    <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
+                                   ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
+                            <!--class="col-20 button button-full button-clear item-price-button"-->
+                            <!--style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">-->
+                      <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
+                    <!--</button>-->
+>>>>>>> fix something
                     </div>
                     </p>
                   </div>
-                </a>
+              </a>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+      <ion-list ng-switch-when="city">
+        <ion-item>
+          <div class="list">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                {{'shop.item_tabs_city' | i18n}}
               </div>
-            </div>
-          </ion-item>
-        </ion-list>
-        <ion-list ng-switch-when="city">
-          <ion-item>
-            <div class="list">
-              <label class="item item-input item-select">
-                <div class="input-label">
-                  {{'shop.item_tabs_city' | i18n}}
-                </div>
-                <select>
-                  <option selected>Hà Nội</option>
-                  <option>Đà Nẵng</option>
-                  <option>TP Hồ Chí Minh</option>
-                </select>
-              </label>
-            </div>
-            <div class="list" style="padding: 4%;">
+              <select>
+                <option selected>Địa điểm</option>
+                <option>Hà Nội</option>
+                <option>Đà Nẵng</option>
+                <option>TP Hồ Chí Minh</option>
+              </select>
+            </label>
+          </div>
+          <div class="list" style="padding: 4%;">
 
-              <div ng-repeat="n in [1,2,3,4,5,6]" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
+            <div ng-repeat="n in [1,2,3,4,5,6]" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
 
+<<<<<<< HEAD
                 <a class="row" href="#" style="height: 120px;">
                   <div class="col-35">
                     <img class="full-image"
@@ -112,26 +181,47 @@
                       <span style="color:#FF4635;">1000000000 đ</span>
                       <span class="mobile-offer-item">
               <i class="icon ion-iphone"></i> 111111 đ
+=======
+              <a class="row" href="#" style="height: 120px;">
+                <div class="col-35">
+                  <img class="full-image" ng-src="{{item.thumb}}"
+                       default-image="app/shop/images/placeholder.png"
+                       fallback-image="app/shop/images/placeholder.png"/>
+                  <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+                </div>
+                <div class="col-67" style="text-align: left; padding: 0 1em;">
+                  <h2><!--ng-bind-html="item.shopName"-->Công ty AlVietJS</h2>
+                  <p><i class="icon ion-ios-location-outline"></i> 169 Nguyễn Ngọc Vũ, P.Trung Hòa</p>
+                  <p>
+                    <span style="color:#FF4635;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                    <span class="mobile-offer-item">
+              <i class="icon ion-iphone"></i>{{::item.mobile_special}}
+>>>>>>> fix something
             </span>
-                    </p>
-                    <p>
-                    <div style="display: block">
-                      <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
-                                     ratingsobj="{rating : 5, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-                      <button analytics-click="Wishlist" data-product-name="{{item.name}}"
-                              class="col-20 button button-full button-clear item-price-button"
-                              style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">
-                        <i class="icon ion-ios-heart-outline"> 14</i>
-                      </button>
-                    </div>
-                    </p>
+                  </p>
+                  <p>
+                  <div style="display: block">
+                    <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
+                                   ratingsobj="{rating : 5, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
+                            <!--class="col-20 button button-full button-clear item-price-button"-->
+                            <!--style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">-->
+                      <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
+                    <!--</button>-->
                   </div>
-                </a>
-              </div>
+                  </p>
+                </div>
+              </a>
             </div>
+<<<<<<< HEAD
           </ion-item>
         </ion-list>
       </div>
+=======
+          </div>
+        </ion-item>
+      </ion-list>
+>>>>>>> fix something
     </div>
   </ion-content>
 </ion-view>
