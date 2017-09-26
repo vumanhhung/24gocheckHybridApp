@@ -1,5 +1,5 @@
 {
-    "name": "24GoCheck",
+    "name": "24GoCheck 3.0",
     "version": "1.1.1",
     "description": "ionicUnlock: An Ionic project",
     "devDependencies": {
@@ -10,10 +10,8 @@
     },
     "dependencies": {
         "cordova-android": "^6.2.3",
-        "cordova-ios": "^4.4.0",
         "cordova-plugin-app-event": "^1.2.0",
         "cordova-plugin-app-version": "^0.1.8",
-        "cordova-plugin-console": "^1.1.0",
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-device-orientation": "^1.0.3",
         "cordova-plugin-google-analytics": "^0.8.1",
@@ -47,12 +45,10 @@
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-app-version": {},
             "onesignal-cordova-plugin": {},
-            "cordova-plugin-intercom": {},
-            "cordova-plugin-console": {}
+            "cordova-plugin-intercom": {}
         },
         "platforms": [
-            "android",
-            "ios"
+            "android"
         ]
     },
     "cordovaPlugins": [
@@ -75,11 +71,9 @@
         "cordova-plugin-inappbrowser@1.4.0",
         "cordova-plugin-app-version@0.1.8",
         "onesignal-cordova-plugin@2.0.3",
-        "cordova-plugin-intercom@3.0.11",
-        "cordova-plugin-console"
+        "cordova-plugin-intercom@3.0.11"
     ],
     "cordovaPlatforms": [
-        "android",
-        "ios"
+        "android"
     ]
 }
