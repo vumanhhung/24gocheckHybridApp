@@ -53,15 +53,15 @@ angular
           {
             "link": "http://24gocheck.com/",
             "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/introapp.png"
-          },
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
-          },
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic2.jpg"
           }
+          // {
+          //   "link": "http://24gocheck.com/",
+          //   "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
+          // },
+          // {
+          //   "link": "http://24gocheck.com/",
+          //   "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic2.jpg"
+          // }
         ];
         $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
