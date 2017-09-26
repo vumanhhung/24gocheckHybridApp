@@ -20,7 +20,7 @@
       <div ng-switch="categories">
         <ion-list ng-switch-when="nearby">
           <ion-item>
-            Map
+            
           </ion-item>
         </ion-list>
         <ion-list ng-switch-when="category">
@@ -30,12 +30,6 @@
                 <div class="input-label">
                   {{'shop.item_tabs_cate' | i18n}}
                 </div>
-                <!--<select>-->
-
-                <!--<option>Điện thoại</option>-->
-                <!--<option>Đồng hồ</option>-->
-                <!--<option>Ví</option>-->
-                <!--</select>-->
                 <category-list thumbnail="false" mode="options" selected-category="selectedCategory"></category-list>
               </label>
             </div>
