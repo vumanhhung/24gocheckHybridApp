@@ -25,8 +25,8 @@ angular
     $scope.data = $localStorage.home;
     $scope.data.latestPage = 1;
 
-    // if (!$scope.data.slides)
-    //   $scope.data.slides = [{ image: "app/shop/images/logo.png" }];
+    if (!$scope.data.slides)
+      $scope.data.slides = [{ image: "app/shop/images/logo.png" }];
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;
@@ -44,7 +44,6 @@ angular
         // $scope.data = {};
         // $scope.data.slides = [
         //   {
-        //     "title": "Something",
         //     "link": "http://24gocheck.com/",
         //     "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
         //   }
@@ -63,7 +62,7 @@ angular
           //   "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic2.jpg"
           // }
         ];
-        $scope.data.offers = data.offer_banner;
+        // $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
     }

@@ -125,8 +125,8 @@
   padding-top: 15px;
   padding-bottom: 5px;
   text-align: center;
-  margin-left: 33px;
-  margin-right: 33px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .suggest.promotion {
 }
@@ -177,13 +177,13 @@
 }
 .tab-nav.tabs .icon.ion-plus-round {
   border: 1px solid #03c320;
-  width: 69px;
-  height: 69px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: #03c320;
   color: #e8e8e8;
   position: absolute;
-  bottom: -8px;
+  bottom: 2px;
   left: 0;
   right: 0;
   margin: 0px auto;

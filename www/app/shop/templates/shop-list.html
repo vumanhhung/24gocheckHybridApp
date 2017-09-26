@@ -23,36 +23,37 @@
       <!--</ion-slide>-->
     <!--</ion-slide-box>-->
 
+    <div class="slider-banner">
+      <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
+                     auto-play="true">
+        <ion-slide ng-repeat="slide in data.slides">
+          <a ng-href="{{::slide.link}}">
+            <img preload-image ng-src="{{::slide.image}}" />
+            <!--<img preload-image ng-src="{{::slide.image}}" default-image="app/shop/images/slide.png"-->
+            <!--fallback-image="app/shop/images/slide.png"/>-->
+          </a>
+        </ion-slide>
+      </ion-slide-box>
 
-    <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
-                   auto-play="true">
-      <ion-slide ng-repeat="slide in data.slides">
-        <a ng-href="{{::slide.link}}">
-          <img preload-image ng-src="{{::slide.image}}" />
-          <!--<img preload-image ng-src="{{::slide.image}}" default-image="app/shop/images/slide.png"-->
-               <!--fallback-image="app/shop/images/slide.png"/>-->
-        </a>
-      </ion-slide>
-    </ion-slide-box>
-
-    <div class="suggest">
-      <div class="suggest promotion">
-        <a href="#/app/menu/shop/promotion">
-          <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
-          <span>Khuyến mại</span>
-        </a>
-      </div>
-      <div class="suggest topproduct">
-        <a href="#/app/menu/shop/top">
-          <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png" />
-          <span>Bán chạy</span>
-        </a>
-      </div>
-      <div class="suggest trend">
-        <a href="#/app/menu/shop/trend">
-          <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png" />
-          <span>Xu hướng</span>
-        </a>
+      <div class="suggest">
+        <div class="suggest promotion">
+          <a href="#/app/menu/shop/promotion">
+            <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
+            <span>Khuyến mại</span>
+          </a>
+        </div>
+        <div class="suggest topproduct">
+          <a href="#/app/menu/shop/top">
+            <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png" />
+            <span>Bán chạy</span>
+          </a>
+        </div>
+        <div class="suggest trend">
+          <a href="#/app/menu/shop/trend">
+            <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png" />
+            <span>Xu hướng</span>
+          </a>
+        </div>
       </div>
     </div>
 
