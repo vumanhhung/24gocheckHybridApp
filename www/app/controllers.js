@@ -214,28 +214,30 @@ angular.module('starter')
       });
     }
 
-    $rootScope.showRegisterPopup = function () {
-      $ionicPopup.alert({
-        title: locale.getString('modals.not_signup_modal_title'),
-        templateUrl: 'templates/popups/not-signup-modal.html',
-        buttons: [{
-          text: locale.getString('modals.button_log_in'),
-          type: 'button-positive',
-          onTap: function (e) {
-            $rootScope.openLoginModal();
-          }
-        }, {
-          text: locale.getString('modals.button_register'),
-          type: 'button-balanced',
-          onTap: function (e) {
-            $rootScope.openRegisterModal();
-          }
-        }, {
-          text: locale.getString('modals.button_no'),
-          type: 'button-default'
-        }]
-      });
-    }
+
+    //POP UP DISABLE================================================
+    // $rootScope.showRegisterPopup = function () {
+    //   $ionicPopup.alert({
+    //     title: locale.getString('modals.not_signup_modal_title'),
+    //     templateUrl: 'templates/popups/not-signup-modal.html',
+    //     buttons: [{
+    //       text: locale.getString('modals.button_log_in'),
+    //       type: 'button-positive',
+    //       onTap: function (e) {
+    //         $rootScope.openLoginModal();
+    //       }
+    //     }, {
+    //       text: locale.getString('modals.button_register'),
+    //       type: 'button-balanced',
+    //       onTap: function (e) {
+    //         $rootScope.openRegisterModal();
+    //       }
+    //     }, {
+    //       text: locale.getString('modals.button_no'),
+    //       type: 'button-default'
+    //     }]
+    //   });
+    // }
 
     $rootScope.hideLoading = function () {
       $ionicLoading.hide();
