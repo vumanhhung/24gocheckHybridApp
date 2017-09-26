@@ -419,7 +419,7 @@ hr {
   border-radius: 10px;
 }
 
-.item-notifi{
+.item-notifi {
   border-color: #ddd;
   background-color: #fff;
   color: #444;
@@ -430,4 +430,8 @@ hr {
   border-width: 1px;
   border-style: solid;
   font-size: 16px;
+}
+
+ion-infinite-scroll{
+  height: 0px;
 }
