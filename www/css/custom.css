@@ -291,8 +291,8 @@ hr {
 
 .button-details-product{
   width: 100%;
-  font-size: 13px;
-  border-radius: 5%;
+  font-size: 14px;
+  border-radius: 5px;
   min-height: 35px;
   border-color: transparent;
   background-color: #f8f8f8;
@@ -307,7 +307,7 @@ hr {
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;
-  line-height: 42px;
+  line-height: 30px;
   cursor: pointer;
 }
 
