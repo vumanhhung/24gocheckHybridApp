@@ -96,6 +96,15 @@ angular.module('shop.module')
           }
         }
       })
+      // .state('app.menu.shop.review', {
+      //   url: '/review/:id',
+      //   views: {
+      //     'shopContent': {
+      //       templateUrl: 'app/shop/templates/shop-list.html',
+      //       controller: 'ShopHomeCtrl'
+      //     }
+      //   }
+      // })
   });
 
 /**
