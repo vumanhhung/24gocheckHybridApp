@@ -24,15 +24,6 @@ angular.module('shop.module')
           }
         }
       })
-      .state('app.menu.shop.error', {
-        url: '/error',
-        views: {
-          'shopContent': {
-            templateUrl: 'app/shop/templates/error-function.html',
-            controller: 'ShopHomeCtrl'
-          }
-        }
-      })
       .state('app.menu.shop.item', {
         url: '/item/:id',
         views: {
@@ -96,15 +87,6 @@ angular.module('shop.module')
           }
         }
       })
-      // .state('app.menu.shop.review', {
-      //   url: '/review/:id',
-      //   views: {
-      //     'shopContent': {
-      //       templateUrl: 'app/shop/templates/shop-list.html',
-      //       controller: 'ShopHomeCtrl'
-      //     }
-      //   }
-      // })
   });
 
 /**
