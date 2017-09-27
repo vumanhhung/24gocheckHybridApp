@@ -214,11 +214,17 @@
 
 /*STYLE FOR SLIDE*/
 .home-slider.slider .slider-slide {
-  height: 175px;
+  height: 100%;
+  max-height: 175px;
+  min-height: 100px;
 }
+
 .home-slider .slider-slide img {
-  height: 175px;
+  height: 100%;
+  max-height: 175px;
+  min-height: 100px;
 }
+
 
 .searchTab{
   margin: 0 2%;
@@ -310,7 +316,7 @@ hr {
 
 .button-details-product{
   width: 100%;
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 5px;
   min-height: 35px;
   border-color: transparent;
