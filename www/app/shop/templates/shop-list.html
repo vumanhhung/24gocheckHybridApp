@@ -3,7 +3,7 @@
     <a class="button button-positive" href="#/app/menu/shop/search"><i class="icon ion-ios-search"></i></a>
   </ion-nav-buttons>
 
-  <ion-nav-title class="header-logo" >
+  <ion-nav-title class="header-logo">
     <div class="logo-icon">
       <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/MockUI/24go%20check.png"/>
     </div>
@@ -16,11 +16,11 @@
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
     <!--<ion-slide-box show-pager="false" class="home-slider" does-continue="true" auto-play="true">-->
-      <!--<ion-slide ng-repeat="slide in data.offers">-->
-        <!--<a ng-href="{{::slide.link}}">-->
-          <!--<img preload-image ng-src="{{::slide.image}}"/>-->
-        <!--</a>-->
-      <!--</ion-slide>-->
+    <!--<ion-slide ng-repeat="slide in data.offers">-->
+    <!--<a ng-href="{{::slide.link}}">-->
+    <!--<img preload-image ng-src="{{::slide.image}}"/>-->
+    <!--</a>-->
+    <!--</ion-slide>-->
     <!--</ion-slide-box>-->
 
     <div class="slider-banner">
@@ -28,7 +28,7 @@
                      auto-play="true">
         <ion-slide ng-repeat="slide in data.slides">
           <a ng-href="{{::slide.link}}">
-            <img preload-image ng-src="{{::slide.image}}" />
+            <img preload-image ng-src="{{::slide.image}}"/>
             <!--<img preload-image ng-src="{{::slide.image}}" default-image="app/shop/images/slide.png"-->
             <!--fallback-image="app/shop/images/slide.png"/>-->
           </a>
@@ -38,19 +38,25 @@
       <div class="suggest">
         <div class="suggest promotion">
           <a href="#/app/menu/shop/promotion">
-            <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
+            <div class="item-promition">
+              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
+            </div>
             <span>Khuyến mại</span>
           </a>
         </div>
         <div class="suggest topproduct">
           <a href="#/app/menu/shop/top">
-            <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png" />
+            <div class="item-topproduct">
+              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png"/>
+            </div>
             <span>Bán chạy</span>
           </a>
         </div>
         <div class="suggest trend">
           <a href="#/app/menu/shop/trend">
-            <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png" />
+            <div class="item-trend">
+              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png"/>
+            </div>
             <span>Xu hướng</span>
           </a>
         </div>
