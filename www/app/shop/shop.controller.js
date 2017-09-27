@@ -305,13 +305,13 @@ angular
           ]
         });
 
-        CartService.AddToCart($stateParams.id, $scope.cart.quantity, $scope.cart.options).then(function (data) {
-          $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
-          $rootScope.cartItemCount += parseInt($scope.cart.quantity);
-        }, function (error) {
-          alertPopup.close();
-          alert("Error");
-        });
+        // CartService.AddToCart($stateParams.id, $scope.cart.quantity, $scope.cart.options).then(function (data) {
+        //   $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
+        //   $rootScope.cartItemCount += parseInt($scope.cart.quantity);
+        // }, function (error) {
+        //   alertPopup.close();
+        //   alert("Error");
+        // });
       }
     }
 

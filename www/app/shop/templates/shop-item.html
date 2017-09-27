@@ -41,9 +41,9 @@
           </div>
         </div>
 
-        <div style="display: inline-flex; width: 100%; margin-top: 10px;">
+        <div style="display: inline-flex; width: 100%; margin-top: 10px;"  ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
           <div class="buttons-detail">
-            <button style="background-color: #FA3E16; color: whitesmoke;"
+            <button disabled="true" style="background-color: #FA3E16; color: whitesmoke;"
                     class="button-details-product icon ion-ios-cart"
                     ng-click="addToCart()" i18n="shop.item_button_add_to_cart"></button>
           </div>
@@ -67,14 +67,14 @@
           <!--</div>-->
         </div>
         <div id="map"></div>
-        <p class="product-description" ng-bind-html="item.description"></p>
-        <!--<div>-->
-        <!--<a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_website_zpsdflursa8.png"></img></a><br/>-->
-        <!--<a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_phone_green_zpsg0ow4iju.png"></img></a><br/>-->
-        <!--<a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_map_marker_zpshudn5ari.png"></img></a><br/>-->
-        <!--<a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_facebook_zpsrqi3xfxz.png"></img></a><br/>-->
-        <!--<a><img class="img-icon" src="http://i956.photobucket.com/albums/ae49/monki3010/ic_mail_zpstbow4kws.png"></img></a><br/>-->
-        <!--</div>-->
+        <p style="font-size: 14px; padding-left: 10px;" ng-bind-html="item.description"></p>
+        <div style="padding-left: 10px;">
+        <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/world_icon.png"></img>{{item.website}}</a><br/>
+        <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> 024 39 192 192</a><br/>
+        <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.address}}</a><br/>
+        <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"></img>{{item.facebook}}</a><br/>
+        <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"></img>{{item.mail}}</a><br/>
+        </div>
       </ion-content>
     </ion-nav-view>
   </ion-pane>
