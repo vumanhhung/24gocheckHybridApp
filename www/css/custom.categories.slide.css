@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 140px;
+  height: 120px;
 }
 
 #iconSlide li a span {
@@ -16,12 +16,11 @@
   color: #ffffff;
   font-size: 13px;
   position: relative;
-  bottom: -21px;
+  bottom: -16px;
   margin: 0 auto;
 
 }
 #iconSlide li a .cat-name {
-  height: 60px;
   width: 80px;
   margin: 0 auto;
 }
@@ -32,8 +31,8 @@
   background: #f7f7f7;
 }
 #iconSlide img {
-  height: 60px;
-  width: 145px;
+  height: 50px;
+  width: 120px;
   border-radius: 7%;
   padding-left: 5px;
   padding-right:5px;
@@ -42,14 +41,14 @@
 
 .parent-background {
   background-size: cover;
-  height: 60px;
-  width: 145px;
+  height: 50px;
+  width: 120px;
   border-radius: 7px;
   margin-left: 3px;
   margin-right: 5px;
 }
 .background-opacity {
-  height: 60px;
+  height: 50px;
   background: #82603c;
   opacity: .8;
   border-radius: 7px;

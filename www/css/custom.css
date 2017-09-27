@@ -118,6 +118,7 @@
   background: #ddd;
   width: 55px;
   height: 55px;
+  margin: 0 auto;
 }
 
 
@@ -125,8 +126,7 @@
   padding-top: 15px;
   padding-bottom: 5px;
   text-align: center;
-  margin-left: 20px;
-  margin-right: 20px;
+
 }
 .suggest.promotion {
 }
@@ -137,6 +137,25 @@
   font-size: 30px;
   padding-top: 13px;
   font-weight:bold;
+}
+
+.item-promition {
+  width: 100px;
+  height: 57px;
+  border-right: 1px solid #d0d0d0;
+  border-style: ridge;
+}
+
+.item-topproduct {
+  width: 100px;
+  height: 57px;
+  border-right: 1px solid #d0d0d0;
+  border-style: ridge;
+}
+
+.item-trend {
+  width: 100px;
+  height: 57px;
 }
 
 /*CONTENT ITEM*/
