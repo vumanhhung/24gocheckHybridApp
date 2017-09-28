@@ -6,6 +6,26 @@
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
 
+/*.ion-ios-star:before {*/
+  /*!*content: none;*!*/
+  /*background-repeat: no-repeat;*/
+  /*background-image: url('http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/star-gold-100x100.png');*/
+/*}*/
+
+/*.ion-ios-star-outline:before {*/
+  /*!*content: none;*!*/
+  /*background-repeat: no-repeat;*/
+  /*background-image: url('http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/star-white-100x100.png');*/
+/*}*/
+
+.icon-star-white {
+  background-repeat: no-repeat;
+  background-image: url('http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/star-white-100x100.png');
+}
+.icon-star-yellow {
+  background-repeat: no-repeat;
+  background-image: url('http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/star-gold-100x100.png');
+}
 .ion-ios-compose-outline {
   display: none;
 }
@@ -17,6 +37,17 @@
 }
 
 .button.button-positive {
+  background-color: #03c320;
+}
+
+.bar-positive .button.activated {
+  background-color: #03c320;
+}
+.button.activated {
+  background-color: #03c320;
+}
+.bar-assertive .button.activated {
+  border-color: #03c320;
   background-color: #03c320;
 }
 
