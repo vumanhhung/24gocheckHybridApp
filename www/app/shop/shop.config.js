@@ -33,6 +33,14 @@ angular.module('shop.module')
           }
         }
       })
+      .state('app.menu.shop.review', {
+        url: '/review/:id',
+        views: {
+          'tab-review': {
+            templateUrl: 'app/shop/widgets/item-rating/review-nav.html'
+          }
+        }
+      })
       .state('app.menu.shop.search', {
         url: '/search',
         views: {
@@ -69,15 +77,15 @@ angular.module('shop.module')
           }
         }
       })
-      .state('app.menu.shop.shopdetail', {
-        url: '/shopdetail',
-        views: {
-          'shopContent': {
-            templateUrl: 'app/shop/templates/shop-detail.html',
-            controller: 'ShopDetailCtrl'
-          }
-        }
-      })
+      // .state('app.menu.shop.shopdetail', {
+      //   url: '/shopdetail',
+      //   views: {
+      //     'shopContent': {
+      //       templateUrl: 'app/shop/templates/shop-detail.html',
+      //       controller: 'ShopDetailCtrl'
+      //     }
+      //   }
+      // })
       .state('app.menu.shop.category', {
         url: '/category/:id',
         views: {
