@@ -20,6 +20,17 @@
   background-color: #03c320;
 }
 
+.bar-positive .button.activated {
+  background-color: #03c320;
+}
+.button.activated {
+  background-color: #03c320;
+}
+.bar-assertive .button.activated {
+  border-color: #03c320;
+  background-color: #03c320;
+}
+
 
 .item-divider {
   border-top: 5px solid #cfced3;
