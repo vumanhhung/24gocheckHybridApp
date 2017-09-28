@@ -15,15 +15,17 @@
           </ion-slide-box>
         </div>
         <div class="detail-content">
-          <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
-            <h2 ng-bind-html="item.name"></h2></a>
-          <p>
+          <div style="border-bottom: solid 1px #a9a6a6;" >
+            <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
+              <h2 ng-bind-html="item.name"></h2></a>
+            <p>
             <span style="color:#f28a53; font-size: 18px"
                   ng-class="{'has-special' : item.special}">{{::item.price}}</span>
-            <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
+              <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
-          </p>
-          <hr/>
+            </p>
+          </div>
+
           <div style="border-top: 9px;">
             <img class="icon-image"
                  src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
