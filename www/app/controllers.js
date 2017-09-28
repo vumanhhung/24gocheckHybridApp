@@ -128,13 +128,13 @@ angular.module('starter')
     }
 
     // login prompt
-    $timeout(function () {
-
-      if (!$rootScope.noLoginSignupPopup && !$rootScope.userLoggedIn()) {
-        $rootScope.noLoginSignupPopup = true;
-        $rootScope.showRegisterPopup();
-      }
-    }, 10000);
+    // $timeout(function () {
+    //
+    //   if (!$rootScope.noLoginSignupPopup && !$rootScope.userLoggedIn()) {
+    //     $rootScope.noLoginSignupPopup = true;
+    //     $rootScope.showRegisterPopup();
+    //   }
+    // }, 10000);
 
     $rootScope.$on("$cordovaNetwork:offline", function () {
       if (window.Connection) {
