@@ -264,6 +264,9 @@
   bottom:12px !important;
 }
 
+.cart-item-total {
+  /*color: #ff5c00;*/
+}
 .slider-pager {
   position: absolute !important;
   bottom: 12px !important;
