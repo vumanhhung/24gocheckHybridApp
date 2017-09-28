@@ -1,4 +1,6 @@
 ﻿<ion-view>
+  <ion-content>
+
   <div class="padding text-center">
     <ionic-ratings ng-if="item.review_guest" ratingsobj="ratingsSettings" class="rating-big"></ionic-ratings>
   </div>
@@ -35,5 +37,6 @@
   <div class="padding text-center">
     <div ng-if="reviews.length == 0" ng-bind="text_no_reviews"></div>
   </div>
+  </ion-content>
 </ion-view>
 

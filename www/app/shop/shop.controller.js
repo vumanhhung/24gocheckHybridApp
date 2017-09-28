@@ -51,18 +51,18 @@ angular
         $scope.data.slides = [
           {
             "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/introapp.png"
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
+          },
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
+          },
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
           }
-          // {
-          //   "link": "http://24gocheck.com/",
-          //   "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
-          // },
-          // {
-          //   "link": "http://24gocheck.com/",
-          //   "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic2.jpg"
-          // }
         ];
-        // $scope.data.offers = data.offer_banner;
+        $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
     }
@@ -305,13 +305,13 @@ angular
           ]
         });
 
-        // CartService.AddToCart($stateParams.id, $scope.cart.quantity, $scope.cart.options).then(function (data) {
-        //   $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
-        //   $rootScope.cartItemCount += parseInt($scope.cart.quantity);
-        // }, function (error) {
-        //   alertPopup.close();
-        //   alert("Error");
-        // });
+        CartService.AddToCart($stateParams.id, $scope.cart.quantity, $scope.cart.options).then(function (data) {
+          $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
+          $rootScope.cartItemCount += parseInt($scope.cart.quantity);
+        }, function (error) {
+          alertPopup.close();
+          alert("Error");
+        });
       }
     }
 

@@ -5,6 +5,22 @@
 @import "custom.search-bar.css";
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
+
+.ion-ios-compose-outline {
+  display: none;
+}
+.bar.bar-positive {
+  background-color: #03c320;
+}
+.bar-positive .button {
+  background-color: #03c320;
+}
+
+.button.button-positive {
+  background-color: #03c320;
+}
+
+
 .item-divider {
   border-top: 5px solid #cfced3;
 }
@@ -76,7 +92,7 @@
   width: 110px;
 }
 .item.item-divider.newproduct {
-  border-top: 7px solid #d0d0d0;
+  border-top: 2px solid #d0d0d0;
   font-weight: 400;
   font-size: 17px;
   background: #f7f7f7;
@@ -106,18 +122,16 @@
 .suggest {
   display: flex;
   justify-content: center;
-  height: 104px;
-  /*background: #f7f7f7;*/
-  border-bottom: 7px solid #d0d0d0;
-
+  height: 73px;
+  border-bottom: 2px solid #d0d0d0;
 }
 
 .suggest img{
   display: block;
   border-radius: 50%;
   background: #ddd;
-  width: 55px;
-  height: 55px;
+  width: 30px;
+  height: 30px;
   margin: 0 auto;
 }
 
@@ -141,21 +155,21 @@
 
 .item-promition {
   width: 100px;
-  height: 57px;
+  height: 30px;
   border-right: 1px solid #d0d0d0;
   border-style: ridge;
 }
 
 .item-topproduct {
   width: 100px;
-  height: 57px;
+  height: 30px;
   border-right: 1px solid #d0d0d0;
   border-style: ridge;
 }
 
 .item-trend {
   width: 100px;
-  height: 57px;
+  height: 30px;
 }
 
 /*CONTENT ITEM*/
