@@ -16,8 +16,8 @@
 			<div ng-if="coupons_enabled">
 				<div class="item item-divider" i18n="cart.enter_coupon_title" ng-if="!couponAdded"></div>
 				<div class="item item-divider" i18n="cart.added_coupon_text" ng-if="couponAdded"></div>
-				<div class="item item-input">
-					<input type="text" data-i18n-attr="{placeholder: 'cart.enter_coupon_label'}" name="coupon" ng-model="coupon" required>
+				<div class="item item-input" style="padding: 0 0 0 10px;">
+					<input  type="text" data-i18n-attr="{placeholder: 'cart.enter_coupon_label'}" name="coupon" ng-model="coupon" required>
 					<a class="button button-positive" ng-click="submitCoupon(coupon)" i18n="cart.enter_coupon_button"></a>
 				</div>
 			</div>
