@@ -253,7 +253,7 @@ angular
         $rootScope.loadInvoice = function () {
             if ($scope.forms.checkoutForm && $scope.forms.checkoutForm.$invalid) {
                 $ionicPopup.alert({
-                    title: 'Oops! Please fill following fields',
+                    title: locale.getString('cart.fill_following_fields'),
                     cssClass: 'desc-popup',
                     scope: $scope,
                     templateUrl: 'app/cart/templates/popups/missing-step2.html'
@@ -275,7 +275,7 @@ angular
                 $scope.loadPaymentMethods();
                 $scope.loadCart(true);
             }, function (data) {
-                alert("Error while saving shipping method");
+                alert(locale.getString('cart.error_saving_shipping_methods'));
                 $ionicLoading.hide();
             });
         }
@@ -288,7 +288,7 @@ angular
             CartService.SavePaymentMethod($rootScope.paymentAndShipping).then(function (data) {
                 $ionicLoading.hide();
             }, function (data) {
-                alert("Error while saving payment method");
+                alert(locale.getString('cart.error_saving_payment_method'));
                 $ionicLoading.hide();
             });
         }
@@ -302,7 +302,7 @@ angular
                 $ionicLoading.hide();
                 $scope.zones = data.zones;
             }, function (data) {
-                alert("Error while loading zones");
+                alert(locale.getString('cart.error_loading_zones'));
                 $ionicLoading.hide();
             });
         }
@@ -311,7 +311,7 @@ angular
         $rootScope.confirmOrder = function () {
             if ($scope.forms.checkoutForm && $scope.forms.checkoutForm.$invalid) {
                 $ionicPopup.alert({
-                    title: 'Oops! Please fill following fields',
+                    title: locale.getString('cart.fill_following_fields'),
                     cssClass: 'desc-popup',
                     scope: $scope,
                     templateUrl: 'app/cart/templates/popups/missing-step2.html'
