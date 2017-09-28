@@ -25,7 +25,7 @@
           <div class="list">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
-              <a class="row" href="#" style="height: 120px; width: 100%">
+              <a class="row" href="#/app/menu/info/item/{{::item.product_id}}" style="height: 120px; width: 100%">
                 <div class="col-35">
                   <img preload-image class="full-image" ng-src="{{item.thumb}}"
                        default-image="app/shop/images/placeholder.png"
@@ -72,7 +72,7 @@
           <div class="list">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
-              <a class="row" href="#" style="height: 120px; width: 100%">
+              <a class="row" href="#/app/menu/info/item/{{::item.product_id}}" style="height: 120px; width: 100%">
                 <div class="col-35">
                   <img preload-image class="full-image" ng-src="{{item.thumb}}"
                        default-image="app/shop/images/placeholder.png"

@@ -1,7 +1,14 @@
 <ion-view view-title="{{item.name}}">
   <ion-nav-buttons side="right" ng-click="">
-    <a class="button button-positive"><i class="icon ion-ios-heart-outline"></i></a>
+    <a ng-click="addToWishlist(item.product_id)" analytics-click="Wishlist" data-product-name="{{item.name}}" class="button button-positive"><i class="icon ion-ios-heart-outline"></i></a>
+
+
+    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">-->
+      <!--<i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}-->
+    <!--</button>-->
   </ion-nav-buttons>
+
+
   <ion-pane class="pane has-tabs-top">
     <ion-nav-view>
       <ion-content>
