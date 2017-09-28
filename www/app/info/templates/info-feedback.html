@@ -1,4 +1,4 @@
-<ion-view view-title="{{ 'info.title_info_feedback' | i18n }}">
+  <ion-view view-title="{{ 'info.title_info_feedback' | i18n }}">
   <ion-content>
     <div class="list list-inset" ng-if="userLoggedIn()">
       <form name="feedbackForm" ng-submit="postReplyData()">
@@ -20,7 +20,7 @@
         </label>
 
         <div class="text-center">
-          <button type="submit" id="reply_button" class="button button-block button-positive" ng-class="{'button-outline' : replyForm.$invalid}" ng-disabled="replyForm.$invalid" i18n="modals.button_feedback"></button>
+          <button type="submit" id="reply_button" class="button button-block button-positive" ng-class="{'button-outline' : replyForm.$invalid}" ng-disabled="replyForm.$invalid" i18n="info.buttons_feedback"></button>
         </div>
       </form>
     </div>

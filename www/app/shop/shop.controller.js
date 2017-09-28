@@ -26,7 +26,7 @@ angular
     $scope.data.latestPage = 1;
 
     if (!$scope.data.slides)
-      $scope.data.slides = [{ image: "app/shop/images/logo.png" }];
+      $scope.data.slides = [{image: "app/shop/images/logo.png"}];
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;
@@ -246,7 +246,7 @@ angular
       // add to cart and checkout
       if ($scope.shop.shopItemForm.$invalid) {
         $ionicPopup.alert({
-          title: 'Oops! Select following options',
+          title: '',
           templateUrl: "app/shop/templates/popups/missing-props.html",
           scope: $scope,
           buttons: [
@@ -263,7 +263,7 @@ angular
           $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
           $rootScope.cartItemCount += parseInt($scope.cart.quantity);
           $ionicTabsDelegate.select(2);
-          $state.go('app.menu.cart.home', {}, { reload: true });
+          $state.go('app.menu.cart.home', {}, {reload: true});
           $ionicLoading.hide();
         }, function (error) {
           alert("Error. Can't add to the cart");
@@ -289,17 +289,17 @@ angular
 
         // show alert regardless Add to cart confirmation
         var alertPopup = $ionicPopup.alert({
-          title: 'Added to Cart',
+          title: locale.getString('shop.added_to_cart'),
           cssClass: 'desc-popup',
-          template: "Item added to cart. What would you like to do?",
+          template: "{{ 'shop.item_added_to_cart' | i18n}}",
           buttons: [
-            { text: 'Shop more' },
+            {text: locale.getString('shop.show_more')},
             {
-              text: 'Go to cart',
+              text: locale.getString('shop.go_to_cart'),
               type: 'button-positive',
               onTap: function (e) {
                 $ionicTabsDelegate.select(2);
-                $state.go('app.menu.cart.home', {}, { reload: true });
+                $state.go('app.menu.cart.home', {}, {reload: true});
               }
             }
           ]
@@ -310,7 +310,7 @@ angular
           $rootScope.cartItemCount += parseInt($scope.cart.quantity);
         }, function (error) {
           alertPopup.close();
-          alert("Error");
+          alert(locale.getString('shop.error'));
         });
       }
     }
@@ -443,9 +443,115 @@ angular
 angular
   .module('shop.module')
   .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
+    // var vm = this;
+    // $scope.endOfRLatestItems = false;
+    // $scope.loadingLatest = false;
+    //
+    // // sync form input to localstorage
+    // $localStorage.home = $localStorage.home || {};
+    // $scope.data = $localStorage.home;
+    // $scope.data.latestPage = 1;
+    //
+    // if (!$scope.data.slides)
+    //   $scope.data.slides = [{image: "app/shop/images/introcompany.png"}];
+    //
+    // $scope.refreshUI = function () {
+    //   $scope.data.latestPage = 1;
+    //   $scope.endOfRLatestItems = false;
+    //   $scope.loadLatest(true);
+    //   $scope.loadFeatured();
+    //   //$scope.loadCategories();
+    //   $scope.loadBanners();
+    // }
+    //
+    // $scope.loadBanners = function () {
+    //   ShopService.GetBanners().then(function (data) {
+    //     $scope.data.slides = data.main_banners;
+    //     $scope.data.offers = data.offer_banner;
+    //     $ionicSlideBoxDelegate.update();
+    //   });
+    // }
+    //
+    // $scope.loadFeatured = function () {
+    //   ShopService.GetFeaturedProducts().then(function (data) {
+    //     $scope.data.featuredItems = data.products;
+    //     $ionicSlideBoxDelegate.update();
+    //   });
+    // }
+    //
+    // $scope.loadLatest = function (refresh) {
+    //   if ($scope.loadingLatest) {
+    //     return;
+    //   }
+    //
+    //   $scope.loadingLatest = true;
+    //   $scope.data.latestItems = $scope.data.latestItems || [];
+    //
+    //   ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+    //     if (refresh) {
+    //       $scope.data.latestItems = data.products;
+    //       // $scope.tempLatestItems = data.products;
+    //       $scope.data.latestPage = 1;
+    //     } else {
+    //       if ($scope.data.latestPage == 1) {
+    //         $scope.data.latestItems = [];
+    //       }
+    //
+    //       $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
+    //       $scope.data.latestPage++;
+    //     }
+    //     if (data.products && data.products.length < 1)
+    //       $scope.endOfRLatestItems = true;
+    //     $scope.loadingLatest = false;
+    //     $scope.$broadcast('scroll.infiniteScrollComplete');
+    //     $scope.$broadcast('scroll.refreshComplete');
+    //   }, function (data) {
+    //     $scope.loadingLatest = false;
+    //     $scope.$broadcast('scroll.infiniteScrollComplete');
+    //     $scope.$broadcast('scroll.refreshComplete');
+    //   });
+    // }
+    //
+    // $scope.loadNextRecentPage = function () {
+    //   if (!$scope.endOfRLatestItems) {
+    //     $scope.loadLatest();
+    //   } else {
+    //     $scope.$broadcast('scroll.infiniteScrollComplete');
+    //   }
+    // }
+    //
+    // $scope.$on('$ionicView.enter', function () {
+    //   $ionicSlideBoxDelegate.update();
+    // });
+    //
+    // $scope.$on('i2csmobile.shop.refresh', function () {
+    //   $scope.refreshUI();
+    // });
+    //
+    // // $scope.countryChanged = function (country_id){
+    // //   if (country_id == 230){
+    // //     $scope.data.latestItems = $scope.tempLatestItems;
+    // //   } else {
+    // //     // $scope.tempLatestItems = $scope.data.latestItems;
+    // //     $scope.data.latestItems = [];
+    // //   }
+    // // }
+    //
+    //
+    // $scope.loadFeatured();
+    // $scope.loadBanners();
+    //
+    //
+    //
+    //
+    //
+
+
+
+    //=================================================================================================================
     $scope.selectedCat = "1";
     $scope.page = 1;
-    $scope.cates=[];
+    $scope.cates = [];
     $scope.endOfItems = true;
     $scope.loadingItems = false;
     $scope.items = [];
@@ -465,22 +571,27 @@ angular
     // alert("From Shika" +ShopService.GetCategories());
     //==================================================================================================================
 
-  $scope.changeCategory = function (selectedCat) {
-    ShopService.SearchProductsByCategoryId(selectedCat).then(function (data) {
-      $scope.items = data.products;
-      // $scope.page++;
-      // if (data.products.length < 1)
-      //   $scope.endOfItems = true;
-      // else
-      //   $scope.endOfItems = false;
-      // $scope.loadingItems = false;
-      // $scope.$broadcast('scroll.infiniteScrollComplete');
+    $scope.changeCategory = function (selectedCat) {
+      ShopService.SearchProductsByCategoryId(selectedCat).then(function (data) {
+        $scope.items = data.products;
+        // $scope.page++;
+        // if (data.products.length < 1)
+        //   $scope.endOfItems = true;
+        // else
+        //   $scope.endOfItems = false;
+        // $scope.loadingItems = false;
+        // $scope.$broadcast('scroll.infiniteScrollComplete');
 
-    }, function (data) {
-      // $scope.loadingItems = false;
-      // $scope.$broadcast('scroll.infiniteScrollComplete');
-    });
-  }
+      }, function (data) {
+        // $scope.loadingItems = false;
+        // $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
+
+      //=============================================================================================================\
+
+
+
+    }
 
 
   });
@@ -488,159 +599,13 @@ angular
 angular
   .module('shop.module')
   .controller('FilterCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
-      $scope.filter = 'Xu hướng';
+    $scope.filter = 'Xu hướng';
 
   });
-
-angular
-.module('shop.module')
-.controller('ShopPromotionCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
-
-  var vm = this;
-  $scope.endOfRLatestItems = false;
-  $scope.loadingLatest = false;
-
-  // sync form input to localstorage
-  $localStorage.home = $localStorage.home || {};
-  $scope.data = $localStorage.home;
-  $scope.data.latestPage = 1;
-
-  if (!$scope.data.slides)
-    $scope.data.slides = [{ image: "app/shop/images/introcompany.png" }];
-
-  $scope.refreshUI = function () {
-    $scope.data.latestPage = 1;
-    $scope.endOfRLatestItems = false;
-    $scope.loadLatest(true);
-    $scope.loadFeatured();
-    //$scope.loadCategories();
-    $scope.loadBanners();
-  }
-
-  $scope.loadBanners = function () {
-    ShopService.GetBanners().then(function (data) {
-      $scope.data.slides = data.main_banners;
-      $scope.data.offers = data.offer_banner;
-      $ionicSlideBoxDelegate.update();
-    });
-  }
-
-  $scope.loadFeatured = function () {
-    ShopService.GetFeaturedProducts().then(function (data) {
-      $scope.data.featuredItems = data.products;
-      $ionicSlideBoxDelegate.update();
-    });
-  }
-
-  $scope.loadLatest = function (refresh) {
-    if ($scope.loadingLatest) {
-      return;
-    }
-
-    $scope.loadingLatest = true;
-    $scope.data.latestItems = $scope.data.latestItems || [];
-
-    ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
-      if (refresh) {
-        $scope.data.latestItems = data.products;
-        $scope.data.latestPage = 1;
-      } else {
-        if ($scope.data.latestPage == 1) {
-          $scope.data.latestItems = [];
-        }
-
-        $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
-        $scope.data.latestPage++;
-      }
-      if (data.products && data.products.length < 1)
-        $scope.endOfRLatestItems = true;
-      $scope.loadingLatest = false;
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-      $scope.$broadcast('scroll.refreshComplete');
-    }, function (data) {
-      $scope.loadingLatest = false;
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-      $scope.$broadcast('scroll.refreshComplete');
-    });
-  }
-
-  $scope.loadNextRecentPage = function () {
-    if (!$scope.endOfRLatestItems) {
-      $scope.loadLatest();
-    } else {
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-    }
-  }
-
-  $scope.$on('$ionicView.enter', function () {
-    $ionicSlideBoxDelegate.update();
-  });
-
-  $scope.$on('i2csmobile.shop.refresh', function () {
-    $scope.refreshUI();
-  });
-
-  $scope.loadFeatured();
-  $scope.loadBanners();
-
-
-
-
-  // ShopService.GetProduct($stateParams.id).then(function (data) {
-  //   $scope.item = {};
-  //
-  //   $scope.item.name = data.heading_title;
-  //   $scope.item.product_id = data.product_id;
-  //   $scope.item.text_stock = data.text_stock;
-  //   $scope.item.text_model = data.text_model;
-  //   $scope.item.attribure_groups = data.attribute_groups;
-  //
-  //   $scope.item.price = data.price;
-  //   $scope.item.special = data.special;
-  //   $scope.item.description = data.description;
-  //   $scope.item.off = data.off;
-  //   $scope.item.mobile_special = data.mobile_special;
-  //   $scope.item.stock = data.stock;
-  //   $scope.item.model = data.model;
-  //   $scope.item.options = data.options;
-  //   $scope.item.minimum = data.minimum || 1;
-  //
-  //   $scope.item.review_status = data.review_status;
-  //   $scope.item.review_guest = data.review_guest;
-  //   $scope.item.reviews = data.reviews;
-  //   $scope.item.rating = data.rating;
-  //   $scope.item.entry_name = data.entry_name;
-  //   $scope.item.entry_review = data.entry_review;
-  //
-  //   $scope.item.related = data.products;
-  //
-  //   $scope.item.images = data.images;
-  //
-  //   if (!$scope.item_cache.items)
-  //     $scope.item_cache.items = {};
-  //   $scope.item_cache.items[$stateParams.id] = $scope.item;
-  //
-  //   $ionicSlideBoxDelegate.update();
-  //   $timeout(function () {
-  //     $ionicLoading.hide();
-  //   }, 500);
-  // });
-
-});
-
 
 angular
   .module('shop.module')
-  .controller('OffersTopCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
-    // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
-    // $scope.shop = {};
-    // $scope.shop.shopName = "Công ty AlVietJS";
-    // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";
-    // $scope.shop.price = "1000000000 đ";
-    // $scope.shop.phone = "123456";
-    // $scope.shop.rating = 3;
-    // $scope.shop.likes = "85";
-
+  .controller('ShopPromotionCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
 
     var vm = this;
     $scope.endOfRLatestItems = false;
@@ -652,7 +617,7 @@ angular
     $scope.data.latestPage = 1;
 
     if (!$scope.data.slides)
-      $scope.data.slides = [{ image: "app/shop/images/introcompany.png" }];
+      $scope.data.slides = [{image: "app/shop/images/introcompany.png"}];
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;
@@ -730,16 +695,53 @@ angular
     $scope.loadBanners();
 
 
+    // ShopService.GetProduct($stateParams.id).then(function (data) {
+    //   $scope.item = {};
+    //
+    //   $scope.item.name = data.heading_title;
+    //   $scope.item.product_id = data.product_id;
+    //   $scope.item.text_stock = data.text_stock;
+    //   $scope.item.text_model = data.text_model;
+    //   $scope.item.attribure_groups = data.attribute_groups;
+    //
+    //   $scope.item.price = data.price;
+    //   $scope.item.special = data.special;
+    //   $scope.item.description = data.description;
+    //   $scope.item.off = data.off;
+    //   $scope.item.mobile_special = data.mobile_special;
+    //   $scope.item.stock = data.stock;
+    //   $scope.item.model = data.model;
+    //   $scope.item.options = data.options;
+    //   $scope.item.minimum = data.minimum || 1;
+    //
+    //   $scope.item.review_status = data.review_status;
+    //   $scope.item.review_guest = data.review_guest;
+    //   $scope.item.reviews = data.reviews;
+    //   $scope.item.rating = data.rating;
+    //   $scope.item.entry_name = data.entry_name;
+    //   $scope.item.entry_review = data.entry_review;
+    //
+    //   $scope.item.related = data.products;
+    //
+    //   $scope.item.images = data.images;
+    //
+    //   if (!$scope.item_cache.items)
+    //     $scope.item_cache.items = {};
+    //   $scope.item_cache.items[$stateParams.id] = $scope.item;
+    //
+    //   $ionicSlideBoxDelegate.update();
+    //   $timeout(function () {
+    //     $ionicLoading.hide();
+    //   }, 500);
+    // });
 
   });
 
 
-
 angular
   .module('shop.module')
-  .controller('OffersTrendCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
+  .controller('OffersTopCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
     // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
-    $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
     // $scope.shop = {};
     // $scope.shop.shopName = "Công ty AlVietJS";
     // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";
@@ -759,7 +761,7 @@ angular
     $scope.data.latestPage = 1;
 
     if (!$scope.data.slides)
-      $scope.data.slides = [{ image: "app/shop/images/introcompany.png" }];
+      $scope.data.slides = [{image: "app/shop/images/introcompany.png"}];
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;
@@ -836,6 +838,110 @@ angular
     $scope.loadFeatured();
     $scope.loadBanners();
 
+
+  });
+
+
+angular
+  .module('shop.module')
+  .controller('OffersTrendCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
+    // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
+    $scope.navTitle = '<img class="title-image" src="images/24gocheck.png" />';
+    // $scope.shop = {};
+    // $scope.shop.shopName = "Công ty AlVietJS";
+    // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";
+    // $scope.shop.price = "1000000000 đ";
+    // $scope.shop.phone = "123456";
+    // $scope.shop.rating = 3;
+    // $scope.shop.likes = "85";
+
+
+    var vm = this;
+    $scope.endOfRLatestItems = false;
+    $scope.loadingLatest = false;
+
+    // sync form input to localstorage
+    $localStorage.home = $localStorage.home || {};
+    $scope.data = $localStorage.home;
+    $scope.data.latestPage = 1;
+
+    if (!$scope.data.slides)
+      $scope.data.slides = [{image: "app/shop/images/introcompany.png"}];
+
+    $scope.refreshUI = function () {
+      $scope.data.latestPage = 1;
+      $scope.endOfRLatestItems = false;
+      $scope.loadLatest(true);
+      $scope.loadFeatured();
+      //$scope.loadCategories();
+      $scope.loadBanners();
+    }
+
+    $scope.loadBanners = function () {
+      ShopService.GetBanners().then(function (data) {
+        $scope.data.slides = data.main_banners;
+        $scope.data.offers = data.offer_banner;
+        $ionicSlideBoxDelegate.update();
+      });
+    }
+
+    $scope.loadFeatured = function () {
+      ShopService.GetFeaturedProducts().then(function (data) {
+        $scope.data.featuredItems = data.products;
+        $ionicSlideBoxDelegate.update();
+      });
+    }
+
+    $scope.loadLatest = function (refresh) {
+      if ($scope.loadingLatest) {
+        return;
+      }
+
+      $scope.loadingLatest = true;
+      $scope.data.latestItems = $scope.data.latestItems || [];
+
+      ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+        if (refresh) {
+          $scope.data.latestItems = data.products;
+          $scope.data.latestPage = 1;
+        } else {
+          if ($scope.data.latestPage == 1) {
+            $scope.data.latestItems = [];
+          }
+
+          $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
+          $scope.data.latestPage++;
+        }
+        if (data.products && data.products.length < 1)
+          $scope.endOfRLatestItems = true;
+        $scope.loadingLatest = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }, function (data) {
+        $scope.loadingLatest = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    }
+
+    $scope.loadNextRecentPage = function () {
+      if (!$scope.endOfRLatestItems) {
+        $scope.loadLatest();
+      } else {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      }
+    }
+
+    $scope.$on('$ionicView.enter', function () {
+      $ionicSlideBoxDelegate.update();
+    });
+
+    $scope.$on('i2csmobile.shop.refresh', function () {
+      $scope.refreshUI();
+    });
+
+    $scope.loadFeatured();
+    $scope.loadBanners();
 
 
   });

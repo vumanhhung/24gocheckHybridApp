@@ -56,6 +56,13 @@
   "offer_trend":"Trending",
   "best_sellers": "Best sellers",
   "title_shop_name": "Shop details",
-  "title_category": "Categories"
+  "title_category": "Categories",
+  "added_to_cart": "Added to cart",
+  "item_added_to_cart": "Item added to cart. What would you like to do?",
+  "select_following_options": "Oops! Select following options",
+  "go_to_cart": "Go to cart",
+  "ring_size_guide": "Ring Size Guide",
+  "error": "Error",
+  "show_more": "Show more"
 
 }
