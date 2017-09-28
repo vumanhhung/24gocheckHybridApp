@@ -35,7 +35,7 @@
 
 
               <label class="item item-input item-select">
-                <div class="input-label" i18n="modals.register_country"></div>
+                <div class="input-label" i18n="shop.title_category"></div>
                 <select ng-model="selectedCat" ng-change="changeCategory(selectedCat)">
                   <option ng-repeat="category in cates"
                           ng-selected="selectedCat == category.category_id"
@@ -43,7 +43,7 @@
                   </option>
                 </select>
               </label>
-              <p>Selected Category {{selectedCat}}</p>
+              <!--<p>Selected Category {{selectedCat}}</p>-->
             </div>
             <div class="list">
               <div ng-repeat="item in items" class="item-product"
