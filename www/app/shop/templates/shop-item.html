@@ -1,14 +1,7 @@
 <ion-view view-title="{{item.name}}">
   <ion-nav-buttons side="right" ng-click="">
-    <a ng-click="addToWishlist(item.product_id)" analytics-click="Wishlist" data-product-name="{{item.name}}" class="button button-positive"><i class="icon ion-ios-heart-outline"></i></a>
-
-
-    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">-->
-      <!--<i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}-->
-    <!--</button>-->
+    <a class="button button-positive"><i class="icon ion-ios-heart-outline"></i></a>
   </ion-nav-buttons>
-
-
   <ion-pane class="pane has-tabs-top">
     <ion-nav-view>
       <ion-content>
@@ -26,8 +19,9 @@
           <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
             <h2 ng-bind-html="item.name"></h2></a>
           <p>
-            <span style="color:#ff5c00; font-size: 18px"
-                  ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+            <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0Đ'">{{::item.price}}</span>
+            <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}"
+                  ng-show="item.price == '0Đ'">{{'shop.product_detail_price' | i18n}}</span>
             <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
           </p>
@@ -35,14 +29,26 @@
 
         <div style="border-top: 9px;">
           <img class="icon-image"
-               src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
+               preload-image ng-src="{{item.thumb}}"
                default-image="app/shop/images/placeholder.png"
                fallback-image="app/shop/images/placeholder.png"/>
-          <h4>Cong ty AlvietJS</h4>
+          <h4 ng-bind-html="item.firstname"></h4>
           <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
-                         ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-
+                         ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline',
+                           minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
         </div>
+        <br/>
+        <div style="padding-left: 10px;">
+          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img>
+            {{item.telephone}}</a><br/>
+          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.location}}</a><br/>
+        </div>
+        </div>
+
+        <div style="margin: 10px 10px 0 10px;">
+          <h3>{{'shop.item_description' | i18n}}</h3>
+          <div ng-bind-html="item.description">
+          </div>
         </div>
 
         <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;"
@@ -56,7 +62,7 @@
 
           <a
             style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
-            href="tel: +842439192192" class="button-details-product">
+            href="tel: {{item.telephone}}" class="button-details-product">
             <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
           </a>
 
@@ -76,19 +82,9 @@
           </ion-tab>
 
         </div>
-        <form name="shop.shopItemForm" enctype="multipart/form-data">
-
-        </form>
-        <div id="map"></div>
-        <p style="font-size: 14px; padding-left: 10px;" ng-bind-html="item.description"></p>
-        <div style="padding-left: 10px;">
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/world_icon.png"></img>{{item.website}}</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> 024
-            39 192 192</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.address}}</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"></img>{{item.facebook}}</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"></img>{{item.mail}}</a><br/>
+        <div id="map" data-tap-disabled="true" style="padding: 0 2%; margin-top: 20px; ">
         </div>
+
       </ion-content>
     </ion-nav-view>
   </ion-pane>

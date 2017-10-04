@@ -150,12 +150,49 @@ angular
  */
 angular
   .module('shop.module')
-  .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, locale, ShopService, CartService, WEBSITE) {
+  .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, locale, ShopService, CartService, WEBSITE) {
+    var optionsss = {timeout: 10000, enableHighAccuracy: true};
+
+    $cordovaGeolocation.getCurrentPosition(optionsss).then(function(position){
+
+      var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      var mapOptions = {
+        center: latLng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+
+        var marker = new google.maps.Marker({
+          map: $scope.map,
+          animation: google.maps.Animation.DROP,
+          position: latLng
+        });
+
+        var infoWindow = new google.maps.InfoWindow({
+          content: "Here I am!"
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+          infoWindow.open($scope.map, marker);
+        });
+
+      });
+
+    }, function(error){
+      console.log("Could not get location");
+    });
+
     var vm = this;
     $scope.shop = {};
     $scope.cart = {};
     $scope.cart.quantity = 1;
     $scope.id = $stateParams.id;
+
 
 
     $scope.$on('$ionicView.enter', function () {
@@ -195,6 +232,9 @@ angular
       $scope.item.attribure_groups = data.attribute_groups;
       $scope.item.shop_name = data.shop_name;
       $scope.item.price = data.price;
+      $scope.item.firstname = data.separate_u_name;
+      $scope.item.telephone = data.separate_u_phone;
+      $scope.item.location = data.location;
       $scope.item.special = data.special;
       $scope.item.description = data.description;
       $scope.item.off = data.off;
@@ -246,7 +286,7 @@ angular
       // add to cart and checkout
       if ($scope.shop.shopItemForm.$invalid) {
         $ionicPopup.alert({
-          title: '',
+          title: 'Oops! Select following options',
           templateUrl: "app/shop/templates/popups/missing-props.html",
           scope: $scope,
           buttons: [
@@ -263,7 +303,7 @@ angular
           $rootScope.cartItemCount = $rootScope.cartItemCount || 0;
           $rootScope.cartItemCount += parseInt($scope.cart.quantity);
           $ionicTabsDelegate.select(2);
-          $state.go('app.menu.cart.home', {}, {reload: true});
+          $state.go('app.menu.cart.home', {}, { reload: true });
           $ionicLoading.hide();
         }, function (error) {
           alert("Error. Can't add to the cart");
@@ -289,17 +329,17 @@ angular
 
         // show alert regardless Add to cart confirmation
         var alertPopup = $ionicPopup.alert({
-          title: locale.getString('shop.added_to_cart'),
+          title: 'Added to Cart',
           cssClass: 'desc-popup',
-          template: "{{ 'shop.item_added_to_cart' | i18n}}",
+          template: "Item added to cart. What would you like to do?",
           buttons: [
-            {text: locale.getString('shop.show_more')},
+            { text: 'Shop more' },
             {
-              text: locale.getString('shop.go_to_cart'),
+              text: 'Go to cart',
               type: 'button-positive',
               onTap: function (e) {
                 $ionicTabsDelegate.select(2);
-                $state.go('app.menu.cart.home', {}, {reload: true});
+                $state.go('app.menu.cart.home', {}, { reload: true });
               }
             }
           ]
@@ -310,7 +350,7 @@ angular
           $rootScope.cartItemCount += parseInt($scope.cart.quantity);
         }, function (error) {
           alertPopup.close();
-          alert(locale.getString('shop.error'));
+          alert("Error");
         });
       }
     }
