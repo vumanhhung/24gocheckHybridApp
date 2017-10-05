@@ -56,12 +56,5 @@
   "offer_trend":"Xu Hướng",
   "best_sellers": "Bán chạy",
   "title_shop_name": "Chi tiết cửa hàng",
-  "title_category": "Danh mục",
-  "added_to_cart": "Đã thêm vào giỏ hàng",
-  "item_added_to_cart": "Sản phẩm đã được thêm vào giỏ hàng.",
-  "select_following_options": "Oops! Xin hãy chọn gợi ý sau đây",
-  "go_to_cart": "Tới giỏ hàng",
-  "ring_size_guide": "Ring Size Guide",
-  "error": "Lỗi",
-  "show_more": "Xem thêm"
+  "title_category": "Danh mục"
 }

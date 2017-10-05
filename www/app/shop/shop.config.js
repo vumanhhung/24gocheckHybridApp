@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('shop.module')
-  .config(function config($stateProvider) {
+  .config(function config($stateProvider , ) {
     $stateProvider
       .state('app.menu.shop', {
         url: '/shop',
@@ -77,6 +77,15 @@ angular.module('shop.module')
           }
         }
       })
+      // .state('app.menu.shop.shopdetail', {
+      //   url: '/shopdetail',
+      //   views: {
+      //     'shopContent': {
+      //       templateUrl: 'app/shop/templates/shop-detail.html',
+      //       controller: 'ShopDetailCtrl'
+      //     }
+      //   }
+      // })
       .state('app.menu.shop.category', {
         url: '/category/:id',
         views: {
@@ -86,6 +95,8 @@ angular.module('shop.module')
           }
         }
       })
+	  
+	  
   });
 
 /**
