@@ -43,7 +43,7 @@
 
   "button_remove": "Xóa",
   "button_shopping": "Bắt Đầu Mua Hàng",
-  "button_offers": "GỢI Ý",
+  "button_offers": "OFFERS",
   "button_next": "Tiếp",
   "button_confirm": "Xác nhận",
 
@@ -62,10 +62,7 @@
 
   "error_username_required": "Vui lòng nhập tên tài khoản",
   "error_username_pattern": "Tên tài khoản chỉ bao gồm kí tự hoặc số",
-  "error_realname_required": "Vui lòng nhập tên của bạn",
-  "fill_following_fields": "Oops! Vui lòng điền đầy đủ thông tin",
-  "error_saving_shipping_methods": "Lỗi khi lưu hình thức vận chuyển",
-  "error_saving_payment_method": "Lỗi khi lưu phương thức thanh toán",
-  "error_loading_zones": "Lỗi khi tải khu vực"
+  "error_realname_required": "Vui lòng nhập tên của bạn"
+
 
 }

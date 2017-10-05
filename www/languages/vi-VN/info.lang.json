@@ -36,7 +36,7 @@
   "contact_send_button": "Gửi",
 
   "buttons_open_close_shop": "Mở đóng gian hàng",
-  "buttons_favorite": "Yêu thích",
+  "buttons_favorite": "Thích",
   "buttons_feedback": "Phản hồi",
   "buttons_logout": "Đăng xuất",
   "buttons_account_info": "Thông tin tài khoản",
@@ -45,7 +45,5 @@
   "buttons_transaction_history": "Lịch sử giao dịch",
 
   "title_info_feedback": "Phản hồi",
-  "title_info_favorite": "Yêu thích",
-  "shops": "Cửa hàng",
-  "products": "Sản phẩm"
+  "title_info_favorite": "Thích"
 }

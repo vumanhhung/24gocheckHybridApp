@@ -1,4 +1,4 @@
-<ion-view view-title="{{'info.title_info_favorite' | i18n}}">
+<ion-view view-title="Favorite">
   <!--<ion-tabs class="tabs-top tabs-dark">-->
   <!--<ion-tab title="Shops" icon="" ui-sref="app.menu.info.favorite.favorite-shops">-->
   <!--<ion-nav-view name="shops-tab"></ion-nav-view>-->
@@ -12,20 +12,20 @@
 
     <ion-segment class="favorites-segment" ng-model="categories" full="true" assertive>
       <ion-segment-button value="shopstab">
-        <span i18n="info.shops"></span>
+        <span>Shops</span>
       </ion-segment-button>
       <ion-segment-button value="productstab">
-        <span i18n="info.products"></span>
+        <span>Products</span>
       </ion-segment-button>
     </ion-segment>
 
     <div ng-switch="categories">
       <ion-list ng-switch-when="shopstab">
-        <ion-item style="background-color: #f7f7f7;">
-          <div class="list">
+        <ion-item>
+          <div class="list" style="padding: 4%;">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
-              <a class="row" href="#/app/menu/info/item/{{::item.product_id}}" style="height: 120px; width: 100%">
+              <a class="row" href="#" style="height: 120px; width: 100%">
                 <div class="col-35">
                   <img preload-image class="full-image" ng-src="{{item.thumb}}"
                        default-image="app/shop/images/placeholder.png"
@@ -36,9 +36,9 @@
                 <div style="width: 70%;" class="row detail-item-product">
                   <div style="border-top: 9px;width: 90%; margin:0 10px;">
                     <div  style="border-bottom: solid 1px #a9a6a6;">
-                      <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-                          ng-bind-html="item.name"></span><br/>
-                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                      <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
+                          ng-bind-html="item.name"></h2>
+                      <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                       <span ng-if="item.special != item.mobile_special && item.mobile_special"
                             class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}
@@ -68,11 +68,11 @@
         </ion-item>
       </ion-list>
       <ion-list ng-switch-when="productstab">
-        <ion-item style="background-color: #f7f7f7;">
-          <div class="list">
+        <ion-item>
+          <div class="list" style="padding: 4%;">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
-              <a class="row" href="#/app/menu/info/item/{{::item.product_id}}" style="height: 120px; width: 100%">
+              <a class="row" href="#" style="height: 120px; width: 100%">
                 <div class="col-35">
                   <img preload-image class="full-image" ng-src="{{item.thumb}}"
                        default-image="app/shop/images/placeholder.png"
@@ -83,11 +83,9 @@
                 <div style="width: 70%;" class="row detail-item-product">
                   <div style="border-top: 9px;width: 90%; margin:0 10px;">
                     <div  style="border-bottom: solid 1px #a9a6a6;">
-                      <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-                          ng-bind-html="item.name"></span><br/>
-                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0Đ'">{{::item.price}}</span>
-                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}"
-                            ng-show="item.price == '0Đ'">{{'shop.product_detail_price' | i18n}}</span>
+                      <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
+                          ng-bind-html="item.name"></h2>
+                      <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                       <span ng-if="item.special != item.mobile_special && item.mobile_special"
                             class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}

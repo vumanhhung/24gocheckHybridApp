@@ -34,15 +34,6 @@ angular.module('info.module')
                    }
                }
            })
-          .state('app.menu.info.item', {
-            url: '/item/:id',
-            views: {
-              'infoContent': {
-                templateUrl: 'app/shop/templates/shop-item.html',
-                controller: 'ShopItemCtrl'
-              }
-            }
-          })
            .state('app.menu.info.order', {
                url: '/order/:id',
                views: {
