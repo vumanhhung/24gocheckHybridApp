@@ -1,5 +1,5 @@
 {
-  "featured_title": "Sản phẩm nổi bật",
+  "featured_title": "Sản phẩm mới đăng",
   "latest_title": "Sản phẩm mới nhất",
   "off": "{percent}%",
 
@@ -52,6 +52,9 @@
   "item_add_to_wishlist_button" :  "Thêm vào danh sách",
 
   "offer_promotion":"Khuyến Mại",
-  "offer_top":"Nổi Bật",
-  "offer_trend":"Xu Hướng"
+  "featured":"Nổi Bật",
+  "offer_trend":"Xu Hướng",
+  "best_sellers": "Bán chạy",
+  "title_shop_name": "Chi tiết cửa hàng",
+  "title_category": "Danh mục"
 }

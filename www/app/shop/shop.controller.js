@@ -39,7 +39,29 @@ angular
 
     $scope.loadBanners = function () {
       ShopService.GetBanners().then(function (data) {
-        $scope.data.slides = data.main_banners;
+        // $scope.data.slides = data.main_banners;
+
+        // $scope.data = {};
+        // $scope.data.slides = [
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
+        //   }
+        // ];
+        $scope.data.slides = [
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
+          },
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
+          },
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
+          }
+        ];
         $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
@@ -128,13 +150,51 @@ angular
  */
 angular
   .module('shop.module')
-  .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, locale, ShopService, CartService, WEBSITE) {
+  .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, locale, ShopService, CartService, WEBSITE) {
+   
+    var optionsss = {timeout: 10000, enableHighAccuracy: true};
+ 
+  $cordovaGeolocation.getCurrentPosition(optionsss).then(function(position){
+ 
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
+    var mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+ 
+    $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+ 
+  var marker = new google.maps.Marker({
+      map: $scope.map,
+      animation: google.maps.Animation.DROP,
+      position: latLng
+  });      
+ 
+  var infoWindow = new google.maps.InfoWindow({
+      content: "Here I am!"
+  });
+ 
+  google.maps.event.addListener(marker, 'click', function () {
+      infoWindow.open($scope.map, marker);
+  });
+ 
+});
+ 
+  }, function(error){
+    console.log("Could not get location");
+  });
+
     var vm = this;
     $scope.shop = {};
     $scope.cart = {};
     $scope.cart.quantity = 1;
     $scope.id = $stateParams.id;
 
+     
 
     $scope.$on('$ionicView.enter', function () {
       $timeout(function () {
@@ -173,6 +233,9 @@ angular
       $scope.item.attribure_groups = data.attribute_groups;
       $scope.item.shop_name = data.shop_name;
       $scope.item.price = data.price;
+      $scope.item.firstname = data.separate_u_name;
+      $scope.item.telephone = data.separate_u_phone;
+      $scope.item.location = data.location; 
       $scope.item.special = data.special;
       $scope.item.description = data.description;
       $scope.item.off = data.off;
@@ -190,6 +253,9 @@ angular
       $scope.item.entry_review = data.entry_review;
 
       $scope.item.related = data.products;
+
+
+      $scope.item.thumb = data.thumb;
 
       $scope.item.image = data.image;
 
@@ -417,7 +483,53 @@ angular
  */
 angular
   .module('shop.module')
-  .controller('ShopSearchCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
+  .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
+    $scope.selectedCat = "1";
+    $scope.page = 1;
+    $scope.cates=[];
+    $scope.endOfItems = true;
+    $scope.loadingItems = false;
+    $scope.items = [];
+    ShopService.GetCategories().then(function (data) {
+
+      $scope.cates = data.categories;
+
+
+      $ionicLoading.hide();
+    }, function (data) {
+      $ionicLoading.hide();
+    });
+
+    //==================================================================================================================
+
+    $rootScope.checking = false;
+    // alert("From Shika" +ShopService.GetCategories());
+    //==================================================================================================================
+
+  $scope.changeCategory = function (selectedCat) {
+    ShopService.SearchProductsByCategoryId(selectedCat).then(function (data) {
+      $scope.items = data.products;
+      // $scope.page++;
+      // if (data.products.length < 1)
+      //   $scope.endOfItems = true;
+      // else
+      //   $scope.endOfItems = false;
+      // $scope.loadingItems = false;
+      // $scope.$broadcast('scroll.infiniteScrollComplete');
+
+    }, function (data) {
+      // $scope.loadingItems = false;
+      // $scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+  }
+
+
+  });
+
+angular
+  .module('shop.module')
+  .controller('FilterCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
+      $scope.filter = 'Xu hướng';
 
   });
 
@@ -562,7 +674,6 @@ angular
   .module('shop.module')
   .controller('OffersTopCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
     // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
-    $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
     // $scope.shop = {};
     // $scope.shop.shopName = "Công ty AlVietJS";
     // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";
@@ -769,3 +880,7 @@ angular
 
 
   });
+
+
+
+
