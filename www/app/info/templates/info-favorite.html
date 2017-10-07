@@ -1,4 +1,4 @@
-<ion-view view-title="Favorite">
+<ion-view view-title="{{'info.title_info_favorite' | i18n}}">
   <!--<ion-tabs class="tabs-top tabs-dark">-->
   <!--<ion-tab title="Shops" icon="" ui-sref="app.menu.info.favorite.favorite-shops">-->
   <!--<ion-nav-view name="shops-tab"></ion-nav-view>-->
@@ -12,17 +12,17 @@
 
     <ion-segment class="favorites-segment" ng-model="categories" full="true" assertive>
       <ion-segment-button value="shopstab">
-        <span>Shops</span>
+        <span i18n="info.shops"></span>
       </ion-segment-button>
       <ion-segment-button value="productstab">
-        <span>Products</span>
+        <span i18n="info.products"></span>
       </ion-segment-button>
     </ion-segment>
 
     <div ng-switch="categories">
       <ion-list ng-switch-when="shopstab">
-        <ion-item>
-          <div class="list" style="padding: 4%;">
+        <ion-item style="background-color: #f7f7f7;">
+          <div class="list">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
               <a class="row" href="#" style="height: 120px; width: 100%">
@@ -38,7 +38,7 @@
                     <div  style="border-bottom: solid 1px #a9a6a6;">
                       <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
                           ng-bind-html="item.name"></h2>
-                      <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                       <span ng-if="item.special != item.mobile_special && item.mobile_special"
                             class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}
@@ -68,8 +68,8 @@
         </ion-item>
       </ion-list>
       <ion-list ng-switch-when="productstab">
-        <ion-item>
-          <div class="list" style="padding: 4%;">
+        <ion-item style="background-color: #f7f7f7;">
+          <div class="list">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
               <a class="row" href="#" style="height: 120px; width: 100%">
@@ -85,7 +85,7 @@
                     <div  style="border-bottom: solid 1px #a9a6a6;">
                       <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
                           ng-bind-html="item.name"></h2>
-                      <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                       <span ng-if="item.special != item.mobile_special && item.mobile_special"
                             class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}
