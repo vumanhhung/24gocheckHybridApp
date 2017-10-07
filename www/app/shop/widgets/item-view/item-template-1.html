@@ -20,10 +20,10 @@
   <hr/>
   <div style="border-top: 9px;">
     <img class="icon-image"
-         src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
+         preload-image ng-src="{{item.thumb}}"
          default-image="app/shop/images/placeholder.png"
          fallback-image="app/shop/images/placeholder.png"/>
-    <h4>Cong ty AlvietJS</h4>
+    <div ng-bind-html="item.firstname"></div>
     <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
                    ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
     <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
