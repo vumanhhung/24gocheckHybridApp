@@ -259,6 +259,10 @@ angular
 
       $scope.item.image = data.image;
 
+      $scope.item.images = data.images;
+
+
+
       if (!$scope.item_cache.items)
         $scope.item_cache.items = {};
       $scope.item_cache.items[$stateParams.id] = $scope.item;
