@@ -5,7 +5,7 @@
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
             <ion-slide>
-              <div style="width: 100%;"><img style="width: 80%" preload-image ng-src="{{item.thumb}}"
+              <div style="width: 100%;"><img style="width: 80%" preload-image src="{{item.thumb}}"
                                              default-image="app/shop/images/placeholder.png"
                                              fallback-image="app/shop/images/placeholder.png"/></div>
             </ion-slide>
@@ -25,10 +25,10 @@
 
         <div style="border-top: 9px;">
           <img class="icon-image"
-               preload-image ng-src="{{item.thumb}}"
+               preload-image src="{{item.thumb}}"
                default-image="app/shop/images/placeholder.png"
                fallback-image="app/shop/images/placeholder.png"/>
-          <h4 ng-bind-html="item.firstname"><h4>
+          <h4 ng-bind="item.firstname"></h4>
           <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
                          ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
 
