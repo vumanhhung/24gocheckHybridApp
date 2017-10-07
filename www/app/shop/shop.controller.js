@@ -151,39 +151,39 @@ angular
 angular
   .module('shop.module')
   .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, locale, ShopService, CartService, WEBSITE) {
-   
+
     var optionsss = {timeout: 10000, enableHighAccuracy: true};
- 
+
   $cordovaGeolocation.getCurrentPosition(optionsss).then(function(position){
- 
+
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
+
     var mapOptions = {
       center: latLng,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
- 
+
     $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     google.maps.event.addListenerOnce($scope.map, 'idle', function(){
- 
+
   var marker = new google.maps.Marker({
       map: $scope.map,
       animation: google.maps.Animation.DROP,
       position: latLng
-  });      
- 
+  });
+
   var infoWindow = new google.maps.InfoWindow({
       content: "Here I am!"
   });
- 
+
   google.maps.event.addListener(marker, 'click', function () {
       infoWindow.open($scope.map, marker);
   });
- 
+
 });
- 
+
   }, function(error){
     console.log("Could not get location");
   });
@@ -194,7 +194,7 @@ angular
     $scope.cart.quantity = 1;
     $scope.id = $stateParams.id;
 
-     
+
 
     $scope.$on('$ionicView.enter', function () {
       $timeout(function () {
@@ -235,7 +235,7 @@ angular
       $scope.item.price = data.price;
       $scope.item.firstname = data.separate_u_name;
       $scope.item.telephone = data.separate_u_phone;
-      $scope.item.location = data.location; 
+      $scope.item.location = data.location;
       $scope.item.special = data.special;
       $scope.item.description = data.description;
       $scope.item.off = data.off;
@@ -485,6 +485,7 @@ angular
   .module('shop.module')
   .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
     $scope.selectedCat = "1";
+    $scope.selectedZone = "";
     $scope.page = 1;
     $scope.cates=[];
     $scope.endOfItems = true;
@@ -523,6 +524,23 @@ angular
     });
   }
 
+
+    $scope.changeZone = function (selectedZone) {
+      ShopService.SearchProductsByZoneId(selectedZone).then(function (data) {
+        $scope.items = data.products;
+        // $scope.page++;
+        // if (data.products.length < 1)
+        //   $scope.endOfItems = true;
+        // else
+        //   $scope.endOfItems = false;
+        // $scope.loadingItems = false;
+        // $scope.$broadcast('scroll.infiniteScrollComplete');
+        console.log('Shika is here '+ selectedZone);
+      }, function (data) {
+        // $scope.loadingItems = false;
+        // $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
+    }
 
   });
 

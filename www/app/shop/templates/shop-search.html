@@ -107,7 +107,7 @@
               <label class="item item-input item-select">
                 <div class="input-label" i18n="modals.register_country"></div>
                 <select ng-model="register.country_id" ng-init="search.country_id = '230'" ng-change="countryChanged()"
-                        name="country_id" required>
+                        name="country_id" required disabled>
                   <option value="{{::country.country_id}}" ng-selected="country.country_id == register.country_id"
                           ng-repeat="country in countries">{{::country.name}}
                   </option>
@@ -115,7 +115,7 @@
               </label>
               <label class="item item-input item-select">
                 <div class="input-label" i18n="modals.register_region"></div>
-                <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged()">
+                <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();" ng-change="changeZone(zone_id)" >
                   <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id" ng-repeat="zone in zones">
                     {{::zone.name}}
                   </option>
@@ -125,7 +125,7 @@
 
             </div>
             <div class="list">
-              <div ng-repeat="item in data.latestItems" class="item-product"
+              <div ng-repeat="item in items" class="item-product"
                    style="margin-bottom: 10px; border-radius: 5px; padding: 5px">
                 <a class="row" href="#/app/menu/shop/item/{{::item.product_id}}" style="height: 120px; width: 100%">
                   <div class="col-35">
@@ -143,7 +143,7 @@
                         <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                         <span ng-if="item.special != item.mobile_special && item.mobile_special"
                               class="mobile-offer-items">
-                            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
+            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
                         </span>
                         <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
                               data-percent="{{item.off}}"></span>
