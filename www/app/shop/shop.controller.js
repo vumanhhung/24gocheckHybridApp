@@ -287,7 +287,7 @@ angular
       // add to cart and checkout
       if ($scope.shop.shopItemForm.$invalid) {
         $ionicPopup.alert({
-          title: 'Oops! Select following options',
+          title: locale.getString('shop.select_following_options'),
           templateUrl: "app/shop/templates/popups/missing-props.html",
           scope: $scope,
           buttons: [
@@ -330,13 +330,13 @@ angular
 
         // show alert regardless Add to cart confirmation
         var alertPopup = $ionicPopup.alert({
-          title: 'Added to Cart',
+          title: locale.getString('shop.added_to_cart'),
           cssClass: 'desc-popup',
-          template: "Item added to cart. What would you like to do?",
+          template: "{{ 'shop.item_added_to_cart' | i18n}}",
           buttons: [
-            { text: 'Shop more' },
+            { text: locale.getString('shop.show_more')},
             {
-              text: 'Go to cart',
+              text: locale.getString('shop.go_to_cart'),
               type: 'button-positive',
               onTap: function (e) {
                 $ionicTabsDelegate.select(2);
@@ -351,7 +351,7 @@ angular
           $rootScope.cartItemCount += parseInt($scope.cart.quantity);
         }, function (error) {
           alertPopup.close();
-          alert("Error");
+          alert(locale.getString('shop.error'));
         });
       }
     }
