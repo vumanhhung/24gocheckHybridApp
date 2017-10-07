@@ -62,6 +62,12 @@
 
   "error_username_required": "Please enter your username",
   "error_username_pattern": "Username must contain characters and numbers only",
-  "error_realname_required": "Please enter you name"
+  "error_realname_required": "Please enter you name",
+  "fill_following_fields": "Oops! Please fill following fields",
+  "error_saving_shipping_methods": "Error while saving shipping method",
+  "error_saving_payment_method": "Error while saving payment method",
+  "error_loading_zones": "Error while loading zones"
+
+
 
 }
