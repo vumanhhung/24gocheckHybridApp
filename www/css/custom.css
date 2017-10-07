@@ -108,9 +108,9 @@
   margin: 0 auto;
   position: absolute;
   top: 7px;
-  left: 111px;
-  height: 25px;
-  width: 110px;
+  left: 24%;
+  height: 31px;
+  width: 138px;
 }
 .item.item-divider.newproduct {
   border-top: 2px solid #d0d0d0;
@@ -364,6 +364,7 @@ hr {
   background: #e8e8e8;
   float: left;
   margin-right: 2%;
+  margin-left: 2%;
 }
 
 .mobile-offer-items{
@@ -415,7 +416,7 @@ hr {
 }
 
 .recent-items-list.row.grid_mode .item .full-image{
-  border-radius: 10px;
+  border-radius: 0;
   padding: 0;
   margin-bottom: -5px;
   background-color: white;

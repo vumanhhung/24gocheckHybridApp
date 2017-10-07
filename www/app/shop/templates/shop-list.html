@@ -85,7 +85,7 @@
 
     <div class="recent-items-list list-home" style="background-color: #f7f7f7" ng-class="{'row grid_mode': !grid_mode}">
       <div class="list-home item col-50" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">
-        <item-template item="item" mode="2"></item-template>
+        <item-template item="item" mode="3"></item-template>
       </div>
       <ion-infinite-scroll ng-if="!endOfRecentItems" on-infinite="loadNextRecentPage()"
                            distance="5%"></ion-infinite-scroll>
