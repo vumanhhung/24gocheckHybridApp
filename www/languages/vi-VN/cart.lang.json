@@ -2,7 +2,7 @@
   "title_order_added": "Đã thêm hàng vào giỏ",
   "title_cart_home": "Giỏ hàng",
   "title_checkout": "Thanh toán",
-  "title_delivery_payment": "Phương thức thanh toán",
+  "title_delivery_payment": "Thanh toán",
   "title_invoice": "Hóa đơn",
 
   "enter_coupon_title":  "Có phiếu giảm giá?",
@@ -18,7 +18,7 @@
   "product_code": "Mã sản phẩm:{code}",
 
   "delivery_method" :  "Phương thức chuyển",
-  "payment_method" :  "Phương thức thanh toán",
+  "payment_method" :  "Thanh toán",
   "comments_section" :  "Bình luận thêm/Hướng dẫn",
   "comments": "Bình luận/Hướng dẫn",
 
