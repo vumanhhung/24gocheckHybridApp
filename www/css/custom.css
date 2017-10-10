@@ -357,14 +357,22 @@ hr {
   color: dimgrey !important;
 }
 
+.logo-user {
+  height:60px;
+}
+.logo-user .icon-image {
+
+}
+
 .icon-image{
   border-radius: 50%;
   height: 50px;
   border: solid 1px #4cd964;
   background: #e8e8e8;
   float: left;
-  margin-right: 2%;
-  margin-left: 2%;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 50px;
 }
 
 .mobile-offer-items{
@@ -400,7 +408,7 @@ hr {
 }
 
 .detail-content{
-  margin: 0 2%;
+  margin: 0 10px;
 }
 
 .img-icon{
@@ -418,7 +426,7 @@ hr {
 .recent-items-list.row.grid_mode .item .full-image{
   border-radius: 0;
   padding: 0;
-  margin-bottom: -5px;
+  margin-bottom: 0px;
   background-color: white;
 }
 
