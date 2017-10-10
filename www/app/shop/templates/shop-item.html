@@ -1,9 +1,16 @@
-<ion-view view-title="{{item.name}}">
+<ion-view>
+  <ion-nav-title>{{item.name}}</ion-nav-title>
   <ion-pane class="pane has-tabs-top">
     <ion-nav-view>
       <ion-content>
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
+            <ion-slide>
+              <div style="width: 100%;"><img style="width: 80%" preload-image src="{{item.thumb}}"
+                                             default-image="app/shop/images/placeholder.png"
+                                             fallback-image="app/shop/images/placeholder.png"/>
+              </div>
+            </ion-slide>
             <ion-slide ng-repeat="image in item.images">
               <div style="width: 100%;"><img style="width: 80%" preload-image src="{{image.popup}}"
                                              default-image="app/shop/images/placeholder.png"
