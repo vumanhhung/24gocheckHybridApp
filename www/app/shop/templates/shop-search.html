@@ -69,7 +69,7 @@
                   <!--<option>TP Hồ Chí Minh</option>-->
                 <!--</select>-->
               <!--</label>-->
-              <label class="item item-input item-select">
+              <label class="item item-input item-select" style="border-radius: 5px; margin-bottom: 5px;">
                 <div class="input-label" i18n="modals.register_country"></div>
                 <select ng-model="register.country_id" ng-init="search.country_id = '230'" ng-change="countryChanged()"
                         name="country_id" required disabled>
@@ -78,7 +78,7 @@
                   </option>
                 </select>
               </label>
-              <label class="item item-input item-select">
+              <label class="item item-input item-select" style="border-radius: 5px">
                 <div class="input-label" i18n="modals.register_region"></div>
                 <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();" ng-change="resetOption();changeZone(zone_id);" >
                   <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id" ng-repeat="zone in zones">
@@ -86,14 +86,11 @@
                   </option>
                 </select>
               </label>
-
-
             </div>
             <div class="list">
               <ion-item ng-repeat="item in items">
                 <item-template item="item"></item-template>
               </ion-item>
-
               <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
             </div>
           </ion-item>

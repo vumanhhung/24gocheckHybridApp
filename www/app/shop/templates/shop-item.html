@@ -24,8 +24,10 @@
           <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
             <h2 ng-bind-html="item.name"></h2></a>
           <p>
-            <span style="color:#ff5c00; font-size: 18px"
-                  ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+            <span style="color:#ff5c00; font-size: 16px"
+                  ng-class="{'has-special' : item.special}" ng-show="item.price == '0Đ'">{{'shop.view_detail_below' | i18n}}</span>
+            <span style="color:#ff5c00; font-size: 16px"
+                  ng-class="{'has-special' : item.special}" ng-show="item.price != '0Đ'">{{::item.price}}</span>
             <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
           </p>
@@ -41,6 +43,8 @@
                          ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
 
         </div>
+        <br/>
+        <div>
             <div style="padding-left: 10px;">
               <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> {{item.telephone}}</a><br/>
               <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.location}}</a><br/>
