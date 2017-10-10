@@ -63,5 +63,10 @@
   "go_to_cart": "Tới giỏ hàng",
   "ring_size_guide": "Ring Size Guide",
   "error": "Lỗi",
-  "show_more": "Xem thêm"
+  "show_more": "Xem thêm",
+
+  "view_detail" : "Xem chi tiết",
+  "view_detail_below" : "Xem chi tiết bên dưới",
+
+  "menu_plus" : "Thêm"
 }

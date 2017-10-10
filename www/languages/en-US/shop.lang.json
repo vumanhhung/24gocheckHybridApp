@@ -63,7 +63,10 @@
   "go_to_cart": "Go to cart",
   "ring_size_guide": "Ring Size Guide",
   "error": "Error",
-  "show_more": "Show more"
+  "show_more": "Show more",
 
+  "view_detail" : "View Detail",
+  "view_detail_below" : "View Detail Below",
 
+  "menu_plus" : "More"
 }

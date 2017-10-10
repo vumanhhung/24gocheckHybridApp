@@ -18,10 +18,10 @@
  */
 angular.module('starter')
   .controller('WelcomeCtrl', function ($scope, $rootScope, $timeout, $state, $ionicModal, $ionicPlatform, $localStorage, locale, i18nService, dataService, appService, STATUSBAR_COLOR) {
-    $localStorage.lang = $localStorage.lang || 'vi-VN';
+    $localStorage.lang = $localStorage.lang || 'en-US';
 
     $timeout(function () {
-      var lang = $localStorage.lang || 'vi-VN';
+      var lang = $localStorage.lang || 'en-US';
       i18nService.SetLanguage(lang);
     }, 0);
 
