@@ -207,7 +207,6 @@ angular.module('starter')
         $ionicLoading.hide();
         $scope.zones = data.zones;
 
-        zones.setDefaultOptions(230);
       }, function (data) {
         alert(locale.getString('modals.error_loading_zones'));
         $ionicLoading.hide();
