@@ -12,13 +12,19 @@
         </span>
       <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
     </div>
-    <p></p>
+
+   <!--  <p></p>
+>>>>>>> fix map
     <div>
       <img class="icon-image"
            preload-image ng-src="{{item.thumb}}"
            default-image="app/shop/images/placeholder.png"
            fallback-image="app/shop/images/placeholder.png"/>
+<<<<<<< HEAD
       <div>Cong ty AlvietJS</div>
+=======
+      <h4 ng-bind-html="item.firstname"><h4> 
+>>>>>>> fix map
       <ionic-ratings class="col-33" style="font-size: 12px; white-space: nowrap; margin-top: -5px;"
                      ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
       <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
@@ -26,6 +32,6 @@
       <!--style="margin-top: -30px; float: right;" ng-click="addToWishlist(item.product_id)">-->
       <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
       <!--</button>-->
-    </div>
+   <!--  </div> -->
   </div>
 </div>

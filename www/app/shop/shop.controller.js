@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 /**
  * @ngdoc controller
@@ -150,43 +150,87 @@ angular
  */
 angular
   .module('shop.module')
-  .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, locale, ShopService, CartService, WEBSITE) {
+  .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService, CartService, WEBSITE) {
+ 
+      function initialize() {
+        var myLatlng = new google.maps.LatLng( $scope.item.latitude, $scope.item.longitude);
+        
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+            mapOptions);
+        
+        //Marker + infowindow + angularjs compiled ng-click
+        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+        var compiled = $compile(contentString)($scope);
 
-    var optionsss = {timeout: 10000, enableHighAccuracy: true};
-
-    $cordovaGeolocation.getCurrentPosition(optionsss).then(function (position) {
-
-      var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-      var mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-      google.maps.event.addListenerOnce($scope.map, 'idle', function () {
+        var infowindow = new google.maps.InfoWindow({
+          content: compiled[0]
+        });
 
         var marker = new google.maps.Marker({
-          map: $scope.map,
-          animation: google.maps.Animation.DROP,
-          position: latLng
+          position: myLatlng,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
         });
 
-        var infoWindow = new google.maps.InfoWindow({
-          content: "Here I am!"
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
         });
 
-        google.maps.event.addListener(marker, 'click', function () {
-          infoWindow.open($scope.map, marker);
+        $scope.map = map;
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+      $scope.centerOnMe = function() {
+        if(!$scope.map) {
+          return;
+        }
+
+        $scope.loading = $ionicLoading.show({
+          content: 'Getting current location...',
+          showBackdrop: false
         });
 
-      });
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          var mylatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+          var myitemlatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
+          $scope.calcRoute(mylatlng, myitemlatlng);
+          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          $scope.loading.hide();
+        }, function(error) {
+          alert('Unable to get location: ' + error.message);
+        });
+      };
 
-    }, function (error) {
-      console.log("Could not get location");
-    });
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var directionsService = new google.maps.DirectionsService();
+
+      $scope.calcRoute = function(start, end) {
+        //var start = 
+        //var end = new google.maps.LatLng(37.441883, -122.143019);
+        var request = {
+          origin: start,
+          destination: end,
+          travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setMap($scope.map);
+          } else {
+            alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+          }
+        });
+      };
+      
+      $scope.clickTest = function() {
+        alert('Example of infowindow with ng-click')
+      };
+
 
     var vm = this;
     $scope.shop = {};
@@ -194,6 +238,7 @@ angular
     $scope.cart.quantity = 1;
     $scope.id = $stateParams.id;
 
+     
 
     $scope.$on('$ionicView.enter', function () {
       $timeout(function () {
@@ -222,7 +267,8 @@ angular
       }
     }
 
-    ShopService.GetProduct($stateParams.id).then(function (data) {
+          
+          ShopService.GetProduct($stateParams.id).then(function (data) {
       $scope.item = {};
 
       $scope.item.name = data.heading_title;
@@ -231,10 +277,12 @@ angular
       $scope.item.text_model = data.text_model;
       $scope.item.attribure_groups = data.attribute_groups;
       $scope.item.shop_name = data.shop_name;
-      $scope.item.price = data.price;
+           $scope.item.price = data.price;
       $scope.item.firstname = data.separate_u_name;
       $scope.item.telephone = data.separate_u_phone;
-      $scope.item.location = data.location;
+      $scope.item.location = data.location; 
+       $scope.item.latitude = data.latitude;
+      $scope.item.longitude = data.longitude;
       $scope.item.special = data.special;
       $scope.item.description = data.description;
       $scope.item.off = data.off;
@@ -243,7 +291,6 @@ angular
       $scope.item.model = data.model;
       $scope.item.options = data.options;
       $scope.item.minimum = data.minimum || 1;
-
       $scope.item.review_status = data.review_status;
       $scope.item.review_guest = data.review_guest;
       $scope.item.reviews = data.reviews;
@@ -653,25 +700,18 @@ angular
       });
     }
 
-    $scope.loadLatest = function (refresh) {
-      if ($scope.loadingLatest) {
-        return;
-      }
 
-      $scope.loadingLatest = true;
-      $scope.data.latestItems = $scope.data.latestItems || [];
+    ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+      
+       $scope.item = {};
+ $scope.item.firstname = data.separate_u_name;
 
-      ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
-        if (refresh) {
-          $scope.data.latestItems = data.products;
-          $scope.data.latestPage = 1;
-        } else {
-          if ($scope.data.latestPage == 1) {
-            $scope.data.latestItems = [];
-          }
-
-          $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
-          $scope.data.latestPage++;
+      if (refresh) {
+        $scope.data.latestItems = data.products;
+        $scope.data.latestPage = 1;
+      } else {
+        if ($scope.data.latestPage == 1) {
+          $scope.data.latestItems = [];
         }
         if (data.products && data.products.length < 1)
           $scope.endOfRLatestItems = true;

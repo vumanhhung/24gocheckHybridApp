@@ -7,6 +7,7 @@
           <ion-slide-box id="item-elastic-header">
             <ion-slide>
               <div style="width: 100%;"><img style="width: 80%" preload-image src="{{item.thumb}}"
+
                                              default-image="app/shop/images/placeholder.png"
                                              fallback-image="app/shop/images/placeholder.png"/>
               </div>
@@ -63,7 +64,7 @@
 
           <a
             style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
-            href="tel: +842439192192" class="button-details-product">
+            href="tel: {{item.telephone}}" class="button-details-product">
             <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
           </a>
 
@@ -86,8 +87,9 @@
         <form name="shop.shopItemForm" enctype="multipart/form-data">
 
         </form>
-          <div id="map" data-tap-disabled="true" style="padding: 0 2%; margin-top: 20px; ">
-        </div>
+         <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+        <div id="map" data-tap-disabled="true"></div>
+		<!-- <img ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{item.latitude}},{{item.longitude}}&markers={{item.latitude}},{{item.longitude}}&zoom=17&size=400x250&key=AIzaSyANM2U38gGBxIm4wowUMoOvizBD1RBDydg" style="width: 100%; height: auto;"> -->
       </ion-content>
     </ion-nav-view>
   </ion-pane>
