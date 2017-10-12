@@ -548,9 +548,9 @@ angular
       $scope.cates = data.categories;
 
 
-      $ionicLoading.hide();
+      // $ionicLoading.hide();
     }, function (data) {
-      $ionicLoading.hide();
+      // $ionicLoading.hide();
     });
 
     //==================================================================================================================
