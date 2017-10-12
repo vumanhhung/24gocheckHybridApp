@@ -5,17 +5,17 @@
     .constant('BASE_API_URL', 'http://24gocheck.com/index.php?route=api2')
     .constant('WEBSITE', 'http://24gocheck.com')
     .constant('FORGOT_LINK', 'http://24gocheck.com/index.php?route=account/forgotten')
-    .constant('EMAIL', 'i2cssolutions@gmail.com')
-    .constant('PHONE', '0712966650')
+    .constant('EMAIL', 'infoalvietjs@gmail.com')
+    .constant('PHONE', '02439192192')
     .constant('ANALYTICS_ID', 'UA-79548648-1')
 	.constant('COUPONS_ENABLED', true)
     .constant('STATUSBAR_COLOR', "#387ef5")
     .constant('LANGUAGES', [
-            { name: "Vietnamese", language_id: "vi-VN" },
             { name: "English", language_id: "en-US" },
-            { name: "French", language_id: "fr-FR" },
-            { name: "Chinese", language_id: "zh-CN" },
-            { name: "Arabic", language_id: "ar-EG" }])
+            { name: "Vietnamese", language_id: "vi-VN" }])
+            // { name: "French", language_id: "fr-FR" },
+            // { name: "Chinese", language_id: "zh-CN" },
+            // { name: "Arabic", language_id: "ar-EG" }])
     .constant('LOCAL_NOTIFICATIONS_ARRAY', [
             {
                 text: 'Come and see new arrivals and offers! Exclusive for mobile app users',

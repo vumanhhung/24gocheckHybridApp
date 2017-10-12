@@ -2,7 +2,7 @@
   "title_order_added": "Đã thêm hàng vào giỏ",
   "title_cart_home": "Giỏ hàng",
   "title_checkout": "Thanh toán",
-  "title_delivery_payment": "Phương thức thanh toán",
+  "title_delivery_payment": "Thanh toán",
   "title_invoice": "Hóa đơn",
 
   "enter_coupon_title":  "Có phiếu giảm giá?",
@@ -12,28 +12,28 @@
 
   "order_added_title": "Đã thêm vào giỏ ",
   "order_added_desc": "Xin hãy xác nhận email",
-  "go_to_shop": "Go to Shop",
+  "go_to_shop": "Trở lại trang chủ",
 
   "empty_message": "Không có sản phẩm nào trong giỏ hàng của bạn.",
   "product_code": "Mã sản phẩm:{code}",
 
   "delivery_method" :  "Phương thức chuyển",
-  "payment_method" :  "Phương thức thanh toán",
+  "payment_method" :  "Thanh toán",
   "comments_section" :  "Bình luận thêm/Hướng dẫn",
   "comments": "Bình luận/Hướng dẫn",
 
   "invoice_address" :  "Địa chỉ",
 
-  "error_firstname_required" :  "Nhập tên bạn",
-  "error_lastname_required" :  "",
+  "error_firstname_required" :  "Tên không được để trống",
+  "error_lastname_required" :  "Họ không được để trống",
   "error_email_required" :  "Email không được để trống",
   "error_email_invalid" :  "Email không chính xác",
   "error_telephone_required" :  "Bạn vui lòng nhập số điện thoại",
   "error_address_1_required" :  "Vui lòng nhập địa chỉ",
   "error_city_required" :  "Vui lòng nhập tên thành phố",
   "error_postal_code_required" :  "Vui lòng nhập mã bưu điện",
-  "error_postal_code_minlength" :  "Mã bưu chính chỉ có 5 chữ số",
-  "error_postal_code_maxlength" :  "Mã bưu chính chỉ có 5 chữ số",
+  "error_postal_code_minlength" :  "Mã bưu chính chỉ có 5 hoặc 6 chữ số",
+  "error_postal_code_maxlength" :  "Mã bưu chính chỉ có 5 hoặc 6 chữ số",
   "error_country_id_required" :  "Vui lòng nhập tên quốc gia",
   "error_zone_id_required": "Chọn khu vực",
 
@@ -43,17 +43,18 @@
 
   "button_remove": "Xóa",
   "button_shopping": "Bắt Đầu Mua Hàng",
-  "button_offers": "OFFERS",
+  "button_offers": "GỢI Ý",
   "button_next": "Tiếp",
   "button_confirm": "Xác nhận",
 
   "order_your_details": "Thông tin của bạn",
-  "order_firstname": "Họ",
-  "order_lastname": "Tên",
+  "order_firstname": "Tên",
+  "order_lastname": "Họ",
   "order_email": "Email",
   "order_telephone": "Số điện thoại",
   "order_your_address": "Địa chỉ của bạn",
-  "order_address1": "Địa chỉ",
+  "order_address1": "Địa chỉ 1",
+  "order_address2": "Địa chỉ 2",
   "order_city": "Thành phố",
   "order_postal": "Mã bưu chính",
   "order_country": "Quốc gia",
@@ -61,7 +62,10 @@
 
   "error_username_required": "Vui lòng nhập tên tài khoản",
   "error_username_pattern": "Tên tài khoản chỉ bao gồm kí tự hoặc số",
-  "error_realname_required": "Vui lòng nhập tên của bạn"
-
+  "error_realname_required": "Vui lòng nhập tên của bạn",
+  "fill_following_fields": "Oops! Vui lòng điền đầy đủ thông tin",
+  "error_saving_shipping_methods": "Lỗi khi lưu hình thức vận chuyển",
+  "error_saving_payment_method": "Lỗi khi lưu phương thức thanh toán",
+  "error_loading_zones": "Lỗi khi tải khu vực"
 
 }

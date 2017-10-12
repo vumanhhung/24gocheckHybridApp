@@ -51,9 +51,22 @@
   "item_view_button" :  "View",
   "item_add_to_wishlist_button" :  "Add to Wishlist",
 
-  "offer_promotion":"For Sales",
-  "offer_top":"Top Product",
-  "offer_trend":"Trending"
+  "offer_promotion":"Offer promotion",
+  "featured":"Featured Product",
+  "offer_trend":"Trending",
+  "best_sellers": "Best sellers",
+  "title_shop_name": "Shop details",
+  "title_category": "Categories",
+  "added_to_cart": "Added to cart",
+  "item_added_to_cart": "Item added to cart. What would you like to do?",
+  "select_following_options": "Oops! Select following options",
+  "go_to_cart": "Go to cart",
+  "ring_size_guide": "Ring Size Guide",
+  "error": "Error",
+  "show_more": "Show more",
 
+  "view_detail" : "View Detail",
+  "view_detail_below" : "View Detail Below",
 
+  "menu_plus" : "More"
 }
