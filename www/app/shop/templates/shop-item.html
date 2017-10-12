@@ -1,17 +1,10 @@
 <ion-view>
-  <ion-nav-title>{{item.name}}</ion-nav-title>
+  <ion-nav-title ng-bind-html="item.name"></ion-nav-title>
   <ion-pane class="pane has-tabs-top">
     <ion-nav-view>
       <ion-content>
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
-            <ion-slide>
-              <div style="width: 100%;"><img style="width: 80%" preload-image src="{{item.thumb}}"
-
-                                             default-image="app/shop/images/placeholder.png"
-                                             fallback-image="app/shop/images/placeholder.png"/>
-              </div>
-            </ion-slide>
             <ion-slide ng-repeat="image in item.images">
               <div style="width: 100%;"><img style="width: 80%" preload-image src="{{image.popup}}"
                                              default-image="app/shop/images/placeholder.png"
@@ -26,9 +19,9 @@
             <h2 ng-bind-html="item.name"></h2></a>
           <p>
             <span style="color:#ff5c00; font-size: 16px"
-                  ng-class="{'has-special' : item.special}" ng-show="item.price == '0Đ'">{{'shop.view_detail_below' | i18n}}</span>
+                  ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{'shop.view_detail_below' | i18n}}</span>
             <span style="color:#ff5c00; font-size: 16px"
-                  ng-class="{'has-special' : item.special}" ng-show="item.price != '0Đ'">{{::item.price}}</span>
+                  ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
             <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
           </p>
@@ -49,10 +42,10 @@
               <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.location}}</a><br/>
             </div>
         </div>
-
-        <div style="padding:0 10px; margin-top: 20px;">
-          <h2 style="font-size: 18px;">{{'shop.item_description' | i18n}}</h2>
-          <div style="margin: 0 10px;" ng-bind-html="item.description"></div>
+        <br/>
+        <div style="padding:0 10px">
+          <span style="font-size: 18px;"><strong>{{'shop.item_description' | i18n}}</strong></span>
+          <div ng-bind-html="item.description"></div>
         </div>
         <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;" ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
           <div class="buttons-detail">
@@ -60,8 +53,6 @@
                     class="button-details-product icon ion-ios-cart"
                     ng-click="addToCart()" i18n="shop.item_button_add_to_cart"></button>
           </div>
-
-
           <a
             style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
             href="tel: {{item.telephone}}" class="button-details-product">
@@ -84,9 +75,6 @@
           </ion-tab>
 
         </div>
-        <form name="shop.shopItemForm" enctype="multipart/form-data">
-
-        </form>
          <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
         <div id="map" data-tap-disabled="true"></div>
 		<!-- <img ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{item.latitude}},{{item.longitude}}&markers={{item.latitude}},{{item.longitude}}&zoom=17&size=400x250&key=AIzaSyANM2U38gGBxIm4wowUMoOvizBD1RBDydg" style="width: 100%; height: auto;"> -->
