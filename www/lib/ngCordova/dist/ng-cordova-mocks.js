@@ -1574,7 +1574,7 @@ ngCordovaMocks.factory('$cordovaFileTransfer', ['$q', function ($q) {
         },
 
         upload: function (server, filePath, options) {
-            return mockIt.call(this, 'There was an error uploading the file.'); 
+            return mockIt.call(this, 'There was an error uploading the file.');
         }
     };
 }]);
@@ -1830,7 +1830,7 @@ ngCordovaMocks.factory('$cordovaGeolocation', ['$interval', '$q', function ($int
  */
 ngCordovaMocks.factory('$cordovaGlobalization', ['$q', function ($q) {
   var throwsError = false;
-  var language = (navigator.language) ? navigator.language : 'en-US';
+  var language = (navigator.language) ? navigator.language : 'vi-VN';
   var preferredLanguage = {value: language};
   var firstDayOfWeek = 'Sunday';
   var localeName = {value: language};
@@ -2399,7 +2399,7 @@ ngCordovaMocks.factory('$cordovaKeychain', ['$q', function ($q) {
 ngCordovaMocks.factory('$cordovaLocalNotification', ['$q', function ($q) {
 
   var storageKeyPfx  = "ngCordLocNotif-";
-  
+
   function pfxId(id) {
     return storageKeyPfx + id;
   }
@@ -2422,7 +2422,7 @@ ngCordovaMocks.factory('$cordovaLocalNotification', ['$q', function ($q) {
       if (typeof(ids) == "number") ids = [ids];
       ids.forEach(function (id){
         localStorage.removeItem([pfxId(id)]);
-      });      
+      });
       defer.resolve();
       return defer.promise;
     },
@@ -2437,7 +2437,7 @@ ngCordovaMocks.factory('$cordovaLocalNotification', ['$q', function ($q) {
       var defer = $q.defer();
       ids.forEach(function (id){
         localStorage.removeItem([pfxId(id)]);
-      });      
+      });
       defer.resolve();
       return defer.promise;
     },
