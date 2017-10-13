@@ -4,6 +4,8 @@
   "off": "{percent}% OFF",
 
   "title_shop_search": "Search",
+  "title_user_product": "Store",
+  "info_user_product": "Store info",
   "search_hint": "Start typing something to search",
   "errors_search_no_results": "There is no product that matches the search criteria",
 

@@ -4,6 +4,8 @@
   "off": "{percent}%",
 
   "title_shop_search": "Tìm kiếm",
+  "title_user_product": "Gian hàng",
+  "info_user_product": "Thông tin gian hàng",
   "search_hint": "Gõ vào đây để tìm kiếm",
   "errors_search_no_results": "Sản phẩm bạn đang tìm không có",
 
