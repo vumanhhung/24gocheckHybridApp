@@ -18,14 +18,14 @@
   <div class="row">
     <div class="col item-price-view" style="text-align: inherit;">
       <span ng-if="item.special">{{::item.special}}</span>
-      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
-      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
+      <span style="color:#ff5c00; font-size: 72%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
+      <span style="color:#ff5c00; font-size: 72%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
       <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
                 <i class="icon ion-iphone"></i> {{::item.mobile_special}}
             </span>
     </div>
     <div class="col item-ratings">
-      <ionic-ratings style="font-size: 85%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+      <ionic-ratings style="font-size: 72%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
     </div>
   </div>
 </div>

@@ -4,6 +4,8 @@
   "off": "{percent}%",
 
   "title_shop_search": "Tìm kiếm",
+  "title_user_product": "Gian hàng",
+  "info_user_product": "Thông tin gian hàng",
   "search_hint": "Gõ vào đây để tìm kiếm",
   "errors_search_no_results": "Sản phẩm bạn đang tìm không có",
 
@@ -52,6 +54,9 @@
   "item_add_to_wishlist_button" :  "Thêm vào danh sách",
 
   "offer_promotion":"Khuyến Mại",
+  "offer_promotion_list": "Danh sách sản phẩm khuyến mại",
+  "offer_top_list": "Danh sách sản phẩm bán chạy",
+  "offer_trend_list": "Danh sách sản phẩm theo xu hướng",
   "featured":"Nổi Bật",
   "offer_trend":"Xu Hướng",
   "best_sellers": "Bán chạy",

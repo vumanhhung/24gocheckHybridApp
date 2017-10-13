@@ -273,6 +273,8 @@ angular
 
       $scope.item.name = data.heading_title;
       $scope.item.product_id = data.product_id;
+      $scope.item.user_id = data.separate_u_user_id;
+
       $scope.item.text_stock = data.text_stock;
       $scope.item.text_model = data.text_model;
       $scope.item.attribure_groups = data.attribute_groups;
@@ -516,6 +518,35 @@ angular
       }
     }
   });
+
+angular
+  .module('shop.module')
+  .controller('ShopUserProductCtrl', function ($scope, $rootScope, $stateParams, $state, ShopService) {
+    $scope.page = 1;
+    $scope.endOfItems = true;
+    $scope.loadingItems = false;
+    $scope.picked = '';
+
+
+    $scope.items = [];
+    ShopService.GetProductsByUserId($stateParams.id).then(function (data) {
+
+      $scope.items = data.products;
+      $scope.user_info = data.user_info;
+
+      // var str = JSON.stringify(data.products);
+      // str = JSON.stringify(data.products, null, 4); // (Optional) beautiful indented output.
+      // console.log(str); // Logs output to dev tools console.
+      // alert(str); // Displays output using window.alert()
+      // $ionicLoading.hide();
+    }, function (data) {
+      // $ionicLoading.hide();
+    });
+
+    //==================================================================================================================
+
+  })
+
 
 
 /**

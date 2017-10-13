@@ -92,11 +92,22 @@ angular.module('shop.module')
           'shopContent': {
             templateUrl: 'app/shop/templates/shop-category.html',
             controller: 'ShopCategoryCtrl'
+
           }
         }
       })
-	  
-	  
+
+      .state('app.menu.shop.user', {
+        url: '/user/:id',
+        views: {
+          'shopContent': {
+            templateUrl: 'app/shop/templates/shop-users-product.html',
+            controller: 'ShopUserProductCtrl'
+          }
+        }
+      })
+
+
   });
 
 /**

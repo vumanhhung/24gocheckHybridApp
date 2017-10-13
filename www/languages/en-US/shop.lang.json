@@ -4,6 +4,8 @@
   "off": "{percent}% OFF",
 
   "title_shop_search": "Search",
+  "title_user_product": "Store",
+  "info_user_product": "Store info",
   "search_hint": "Start typing something to search",
   "errors_search_no_results": "There is no product that matches the search criteria",
 
@@ -52,6 +54,9 @@
   "item_add_to_wishlist_button" :  "Add to Wishlist",
 
   "offer_promotion":"Offer promotion",
+  "offer_promotion_list": "List promotion product",
+  "offer_top_list": "List best sellers product",
+  "offer_trend_list": "List trend product",
   "featured":"Featured Product",
   "offer_trend":"Trending",
   "best_sellers": "Best sellers",
