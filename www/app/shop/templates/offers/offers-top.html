@@ -1,7 +1,16 @@
 <ion-view view-title="{{ 'shop.best_sellers' | i18n }}">
   <ion-content>
-    <div class="list" style="padding: 4%;">
-      <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px; padding: 5px">
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
+
+    <div class="item item-divider item-button-right">
+      <span i18n="shop.offer_top_list"></span>
+      <button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">
+        <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
+      </button>
+    </div>
+
+    <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
+      <div class="item" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">
         <div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
           <div ng-if="showoverlay" style="opacity: .5;">
             <div class="row">

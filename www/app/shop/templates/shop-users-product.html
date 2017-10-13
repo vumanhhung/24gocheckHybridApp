@@ -3,15 +3,21 @@
 
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
-
-    <div style="padding-left: 10px; padding-right: 10px; margin-top: 10px">
-      <h2 i18n="shop.info_user_product"></h2>
-      <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"></img>{{user_info.fullname}}</a><br/>
-      <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img>{{user_info.phone}}</a><br/>
+    <div class="item item-divider item-button-right">
+      <span i18n="shop.info_user_product"></span>
+      <button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">
+        <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
+      </button>
     </div>
 
-    <div class="list" style="padding: 4%;">
-      <div ng-repeat="item in items" class="item-product" style="margin-bottom: 10px; border-radius: 5px; padding: 5px">
+    <div style="padding-left: 10px; padding-right: 10px; margin:10px;">
+
+      <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/>{{user_info.fullname}}</a><br/>
+      <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/>{{user_info.phone}}</a><br/>
+    </div>
+
+    <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
+      <div class="item" ng-repeat="item in items"  ng-class="{'col-50' : grid_mode}" >
         <div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
           <div ng-if="showoverlay" style="opacity: .5;">
             <div class="row">
@@ -44,6 +50,7 @@
           </div>
         </div>
       </div>
+      <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
     </div>
   </ion-content>
 </ion-view>
