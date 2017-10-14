@@ -521,29 +521,54 @@ angular
 
 angular
   .module('shop.module')
-  .controller('ShopUserProductCtrl', function ($scope, $rootScope, $stateParams, $state, ShopService) {
+  .controller('ShopUserProductCtrl', function ($scope, $rootScope, $stateParams, ShopService) {
     $scope.page = 1;
     $scope.endOfItems = true;
     $scope.loadingItems = false;
-    $scope.picked = '';
-
 
     $scope.items = [];
-    ShopService.GetProductsByUserId($stateParams.id).then(function (data) {
 
-      $scope.items = data.products;
-      $scope.user_info = data.user_info;
 
-      // var str = JSON.stringify(data.products);
-      // str = JSON.stringify(data.products, null, 4); // (Optional) beautiful indented output.
-      // console.log(str); // Logs output to dev tools console.
-      // alert(str); // Displays output using window.alert()
-      // $ionicLoading.hide();
-    }, function (data) {
-      // $ionicLoading.hide();
-    });
 
-    //==================================================================================================================
+    $scope.loadItems = function () {
+      if ($scope.loadingItems) {
+        return;
+      }
+
+      $scope.loadingItems = true;
+      $scope.items = $scope.items || [];
+
+
+      ShopService.GetProductsByUserId($stateParams.id, $scope.page).then(function (data) {
+        $scope.items = $scope.items.concat(data.products);
+        $scope.user_info = data.user_info;
+        $scope.text_empty = data.text_empty;
+        // $ionicScrollDelegate.resize();
+        $scope.page++;
+        console.log("From page: "+$scope.page);
+        if (data.products.length < 1)
+          $scope.endOfItems = true;
+        else
+          $scope.endOfItems = false;
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      }, function (data) {
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
+
+    }
+    $scope.loadItems();
+
+    $scope.loadNextPage = function () {
+      if (!$scope.endOfItems) {
+        $scope.loadItems();
+      } else {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+    }
+
 
   })
 
