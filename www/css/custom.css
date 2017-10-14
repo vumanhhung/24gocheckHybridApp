@@ -387,7 +387,7 @@ hr {
 
 .button-details-product{
   width: 100%;
-  font-size: 13px;
+  font-size: 100%;
   border-radius: 5px;
   min-height: 35px;
   border-color: transparent;
@@ -396,7 +396,7 @@ hr {
   position: relative;
   display: inline-block;
   margin: 0;
-  padding: 0 12px;
+  padding: 0;
   min-width: 52px;
   border-width: 1px;
   border-style: solid;

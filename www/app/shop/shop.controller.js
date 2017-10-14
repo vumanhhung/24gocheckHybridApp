@@ -592,6 +592,7 @@ angular
 angular
   .module('shop.module')
   .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
+
     $scope.selectedCat = "1";
     $scope.selectedZone = "3776";
     $scope.page = 1;
