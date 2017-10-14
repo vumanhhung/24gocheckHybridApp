@@ -1,19 +1,72 @@
 <ion-view view-title="{{ 'shop.title_user_product' | i18n }}">
   <ion-content>
 
-    <!--<ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>-->
+    <!--<ion-slide-box id="item-elastic-header">-->
+      <!--<ion-slide>-->
+        <!--<div style="width: 100%;"><img style="width: 80%" preload-image src="{{item.thumb}}"-->
+                                       <!--default-image="app/shop/images/placeholder.png"-->
+                                       <!--fallback-image="app/shop/images/placeholder.png"/>-->
+        <!--</div>-->
+      <!--</ion-slide>-->
+      <!--<ion-slide ng-repeat="image in item.images">-->
+        <!--<div style="width: 100%;"><img style="width: 80%" preload-image src="{{image.popup}}"-->
+                                       <!--default-image="app/shop/images/placeholder.png"-->
+                                       <!--fallback-image="app/shop/images/placeholder.png"/>-->
+        <!--</div>-->
+      <!--</ion-slide>-->
+    <!--</ion-slide-box>-->
+
+    <div style="padding-left: 10px; padding-right: 10px; margin:10px;">
+      <h2>Tên Gian Hàng</h2>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> {{user_info.fullname}}</p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user_info.phone}}</p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> </p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"/> </p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"/> </p>
+    </div>
+
+    <div style="padding:0 10px">
+      <h2 style="font-size: 18px;">{{'shop.item_shop_description' | i18n}}</h2>
+      <div ng-bind-html="item.description"></div>
+    </div>
+
+    <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px; margin-bottom: 10px;"
+         ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
+      <div class="buttons-detail">
+        <button style="background-color: #FA3E16; color: whitesmoke;"
+                class="button-details-product icon ion-ios-paper-outline"
+                i18n="shop.item_view_product"></button>
+      </div>
+      <a
+        style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
+        href="tel: {{item.telephone}}" class="button-details-product">
+        <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
+      </a>
+
+      <a style="background-color:#27FD6A; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px;"
+         href="#/app/menu/shop/review/{{id}}" class="button-details-product">
+        <span class="icon ion-chatbox-working" i18n="shop.item_button_review"></span>
+      </a>
+
+      <!--Tab Review-->
+      <ion-tab hidden="true" href="#/app/menu/shop/review/{{id}}" icon-off="ion-ios-compose-outline"
+               icon-on="ion-ios-compose-outline">
+        <ion-nav-view name="tab-review">
+          <ion-content class="has-sub-tabs-top">
+            <item-rating item="item" ng-if="item.review_status"></item-rating>
+          </ion-content>
+        </ion-nav-view>
+      </ion-tab>
+
+    </div>
+
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
     <div class="item item-divider item-button-right">
       <span i18n="shop.info_user_product"></span>
       <button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">
         <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
       </button>
-    </div>
-
-    <div style="padding-left: 10px; padding-right: 10px; margin:10px;">
-
-      <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/>{{user_info.fullname}}</a><br/>
-      <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/>{{user_info.phone}}</a><br/>
     </div>
 
     <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
