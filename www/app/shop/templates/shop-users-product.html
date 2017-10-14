@@ -1,21 +1,20 @@
 <ion-view view-title="{{ 'shop.title_user_product' | i18n }}">
   <ion-content>
-    <ion-slide-box id="item-elastic-header">
-      <ion-slide ng-repeat="badge in badges">
-        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{badge}}"
-                                       default-image="app/shop/images/placeholder.png"
-                                       fallback-image="app/shop/images/placeholder.png"/>
-        </div>
-      </ion-slide>
-      
-    </ion-slide-box>
+      <ion-slide-box id="item-elastic-header">
+        <ion-slide ng-repeat="badge in badges">
+          <div style="width: 100%;"><img style="width: 80%" preload-image src="{{badge}}"
+                                         default-image="app/shop/images/placeholder.png"
+                                         fallback-image="app/shop/images/placeholder.png"/>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
 
     <div style="padding-left: 10px; padding-right: 10px; margin:10px;">
       <!--<h2>Tên Gian Hàng</h2>-->
       <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> {{user_info.fullname}}</p>
       <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user_info.phone}}</p>
-      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/>{{user_info.address1}} </p>
-      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"/>{{user_info.email}} </p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> {{user_info.address1}} </p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"/> {{user_info.email}} </p>
       <!--<p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"/> </p>-->
     </div>
 
@@ -26,16 +25,17 @@
 
     <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px; margin-bottom: 10px;"
          ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
+      <a
+        style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 10px;"
+        href="tel: {{user_info.phone}}" class="button-details-product">
+        <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
+      </a>
+
       <div class="buttons-detail">
         <button style="background-color: #FA3E16; color: whitesmoke;"
                 class="button-details-product icon ion-ios-paper-outline"
                 i18n="shop.item_view_product"></button>
       </div>
-      <a
-        style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
-        href="tel: {{item.telephone}}" class="button-details-product">
-        <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
-      </a>
 
       <a style="background-color:#27FD6A; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px;"
          href="#/app/menu/shop/review/{{id}}" class="button-details-product">
