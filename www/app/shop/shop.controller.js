@@ -281,6 +281,7 @@ angular
       $scope.item.shop_name = data.shop_name;
       $scope.item.price = data.price;
       $scope.item.firstname = data.separate_u_name;
+      $scope.item.user_id = data.separate_u_user_id;
       $scope.item.telephone = data.separate_u_phone;
       $scope.item.location = data.location;
       $scope.item.latitude = data.latitude;
