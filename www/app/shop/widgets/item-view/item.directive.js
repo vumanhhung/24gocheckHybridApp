@@ -4,7 +4,7 @@
 * @ngdoc directive
 * @name shop.module.directive:itemTemplate
 * @description
-* Widget to render the product template for product lists. 
+* Widget to render the product template for product lists.
 * @example
 <pre>
     <item-template item="item"></item-template>
@@ -16,7 +16,10 @@ angular.module('shop.module').directive('itemTemplate', function () {
         scope: {
             item: '=item'
         },
-        controller: ['$scope', '$state', '$ionicPopup', '$ionicLoading', '$ionicTabsDelegate', 'locale', 'ShopService', function ($scope, $state, $ionicPopup, $ionicLoading, $ionicTabsDelegate, locale, ShopService) {
+        controller: ['$rootScope', '$scope', '$state', '$ionicPopup', '$ionicLoading', '$ionicTabsDelegate', 'locale', 'ShopService', function ($rootScope, $scope, $state, $ionicPopup, $ionicLoading, $ionicTabsDelegate, locale, ShopService) {
+            $scope.userLoggedIn = function () {
+              return $rootScope.userLoggedIn();
+            }
 
             $scope.addToWishlist = function (id) {
                 $ionicLoading.show();
