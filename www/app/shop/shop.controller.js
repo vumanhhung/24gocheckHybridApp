@@ -542,7 +542,9 @@ angular
 
       ShopService.GetProductsByUserId($stateParams.id, $scope.page).then(function (data) {
         $scope.items = $scope.items.concat(data.products);
-        $scope.user_info = data.user_info;
+        if($scope.user_info == undefined){
+          $scope.user_info = data.user_info;
+        }
         $scope.text_empty = data.text_empty;
         // $ionicScrollDelegate.resize();
         $scope.page++;
