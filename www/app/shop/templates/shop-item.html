@@ -5,6 +5,12 @@
       <ion-content>
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
+            <ion-slide>
+              <div style="width: 100%;"><img style="width: 80%" preload-image src="{{item.thumb}}"
+                                             default-image="app/shop/images/placeholder.png"
+                                             fallback-image="app/shop/images/placeholder.png"/>
+              </div>
+            </ion-slide>
             <ion-slide ng-repeat="image in item.images">
               <div style="width: 100%;"><img style="width: 80%" preload-image src="{{image.popup}}"
                                              default-image="app/shop/images/placeholder.png"
@@ -67,8 +73,8 @@
           </div>
           <a
             style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
-            href="tel: {{item.telephone}}" class="button-details-product">
-            <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
+            href="#/app/menu/shop/user/{{::item.user_id}}" class="button-details-product">
+            <span class="icon ion-ios-person-outline" i18n="shop.item_button_shop_detail"></span>
           </a>
 
           <a style="background-color:#27FD6A; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px;"

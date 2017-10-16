@@ -273,4 +273,9 @@ angular
     $scope.loadBanners();
 
 
+  })
+
+angular
+  .module('info.module')
+  .controller('InfoTutorialCtrl', function ($scope) {
   });

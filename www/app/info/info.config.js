@@ -69,6 +69,15 @@ angular.module('info.module')
               }
             }
           })
+          .state('app.menu.info.tutorial', {
+            url: '/tutorial',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-tutorial.html',
+                controller: 'InfoTutorialCtrl'
+              }
+            }
+          })
           .state('app.menu.info.account-info', {
             url: '/account-info',
             views: {

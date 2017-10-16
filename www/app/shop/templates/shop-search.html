@@ -39,7 +39,7 @@
                 <select ng-model="selectedCat" ng-change="resetOption();changeCategory(selectedCat);">
                   <option ng-repeat="category in cates"
                           ng-selected="selectedCat == category.category_id"
-                          ng-value="category.category_id">{{::category.name.slice(0,-4)}}
+                          ng-value="category.category_id" ng-bind-html="category.name.slice(0,-4)">
                   </option>
                 </select>
               </label>
