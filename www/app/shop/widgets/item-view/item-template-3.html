@@ -1,8 +1,8 @@
 ﻿<div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
   <div ng-if="showoverlay" style="opacity: .5;">
-    <div class="row">
+    <div class="row" ng-style="userLoggedIn() && {} || {'margin-top':'-34px'}">
       <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
-    color: #FFFFFF; font-size: 13px;" ng-style="userLoggedIn() && {} || {'margin-top':'38px'}">
+    color: #FFFFFF; font-size: 13px;" ng-style="userLoggedIn() && {} || {'margin-left':'auto', 'margin-right':'auto'}">
         <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
       </a>
       <button ng-if="userLoggedIn()" style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
