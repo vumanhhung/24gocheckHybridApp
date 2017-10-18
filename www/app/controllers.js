@@ -25,7 +25,7 @@ angular.module('starter')
       i18nService.SetLanguage(lang);
     }, 0);
 
-    $scope.version = "1.1.0";
+    $scope.version = "3.0.3";
 
     $scope.goHome = function () {
       if (window.StatusBar) {
