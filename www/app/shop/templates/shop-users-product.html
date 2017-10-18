@@ -1,36 +1,13 @@
 <ion-view view-title="{{ 'shop.title_user_product' | i18n }}">
   <ion-content>
     <ion-slide-box id="item-elastic-header">
-      <ion-slide>
-        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{user_info.badge1}}"
+      <ion-slide ng-repeat="badge in badges">
+        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{badge}}"
                                        default-image="app/shop/images/placeholder.png"
                                        fallback-image="app/shop/images/placeholder.png"/>
         </div>
       </ion-slide>
-      <ion-slide>
-        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{user_info.badge2}}"
-                                       default-image="app/shop/images/placeholder.png"
-                                       fallback-image="app/shop/images/placeholder.png"/>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{user_info.badge3}}"
-                                       default-image="app/shop/images/placeholder.png"
-                                       fallback-image="app/shop/images/placeholder.png"/>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{user_info.badge4}}"
-                                       default-image="app/shop/images/placeholder.png"
-                                       fallback-image="app/shop/images/placeholder.png"/>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="width: 100%;"><img style="width: 80%" preload-image src="{{user_info.badge5}}"
-                                       default-image="app/shop/images/placeholder.png"
-                                       fallback-image="app/shop/images/placeholder.png"/>
-        </div>
-      </ion-slide>
+      
     </ion-slide-box>
 
     <div style="padding-left: 10px; padding-right: 10px; margin:10px;">

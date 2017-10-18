@@ -529,7 +529,7 @@ angular
 
     $scope.items = [];
 
-
+    $scope.badges = [];
 
     $scope.loadItems = function () {
       if ($scope.loadingItems) {
@@ -544,6 +544,13 @@ angular
         $scope.items = $scope.items.concat(data.products);
         if($scope.user_info == undefined){
           $scope.user_info = data.user_info;
+
+          $scope.badges.push(data.user_info.badge1);
+          $scope.badges.push(data.user_info.badge2);
+          $scope.badges.push(data.user_info.badge3);
+          $scope.badges.push(data.user_info.badge4);
+          $scope.badges.push(data.user_info.badge5);
+
         }
         $scope.text_empty = data.text_empty;
         // $ionicScrollDelegate.resize();
