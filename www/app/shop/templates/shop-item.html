@@ -93,14 +93,15 @@
               </ion-content>
             </ion-nav-view>
           </ion-tab>
-
+        </div>
           <form name="shop.shopItemForm" enctype="multipart/form-data">
 
           </form>
 
 
-        </div>
-        <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+
+
+         <a ng-click="navigate()" class="button button-icon icon ion-navigate">{{'shop.direction' | i18n}}</a>
         <div id="map" data-tap-disabled="true"></div>
         <!-- <img ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{item.latitude}},{{item.longitude}}&markers={{item.latitude}},{{item.longitude}}&zoom=17&size=400x250&key=AIzaSyANM2U38gGBxIm4wowUMoOvizBD1RBDydg" style="width: 100%; height: auto;"> -->
       </ion-content>
