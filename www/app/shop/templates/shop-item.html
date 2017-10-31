@@ -67,16 +67,17 @@
 
         <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;"
              ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
+          <a
+            style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 10px;"
+            href="#/app/menu/shop/user/{{::item.user_id}}" class="button-details-product">
+            <span class="icon ion-ios-person-outline" i18n="shop.item_button_shop_detail"></span>
+          </a>
+
           <div class="buttons-detail">
             <button style="background-color: #FA3E16; color: whitesmoke;"
                     class="button-details-product icon ion-ios-cart"
                     ng-click="addToCart()" i18n="shop.item_button_add_to_cart"></button>
           </div>
-          <a
-            style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
-            href="#/app/menu/shop/user/{{::item.user_id}}" class="button-details-product">
-            <span class="icon ion-ios-person-outline" i18n="shop.item_button_shop_detail"></span>
-          </a>
 
           <a style="background-color:#27FD6A; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px;"
              href="#/app/menu/shop/review/{{id}}" class="button-details-product">
