@@ -11,9 +11,9 @@
 
     <div style="padding-left: 10px; padding-right: 10px; margin:10px;">
       <!--<h2>Tên Gian Hàng</h2>-->
-      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> {{user_info.fullname}}</p>
+      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> {{user_info.company || user_info.fullname}}</p>
       <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user_info.phone}}</p>
-      <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> {{user_info.address1}} </p>
+      <p ng-hide="user_info.address1 == null"><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> {{user_info.address1}} </p>
       <p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"/> {{user_info.email}} </p>
       <!--<p><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"/> </p>-->
     </div>

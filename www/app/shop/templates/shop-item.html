@@ -21,8 +21,7 @@
         </div>
         <div class="detail-content">
 
-          <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
-            <h2 ng-bind-html="item.name"></h2></a>
+          <h2 ng-bind-html="item.name"></h2>
           <p>
             <span style="color:#ff5c00; font-size: 16px" ng-class="{'has-special' : item.special}"
                   ng-show="item.price == '0 VND'">{{'shop.view_detail_below' | i18n}}</span>
@@ -36,12 +35,11 @@
 
         <!--PROFILE PRODUCT-->
         <div class="logo-user" style="border-top: 9px;">
-          <img class="icon-image"
-               preload-image src="{{item.thumb}}"
-               default-image="app/shop/images/placeholder.png"
-               fallback-image="app/shop/images/placeholder.png"/>
-          <a href="#/app/menu/shop/user/{{::item.user_id}}" style="padding-top: 5px; font-weight: 600"
-             ng-bind="item.firstname"></a>
+            <img class="icon-image"
+                 preload-image src="{{item.thumb}}"
+                 default-image="app/shop/images/placeholder.png"
+                 fallback-image="app/shop/images/placeholder.png"/>
+          <h2>{{item.company||item.firstname}}</h2>
           <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
                          ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,
                          iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>

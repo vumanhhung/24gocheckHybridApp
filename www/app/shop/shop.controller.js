@@ -39,7 +39,7 @@ angular
 
     $scope.loadBanners = function () {
       ShopService.GetBanners().then(function (data) {
-        // $scope.data.slides = data.main_banners;
+        $scope.data.slides = data.main_banners;
 
         // $scope.data = {};
         // $scope.data.slides = [
@@ -48,20 +48,23 @@ angular
         //     "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
         //   }
         // ];
-        $scope.data.slides = [
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
-          },
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
-          },
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
-          }
-        ];
+
+
+
+        // $scope.data.slides = [
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
+        //   },
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
+        //   },
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
+        //   }
+        // ];
         $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
@@ -285,6 +288,7 @@ angular
       $scope.item.shop_name = data.shop_name;
       $scope.item.price = data.price;
       $scope.item.firstname = data.separate_u_name;
+      $scope.item.company = data.company;
       $scope.item.user_id = data.separate_u_user_id;
       $scope.item.telephone = data.separate_u_phone;
       $scope.item.location = data.location;

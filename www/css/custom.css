@@ -248,6 +248,11 @@
 }
 
 /*STYLE FOR SLIDE*/
+.home-slider .slider-slide img {
+  margin-left: -22%;
+  width: 145%;
+}
+
 .home-slider.slider .slider-slide {
   height: 100%;
   max-height: 175px;
