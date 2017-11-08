@@ -1,39 +1,26 @@
 <ion-view view-title="{{ 'shop.offer_trend' | i18n }}">
   <ion-content>
-    <div class="list" style="padding: 4%;">
-      <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px; padding: 5px">
-        <div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
-          <div ng-if="showoverlay" style="opacity: .5;">
-            <div class="row">
-              <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
-    color: #FFFFFF; font-size: 13px;">
-                <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
-              </a>
-              <button style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
-                <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
-              </button>
-            </div>
-          </div>
-          <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
-        </div>
-        <div ng-click="showoverlay = !showoverlay" style="background-color: white;">
-          <h2 ng-bind-html="item.name" style="padding: 7px 0 0 10px; margin-top: 4px;"></h2>
-          <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
-          <div class="row">
-            <div class="col item-price-view" style="text-align: inherit;">
-              <span ng-if="item.special">{{::item.special}}</span>
-              <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
-              <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
-              <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
-                <i class="icon ion-iphone"></i> {{::item.mobile_special}}
-            </span>
-            </div>
-            <div class="col item-ratings">
-              <ionic-ratings style="font-size: 85%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-            </div>
-          </div>
-        </div>
+    <ion-content>
+
+      <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
+
+      <div class="item item-divider item-button-right">
+        <span i18n="shop.offer_trend_list"></span>
+        <button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">
+          <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
+        </button>
       </div>
-    </div>
+
+      <ion-list class="recent-items-list">
+        <div class="item item-divider newproduct" i18n="shop.featured_title"></div>
+        <ion-slide-box show-pager="false" does-continue="true" auto-play="true">
+          <ion-slide ng-repeat="item in data.featuredItems">
+            <ion-item>
+              <item-template item="item" mode="3"></item-template>
+            </ion-item>
+          </ion-slide>
+        </ion-slide-box>
+      </ion-list>
+    </ion-content>
   </ion-content>
 </ion-view>

@@ -1,13 +1,14 @@
 ﻿<div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
   <div ng-if="showoverlay" style="opacity: .5;">
-    <div class="row">
+    <div class="row" ng-style="userLoggedIn() && {} || {'margin-top':'-34px'}">
       <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
-    color: #FFFFFF; font-size: 13px;">
+    color: #FFFFFF; font-size: 13px;" ng-style="userLoggedIn() && {} || {'margin-left':'auto', 'margin-right':'auto'}">
         <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
       </a>
-      <button style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+      <button ng-if="userLoggedIn()" style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+
         <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
-      </button>
+      </button> -->
     </div>
   </div>
   <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
@@ -18,14 +19,14 @@
   <div class="row">
     <div class="col item-price-view" style="text-align: inherit;">
       <span ng-if="item.special">{{::item.special}}</span>
-      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
-      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
+      <span style="color:#ff5c00; font-size: 72%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
+      <span style="color:#ff5c00; font-size: 72%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
       <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
                 <i class="icon ion-iphone"></i> {{::item.mobile_special}}
             </span>
     </div>
     <div class="col item-ratings">
-      <ionic-ratings style="font-size: 85%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+      <ionic-ratings style="font-size: 72%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
     </div>
   </div>
 </div>

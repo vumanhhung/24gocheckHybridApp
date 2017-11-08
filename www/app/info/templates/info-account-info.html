@@ -67,13 +67,19 @@
   <ion-content>
     <div class="list">
       <form name="forms.editForm" ng-submit="postEditData()" novalidate>
+<!--uncomment here-->
         <div class="item item-divider" i18n="modals.register_your_information"></div>
+<!--end uncomment here-->
+
+
+
+
         <!--<label class="item item-input item-floating-label">-->
         <!--<span class="input-label" i18n="modals.register_username"></span>-->
         <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_username'}" ng-model="register.username"-->
         <!--name="username" required ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6">-->
         <!--</label>-->
-        <label class="item item-input item-floating-label">
+        <label class="item item-input">
           <span class="input-label" i18n="modals.register_email"></span>
           <!--<input type="email" data-i18n-attr="{placeholder: 'modals.register_email'}" ng-model="edit.email" name="email">-->
           <p>{{edit.email}}</p>
@@ -93,16 +99,16 @@
         <!--</label>-->
 
 
-
-        <label class="item item-input item-floating-label">
-          <span class="input-label" i18n="modals.register_password"></span>
-          <input type="password" data-i18n-attr="{placeholder: 'modals.register_password'}" name="password" ng-model="edit.password" required>
-        </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label" i18n="modals.register_confirm"></span>
-          <input type="password" data-i18n-attr="{placeholder: 'modals.register_confirm'}" name="confirm" ng-model="edit.confirm" required>
-        </label>
-
+<!--uncomment here-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label" i18n="modals.register_password"></span>-->
+          <!--<input type="password" data-i18n-attr="{placeholder: 'modals.register_password'}" name="password" ng-model="edit.password" required>-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label" i18n="modals.register_confirm"></span>-->
+          <!--<input type="password" data-i18n-attr="{placeholder: 'modals.register_confirm'}" name="confirm" ng-model="edit.confirm" required>-->
+        <!--</label>-->
+<!--end uncomment here-->
 
         <div class="item item-divider" i18n="modals.register_your_profile"></div>
         <!--<label class="item item-input item-floating-label">-->
@@ -110,9 +116,10 @@
         <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_realname'}" ng-model="register.realname"-->
         <!--name="realname" required ng-pattern="/^[a-zA-Z0-9]*$/">-->
         <!--</label>-->
-        <label class="item item-input item-floating-label">
+        <label class="item item-input">
           <span class="input-label" i18n="modals.register_firstname"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_firstname'}" ng-model="edit.firstname" name="firstname" required>
+          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_firstname'}" ng-model="edit.firstname" name="firstname" required>-->
+          {{edit.firstname}}
         </label>
 
 
@@ -121,10 +128,11 @@
         <!--<input type="email" data-i18n-attr="{placeholder: 'modals.register_email'}" ng-model="register.email"-->
         <!--name="email" required>-->
         <!--</label>-->
-        <label class="item item-input item-floating-label">
+        <label class="item item-input">
           <span class="input-label" i18n="modals.register_telephone"></span>
-          <input type="tel" data-i18n-attr="{placeholder: 'modals.register_telephone'}" ng-model="edit.telephone"
-                 name="telephone" required>
+          <!--<input type="tel" data-i18n-attr="{placeholder: 'modals.register_telephone'}" ng-model="edit.telephone"-->
+                 <!--name="telephone" required>-->
+          {{edit.telephone}}
         </label>
 
 
@@ -136,9 +144,16 @@
         <!--</label>-->
 
 
-        <label class="item item-input item-floating-label">
+        <label class="item item-input">
           <span class="input-label" i18n="modals.register_address1"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required>
+          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required>-->
+          <p>{{edit.user_address.address_1}}</p>
+        </label>
+
+        <label class="item item-input">
+          <span class="input-label" i18n="modals.register_address2"></span>
+          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required>-->
+          {{edit.user_address.address_2}}
         </label>
 
         <!--<label class="item item-input item-floating-label">-->
@@ -147,37 +162,40 @@
         <!--required ng-pattern="/^[a-zA-Z0-9]*$/">-->
         <!--</label>-->
 
-        <label class="item item-input item-floating-label">
-          <span class="input-label" i18n="modals.register_city"></span>
-          <input type="text" data-i18n-attr="{placeholder: 'modals.register_city'}" ng-model="edit.city" name="city" required>
-        </label>
+<!--uncomment here-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label" i18n="modals.register_city"></span>-->
+          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_city'}" ng-model="edit.city" name="city" required>-->
+        <!--</label>-->
 
 
-        <label class="item item-input item-floating-label">
-          <span class="input-label" i18n="modals.register_postal"></span>
-          <input type="number" data-i18n-attr="{placeholder: 'modals.register_postal'}" string-to-number
-                 ng-model="edit.postcode" maxlength="6" minlength="5" name="postal_code" required>
-        </label>
-        <label class="item item-input item-select">
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label" i18n="modals.register_postal"></span>-->
+          <!--<input type="number" data-i18n-attr="{placeholder: 'modals.register_postal'}" string-to-number-->
+                 <!--ng-model="edit.postcode" maxlength="6" minlength="5" name="postal_code" required>-->
+        <!--</label>-->
+<!--end uncomment here-->
+
+        <label class="item item-input item-select" style="border-radius: 5px; margin-bottom: 5px;">
           <div class="input-label" i18n="modals.register_country"></div>
-          <select ng-model="edit.country_id" ng-init="edit.country_id = '230'" ng-change="countryChanged()"
-                  name="country_id" required>
-            <option value="{{::country.country_id}}" ng-selected="country.country_id == edit.country_id"
+          <select ng-model="register.country_id" ng-init="search.country_id = '230'" ng-change="countryChanged()"
+                  name="country_id" required disabled>
+            <option value="{{::country.country_id}}" ng-selected="country.country_id == register.country_id"
                     ng-repeat="country in countries">{{::country.name}}
             </option>
           </select>
         </label>
-        <label class="item item-input item-select">
+        <label class="item item-input item-select" style="border-radius: 5px">
           <div class="input-label" i18n="modals.register_region"></div>
-          <select ng-model="edit.zone_id" name="zone_id" required ng-init="countryChanged()">
-            <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == edit.zone_id" ng-repeat="zone in zones">
+          <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();" ng-change="resetOption();changeZone(zone_id);" >
+            <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id" ng-repeat="zone in zones">
               {{::zone.name}}
             </option>
           </select>
         </label>
-        <div class="padding">
-          <button type="submit" class="button button-block button-positive" i18n="info.button_edit_account"></button>
-        </div>
+        <!--<div class="padding">-->
+          <!--<button type="submit" class="button button-block button-positive" i18n="info.button_edit_account"></button>-->
+        <!--</div>-->
       </form>
     </div>
   </ion-content>

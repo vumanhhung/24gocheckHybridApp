@@ -39,7 +39,7 @@ angular
 
     $scope.loadBanners = function () {
       ShopService.GetBanners().then(function (data) {
-        // $scope.data.slides = data.main_banners;
+        $scope.data.slides = data.main_banners;
 
         // $scope.data = {};
         // $scope.data.slides = [
@@ -48,20 +48,23 @@ angular
         //     "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
         //   }
         // ];
-        $scope.data.slides = [
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
-          },
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
-          },
-          {
-            "link": "http://24gocheck.com/",
-            "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
-          }
-        ];
+
+
+
+        // $scope.data.slides = [
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
+        //   },
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
+        //   },
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
+        //   }
+        // ];
         $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
@@ -151,9 +154,8 @@ angular
 angular
   .module('shop.module')
   .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService, CartService, WEBSITE) {
-
     function initialize() {
-      var myLatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
+      var myLatlng = new google.maps.LatLng( $scope.item.latitude, $scope.item.longitude);
 
       var mapOptions = {
         center: myLatlng,
@@ -177,17 +179,20 @@ angular
         title: 'Uluru (Ayers Rock)'
       });
 
-      google.maps.event.addListener(marker, 'click', function () {
-        infowindow.open(map, marker);
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
       });
 
       $scope.map = map;
     }
-
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    $scope.centerOnMe = function () {
-      if (!$scope.map) {
+    $scope.navigate = function() {
+      launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude]);
+    }
+
+    $scope.centerOnMe = function() {
+      if(!$scope.map) {
         return;
       }
 
@@ -196,13 +201,16 @@ angular
         showBackdrop: false
       });
 
-      navigator.geolocation.getCurrentPosition(function (pos) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
         var mylatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         var myitemlatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
         $scope.calcRoute(mylatlng, myitemlatlng);
         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        $scope.loading.hide();
-      }, function (error) {
+        launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude], {
+          start: [pos.coords.latitude, pos.coords.longitude]
+        });
+        // $scope.loading.hide();
+      }, function(error) {
         alert('Unable to get location: ' + error.message);
       });
     };
@@ -210,7 +218,7 @@ angular
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
 
-    $scope.calcRoute = function (start, end) {
+    $scope.calcRoute = function(start, end) {
       //var start =
       //var end = new google.maps.LatLng(37.441883, -122.143019);
       var request = {
@@ -218,7 +226,7 @@ angular
         destination: end,
         travelMode: google.maps.TravelMode.DRIVING
       };
-      directionsService.route(request, function (response, status) {
+      directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
           directionsDisplay.setMap($scope.map);
@@ -228,10 +236,9 @@ angular
       });
     };
 
-    $scope.clickTest = function () {
+    $scope.clickTest = function() {
       alert('Example of infowindow with ng-click')
     };
-
 
     var vm = this;
     $scope.shop = {};
@@ -273,12 +280,16 @@ angular
 
       $scope.item.name = data.heading_title;
       $scope.item.product_id = data.product_id;
+      $scope.item.user_id = data.separate_u_user_id;
+
       $scope.item.text_stock = data.text_stock;
       $scope.item.text_model = data.text_model;
       $scope.item.attribure_groups = data.attribute_groups;
       $scope.item.shop_name = data.shop_name;
       $scope.item.price = data.price;
       $scope.item.firstname = data.separate_u_name;
+      $scope.item.company = data.company;
+      $scope.item.user_id = data.separate_u_user_id;
       $scope.item.telephone = data.separate_u_phone;
       $scope.item.location = data.location;
       $scope.item.latitude = data.latitude;
@@ -313,6 +324,7 @@ angular
       $scope.item_cache.items[$stateParams.id] = $scope.item;
 
       $ionicSlideBoxDelegate.update();
+      initialize();
       $timeout(function () {
         $ionicLoading.hide();
       }, 500);
@@ -517,6 +529,69 @@ angular
     }
   });
 
+angular
+  .module('shop.module')
+  .controller('ShopUserProductCtrl', function ($scope, $rootScope, $stateParams, ShopService) {
+    $scope.page = 1;
+    $scope.endOfItems = true;
+    $scope.loadingItems = false;
+
+    $scope.items = [];
+
+    $scope.badges = [];
+
+    $scope.loadItems = function () {
+      if ($scope.loadingItems) {
+        return;
+      }
+
+      $scope.loadingItems = true;
+      $scope.items = $scope.items || [];
+
+
+      ShopService.GetProductsByUserId($stateParams.id, $scope.page).then(function (data) {
+        $scope.items = $scope.items.concat(data.products);
+        if($scope.user_info == undefined){
+          $scope.user_info = data.user_info;
+
+          $scope.badges.push(data.user_info.badge1);
+          $scope.badges.push(data.user_info.badge2);
+          $scope.badges.push(data.user_info.badge3);
+          $scope.badges.push(data.user_info.badge4);
+          $scope.badges.push(data.user_info.badge5);
+
+        }
+        $scope.text_empty = data.text_empty;
+        // $ionicScrollDelegate.resize();
+        $scope.page++;
+        console.log("From page: "+$scope.page);
+        if (data.products.length < 1)
+          $scope.endOfItems = true;
+        else
+          $scope.endOfItems = false;
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      }, function (data) {
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
+
+    }
+    $scope.loadItems();
+
+    $scope.loadNextPage = function () {
+      if (!$scope.endOfItems) {
+        $scope.loadItems();
+      } else {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+    }
+
+
+  })
+
+
 
 /**
  * @ngdoc controller
@@ -533,6 +608,7 @@ angular
 angular
   .module('shop.module')
   .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
+
     $scope.selectedCat = "1";
     $scope.selectedZone = "3776";
     $scope.page = 1;
@@ -697,30 +773,37 @@ angular
       });
     }
 
-
-    ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
-      if (refresh) {
-        $scope.data.latestItems = data.products;
-        $scope.data.latestPage = 1;
-      } else {
-        if ($scope.data.latestPage == 1) {
-          $scope.data.latestItems = [];
-        }
-
-        $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
-        $scope.data.latestPage++;
+    $scope.loadLatest = function (refresh) {
+      if ($scope.loadingLatest) {
+        return;
       }
-      if (data.products && data.products.length < 1)
-        $scope.endOfRLatestItems = true;
-      $scope.loadingLatest = false;
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-      $scope.$broadcast('scroll.refreshComplete');
-    }, function (data) {
-      $scope.loadingLatest = false;
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-      $scope.$broadcast('scroll.refreshComplete');
-    });
 
+      $scope.loadingLatest = true;
+      $scope.data.latestItems = $scope.data.latestItems || [];
+
+      ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+        if (refresh) {
+          $scope.data.latestItems = data.products;
+          $scope.data.latestPage = 1;
+        } else {
+          if ($scope.data.latestPage == 1) {
+            $scope.data.latestItems = [];
+          }
+
+          $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
+          $scope.data.latestPage++;
+        }
+        if (data.products && data.products.length < 1)
+          $scope.endOfRLatestItems = true;
+        $scope.loadingLatest = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }, function (data) {
+        $scope.loadingLatest = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    }
 
     $scope.loadNextRecentPage = function () {
       if (!$scope.endOfRLatestItems) {
@@ -742,45 +825,6 @@ angular
     $scope.loadBanners();
 
 
-    // ShopService.GetProduct($stateParams.id).then(function (data) {
-    //   $scope.item = {};
-    //
-    //   $scope.item.name = data.heading_title;
-    //   $scope.item.product_id = data.product_id;
-    //   $scope.item.text_stock = data.text_stock;
-    //   $scope.item.text_model = data.text_model;
-    //   $scope.item.attribure_groups = data.attribute_groups;
-    //
-    //   $scope.item.price = data.price;
-    //   $scope.item.special = data.special;
-    //   $scope.item.description = data.description;
-    //   $scope.item.off = data.off;
-    //   $scope.item.mobile_special = data.mobile_special;
-    //   $scope.item.stock = data.stock;
-    //   $scope.item.model = data.model;
-    //   $scope.item.options = data.options;
-    //   $scope.item.minimum = data.minimum || 1;
-    //
-    //   $scope.item.review_status = data.review_status;
-    //   $scope.item.review_guest = data.review_guest;
-    //   $scope.item.reviews = data.reviews;
-    //   $scope.item.rating = data.rating;
-    //   $scope.item.entry_name = data.entry_name;
-    //   $scope.item.entry_review = data.entry_review;
-    //
-    //   $scope.item.related = data.products;
-    //
-    //   $scope.item.images = data.images;
-    //
-    //   if (!$scope.item_cache.items)
-    //     $scope.item_cache.items = {};
-    //   $scope.item_cache.items[$stateParams.id] = $scope.item;
-    //
-    //   $ionicSlideBoxDelegate.update();
-    //   $timeout(function () {
-    //     $ionicLoading.hide();
-    //   }, 500);
-    // });
 
   });
 

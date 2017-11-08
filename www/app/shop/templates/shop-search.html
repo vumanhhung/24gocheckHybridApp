@@ -20,17 +20,36 @@
       <div ng-switch="categories">
         <ion-list ng-switch-when="nearby">
           <ion-item style="background-color: #f7f7f7;">
-
+            <div id="map" data-tap-disabled="true"></div>
+            <!--<div>-->
+              <!--<div style="margin: -10px;display: flex;width: 100%;">-->
+                <!--<div style="width: 30%; height: 100px; margin-right: 15px;">-->
+                  <!--<img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/alvietjs%20logo.jpg"-->
+                       <!--style="height: 100%; float: left;"/>-->
+                <!--</div>-->
+                <!--<div style="border-right: solid 1px lightgrey;width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">-->
+                  <!--<h2><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> Công ty AlvietJS</h2>-->
+                  <!--<span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> địa chỉ</span><br/>-->
+                  <!--<span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> sđt</span><br/>-->
+                  <!--<ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"-->
+                                 <!--ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star',-->
+                                 <!--iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
+                <!--</div>-->
+                <!--<div style="float: right; padding-top: 13%; padding-left: 4%; width: 12%">-->
+                  <!--<span>10km</span>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
           </ion-item>
         </ion-list>
         <ion-list ng-switch-when="category">
           <ion-item style="background-color: #f7f7f7;">
             <div class="list">
               <!--<label class="item item-input item-select">-->
-                <!--<div class="input-label">-->
-                  <!--{{'shop.item_tabs_cate' | i18n}}-->
-                <!--</div>-->
-                <!--<category-list thumbnail="false" mode="options" selected-category="selectedCategory"></category-list>-->
+              <!--<div class="input-label">-->
+              <!--{{'shop.item_tabs_cate' | i18n}}-->
+              <!--</div>-->
+              <!--<category-list thumbnail="false" mode="options" selected-category="selectedCategory"></category-list>-->
               <!--</label>-->
 
 
@@ -39,7 +58,7 @@
                 <select ng-model="selectedCat" ng-change="resetOption();changeCategory(selectedCat);">
                   <option ng-repeat="category in cates"
                           ng-selected="selectedCat == category.category_id"
-                          ng-value="category.category_id">{{::category.name.slice(0,-4)}}
+                          ng-value="category.category_id" ng-bind-html="category.name.slice(0, -4)">
                   </option>
                 </select>
               </label>
@@ -59,15 +78,15 @@
           <ion-item>
             <div class="list">
               <!--<label class="item item-input item-select">-->
-                <!--<div class="input-label">-->
-                  <!--{{'shop.item_tabs_city' | i18n}}-->
-                <!--</div>-->
-                <!--<select>-->
-                  <!--<option selected>{{'shop.item_tabs_city' | i18n}}</option>-->
-                  <!--<option>Hà Nội</option>-->
-                  <!--<option>Đà Nẵng</option>-->
-                  <!--<option>TP Hồ Chí Minh</option>-->
-                <!--</select>-->
+              <!--<div class="input-label">-->
+              <!--{{'shop.item_tabs_city' | i18n}}-->
+              <!--</div>-->
+              <!--<select>-->
+              <!--<option selected>{{'shop.item_tabs_city' | i18n}}</option>-->
+              <!--<option>Hà Nội</option>-->
+              <!--<option>Đà Nẵng</option>-->
+              <!--<option>TP Hồ Chí Minh</option>-->
+              <!--</select>-->
               <!--</label>-->
               <label class="item item-input item-select" style="border-radius: 5px; margin-bottom: 5px;">
                 <div class="input-label" i18n="modals.register_country"></div>
@@ -80,8 +99,10 @@
               </label>
               <label class="item item-input item-select" style="border-radius: 5px">
                 <div class="input-label" i18n="modals.register_region"></div>
-                <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();" ng-change="resetOption();changeZone(zone_id);" >
-                  <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id" ng-repeat="zone in zones">
+                <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();"
+                        ng-change="resetOption();changeZone(zone_id);">
+                  <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id"
+                          ng-repeat="zone in zones">
                     {{::zone.name}}
                   </option>
                 </select>

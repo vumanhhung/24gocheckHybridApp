@@ -4,6 +4,8 @@
   "off": "{percent}% OFF",
 
   "title_shop_search": "Search",
+  "title_user_product": "Store",
+  "info_user_product": "Store info",
   "search_hint": "Start typing something to search",
   "errors_search_no_results": "There is no product that matches the search criteria",
 
@@ -12,14 +14,17 @@
   "share_product_with_friends": "Share this product with your friends",
   "special_price": "price for mobile registered users",
   "item_description": "Description",
+  "item_shop_description": "Description",
   "item_view_all": "View All",
   "item_view_less": "View Less",
+  "item_view_product": " View Product",
   "item_specification": "Specification",
   "item_available_options": "Available Options",
   "item_quantity": "Quantity",
   "item_related_products": "Related Products",
   "item_button_add_to_cart": " Add Cart",
   "item_button_call": " Call",
+  "item_button_shop_detail": " Shop Detail",
   "item_button_review": " Reviews",
   "item_button_buy_now": "BUY NOW",
   "categories": "Categories",
@@ -52,6 +57,9 @@
   "item_add_to_wishlist_button" :  "Add to Wishlist",
 
   "offer_promotion":"Offer promotion",
+  "offer_promotion_list": "List promotion product",
+  "offer_top_list": "List best sellers product",
+  "offer_trend_list": "List trend product",
   "featured":"Featured Product",
   "offer_trend":"Trending",
   "best_sellers": "Best sellers",
@@ -66,7 +74,8 @@
   "show_more": "Show more",
 
   "view_detail" : "View Detail",
-  "view_detail_below" : "View Detail Below",
+  "view_detail_below" : "Contact Shop",
 
-  "menu_plus" : "More"
+  "menu_plus" : "More",
+  "direction": "Direction"
 }

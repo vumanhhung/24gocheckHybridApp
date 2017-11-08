@@ -752,4 +752,26 @@ angular
     }
 
 
+    this.GetProductsByUserId = function (user_id, page) {
+
+      var limit = 10;
+
+      return dataService.apiSecuredPost('/product/search', {
+        search: " ",
+        page: page,
+        limit: limit,
+        user_id: user_id,
+        order: "DESC"
+      }).then(function (data) {
+        for (var i in data.products) {
+          if (data.products[i].special) {
+            var s = parseInt(data.products[i].special_clear);
+            var p = parseInt(data.products[i].price_clear);
+            data.products[i].off = Math.ceil((p - s) / p * 100);
+          }
+        }
+
+        return data;
+      });
+    }
   })

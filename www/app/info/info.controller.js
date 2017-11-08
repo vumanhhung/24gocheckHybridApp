@@ -162,15 +162,15 @@ angular
 angular
   .module('info.module')
   .controller('InfoAccInfo', function ($scope, $rootScope, $state, $stateParams, $localStorage, notificationService, LANGUAGES) {
-    $scope.edit = {};
-    $scope.edit.email = $localStorage.user.email;
-    $scope.edit.firstname = $localStorage.user.firstname;
-    $scope.edit.telephone = $localStorage.user.telephone;
-    $scope.edit.address_1 = $localStorage.user.address_1;
-    $scope.edit.city = $localStorage.user.city;
-    $scope.edit.postal_code = $localStorage.user.postal_code;
-    $scope.edit.country_id = $localStorage.user.country_id;
-    $scope.edit.zone_id = $localStorage.user.zone_id;
+    $scope.edit = $localStorage.user || {};
+    // $scope.edit.email = $localStorage.user.email;
+    // $scope.edit.firstname = $localStorage.user.firstname;
+    // $scope.edit.telephone = $localStorage.user.telephone;
+    // $scope.edit.address_1 = $localStorage.user.address_1;
+    // $scope.edit.city = $localStorage.user.city;
+    // $scope.edit.postal_code = $localStorage.user.postal_code;
+    // $scope.edit.country_id = $localStorage.user.country_id;
+    // $scope.edit.zone_id = $localStorage.user.zone_id;
 
     // var str = JSON.stringify($localStorage.user);
     // str = JSON.stringify($localStorage.user, null, 4); // (Optional) beautiful indented output.
@@ -273,4 +273,9 @@ angular
     $scope.loadBanners();
 
 
+  })
+
+angular
+  .module('info.module')
+  .controller('InfoTutorialCtrl', function ($scope) {
   });

@@ -4,6 +4,8 @@
   "off": "{percent}%",
 
   "title_shop_search": "Tìm kiếm",
+  "title_user_product": "Gian hàng",
+  "info_user_product": "Thông tin gian hàng",
   "search_hint": "Gõ vào đây để tìm kiếm",
   "errors_search_no_results": "Sản phẩm bạn đang tìm không có",
 
@@ -12,14 +14,17 @@
   "share_product_with_friends": "Chia sẻ sản phẩm",
   "special_price": "giá sản phẩm dành cho người dùng đã đăng ký",
   "item_description": "Miêu tả",
+  "item_shop_description": "Gian hàng",
   "item_view_all": "Hiển thị tất cả",
   "item_view_less": "Hiển thị ít",
+  "item_view_product": " Sản phẩm",
   "item_specification": "Đặc điểm",
   "item_available_options": "Tùy chọn",
   "item_quantity": "Số lượng",
   "item_related_products": "Sản phẩm liên quan",
   "item_button_add_to_cart": " Giỏ hàng",
   "item_button_call": " Gọi điện",
+  "item_button_shop_detail": " Gian Hàng",
   "item_button_review": " Đánh giá",
   "item_button_buy_now": "Mua Hàng",
   "categories": "Danh mục",
@@ -52,6 +57,9 @@
   "item_add_to_wishlist_button" :  "Thêm vào danh sách",
 
   "offer_promotion":"Khuyến Mại",
+  "offer_promotion_list": "Danh sách sản phẩm khuyến mại",
+  "offer_top_list": "Danh sách sản phẩm bán chạy",
+  "offer_trend_list": "Danh sách sản phẩm theo xu hướng",
   "featured":"Nổi Bật",
   "offer_trend":"Xu Hướng",
   "best_sellers": "Bán chạy",
@@ -66,7 +74,8 @@
   "show_more": "Xem thêm",
 
   "view_detail" : "Xem chi tiết",
-  "view_detail_below" : "Xem chi tiết bên dưới",
+  "view_detail_below" : "Liên hệ",
 
-  "menu_plus" : "Thêm"
+  "menu_plus" : "Thêm",
+  "direction": "Chỉ đường"
 }

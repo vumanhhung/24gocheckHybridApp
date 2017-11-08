@@ -26,9 +26,9 @@
           <i class="icon ion-ios-person-outline"></i> <span i18n="info.buttons_account_info"></span>
           </a>
 
-          <ion-toggle ng-show="user.customer_id == '26' ? true : false" class="item item-icon-left" ng-model="info.open_close_shop" ng-checked="info.open_close_shop" ng-true-value="'Mở'" ng-false-value="'Đóng'" toggle-class="toggle-calm"><i class="icon ion-ios-toggle-outline"></i> <span i18n="info.buttons_open_close_shop"></span>
-            <p>{{info.open_close_shop}}</p>
-          </ion-toggle>
+          <!--<ion-toggle ng-show="user.customer_id == '26' ? true : false" class="item item-icon-left" ng-model="info.open_close_shop" ng-checked="info.open_close_shop" ng-true-value="'Mở'" ng-false-value="'Đóng'" toggle-class="toggle-calm"><i class="icon ion-ios-toggle-outline"></i> <span i18n="info.buttons_open_close_shop"></span>-->
+            <!--<p>{{info.open_close_shop}}</p>-->
+          <!--</ion-toggle>-->
 
           <a class="item item-icon-left" href="#/app/menu/info/favorite">
             <i class="icon ion-ios-star-outline"></i> <span i18n="info.buttons_favorite"></span>
@@ -38,6 +38,9 @@
           </a>
           <a class="item item-icon-left" href="#/app/menu/info/feedback">
             <i class="icon ion-ios-flag-outline"></i> <span i18n="info.buttons_feedback"></span>
+          </a>
+          <a class="item item-icon-left" href="#/app/menu/info/tutorial">
+            <i class="icon ion-ios-help-outline"></i> <span i18n="info.buttons_tutorial"></span>
           </a>
           <a class="item item-icon-left" ng-click="openAboutModal()">
             <i class="icon ion-ios-information-outline"></i> <span i18n="info.buttons_about"></span>
