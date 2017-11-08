@@ -118,10 +118,15 @@
         <!--</label>-->
         <label class="item item-input">
           <span class="input-label" i18n="modals.register_firstname"></span>
-          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_firstname'}" ng-model="edit.firstname" name="firstname" required>-->
-          {{edit.firstname}}
+          <p><input type="text" data-i18n-attr="{placeholder: 'modals.register_firstname'}" ng-model="edit.firstname" name="firstname" required></p>
+          <!--{{edit.firstname}}-->
         </label>
 
+        <label class="item item-input">
+          <span class="input-label" i18n="modals.register_lastname"></span>
+          <p><input type="text" data-i18n-attr="{placeholder: 'modals.register_lastname'}" ng-model="edit.lastname" name="lastname" required></p>
+          <!--{{edit.firstname}}-->
+        </label>
 
         <!--<label class="item item-input item-floating-label">-->
         <!--<span class="input-label" i18n="modals.register_email"></span>-->
@@ -130,9 +135,9 @@
         <!--</label>-->
         <label class="item item-input">
           <span class="input-label" i18n="modals.register_telephone"></span>
-          <!--<input type="tel" data-i18n-attr="{placeholder: 'modals.register_telephone'}" ng-model="edit.telephone"-->
-                 <!--name="telephone" required>-->
-          {{edit.telephone}}
+          <p><input type="tel" data-i18n-attr="{placeholder: 'modals.register_telephone'}" ng-model="edit.telephone"
+                 name="telephone" required></p>
+          <!--{{edit.telephone}}-->
         </label>
 
 
@@ -146,14 +151,14 @@
 
         <label class="item item-input">
           <span class="input-label" i18n="modals.register_address1"></span>
-          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required>-->
-          <p>{{edit.user_address.address_1}}</p>
+          <p><input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.user_address.address_1" name="address_1" required></p>
+          <!--<p>{{edit.user_address.address_1}}</p>-->
         </label>
 
         <label class="item item-input">
           <span class="input-label" i18n="modals.register_address2"></span>
           <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required>-->
-          {{edit.user_address.address_2}}
+          <p>{{edit.user_address.address_2}}</p>
         </label>
 
         <!--<label class="item item-input item-floating-label">-->
@@ -193,10 +198,12 @@
             </option>
           </select>
         </label>
+        <!--<p>ID is {{edit.customer_id}}</p>-->
         <!--<div class="padding">-->
-          <!--<button type="submit" class="button button-block button-positive" i18n="info.button_edit_account"></button>-->
+          <button type="submit" class="button button-block button-positive" i18n="info.button_edit_account"></button>
         <!--</div>-->
       </form>
+      <!--<button ng-click="but()">Click</button>-->
     </div>
   </ion-content>
 </ion-view>

@@ -1,19 +1,25 @@
 <ion-view view-title="{{'info.buttons_view_product' | i18n}}">
   <ion-content>
     <div class="list">
-      <div style="display: inline-flex; padding-left: 5%; padding-right: 5%;width: 100%;padding-top: 2%;">
-        <div style="width: 25%; margin-right: 2%;">
-          <img class="image" src="{{item.images}}" style="height: 80px; width: 80px;"/>
-        </div>
-        <div style="width: 60%; margin-right: 3%;">
-          <span class="hidden-text">Tên GH</span>
-          <p>{{item.price}}</p>
-          <p>Quantity: {{item.quantity}}</p>
-        </div>
-        <div style="width: 10%;">
-          <a style="float: right; font-size: 15px;"><i class="icon ion-edit"></i></a>
+      <div class="item" ng-repeat="item in items">
+        <div style="display: inline-flex; padding-left: 5%; padding-right: 5%;width: 100%;padding-top: 2%;">
+          <div style="width: 25%; margin-right: 2%;">
+            <img class="image" src="{{item.thumb}}" style="height: 80px; width: 80px;"/>
+          </div>
+          <div style="width: 60%; margin-right: 3%;">
+            <span class="hidden-text">{{item.name}}</span>
+            <p>{{item.price}}</p>
+            <p>Quantity: {{item.quantity}}</p>
+          </div>
+          <div style="width: 10%;">
+            <a style="float: right; font-size: 15px;"><i class="icon ion-edit"></i></a>
+          </div>
         </div>
       </div>
     </div>
+
+
+    <ion-item ng-if="items.length < 1">{{text_empty}}</ion-item>
+    <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

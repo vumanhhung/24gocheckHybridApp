@@ -48,6 +48,7 @@ angular
         $scope.info.open_close_shop = "Mở";
         $scope.user.user_group_id = $localStorage.user.customer_group_id;
         $scope.user.customer_id = $localStorage.user.customer_id;
+
     });
 
 /**
@@ -161,7 +162,7 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAccInfo', function ($scope, $rootScope, $state, $stateParams, $localStorage, notificationService, LANGUAGES) {
+  .controller('InfoAccInfo', function ($scope, $rootScope, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
     $scope.edit = $localStorage.user || {};
     // $scope.edit.email = $localStorage.user.email;
     // $scope.edit.firstname = $localStorage.user.firstname;
@@ -176,6 +177,55 @@ angular
     // str = JSON.stringify($localStorage.user, null, 4); // (Optional) beautiful indented output.
     // console.log(str); // Logs output to dev tools console.
     // alert(str); // Displays output using window.alert()
+
+    $scope.postEditData = function () {
+      InfoService.EditCustomer($scope.edit).then(function (data) {
+        // $scope.idea = data.cus_id;
+
+        // alert("Done editing");
+        $scope.validations = [];
+        $scope.validations.editErrors = [];
+        ["error_firstname","error_telephone","error_lastname"].forEach(function (e) {
+          var msg = data[e];
+          if (msg) {
+            $scope.validations.editErrors.push(msg);
+          }
+        })
+
+        if ($scope.validations.editErrors.length > 0) {
+          $ionicPopup.alert({
+            title: locale.getString('modals.registration_validations_title'),
+            cssClass: 'desc-popup',
+            scope: $scope,
+            templateUrl: 'templates/popups/edit-validations.html'
+          });
+        } else {
+          // if (data.customer_info) {
+          //   $localStorage.user = data.customer_info;
+          //   $rootScope.closeRegisterModal();
+          //
+          //   $ionicPopup.alert({
+          //     title: locale.getString('modals.registered_title'),
+          //     cssClass: 'desc-popup',
+          //     scope: $scope,
+          //     templateUrl: 'templates/popups/registered.html'
+          //   });
+          // }
+
+
+          $ionicPopup.alert({
+            title: locale.getString('modals.registered_title'),
+            cssClass: 'desc-popup',
+            scope: $scope,
+            templateUrl: 'templates/popups/registered.html'
+          });
+
+          // $state.reload();
+        }
+      });
+
+    }
+
 
   });
 
@@ -292,7 +342,64 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoViewProductCtrl', function ($scope) {
+  .controller('InfoViewProductCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
+
+    $scope.page = 1;
+    $scope.endOfItems = true;
+    $scope.loadingItems = false;
+
+    $scope.items = [];
+
+    // $scope.badges = [];
+
+    $scope.loadItems = function () {
+      if ($scope.loadingItems) {
+        return;
+      }
+
+      $scope.loadingItems = true;
+      $scope.items = $scope.items || [];
+
+
+      ShopService.GetProductsByUserId($scope.userLoggedIn(), $scope.page).then(function (data) {
+        $scope.items = $scope.items.concat(data.products);
+        // if($scope.user_info == undefined){
+        //   $scope.user_info = data.user_info;
+        //
+        //   $scope.badges.push(data.user_info.badge1);
+        //   $scope.badges.push(data.user_info.badge2);
+        //   $scope.badges.push(data.user_info.badge3);
+        //   $scope.badges.push(data.user_info.badge4);
+        //   $scope.badges.push(data.user_info.badge5);
+        //
+        // }
+        $scope.text_empty = data.text_empty;
+        // $ionicScrollDelegate.resize();
+        $scope.page++;
+        console.log("From page: "+$scope.page);
+        if (data.products.length < 1)
+          $scope.endOfItems = true;
+        else
+          $scope.endOfItems = false;
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      }, function (data) {
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
+
+    }
+    $scope.loadItems();
+
+    $scope.loadNextPage = function () {
+      if (!$scope.endOfItems) {
+        $scope.loadItems();
+      } else {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+    }
+
   });
 
 angular
