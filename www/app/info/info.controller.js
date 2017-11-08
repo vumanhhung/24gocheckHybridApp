@@ -279,3 +279,28 @@ angular
   .module('info.module')
   .controller('InfoTutorialCtrl', function ($scope) {
   });
+
+angular
+  .module('info.module')
+  .controller('InfoShopManageCtrl', function ($scope) {
+  });
+//
+angular
+  .module('info.module')
+  .controller('InfoEditShopInfoCtrl', function ($scope) {
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoViewProductCtrl', function ($scope) {
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoAddProductCtrl', function ($scope) {
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoOrderManageCtrl', function ($scope) {
+  });

@@ -41,6 +41,11 @@
   "buttons_logout": "Logout",
   "buttons_account_info": "Account Info",
   "buttons_tutorial": "Tutorial",
+  "buttons_shop_manage": "Shop Manage",
+  "buttons_edit_shop_info": "Shop Info",
+  "buttons_view_product":"View Product",
+  "buttons_add_new_product":"Add New Product",
+  "buttons_order_manage":"Order Manager",
 
   "button_edit_account": "Edit account",
   "buttons_transaction_history": "Transaction History",
@@ -48,5 +53,7 @@
   "title_info_feedback": "Feedback",
   "title_info_favorite": "Favorite",
   "shops": "Shops",
-  "products": "Products"
+  "products": "Products",
+  "quantity": "Quantity",
+  "total":"Total"
 }
