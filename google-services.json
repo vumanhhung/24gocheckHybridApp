@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "142596221344",
+    "firebase_url": "https://gocheck-f38be.firebaseio.com",
+    "project_id": "gocheck-f38be",
+    "storage_bucket": "gocheck-f38be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142596221344:android:4495e30195d563a3",
+        "android_client_info": {
+          "package_name": "com.erikchu.gocheck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142596221344-7jsfjsm8fc6lmcmad2qu56ehs9is0nid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL_tuuuo7yf6RZZw8w2JVTOD_DInPzTlk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
