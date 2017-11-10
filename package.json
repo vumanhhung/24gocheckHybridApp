@@ -14,6 +14,8 @@
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-app-event": "^1.2.0",
     "cordova-plugin-app-version": "^0.1.8",
+    "cordova-plugin-camera": "^2.4.1",
+    "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-device-orientation": "^1.0.3",
@@ -56,7 +58,8 @@
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
       },
-      "cordova-plugin-fcm": {}
+      "cordova-plugin-fcm": {},
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "android"
