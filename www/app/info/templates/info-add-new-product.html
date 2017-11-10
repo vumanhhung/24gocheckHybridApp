@@ -1,5 +1,36 @@
 <ion-view view-title="{{'info.buttons_add_new_product' | i18n}}">
   <ion-content>
+    <ion-view view-title="{{'info.buttons_add_new_product' | i18n}}">
+      <ion-content>
+        <img ng-src="{{srcImage || 'img/dummy.jpg'}}" id="srcImage" width="200 " height="200" style="display: block; margin: 0 auto;"/>git
+        <button ng-click="takeImage() ">Chụp ảnh</button><br/>
+        <div class="list ">
+          <label class="item item-input">
+            <span class="input-label">Tên sản phẩm</span>
+            <input type="text" class="col-md-9" style="border: none;" hidden="Tên sản phẩm">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Nhập giá</span>
+            <input type="text" class="col-md-9" style="border: none;" hidden="Nhập giá">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Nhập số lượng</span>
+            <input type="text" class="col-md-9" style="border: none;" hidden="Nhập số lượng">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Trọng lượng</span>
+            <input type="text" class="col-md-9" style="border: none;" hidden="Trọng lượng">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Mô tả chi tiết</span>
+            <input type="text" class="col-md-9" style="border: none;" hidden="Mô tả chi tiết">
+          </label>
+        </div>
+        <div class="col-md-12">
+          <button class="button button-full button-positive">Tiếp tục</button>
+        </div>
+      </ion-content>
+    </ion-view>
 
   </ion-content>
 </ion-view>
