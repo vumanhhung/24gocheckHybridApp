@@ -1,10 +1,11 @@
 <ion-view view-title="{{'info.buttons_add_new_product' | i18n}}">
   <ion-content>
-    <img ng-src="{{srcImage || 'img/dummy.jpg'}}" id="srcImage" width="200 " height="200"
-         style="display: block; margin: 0 auto;"/>
-    <button ng-click="takeImage() ">Chụp ảnh</button>
-    <br/>
-    <div class="list ">
+    <div style="margin-top: 10px;">
+      <img ng-src="{{srcImage || 'img/dummy.jpg'}}" id="srcImage" width="150" height="150"
+           style="display: block; margin-left: 35%; margin-bottom: 10px;"/>
+      <button ng-click="takeImage()" style="margin-left: 10px;">Chụp ảnh</button>
+    </div>
+    <div class="list" style="margin-top: 10px;">
       <label class="item item-input">
         <span class="input-label">Tên sản phẩm</span>
         <input type="text" class="col-md-9" style="border: none;" hidden="Tên sản phẩm">
