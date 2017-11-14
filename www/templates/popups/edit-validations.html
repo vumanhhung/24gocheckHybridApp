@@ -27,8 +27,11 @@
 <!--<div ng-messages="forms.registerForm.confirm.$error" role="alert">-->
     <!--<div ng-message="required">Confirm the password</div>-->
 <!--</div>-->
-<div ng-messages="forms.editForm.user_address.address_1.$error" role="alert">
+<div ng-messages="forms.editForm.address_1.$error" role="alert">
     <div ng-message="required">{{ 'modals.error_address_1_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.editForm.address_2.$error" role="alert">
+  <div ng-message="required">{{ 'modals.error_address_2_required' | i18n }}</div>
 </div>
 <!--<div ng-messages="forms.registerForm.city.$error" role="alert">-->
     <!--<div ng-message="required">{{ 'modals.error_city_required' | i18n }}</div>-->

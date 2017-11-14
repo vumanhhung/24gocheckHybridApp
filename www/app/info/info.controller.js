@@ -162,8 +162,11 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAccInfo', function ($scope, $rootScope, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
+  .controller('InfoAccInfo', function ($scope, $rootScope, $http, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
     $scope.edit = $localStorage.user || {};
+
+    $scope.edit.address_1 = $localStorage.user.user_address.address_1;
+    $scope.edit.address_2 = $localStorage.user.user_address.address_2;
     // $scope.edit.email = $localStorage.user.email;
     // $scope.edit.firstname = $localStorage.user.firstname;
     // $scope.edit.telephone = $localStorage.user.telephone;
@@ -185,7 +188,7 @@ angular
         // alert("Done editing");
         $scope.validations = [];
         $scope.validations.editErrors = [];
-        ["error_firstname","error_telephone","error_lastname"].forEach(function (e) {
+        ["error_firstname","error_telephone","error_lastname","error_address_1","error_address_2"].forEach(function (e) {
           var msg = data[e];
           if (msg) {
             $scope.validations.editErrors.push(msg);
@@ -213,14 +216,48 @@ angular
           // }
 
 
-          $ionicPopup.alert({
-            title: locale.getString('modals.registered_title'),
-            cssClass: 'desc-popup',
-            scope: $scope,
-            templateUrl: 'templates/popups/registered.html'
-          });
+          // alert('Done editing');
 
           // $state.reload();
+
+          //FCMPlugin.subscribeToTopic( topic, successCallback(msg), errorCallback(err) );
+          //All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
+          //Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
+          FCMPlugin.subscribeToTopic('all');
+
+          $http({
+            method: "POST",
+            dataType: 'jsonp',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'key=AIzaSyA809s8XMHkh0OMDWaGJ3ecCAdGbAr0T1A'},
+            url: "https://fcm.googleapis.com/fcm/send",
+            data: JSON.stringify(
+              {
+                "notification":{
+                  "title":"You had edited",  //Any value
+                  "body": "Edited",  //Any value
+                  "sound": "default", //If you want notification sound
+                  "click_action": "FCM_PLUGIN_ACTIVITY",  //Must be present for Android
+                  "icon": "fcm_push_icon"  //White icon Android resource
+                },
+                "data":{
+                  "param1":"value1",  //Any data to be retrieved in the notification callback
+                  "param2": "val2"
+                },
+                "to":"/topics/all", //Topic or single device
+                "priority":"high", //If not set, notification won't be delivered on completely closed iOS app
+                "restricted_package_name":"" //Optional. Set for application filtering
+              }
+            )
+          }).success(function(data){
+            $scope.reply = $scope.formData.message;
+            alert("Success: " + JSON.stringify(data));
+          }).error(function(data){
+            alert("Error: " + JSON.stringify(data));
+          });
+
+
+
+
         }
       });
 
