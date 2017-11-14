@@ -49,6 +49,11 @@ angular
         $scope.user.user_group_id = $localStorage.user.customer_group_id;
         $scope.user.customer_id = $localStorage.user.customer_id;
 
+
+        $scope.shika = function () {
+          alert('HAha '+ $scope.userId());
+        }
+
     });
 
 /**
@@ -220,39 +225,10 @@ angular
 
           // $state.reload();
 
-          //FCMPlugin.subscribeToTopic( topic, successCallback(msg), errorCallback(err) );
-          //All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
-          //Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
-          FCMPlugin.subscribeToTopic('all');
-
-          $http({
-            method: "POST",
-            dataType: 'jsonp',
-            headers: {'Content-Type': 'application/json', 'Authorization': 'key=AIzaSyA809s8XMHkh0OMDWaGJ3ecCAdGbAr0T1A'},
-            url: "https://fcm.googleapis.com/fcm/send",
-            data: JSON.stringify(
-              {
-                "notification":{
-                  "title":"You had edited",  //Any value
-                  "body": "Edited",  //Any value
-                  "sound": "default", //If you want notification sound
-                  "click_action": "FCM_PLUGIN_ACTIVITY",  //Must be present for Android
-                  "icon": "fcm_push_icon"  //White icon Android resource
-                },
-                "data":{
-                  "param1":"value1",  //Any data to be retrieved in the notification callback
-                  "param2": "val2"
-                },
-                "to":"/topics/all", //Topic or single device
-                "priority":"high", //If not set, notification won't be delivered on completely closed iOS app
-                "restricted_package_name":"" //Optional. Set for application filtering
-              }
-            )
-          }).success(function(data){
-            $scope.reply = $scope.formData.message;
-            alert("Success: " + JSON.stringify(data));
-          }).error(function(data){
-            alert("Error: " + JSON.stringify(data));
+          cordova.plugins.notification.local.schedule({
+            title: 'Edit profile successfull',
+            text: 'You profile has been edited at '+Date.now(),
+            foreground: true
           });
 
 
@@ -398,7 +374,7 @@ angular
       $scope.items = $scope.items || [];
 
 
-      ShopService.GetProductsByUserId($scope.userLoggedIn(), $scope.page).then(function (data) {
+      ShopService.GetProductsByUserId($rootScope.userId(), $scope.page).then(function (data) {
         $scope.items = $scope.items.concat(data.products);
         // if($scope.user_info == undefined){
         //   $scope.user_info = data.user_info;

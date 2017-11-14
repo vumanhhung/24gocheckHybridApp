@@ -281,6 +281,17 @@ angular.module('starter')
       return role;
     }
 
+    $rootScope.userId = function () {
+      var id;
+      if($localStorage.user.user_id){
+        id = $localStorage.user.user_id;
+      }else{
+        id = -1;
+      }
+      return id;
+    }
+
+
     $scope.logout = function () {
       $ionicLoading.show();
 
