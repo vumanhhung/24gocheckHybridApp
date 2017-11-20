@@ -142,7 +142,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
 //               console.log('Error registering onNotification callback: ' + err);
 //             }
 //           );
-//
+
         });
 
         $rootScope.$on('$ionicView.enter', function () {

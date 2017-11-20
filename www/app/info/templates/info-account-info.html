@@ -151,14 +151,14 @@
 
         <label class="item item-input">
           <span class="input-label" i18n="modals.register_address1"></span>
-          <p><input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.user_address.address_1" name="address_1" required></p>
+          <p><input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required></p>
           <!--<p>{{edit.user_address.address_1}}</p>-->
         </label>
 
         <label class="item item-input">
           <span class="input-label" i18n="modals.register_address2"></span>
-          <!--<input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="edit.address_1" name="address_1" required>-->
-          <p>{{edit.user_address.address_2}}</p>
+          <p><input type="text" data-i18n-attr="{placeholder: 'modals.register_address2'}" ng-model="edit.address_2" name="address_2" required></p>
+          <!--<p>{{edit.user_address.address_2}}</p>-->
         </label>
 
         <!--<label class="item item-input item-floating-label">-->
@@ -181,23 +181,23 @@
         <!--</label>-->
 <!--end uncomment here-->
 
-        <label class="item item-input item-select" style="border-radius: 5px; margin-bottom: 5px;">
-          <div class="input-label" i18n="modals.register_country"></div>
-          <select ng-model="register.country_id" ng-init="search.country_id = '230'" ng-change="countryChanged()"
-                  name="country_id" required disabled>
-            <option value="{{::country.country_id}}" ng-selected="country.country_id == register.country_id"
-                    ng-repeat="country in countries">{{::country.name}}
-            </option>
-          </select>
-        </label>
-        <label class="item item-input item-select" style="border-radius: 5px">
-          <div class="input-label" i18n="modals.register_region"></div>
-          <select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();" ng-change="resetOption();changeZone(zone_id);" >
-            <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id" ng-repeat="zone in zones">
-              {{::zone.name}}
-            </option>
-          </select>
-        </label>
+        <!--<label class="item item-input item-select" style="border-radius: 5px; margin-bottom: 5px;">-->
+          <!--<div class="input-label" i18n="modals.register_country"></div>-->
+          <!--<select ng-model="register.country_id" ng-init="search.country_id = '230'" ng-change="countryChanged()"-->
+                  <!--name="country_id" required disabled>-->
+            <!--<option value="{{::country.country_id}}" ng-selected="country.country_id == register.country_id"-->
+                    <!--ng-repeat="country in countries">{{::country.name}}-->
+            <!--</option>-->
+          <!--</select>-->
+        <!--</label>-->
+        <!--<label class="item item-input item-select" style="border-radius: 5px">-->
+          <!--<div class="input-label" i18n="modals.register_region"></div>-->
+          <!--<select ng-model="zone_id" name="zone_id" required ng-init="countryChanged();" ng-change="resetOption();changeZone(zone_id);" >-->
+            <!--<option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == search.zone_id" ng-repeat="zone in zones">-->
+              <!--{{::zone.name}}-->
+            <!--</option>-->
+          <!--</select>-->
+        <!--</label>-->
         <!--<p>ID is {{edit.customer_id}}</p>-->
         <!--<div class="padding">-->
           <button type="submit" class="button button-block button-positive" i18n="info.button_edit_account"></button>

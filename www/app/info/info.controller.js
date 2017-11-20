@@ -49,6 +49,11 @@ angular
         $scope.user.user_group_id = $localStorage.user.customer_group_id;
         $scope.user.customer_id = $localStorage.user.customer_id;
 
+
+        $scope.shika = function () {
+          alert('HAha '+ $scope.userId());
+        }
+
     });
 
 /**
@@ -162,8 +167,11 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAccInfo', function ($scope, $rootScope, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
+  .controller('InfoAccInfo', function ($scope, $rootScope, $http, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
     $scope.edit = $localStorage.user || {};
+
+    $scope.edit.address_1 = $localStorage.user.user_address.address_1;
+    $scope.edit.address_2 = $localStorage.user.user_address.address_2;
     // $scope.edit.email = $localStorage.user.email;
     // $scope.edit.firstname = $localStorage.user.firstname;
     // $scope.edit.telephone = $localStorage.user.telephone;
@@ -185,7 +193,7 @@ angular
         // alert("Done editing");
         $scope.validations = [];
         $scope.validations.editErrors = [];
-        ["error_firstname","error_telephone","error_lastname"].forEach(function (e) {
+        ["error_firstname","error_telephone","error_lastname","error_address_1","error_address_2"].forEach(function (e) {
           var msg = data[e];
           if (msg) {
             $scope.validations.editErrors.push(msg);
@@ -213,14 +221,19 @@ angular
           // }
 
 
-          $ionicPopup.alert({
-            title: locale.getString('modals.registered_title'),
-            cssClass: 'desc-popup',
-            scope: $scope,
-            templateUrl: 'templates/popups/registered.html'
-          });
+          // alert('Done editing');
 
           // $state.reload();
+
+          cordova.plugins.notification.local.schedule({
+            title: 'Edit profile successfull',
+            text: 'You profile has been edited at '+Date.now(),
+            foreground: true
+          });
+
+
+
+
         }
       });
 
@@ -361,7 +374,7 @@ angular
       $scope.items = $scope.items || [];
 
 
-      ShopService.GetProductsByUserId($scope.userLoggedIn(), $scope.page).then(function (data) {
+      ShopService.GetProductsByUserId($rootScope.userId(), $scope.page).then(function (data) {
         $scope.items = $scope.items.concat(data.products);
         // if($scope.user_info == undefined){
         //   $scope.user_info = data.user_info;
