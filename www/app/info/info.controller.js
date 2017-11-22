@@ -417,7 +417,39 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAddProductCtrl', function ($scope) {
+  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera) {
+    $scope.takeImage = function() {
+      var options = {
+        quality: 80,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: true,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 250,
+        targetHeight: 250,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false
+      };
+
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        $scope.srcImage = "data:image/jpeg;base64," + imageData;
+      }, function(err) {
+        // error
+      });
+    }
+  })
+
+  .run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if(window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+      if(window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
   });
 
 angular
