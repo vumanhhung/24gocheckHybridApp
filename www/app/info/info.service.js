@@ -178,4 +178,11 @@ angular
         });
       }
 
+
+      this.AddProductByUser = function (product_data) {
+        return dataService.apiSecuredPost('/product_create',product_data).then(function (data) {
+          return data;
+        });
+      }
+
     })

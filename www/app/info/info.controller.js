@@ -417,7 +417,19 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera) {
+  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera,$ionicPopup, locale, CartService, InfoService, ShopService) {
+
+    $scope.cates = [];
+    ShopService.GetCategories().then(function (data) {
+
+      $scope.cates = data.categories;
+
+
+      // $ionicLoading.hide();
+    }, function (data) {
+      // $ionicLoading.hide();
+    });
+
     $scope.takeImage = function() {
       var options = {
         quality: 80,
@@ -437,6 +449,81 @@ angular
         // error
       });
     }
+
+
+    $scope.countryChanged = function () {
+      $ionicLoading.show();
+
+      // save payment methods
+      CartService.LoadZones($scope.register['country_id']).then(function (data) {
+        $ionicLoading.hide();
+        $scope.zones = data.zones;
+
+      }, function (data) {
+        alert(locale.getString('modals.error_loading_zones'));
+        $ionicLoading.hide();
+      });
+    }
+
+
+
+
+    $scope.add ={};
+    $scope.postProductData = function () {
+
+      $scope.validations =[];
+      // sync user data to localstorage
+
+      if ($scope.forms.addProductForm.$invalid) {
+        $ionicPopup.alert({
+          title: locale.getString('modals.registration_validations_title'),
+          cssClass: 'desc-popup',
+          scope: $scope,
+          templateUrl: 'templates/popups/add-product-validation.html'
+        });
+      } else {
+
+        InfoService.AddProductByUser($scope.add).then(function (data) {
+          $scope.validations.createErrors = [];
+          ["error_product_name", "error_product_price", "error_product_quantity", "error_product_description", "error_product_weight", "error_product_meta_title", "error_product_model"].forEach(function (e) {
+            var msg = data[e];
+            if (msg) {
+              $scope.validations.createErrors.push(msg);
+            }
+          })
+
+          if ($scope.validations.createErrors.length > 0) {
+            $ionicPopup.alert({
+              title: locale.getString('modals.registration_validations_title'),
+              cssClass: 'desc-popup',
+              scope: $scope,
+              templateUrl: 'templates/popups/add-product-validation.html'
+            });
+
+            // alert('Length'+ $scope.validations.createErrors.length);
+          } else {
+            // var str = JSON.stringify($scope.add);
+            // str = JSON.stringify($scope.add, null, 4); // (Optional) beautiful indented output.
+            // console.log(str); // Logs output to dev tools console.
+            // alert(str); // Displays output using window.alert()
+            alert('Well done');
+
+          }
+
+
+        }, function (data) {
+          alert('Cant do shit');
+        });
+      }
+    }
+
+
+
+
+
+
+
+
   })
 
   .run(function($ionicPlatform) {

@@ -99,5 +99,16 @@
 
   "error_username_required": "Vui lòng nhập tên tài khoản",
   "error_username_pattern": "Tên tài khoản chỉ chứa kí tự và số",
-  "error_realname_required": "Vui lòng nhập tên"
+  "error_realname_required": "Vui lòng nhập tên",
+
+
+
+  "error_product_name_required": "Tên sản phẩm không được để trống",
+  "error_product_name_pattern": "Tên sản phẩm chỉ được chứa chữ và số",
+  "error_product_price_required": "Giá sản phẩm không được để trống",
+  "error_product_quantity_required": "Số lượng sản phẩm không được để trống",
+  "error_product_description_required": "Thông tin sản phẩm không được để trống",
+  "error_product_weight_required": "Trọng lượng sản phẩm không được để trống",
+  "error_product_meta_title_required": "Tiêu đề mở rộng không được để trống",
+  "error_product_model_required": "Model không được để trống"
 }

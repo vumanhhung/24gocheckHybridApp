@@ -98,5 +98,17 @@
 
   "error_username_required": "Please enter your username",
   "error_username_ngpattern": "Username must contain characters and numbers only",
-  "error_realname_required": "Please enter you name"
+  "error_realname_required": "Please enter you name",
+
+
+
+  "error_product_name_required": "Product name required",
+  "error_product_name_pattern": "PLs enter product name",
+  "error_product_price_required": "Product price required",
+  "error_product_quantity_required": "Quantity required",
+  "error_product_description_required": "Description required",
+  "error_product_weight_required": "Weight required",
+  "error_product_meta_title_required": "Meta title required",
+  "error_product_model_required": "Model required"
+
 }

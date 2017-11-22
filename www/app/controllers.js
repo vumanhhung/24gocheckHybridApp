@@ -275,7 +275,7 @@ angular.module('starter')
 
     $rootScope.userRole = function () {
       var role;
-      if($localStorage.user.role){
+      if($localStorage.user){
         role = $localStorage.user.role || '';
       }
       return role;
