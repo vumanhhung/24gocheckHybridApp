@@ -1,45 +1,38 @@
 <ion-view view-title="{{'info.buttons_add_new_product' | i18n}}">
   <ion-content>
-    <form name="forms.addProductForm" ng-submit="postProductData()" novalidate>
+    <form name="forms.addProductForm" novalidate>
       <div style="margin-top: 10px;">
         <img ng-src="{{srcImage || 'img/dummy.jpg'}}" id="srcImage" width="150" height="150"
-             style="display: block; margin-left: 35%; margin-bottom: 10px;"/>
-        <button ng-click="takeImage()" style="margin-left: 10px;">Chụp ảnh</button>
+             style="display: block; margin-left: 35%; margin-bottom: 10px;" ng-click="takeImage()"/>
+        <!--<button ng-click="takeImage()" style="margin-left: 10px;">Chụp ảnh</button>-->
       </div>
-      <div class="list" style="margin-top: 10px;">
-        <label class="item item-input">
-          <span class="input-label">Tên sản phẩm</span>
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_name" name="product_name" required />
+      <div class="list">
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_name" name="product_name" required placeholder="Tên sản phẩm" />
         </label>
-        <label class="item item-input">
-          <span class="input-label">Nhập giá</span>
-          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_price" name="product_price" required />
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_price" name="product_price" required placeholder="Nhập giá"/>
         </label>
-        <label class="item item-input">
-          <span class="input-label">Nhập số lượng</span>
-          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_quantity" name="product_quantity" required />
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_quantity" name="product_quantity" required placeholder="Nhập số lượng" />
         </label>
-        <label class="item item-input">
-          <span class="input-label">Trọng lượng</span>
-          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_weight" name="product_weight" required />
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_weight" name="product_weight" required placeholder="Trọng lượng" />
         </label>
-        <label class="item item-input">
-          <span class="input-label">Mô tả chi tiết</span>
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_description" name="product_description" required />
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_description" name="product_description" required placeholder="Mô tả chi tiết"/>
         </label>
-        <label class="item item-input">
-          <span class="input-label">Tiêu đề mở rộng</span>
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_meta_title" name="product_meta_title" required />
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_meta_title" name="product_meta_title" required placeholder="Tiêu đề mở rộng"/>
         </label>
-        <label class="item item-input">
-          <span class="input-label">Mã model sản phẩm</span>
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_model" name="product_model" required />
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_model" name="product_model" required placeholder="Mã model sản phẩm"/>
         </label>
         <!--<label class="item item-input">-->
           <!--<span class="input-label">Thành phố</span>-->
 
         <!--</label>-->
-        <label class="item item-input item-select">
+        <label class="item item-input item-select" style="margin-top: 10px;">
           <div class="input-label" i18n="modals.register_region"></div>
           <select ng-model="add.zone" name="zone_id" required ng-init="countryChanged()">
             <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == add.zone_id" ng-repeat="zone in zones">
@@ -51,7 +44,7 @@
           <!--<span class="input-label">Địa chỉ</span>-->
           <!--<input type="text" class="col-md-9" style="border: none;" hidden="Nhập giá" ng-model="add.product_name" name="product_name">-->
         <!--</label>-->
-        <label class="item item-input item-select">
+        <label class="item item-input item-select" style="margin-top: 10px;">
           <div class="input-label" i18n="shop.title_category"></div>
           <select ng-model="add.product_category">
             <option ng-repeat="category in cates"
@@ -62,7 +55,7 @@
         </label>
       </div>
       <div class="col-md-12">
-        <button type="submit" class="button button-full button-positive">Tiếp tục</button>
+        <button type="submit" class="button button-full button-positive" ng-submit="postProductData()">Tiếp tục</button>
       </div>
     </form>
   </ion-content>

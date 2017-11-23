@@ -61,7 +61,8 @@
       },
       "cordova-plugin-fcm": {},
       "cordova-plugin-camera": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "de.appplant.cordova.plugin.local-notification": {}
     },
     "platforms": [
       "android"
