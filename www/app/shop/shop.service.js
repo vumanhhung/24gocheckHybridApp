@@ -774,4 +774,16 @@ angular
         return data;
       });
     }
+
+
+    //Nearby Google Maps Service:
+    this.LoadAllUsers = function () {
+      return dataService.apiSecuredPost('/user_list').then(function (data) {
+        if (data.error) {
+          return $q.reject(data.error);
+        }
+        return data;
+      });
+    }
+
   })
