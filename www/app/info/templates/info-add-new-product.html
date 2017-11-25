@@ -5,28 +5,30 @@
         <img ng-src="{{srcImage || 'img/dummy.jpg'}}" id="srcImage" width="150" height="150"
              style="display: block; margin-left: 35%; margin-bottom: 10px;" ng-click="takeImage()"/>
         <!--<button ng-click="takeImage()" style="margin-left: 10px;">Chụp ảnh</button>-->
+        <!--<button ng-click="shika()">Shika</button>-->
+        <input type="hidden" ng-model="add.image" ng-value="srcImage" />
       </div>
       <div class="list">
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_name" name="product_name" required placeholder="Tên sản phẩm" />
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_name" name="product_name" required placeholder="{{'info.product_name' | i18n}}"  />
         </label>
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_price" name="product_price" required placeholder="Nhập giá"/>
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_price" name="product_price" required placeholder="{{'info.product_price' | i18n}}"/>
         </label>
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_quantity" name="product_quantity" required placeholder="Nhập số lượng" />
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_quantity" name="product_quantity" required placeholder="{{'info.product_quantity' | i18n}}" />
         </label>
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_weight" name="product_weight" required placeholder="Trọng lượng" />
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_weight" name="product_weight" required placeholder="{{'info.product_weight' | i18n}}" />
         </label>
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_description" name="product_description" required placeholder="Mô tả chi tiết"/>
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_description" name="product_description" required placeholder="{{'info.product_description' | i18n}}"/>
         </label>
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_meta_title" name="product_meta_title" required placeholder="Tiêu đề mở rộng"/>
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_meta_title" name="product_meta_title" required placeholder="{{'info.product_meta_title' | i18n}}"/>
         </label>
         <label class="item item-input" style="margin-top: 10px;">
-          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_model" name="product_model" required placeholder="Mã model sản phẩm"/>
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_model" name="product_model" required placeholder="{{'info.product_model' | i18n}}"/>
         </label>
         <!--<label class="item item-input">-->
           <!--<span class="input-label">Thành phố</span>-->
@@ -34,7 +36,7 @@
         <!--</label>-->
         <label class="item item-input item-select" style="margin-top: 10px;">
           <div class="input-label" i18n="modals.register_region"></div>
-          <select ng-model="add.zone" name="zone_id" required ng-init="countryChanged()">
+          <select ng-model="add.zone_id" name="zone_id" required ng-init="countryChanged()">
             <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == add.zone_id" ng-repeat="zone in zones">
               {{::zone.name}}
             </option>
@@ -55,7 +57,7 @@
         </label>
       </div>
       <div class="col-md-12">
-        <button type="submit" class="button button-full button-positive" ng-submit="postProductData()">Tiếp tục</button>
+        <button type="submit" class="button button-full button-positive" ng-click="postProductData()">{{'info.addProduct' | i18n}}</button>
       </div>
     </form>
   </ion-content>
