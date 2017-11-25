@@ -5,7 +5,7 @@
 * @name info.module.InfoService
 * @requires ng.$q
 * @requires dateService
-* @description 
+* @description
 * This service class contains methods needed to show Order list and selected Order info of a logged in customer.
 */
 angular
@@ -17,17 +17,17 @@ angular
          * @name info.module.InfoService#GetOrder
          * @methodOf info.module.InfoService
          * @kind function
-         * 
+         *
          * @description
          * Gets order details identified by the id
-         * 
+         *
          * @example
          <pre>
          InfoService.GetOrder(id).then(function (data) {
             $scope.order = data;
          });
          </pre>
-         * 
+         *
          * @param {number} id Order id
          * @returns {promise} Returns a promise of the order
          */
@@ -47,10 +47,10 @@ angular
         * @name info.module.InfoService#GetOrders
         * @methodOf info.module.InfoService
         * @kind function
-        * 
+        *
         * @description
         * Gets order list of the logged in user
-        * 
+        *
         * @example
          <pre>
          InfoService.GetOrders().then(function (data) {
@@ -75,17 +75,17 @@ angular
         * @name info.module.InfoService#RemoveFromWishlist
         * @methodOf info.module.InfoService
         * @kind function
-        * 
+        *
         * @description
         * Removes a product from the wishlist
-        * 
+        *
         * @example
         <pre>
         InfoService.RemoveFromWishlist(46).then(function (data) {
                //success
         });
         </pre>
-        * 
+        *
         * @param {number} id Product id
         * @returns {promise} Returns a promise of the API call.
         */
@@ -104,17 +104,17 @@ angular
          * @name info.module.InfoService#GetWishlist
          * @methodOf info.module.InfoService
          * @kind function
-         * 
+         *
          * @description
          * Adds a product to the wishlist
-         * 
+         *
          * @example
          <pre>
          InfoService.GetWishlist().then(function (data) {
                 $scope.products = data.products;
          });
          </pre>
-         * 
+         *
          * @returns {promise} Returns a promise of the API call.
          */
         this.GetWishlist = function () {
@@ -128,17 +128,17 @@ angular
         * @name info.module.InfoService#GetContactInfo
         * @methodOf info.module.InfoService
         * @kind function
-        * 
+        *
         * @description
         * Gets contact information
-        * 
+        *
         * @example
         <pre>
         InfoService.GetContactInfo().then(function (data) {
                $scope.products = data;
         });
         </pre>
-        * 
+        *
         * @returns {promise} Returns a promise of the API call.
         */
         this.GetContactInfo = function () {
@@ -152,17 +152,17 @@ angular
         * @name info.module.InfoService#PostContactForm
         * @methodOf info.module.InfoService
         * @kind function
-        * 
+        *
         * @description
         * Gets contact information
-        * 
+        *
         * @example
         <pre>
         InfoService.GetContactInfo().then(function (data) {
                $scope.products = data;
         });
         </pre>
-        * 
+        *
         * @returns {promise} Returns a promise of the API call.
         */
         this.PostContactForm = function (name, email, enquiry) {
@@ -170,4 +170,19 @@ angular
                 return data;
             });
         }
+
+
+      this.EditCustomer = function (customer_data) {
+        return dataService.apiSecuredPost('/user_edit',customer_data).then(function (data) {
+          return data;
+        });
+      }
+
+
+      this.AddProductByUser = function (product_data) {
+        return dataService.apiSecuredPost('/product_create',product_data).then(function (data) {
+          return data;
+        });
+      }
+
     })

@@ -48,6 +48,12 @@ angular
         $scope.info.open_close_shop = "Mở";
         $scope.user.user_group_id = $localStorage.user.customer_group_id;
         $scope.user.customer_id = $localStorage.user.customer_id;
+
+
+        $scope.shika = function () {
+          alert('HAha '+ $scope.userId());
+        }
+
     });
 
 /**
@@ -161,8 +167,11 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAccInfo', function ($scope, $rootScope, $state, $stateParams, $localStorage, notificationService, LANGUAGES) {
+  .controller('InfoAccInfo', function ($scope, $rootScope, $http, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
     $scope.edit = $localStorage.user || {};
+
+    $scope.edit.address_1 = $localStorage.user.user_address.address_1;
+    $scope.edit.address_2 = $localStorage.user.user_address.address_2;
     // $scope.edit.email = $localStorage.user.email;
     // $scope.edit.firstname = $localStorage.user.firstname;
     // $scope.edit.telephone = $localStorage.user.telephone;
@@ -176,6 +185,60 @@ angular
     // str = JSON.stringify($localStorage.user, null, 4); // (Optional) beautiful indented output.
     // console.log(str); // Logs output to dev tools console.
     // alert(str); // Displays output using window.alert()
+
+    $scope.postEditData = function () {
+      InfoService.EditCustomer($scope.edit).then(function (data) {
+        // $scope.idea = data.cus_id;
+
+        // alert("Done editing");
+        $scope.validations = [];
+        $scope.validations.editErrors = [];
+        ["error_firstname","error_telephone","error_lastname","error_address_1","error_address_2"].forEach(function (e) {
+          var msg = data[e];
+          if (msg) {
+            $scope.validations.editErrors.push(msg);
+          }
+        })
+
+        if ($scope.validations.editErrors.length > 0) {
+          $ionicPopup.alert({
+            title: locale.getString('modals.registration_validations_title'),
+            cssClass: 'desc-popup',
+            scope: $scope,
+            templateUrl: 'templates/popups/edit-validations.html'
+          });
+        } else {
+          // if (data.customer_info) {
+          //   $localStorage.user = data.customer_info;
+          //   $rootScope.closeRegisterModal();
+          //
+          //   $ionicPopup.alert({
+          //     title: locale.getString('modals.registered_title'),
+          //     cssClass: 'desc-popup',
+          //     scope: $scope,
+          //     templateUrl: 'templates/popups/registered.html'
+          //   });
+          // }
+
+
+          // alert('Done editing');
+
+          // $state.reload();
+
+          cordova.plugins.notification.local.schedule({
+            title: 'Edit profile successfull',
+            text: 'You profile has been edited at '+Date.now(),
+            foreground: true
+          });
+
+
+
+
+        }
+      });
+
+    }
+
 
   });
 
@@ -278,4 +341,205 @@ angular
 angular
   .module('info.module')
   .controller('InfoTutorialCtrl', function ($scope) {
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoShopManageCtrl', function ($scope) {
+  });
+//
+angular
+  .module('info.module')
+  .controller('InfoEditShopInfoCtrl', function ($scope) {
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoViewProductCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
+
+    $scope.page = 1;
+    $scope.endOfItems = true;
+    $scope.loadingItems = false;
+
+    $scope.items = [];
+
+    // $scope.badges = [];
+
+    $scope.loadItems = function () {
+      if ($scope.loadingItems) {
+        return;
+      }
+
+      $scope.loadingItems = true;
+      $scope.items = $scope.items || [];
+
+
+      ShopService.GetProductsByUserId($rootScope.userId(), $scope.page).then(function (data) {
+        $scope.items = $scope.items.concat(data.products);
+        // if($scope.user_info == undefined){
+        //   $scope.user_info = data.user_info;
+        //
+        //   $scope.badges.push(data.user_info.badge1);
+        //   $scope.badges.push(data.user_info.badge2);
+        //   $scope.badges.push(data.user_info.badge3);
+        //   $scope.badges.push(data.user_info.badge4);
+        //   $scope.badges.push(data.user_info.badge5);
+        //
+        // }
+        $scope.text_empty = data.text_empty;
+        // $ionicScrollDelegate.resize();
+        $scope.page++;
+        console.log("From page: "+$scope.page);
+        if (data.products.length < 1)
+          $scope.endOfItems = true;
+        else
+          $scope.endOfItems = false;
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      }, function (data) {
+        $scope.loadingItems = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
+
+    }
+    $scope.loadItems();
+
+    $scope.loadNextPage = function () {
+      if (!$scope.endOfItems) {
+        $scope.loadItems();
+      } else {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+    }
+
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera,$ionicPopup, locale, CartService, InfoService, ShopService) {
+
+    $scope.cates = [];
+    ShopService.GetCategories().then(function (data) {
+
+      $scope.cates = data.categories;
+
+
+      // $ionicLoading.hide();
+    }, function (data) {
+      // $ionicLoading.hide();
+    });
+
+    $scope.takeImage = function() {
+      var options = {
+        quality: 80,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: true,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 250,
+        targetHeight: 250,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false
+      };
+
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        $scope.srcImage = "data:image/jpeg;base64," + imageData;
+      }, function(err) {
+        // error
+      });
+    }
+
+
+    $scope.countryChanged = function () {
+      $ionicLoading.show();
+
+      // save payment methods
+      CartService.LoadZones($scope.register['country_id']).then(function (data) {
+        $ionicLoading.hide();
+        $scope.zones = data.zones;
+
+      }, function (data) {
+        alert(locale.getString('modals.error_loading_zones'));
+        $ionicLoading.hide();
+      });
+    }
+
+
+
+
+    $scope.add ={};
+    $scope.postProductData = function () {
+
+      $scope.validations =[];
+      // sync user data to localstorage
+
+      if ($scope.forms.addProductForm.$invalid) {
+        $ionicPopup.alert({
+          title: locale.getString('modals.registration_validations_title'),
+          cssClass: 'desc-popup',
+          scope: $scope,
+          templateUrl: 'templates/popups/add-product-validation.html'
+        });
+      } else {
+
+        InfoService.AddProductByUser($scope.add).then(function (data) {
+          $scope.validations.createErrors = [];
+          ["error_product_name", "error_product_price", "error_product_quantity", "error_product_description", "error_product_weight", "error_product_meta_title", "error_product_model"].forEach(function (e) {
+            var msg = data[e];
+            if (msg) {
+              $scope.validations.createErrors.push(msg);
+            }
+          })
+
+          if ($scope.validations.createErrors.length > 0) {
+            $ionicPopup.alert({
+              title: locale.getString('modals.registration_validations_title'),
+              cssClass: 'desc-popup',
+              scope: $scope,
+              templateUrl: 'templates/popups/add-product-validation.html'
+            });
+
+            // alert('Length'+ $scope.validations.createErrors.length);
+          } else {
+            // var str = JSON.stringify($scope.add);
+            // str = JSON.stringify($scope.add, null, 4); // (Optional) beautiful indented output.
+            // console.log(str); // Logs output to dev tools console.
+            // alert(str); // Displays output using window.alert()
+            alert('Well done');
+
+          }
+
+
+        }, function (data) {
+          alert('Cant do shit');
+        });
+      }
+    }
+
+
+
+
+
+
+
+
+  })
+
+  .run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if(window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+      if(window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
+  });
+
+angular
+  .module('info.module')
+  .controller('InfoOrderManageCtrl', function ($scope) {
   });

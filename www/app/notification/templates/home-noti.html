@@ -1,6 +1,6 @@
 <ion-view view-title="{{ 'notification.title_notification_home' | i18n }}">
 
-  <ion-content class="padding">
+  <ion-content style="padding: 10px;">
 
     <ion-segment style="padding: 0 70px" class="noti-segment" ng-model="categories" full="true" assertive>
       <ion-segment-button value="event">
@@ -15,7 +15,8 @@
       <ion-list ng-switch-when="event">
         <ion-item style="background-color: #f7f7f7; border: none;">
           <div class="large-icon-message">
-            <span style="border-radius: 70px; opacity: .5;" class="large-app-icon large-app-icon-green">
+            <span style="border-radius: 50%; opacity: .5;width: 200px; height: 200px;padding-top: 2%; font-size: 160px;"
+                  class="large-app-icon large-app-icon-green">
                 <i class="icon ion-ios-bell-outline"></i>
             </span>
             <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>
@@ -25,7 +26,8 @@
       <ion-list ng-switch-when="own">
         <ion-item style="background-color: #f7f7f7; border: none;">
           <div class="large-icon-message">
-            <span style="border-radius: 70px; opacity: .5;" class="large-app-icon large-app-icon-green">
+            <span style="border-radius: 50%; opacity: .5;width: 200px; height: 200px;padding-top: 5%; font-size: 160px;"
+                  class="large-app-icon large-app-icon-green">
                 <i class="icon ion-ios-bell-outline"></i>
             </span>
             <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>

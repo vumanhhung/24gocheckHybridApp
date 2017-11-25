@@ -41,6 +41,11 @@
   "buttons_logout": "Đăng xuất",
   "buttons_account_info": "Thông tin tài khoản",
   "buttons_tutorial": "Hướng dẫn sử dụng",
+  "buttons_shop_manage": "Quản lý gian hàng",
+  "buttons_edit_shop_info": "Thông tin gian hàng",
+  "buttons_view_product":"Xem danh sách sản phẩm",
+  "buttons_add_new_product":"Thêm mới sản phẩm",
+  "buttons_order_manage":"Quản lý đơn hàng",
 
   "button_edit_account": "Sửa tài khoản",
   "buttons_transaction_history": "Lịch sử giao dịch",
@@ -48,5 +53,7 @@
   "title_info_feedback": "Phản hồi",
   "title_info_favorite": "Yêu thích",
   "shops": "Cửa hàng",
-  "products": "Sản phẩm"
+  "products": "Sản phẩm",
+  "quantity": "Số lượng",
+  "total": "Tổng tiền"
 }

@@ -95,6 +95,51 @@ angular.module('info.module')
               }
             }
           })
+          .state('app.menu.info.shop-manage', {
+            url: '/shop-manage',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-shop-manage.html',
+                controller: 'InfoShopManageCtrl'
+              }
+            }
+          })
+          .state('app.menu.info.edit-shop-info', {
+            url: '/edit-shop-info',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-edit-shop-info.html',
+                controller: 'InfoEditShopInfoCtrl'
+              }
+            }
+          })
+          .state('app.menu.info.view-product', {
+            url: '/view-product',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-view-product.html',
+                controller: 'InfoViewProductCtrl'
+              }
+            }
+          })
+          .state('app.menu.info.add-new-product', {
+            url: '/add-new-product',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-add-new-product.html',
+                controller: 'InfoAddProductCtrl'
+              }
+            }
+          })
+          .state('app.menu.info.order-manage', {
+            url: '/order-manage',
+            views: {
+              'infoContent': {
+                templateUrl: 'app/info/templates/info-order-manage.html',
+                controller: 'InfoOrderManageCtrl'
+              }
+            }
+          })
           .state('app.menu.info.favorite.favorite-shops', {
             url: '/favorite-shops',
             views: {
