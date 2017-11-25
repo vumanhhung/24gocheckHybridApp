@@ -159,7 +159,7 @@ angular
 
       var mapOptions = {
         center: myLatlng,
-        zoom: 10,
+        zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map"),
@@ -224,7 +224,6 @@ angular
           })(marker, i));
         }
       }
-
 
       // google.maps.event.addListener(marker1, 'click', function() {
       //   infowindow.open(map,marker1);
