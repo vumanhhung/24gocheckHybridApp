@@ -159,31 +159,78 @@ angular
 
       var mapOptions = {
         center: myLatlng,
-        zoom: 17,
+        zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
 
       //Marker + infowindow + angularjs compiled ng-click
-      var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-      var compiled = $compile(contentString)($scope);
+      // var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+      // var compiled = $compile(contentString)($scope);
+      //
+      // var infowindow = new google.maps.InfoWindow({
+      //   content: compiled[0]
+      // });
 
-      var infowindow = new google.maps.InfoWindow({
-        content: compiled[0]
+      var infowindow = new google.maps.InfoWindow();
+
+      // var marker1 = new google.maps.Marker({
+      //   position: myLatlng,
+      //   map: map,
+      //   title: 'Uluru (Ayers Rock)'
+      // });
+
+      //Search Nearby
+      var request = {
+        location: myLatlng,
+        radius: 5000,
+        type: ['restaurant']
+      };
+
+      var locations = [];
+      var marker, i;
+
+      // $scope.getUsers = function () {
+      ShopService.LoadAllUsers().then(function (data) {
+        data.users.forEach(function(element){
+          locations.push([element.company, element.latitude, element.longitude]);
+        });
+        console.log(data.users[0].company);
+        console.log(data.users[0].latitude);
+        console.log(data.users[0].longitude);
+      }, function (data) {
+        // $ionicLoading.hide();
       });
 
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Uluru (Ayers Rock)'
-      });
+      // }
 
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch(request, callback);
+
+      function callback() {
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map,
+            title: locations[i][0]
+          });
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
+      }
+
+      // google.maps.event.addListener(marker1, 'click', function() {
+      //   infowindow.open(map,marker1);
+      // });
 
       $scope.map = map;
+
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 
