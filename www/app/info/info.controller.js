@@ -50,10 +50,6 @@ angular
         $scope.user.customer_id = $localStorage.user.customer_id;
 
 
-        $scope.shika = function () {
-          alert('HAha '+ $scope.userId());
-        }
-
     });
 
 /**
@@ -417,7 +413,7 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera,$ionicPopup, locale, CartService, InfoService, ShopService) {
+  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera, $localStorage, $ionicPopup, locale, CartService, InfoService, ShopService) {
 
     $scope.cates = [];
     ShopService.GetCategories().then(function (data) {
@@ -450,18 +446,21 @@ angular
       });
     }
 
+    // $scope.shika = function () {
+    //   alert('Source image '+ $scope.srcImage);
+    // }
 
     $scope.countryChanged = function () {
-      $ionicLoading.show();
+      // $ionicLoading.show();
 
       // save payment methods
       CartService.LoadZones($scope.register['country_id']).then(function (data) {
-        $ionicLoading.hide();
+        // $ionicLoading.hide();
         $scope.zones = data.zones;
 
       }, function (data) {
         alert(locale.getString('modals.error_loading_zones'));
-        $ionicLoading.hide();
+        // $ionicLoading.hide();
       });
     }
 
@@ -469,6 +468,8 @@ angular
 
 
     $scope.add ={};
+    $scope.add.user_id = $localStorage.user.user_id;
+    $scope.add.product_location = $localStorage.user.user_address.address_1;
     $scope.postProductData = function () {
 
       $scope.validations =[];
