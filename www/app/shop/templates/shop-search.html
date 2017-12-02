@@ -17,31 +17,31 @@
           <span>{{'shop.item_tabs_city' | i18n}}</span>
         </ion-segment-button>
       </ion-segment>
-      <div ng-switch="categories">
+      <a ng-switch="categories">
         <ion-list ng-switch-when="nearby">
           <ion-item style="background-color: #f7f7f7;" ng-init="init()">
             <div id="map" data-tap-disabled="true" style="height: 300px;"></div>
 
-            <div ng-repeat="user in store">
-              <div style="margin: -10px;display: flex;width: 100%;">
-                <div style="width: 30%; height: 100px; margin-right: 15px;">
-                  <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/alvietjs%20logo.jpg"
-                       style="height: 100%; float: left;"/>
-                </div>
-                <div style="border-right: solid 1px lightgrey;width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">
-                  <h2><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/>{{user['company']}}</h2>
-                  <span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/>{{user['address']}}</span><br/>
-                  <span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/>{{user['phone']}}</span><br/>
+            <a analytics-click="Product" href="#/app/menu/shop/user/{{user.user_id}}" class="item-template-link" ng-repeat="user in store">
+              <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 10px;">
+                <!--<div style="width: 30%; height: 100px; margin-right: 15px;">-->
+                  <!--<img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/alvietjs%20logo.jpg"-->
+                       <!--style="height: 100%; float: left;"/>-->
+                <!--</div>-->
+                <div style="border-right: solid 1px lightgrey;width: 75%; padding-left: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">
+                  <span><img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> <span ng-bind-html="user.company || user.fullname"></span></span><br>
+                  <span><img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> {{user['address']}}</span><br>
+                  <span><img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user['phone']}}</span><br>
                   <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
                                  ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star',
                                  iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
                 </div>
-                <div style="float: right; padding-top: 13%; padding-left: 4%; width: 12%">
+                <div style="padding-top: 13%; padding-left: 4%;">
                   <!--<span>{{user['D'].round()}}km</span>-->
                   <span>{{user['D']}}km</span>
                 </div>
               </div>
-            </div>
+            </a>
           </ion-item>
         </ion-list>
         <ion-list ng-switch-when="category">

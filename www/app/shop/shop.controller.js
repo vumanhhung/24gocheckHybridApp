@@ -709,7 +709,8 @@ angular
             return function () {
               map.setZoom(14);
               map.setCenter(marker.getPosition());
-              infowindow.setContent(locations[i][0]);
+              infowindow.setContent("<strong style='overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'>" + locations[i][0] + "</strong>");
+              // infowindow.setColor(black);
               infowindow.open(map, marker);
             }
           })(marker, i));
@@ -763,7 +764,7 @@ angular
             var circle = new google.maps.Circle({
               center: pos,
               // radius: position.coords.accuracy,
-              radius: 10000,
+              radius: 1500,
               map: map,
               fillColor: '#78b5f6',
               fillOpacity: 0.5,
