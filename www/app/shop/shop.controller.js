@@ -130,7 +130,7 @@ angular
   .module('shop.module')
   .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService, CartService, WEBSITE) {
     function initialize() {
-      var myLatlng = new google.maps.LatLng( $scope.item.latitude, $scope.item.longitude);
+      var myLatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
 
       var mapOptions = {
         center: myLatlng,
@@ -140,80 +140,81 @@ angular
       var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
 
-      //Marker + infowindow + angularjs compiled ng-click
-      // var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-      // var compiled = $compile(contentString)($scope);
-      //
-      // var infowindow = new google.maps.InfoWindow({
-      //   content: compiled[0]
-      // });
+      // Marker + infowindow + angularjs compiled ng-click
+      var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+      var compiled = $compile(contentString)($scope);
 
-      var infowindow = new google.maps.InfoWindow();
-
-      // var marker1 = new google.maps.Marker({
-      //   position: myLatlng,
-      //   map: map,
-      //   title: 'Uluru (Ayers Rock)'
-      // });
-
-      //Search Nearby
-      var request = {
-        location: myLatlng,
-        radius: 5000,
-        type: ['restaurant']
-      };
-
-      var locations = [];
-      var marker, i;
-
-      // $scope.getUsers = function () {
-      ShopService.LoadAllUsers().then(function (data) {
-        data.users.forEach(function(element){
-          locations.push([element.company, element.latitude, element.longitude]);
-        });
-        console.log(data.users[0].company);
-        console.log(data.users[0].latitude);
-        console.log(data.users[0].longitude);
-      }, function (data) {
-        // $ionicLoading.hide();
+      var infowindow = new google.maps.InfoWindow({
+        content: compiled[0]
       });
 
+      // var infowindow = new google.maps.InfoWindow();
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Uluru (Ayers Rock)'
+      });
+
+      //Search Nearby
+      // var request = {
+      //   location: myLatlng,
+      //   radius: 5000,
+      //   type: ['restaurant']
+      // };
+      //
+      // var locations = [];
+      // var marker, i;
+      //
+      // // $scope.getUsers = function () {
+      // ShopService.LoadAllUsers().then(function (data) {
+      //   data.users.forEach(function(element){
+      //     locations.push([element.company, element.latitude, element.longitude]);
+      //   });
+      //   console.log(data.users[0].company);
+      //   console.log(data.users[0].latitude);
+      //   console.log(data.users[0].longitude);
+      // }, function (data) {
+      //   // $ionicLoading.hide();
+      // });
+      //
+      // // }
+      //
+      // var service = new google.maps.places.PlacesService(map);
+      // service.nearbySearch(request, callback);
+      //
+      // function callback() {
+      //   for (i = 0; i < locations.length; i++) {
+      //     marker = new google.maps.Marker({
+      //       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      //       map: map,
+      //       title: locations[i][0]
+      //     });
+      //
+      //     google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      //       return function() {
+      //         infowindow.setContent(locations[i][0]);
+      //         infowindow.open(map, marker);
+      //       }
+      //     })(marker, i));
+      //   }
       // }
 
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch(request, callback);
-
-      function callback() {
-        for (i = 0; i < locations.length; i++) {
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map,
-            title: locations[i][0]
-          });
-
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              infowindow.setContent(locations[i][0]);
-              infowindow.open(map, marker);
-            }
-          })(marker, i));
-        }
-      }
-
-      // google.maps.event.addListener(marker1, 'click', function() {
-      //   infowindow.open(map,marker1);
-      // });
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker1);
+      });
       $scope.map = map;
 
     }
+
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    $scope.navigate = function() {
-      launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude]);
+    $scope.navigate = function () {
+      launchnavigator.navigate([$scope.item.latitude, $scope.item.longitude]);
     }
 
-    $scope.centerOnMe = function() {
-      if(!$scope.map) {
+    $scope.centerOnMe = function () {
+      if (!$scope.map) {
         return;
       }
 
@@ -222,16 +223,16 @@ angular
         showBackdrop: false
       });
 
-      navigator.geolocation.getCurrentPosition(function(pos) {
+      navigator.geolocation.getCurrentPosition(function (pos) {
         var mylatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         var myitemlatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
         $scope.calcRoute(mylatlng, myitemlatlng);
         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude], {
+        launchnavigator.navigate([$scope.item.latitude, $scope.item.longitude], {
           start: [pos.coords.latitude, pos.coords.longitude]
         });
         // $scope.loading.hide();
-      }, function(error) {
+      }, function (error) {
         alert('Unable to get location: ' + error.message);
       });
     };
@@ -239,7 +240,7 @@ angular
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
 
-    $scope.calcRoute = function(start, end) {
+    $scope.calcRoute = function (start, end) {
       //var start =
       //var end = new google.maps.LatLng(37.441883, -122.143019);
       var request = {
@@ -247,7 +248,7 @@ angular
         destination: end,
         travelMode: google.maps.TravelMode.DRIVING
       };
-      directionsService.route(request, function(response, status) {
+      directionsService.route(request, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
           directionsDisplay.setMap($scope.map);
@@ -257,7 +258,7 @@ angular
       });
     };
 
-    $scope.clickTest = function() {
+    $scope.clickTest = function () {
       alert('Example of infowindow with ng-click')
     };
 
@@ -572,7 +573,7 @@ angular
 
       ShopService.GetProductsByUserId($stateParams.id, $scope.page).then(function (data) {
         $scope.items = $scope.items.concat(data.products);
-        if($scope.user_info == undefined){
+        if ($scope.user_info == undefined) {
           $scope.user_info = data.user_info;
 
           $scope.badges.push(data.user_info.badge1);
@@ -585,7 +586,7 @@ angular
         $scope.text_empty = data.text_empty;
         // $ionicScrollDelegate.resize();
         $scope.page++;
-        console.log("From page: "+$scope.page);
+        console.log("From page: " + $scope.page);
         if (data.products.length < 1)
           $scope.endOfItems = true;
         else
@@ -613,7 +614,6 @@ angular
   })
 
 
-
 /**
  * @ngdoc controller
  * @name shop.module.controller:ShopSearchCtrl
@@ -630,9 +630,18 @@ angular
   .module('shop.module')
   .controller('ShopSearchCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService) {
 
-    $scope.init = function() {
-      console.log('init');
-      var myLatlng = new google.maps.LatLng( 21.012187, 105.806705);
+    $scope.init = function () {
+
+      var myLatlng = new google.maps.LatLng(21.012187, 105.806705);
+
+      var locations = [];
+
+      var marker, i;
+
+      var infowindow = new google.maps.InfoWindow();
+
+
+      $scope.mypos = {};
 
       var mapOptions = {
         center: myLatlng,
@@ -642,29 +651,50 @@ angular
       var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
 
-      var infowindow = new google.maps.InfoWindow();
+      $scope.store = [];
 
-      var locations = [];
-      var marker, i;
+      //Get current Position
+      navigator.geolocation.getCurrentPosition(function (position) {
 
-      ShopService.LoadAllUsers().then(function (data) {
-        data.users.forEach(function(element){
-          locations.push([element.company, element.latitude, element.longitude]);
+        $scope.mylat = position.coords.latitude;
+        $scope.mylng = position.coords.longitude;
+
+        //Shop Service get All User Information.
+        ShopService.LoadAllUsers($scope.mylat, $scope.mylng).then(function (data) {
+          data.users.forEach(function (element) {
+            locations.push([element.company, element.latitude, element.longitude]);
+          });
+          // console.log(data.users[1].company);
+          // console.log(data.users[1].address_1);
+          $scope.store = data.users;
+
+        }, function (data) {
+          // $ionicLoading.hide();
         });
-        // console.log(data.users[0].company);
-        // console.log(data.users[0].address);
-        // $scope.users = [];
-        $scope.users = data;
+      }, function () {
 
-
-      }, function (data) {
-        // $ionicLoading.hide();
       });
 
+
+      // //Shop Service get All User Information.
+      // ShopService.LoadAllUsers(21.012187, 105.806705).then(function (data) {
+      //   data.users.forEach(function(element){
+      //     locations.push([element.company, element.latitude, element.longitude]);
+      //   });
+      //   // console.log(data.users[1].company);
+      //   // console.log(data.users[1].address_1);
+      //   $scope.testlocation = data.users;
+      //
+      // }, function (data) {
+      //   // $ionicLoading.hide();
+      // });
+
+
+      //Callback function in NearbySearch Service:
       function callback() {
         var image = {
           url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/greenmarker.png',
-          scaledSize : new google.maps.Size(40, 40)
+          scaledSize: new google.maps.Size(40, 40)
         };
 
         for (i = 0; i < locations.length; i++) {
@@ -675,27 +705,31 @@ angular
             title: locations[i][0]
           });
 
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              map.setZoom(18);
+          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              map.setZoom(14);
               map.setCenter(marker.getPosition());
-              infowindow.setContent(locations[i][0]);
+              infowindow.setContent("<strong style='overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'>" + locations[i][0] + "</strong>");
+              // infowindow.setColor(black);
               infowindow.open(map, marker);
             }
           })(marker, i));
         }
-      }
+      } //end callback Function.
 
+
+      //Get MyPosition.
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
           var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
 
+
           var image = {
             url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/bluemarker.png', // image is 512 x 512
-            scaledSize : new google.maps.Size(36, 36)
+            scaledSize: new google.maps.Size(36, 36)
           };
 
           var marker = new google.maps.Marker({
@@ -711,22 +745,10 @@ angular
           function toggleBounce() {
             if (marker.getAnimation() !== null) {
               marker.setAnimation(null);
-
             } else {
               marker.setAnimation(google.maps.Animation.BOUNCE);
             }
           }
-          // var circle = new google.maps.Circle({
-          //   center: pos,
-          //   radius: position.coords.accuracy,
-          //   map: map,
-          //   fillColor: '#78b5f6',
-          //   fillOpacity: 0.5,
-          //   strokeColor: '#78b5f6',
-          //   strokeOpacity: 1.0
-          // });
-          // map.fitBounds(circle.getBounds());
-
 
           var request = {
             location: pos,
@@ -737,11 +759,12 @@ angular
           var service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
 
-          marker.addListener('click', function() {
-            map.setZoom(18);
+          marker.addListener('click', function () {
+            map.setZoom(14);
             var circle = new google.maps.Circle({
               center: pos,
-              radius: position.coords.accuracy,
+              // radius: position.coords.accuracy,
+              radius: 1500,
               map: map,
               fillColor: '#78b5f6',
               fillOpacity: 0.5,
@@ -754,20 +777,25 @@ angular
 
           infowindow.setPosition(pos);
           infowindow.setContent(locale.getString('shop.my_location'));
-          infowindow.open(map,marker);
+          infowindow.open(map, marker);
           map.setCenter(pos);
 
-        }, function() {
+        }, function () {
           handleLocationError(true, infowindow, map.getCenter());
         });
       } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infowindow, map.getCenter());
-      }
+      } //end Get myPosition.
 
 
       $scope.map = map;
+
+      $scope.locations = locations;
+      $scope.test = 'Shit';
+
     }
+
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ?
@@ -777,34 +805,12 @@ angular
     }
 
     function drop() {
-      for (var i =0; i < markerArray.length; i++) {
-        setTimeout(function() {
+      for (var i = 0; i < markerArray.length; i++) {
+        setTimeout(function () {
           addMarkerMethod();
         }, i * 200);
       }
     }
-
-    ShopService.LoadAllUsers().then(function (data) {
-      $scope.users = data.users;
-      console.log('service');
-      console.log($scope.users);
-    }, function (data) {
-    });
-    // $ionicLoading.hide();
-    console.log('controller');
-    console.log($scope.users);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // $scope.init = function () {
@@ -866,7 +872,6 @@ angular
 
 
     // $scope.users = [];
-
 
 
     $scope.selectedCat = "1";
@@ -1084,7 +1089,6 @@ angular
 
     $scope.loadFeatured();
     $scope.loadBanners();
-
 
 
   });

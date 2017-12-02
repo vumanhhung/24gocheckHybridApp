@@ -77,5 +77,6 @@
   "view_detail_below" : "Contact Shop",
 
   "menu_plus" : "More",
-  "direction": "Direction"
+  "direction": "Direction",
+  "my_location": "My Location"
 }
