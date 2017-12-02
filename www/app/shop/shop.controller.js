@@ -40,31 +40,6 @@ angular
     $scope.loadBanners = function () {
       ShopService.GetBanners().then(function (data) {
         $scope.data.slides = data.main_banners;
-
-        // $scope.data = {};
-        // $scope.data.slides = [
-        //   {
-        //     "link": "http://24gocheck.com/",
-        //     "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
-        //   }
-        // ];
-
-
-
-        // $scope.data.slides = [
-        //   {
-        //     "link": "http://24gocheck.com/",
-        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
-        //   },
-        //   {
-        //     "link": "http://24gocheck.com/",
-        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
-        //   },
-        //   {
-        //     "link": "http://24gocheck.com/",
-        //     "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
-        //   }
-        // ];
         $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
@@ -155,7 +130,7 @@ angular
   .module('shop.module')
   .controller('ShopItemCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService, CartService, WEBSITE) {
     function initialize() {
-      var myLatlng = new google.maps.LatLng( $scope.item.latitude, $scope.item.longitude);
+      var myLatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
 
       var mapOptions = {
         center: myLatlng,
@@ -165,81 +140,81 @@ angular
       var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
 
-      //Marker + infowindow + angularjs compiled ng-click
-      // var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-      // var compiled = $compile(contentString)($scope);
-      //
-      // var infowindow = new google.maps.InfoWindow({
-      //   content: compiled[0]
-      // });
+      // Marker + infowindow + angularjs compiled ng-click
+      var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+      var compiled = $compile(contentString)($scope);
 
-      var infowindow = new google.maps.InfoWindow();
-
-      // var marker1 = new google.maps.Marker({
-      //   position: myLatlng,
-      //   map: map,
-      //   title: 'Uluru (Ayers Rock)'
-      // });
-
-      //Search Nearby
-      var request = {
-        location: myLatlng,
-        radius: 5000,
-        type: ['restaurant']
-      };
-
-      var locations = [];
-      var marker, i;
-
-      // $scope.getUsers = function () {
-      ShopService.LoadAllUsers().then(function (data) {
-        data.users.forEach(function(element){
-          locations.push([element.company, element.latitude, element.longitude]);
-        });
-        console.log(data.users[0].company);
-        console.log(data.users[0].latitude);
-        console.log(data.users[0].longitude);
-      }, function (data) {
-        // $ionicLoading.hide();
+      var infowindow = new google.maps.InfoWindow({
+        content: compiled[0]
       });
 
+      // var infowindow = new google.maps.InfoWindow();
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Uluru (Ayers Rock)'
+      });
+
+      //Search Nearby
+      // var request = {
+      //   location: myLatlng,
+      //   radius: 5000,
+      //   type: ['restaurant']
+      // };
+      //
+      // var locations = [];
+      // var marker, i;
+      //
+      // // $scope.getUsers = function () {
+      // ShopService.LoadAllUsers().then(function (data) {
+      //   data.users.forEach(function(element){
+      //     locations.push([element.company, element.latitude, element.longitude]);
+      //   });
+      //   console.log(data.users[0].company);
+      //   console.log(data.users[0].latitude);
+      //   console.log(data.users[0].longitude);
+      // }, function (data) {
+      //   // $ionicLoading.hide();
+      // });
+      //
+      // // }
+      //
+      // var service = new google.maps.places.PlacesService(map);
+      // service.nearbySearch(request, callback);
+      //
+      // function callback() {
+      //   for (i = 0; i < locations.length; i++) {
+      //     marker = new google.maps.Marker({
+      //       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      //       map: map,
+      //       title: locations[i][0]
+      //     });
+      //
+      //     google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      //       return function() {
+      //         infowindow.setContent(locations[i][0]);
+      //         infowindow.open(map, marker);
+      //       }
+      //     })(marker, i));
+      //   }
       // }
 
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch(request, callback);
-
-      function callback() {
-        for (i = 0; i < locations.length; i++) {
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map,
-            title: locations[i][0]
-          });
-
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              infowindow.setContent(locations[i][0]);
-              infowindow.open(map, marker);
-            }
-          })(marker, i));
-        }
-      }
-
-      // google.maps.event.addListener(marker1, 'click', function() {
-      //   infowindow.open(map,marker1);
-      // });
-
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker1);
+      });
       $scope.map = map;
 
     }
+
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    $scope.navigate = function() {
-      launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude]);
+    $scope.navigate = function () {
+      launchnavigator.navigate([$scope.item.latitude, $scope.item.longitude]);
     }
 
-    $scope.centerOnMe = function() {
-      if(!$scope.map) {
+    $scope.centerOnMe = function () {
+      if (!$scope.map) {
         return;
       }
 
@@ -248,16 +223,16 @@ angular
         showBackdrop: false
       });
 
-      navigator.geolocation.getCurrentPosition(function(pos) {
+      navigator.geolocation.getCurrentPosition(function (pos) {
         var mylatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         var myitemlatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
         $scope.calcRoute(mylatlng, myitemlatlng);
         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude], {
+        launchnavigator.navigate([$scope.item.latitude, $scope.item.longitude], {
           start: [pos.coords.latitude, pos.coords.longitude]
         });
         // $scope.loading.hide();
-      }, function(error) {
+      }, function (error) {
         alert('Unable to get location: ' + error.message);
       });
     };
@@ -265,7 +240,7 @@ angular
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
 
-    $scope.calcRoute = function(start, end) {
+    $scope.calcRoute = function (start, end) {
       //var start =
       //var end = new google.maps.LatLng(37.441883, -122.143019);
       var request = {
@@ -273,7 +248,7 @@ angular
         destination: end,
         travelMode: google.maps.TravelMode.DRIVING
       };
-      directionsService.route(request, function(response, status) {
+      directionsService.route(request, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
           directionsDisplay.setMap($scope.map);
@@ -283,7 +258,7 @@ angular
       });
     };
 
-    $scope.clickTest = function() {
+    $scope.clickTest = function () {
       alert('Example of infowindow with ng-click')
     };
 
@@ -598,7 +573,7 @@ angular
 
       ShopService.GetProductsByUserId($stateParams.id, $scope.page).then(function (data) {
         $scope.items = $scope.items.concat(data.products);
-        if($scope.user_info == undefined){
+        if ($scope.user_info == undefined) {
           $scope.user_info = data.user_info;
 
           $scope.badges.push(data.user_info.badge1);
@@ -611,7 +586,7 @@ angular
         $scope.text_empty = data.text_empty;
         // $ionicScrollDelegate.resize();
         $scope.page++;
-        console.log("From page: "+$scope.page);
+        console.log("From page: " + $scope.page);
         if (data.products.length < 1)
           $scope.endOfItems = true;
         else
@@ -639,7 +614,6 @@ angular
   })
 
 
-
 /**
  * @ngdoc controller
  * @name shop.module.controller:ShopSearchCtrl
@@ -654,7 +628,250 @@ angular
  */
 angular
   .module('shop.module')
-  .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
+  .controller('ShopSearchCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService) {
+
+    $scope.init = function () {
+
+      var myLatlng = new google.maps.LatLng(21.012187, 105.806705);
+
+      var locations = [];
+
+      var marker, i;
+
+      var infowindow = new google.maps.InfoWindow();
+
+
+      $scope.mypos = {};
+
+      var mapOptions = {
+        center: myLatlng,
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+
+      $scope.store = [];
+
+      //Get current Position
+      navigator.geolocation.getCurrentPosition(function (position) {
+
+        $scope.mylat = position.coords.latitude;
+        $scope.mylng = position.coords.longitude;
+
+        //Shop Service get All User Information.
+        ShopService.LoadAllUsers($scope.mylat, $scope.mylng).then(function (data) {
+          data.users.forEach(function (element) {
+            locations.push([element.company, element.latitude, element.longitude]);
+          });
+          // console.log(data.users[1].company);
+          // console.log(data.users[1].address_1);
+          $scope.store = data.users;
+
+        }, function (data) {
+          // $ionicLoading.hide();
+        });
+      }, function () {
+
+      });
+
+
+      // //Shop Service get All User Information.
+      // ShopService.LoadAllUsers(21.012187, 105.806705).then(function (data) {
+      //   data.users.forEach(function(element){
+      //     locations.push([element.company, element.latitude, element.longitude]);
+      //   });
+      //   // console.log(data.users[1].company);
+      //   // console.log(data.users[1].address_1);
+      //   $scope.testlocation = data.users;
+      //
+      // }, function (data) {
+      //   // $ionicLoading.hide();
+      // });
+
+
+      //Callback function in NearbySearch Service:
+      function callback() {
+        var image = {
+          url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/greenmarker.png',
+          scaledSize: new google.maps.Size(40, 40)
+        };
+
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map,
+            icon: image,
+            title: locations[i][0]
+          });
+
+          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              map.setZoom(14);
+              map.setCenter(marker.getPosition());
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
+      } //end callback Function.
+
+
+      //Get MyPosition.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+
+          var image = {
+            url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/bluemarker.png', // image is 512 x 512
+            scaledSize: new google.maps.Size(36, 36)
+          };
+
+          var marker = new google.maps.Marker({
+            position: pos,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            icon: image,
+            map: map,
+            title: locale.getString('shop.my_location')
+          });
+          marker.addListener('click', toggleBounce);
+
+          function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+              marker.setAnimation(null);
+            } else {
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+          }
+
+          var request = {
+            location: pos,
+            radius: 5000,
+            type: ['restaurant']
+          };
+
+          var service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+
+          marker.addListener('click', function () {
+            map.setZoom(14);
+            var circle = new google.maps.Circle({
+              center: pos,
+              // radius: position.coords.accuracy,
+              radius: 10000,
+              map: map,
+              fillColor: '#78b5f6',
+              fillOpacity: 0.5,
+              strokeColor: '#78b5f6',
+              strokeOpacity: 1.0
+            });
+            map.fitBounds(circle.getBounds());
+            map.setCenter(marker.getPosition());
+          });
+
+          infowindow.setPosition(pos);
+          infowindow.setContent(locale.getString('shop.my_location'));
+          infowindow.open(map, marker);
+          map.setCenter(pos);
+
+        }, function () {
+          handleLocationError(true, infowindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infowindow, map.getCenter());
+      } //end Get myPosition.
+
+
+      $scope.map = map;
+
+      $scope.locations = locations;
+      $scope.test = 'Shit';
+
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+
+    function drop() {
+      for (var i = 0; i < markerArray.length; i++) {
+        setTimeout(function () {
+          addMarkerMethod();
+        }, i * 200);
+      }
+    }
+
+
+    // $scope.init = function () {
+    //   var myLatlng = new google.maps.LatLng(21.012187, 105.806705);
+    //
+    //   var mapOptions = {
+    //     center: myLatlng,
+    //     zoom: 15,
+    //     mapTypeId: google.maps.MapTypeId.ROADMAP
+    //   };
+    //   var map = new google.maps.Map(document.getElementById("map"),
+    //     mapOptions);
+    //   var infowindow = new google.maps.InfoWindow();
+    //
+    //   //Search Nearby
+    //   var request = {
+    //     location: myLatlng,
+    //     radius: 5000,
+    //     type: ['restaurant']
+    //   };
+    //
+    //   var locations = [];
+    //   var marker, i;
+    //
+    //   ShopService.LoadAllUsers().then(function (data) {
+    //     data.users.forEach(function(element){
+    //       locations.push([element.company, element.latitude, element.longitude]);
+    //     });
+    //     console.log(data.users[0].company);
+    //     console.log(data.users[0].latitude);
+    //     console.log(data.users[0].longitude);
+    //   }, function (data) {
+    //     // $ionicLoading.hide();
+    //   });
+    //
+    //   var service = new google.maps.places.PlacesService(map);
+    //   service.nearbySearch(request, callback);
+    //
+    //   function callback() {
+    //     for (i = 0; i < locations.length; i++) {
+    //       marker = new google.maps.Marker({
+    //         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+    //         map: map,
+    //         title: locations[i][0]
+    //       });
+    //
+    //       google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //         return function() {
+    //           infowindow.setContent(locations[i][0]);
+    //           infowindow.open(map, marker);
+    //         }
+    //       })(marker, i));
+    //     }
+    //   }
+    //
+    //   $scope.map = map;
+    //
+    // }
+
+
+    // $scope.users = [];
+
 
     $scope.selectedCat = "1";
     $scope.selectedZone = "3776";
@@ -675,6 +892,7 @@ angular
     }, function (data) {
       // $ionicLoading.hide();
     });
+
 
     //==================================================================================================================
 
@@ -702,7 +920,7 @@ angular
         $scope.items = $scope.items.concat(data.products);
         $scope.text_empty = data.text_empty;
 
-        $ionicScrollDelegate.resize();
+        // $ionicScrollDelegate.resize();
         $scope.page++;
         if (data.products.length < 1)
           $scope.endOfItems = true;
@@ -746,7 +964,7 @@ angular
         $scope.items = $scope.items.concat(data.products);
         $scope.text_empty = data.text_empty;
 
-        $ionicScrollDelegate.resize();
+        // $ionicScrollDelegate.resize();
         $scope.page++;
         if (data.products.length < 1)
           $scope.endOfItems = true;
@@ -872,22 +1090,13 @@ angular
     $scope.loadBanners();
 
 
-
   });
 
 
 angular
   .module('shop.module')
-  .controller('OffersTopCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
-    // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
-    // $scope.shop = {};
-    // $scope.shop.shopName = "Công ty AlVietJS";
-    // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";
-    // $scope.shop.price = "1000000000 đ";
-    // $scope.shop.phone = "123456";
-    // $scope.shop.rating = 3;
-    // $scope.shop.likes = "85";
-
+  // .controller('OffersTopCtrl', function ($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService) {
+  .controller('OffersTopCtrl', function ($scope, $timeout, $localStorage, $rootScope, $state, $cordovaGeolocation, $stateParams, $ionicPopup, $ionicLoading, $ionicTabsDelegate, $ionicSlideBoxDelegate, $compile, locale, ShopService, CartService, WEBSITE) {
 
     var vm = this;
     $scope.endOfRLatestItems = false;

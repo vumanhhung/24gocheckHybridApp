@@ -777,8 +777,9 @@ angular
 
 
     //Nearby Google Maps Service:
-    this.LoadAllUsers = function () {
-      return dataService.apiSecuredPost('/user_list').then(function (data) {
+    // http://24gocheck.com/index.php?route=api2/user_list
+    this.LoadAllUsers = function (lat, long) {
+      return dataService.apiSecuredPost('/user_list', {latitude: lat, longitude: long}).then(function (data) {
         if (data.error) {
           return $q.reject(data.error);
         }

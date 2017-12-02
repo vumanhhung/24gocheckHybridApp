@@ -235,15 +235,12 @@ starter.constant('$ionicLoadingConfig', {
     },
     template: '<ul id="ion-segment" ng-transclude></ul>',
     link: function($scope, $element, $attr, ngModelCtrl) {
-      console.log("ion-segment link")
       if ($scope.full == "true") {
         $element.find("li").addClass("full");
       }
       var segment = $element.find("li").eq(0).attr("value");
       $element.find("li").eq(0).addClass("active");
-
       ngModelCtrl.$setViewValue(segment);
-
     }
   }
 })

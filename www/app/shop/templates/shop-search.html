@@ -19,27 +19,29 @@
       </ion-segment>
       <div ng-switch="categories">
         <ion-list ng-switch-when="nearby">
-          <ion-item style="background-color: #f7f7f7;">
-            <div id="map" data-tap-disabled="true"></div>
-            <!--<div>-->
-              <!--<div style="margin: -10px;display: flex;width: 100%;">-->
-                <!--<div style="width: 30%; height: 100px; margin-right: 15px;">-->
-                  <!--<img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/alvietjs%20logo.jpg"-->
-                       <!--style="height: 100%; float: left;"/>-->
-                <!--</div>-->
-                <!--<div style="border-right: solid 1px lightgrey;width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">-->
-                  <!--<h2><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/> Công ty AlvietJS</h2>-->
-                  <!--<span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> địa chỉ</span><br/>-->
-                  <!--<span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> sđt</span><br/>-->
-                  <!--<ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"-->
-                                 <!--ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star',-->
-                                 <!--iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
-                <!--</div>-->
-                <!--<div style="float: right; padding-top: 13%; padding-left: 4%; width: 12%">-->
-                  <!--<span>10km</span>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
+          <ion-item style="background-color: #f7f7f7;" ng-init="init()">
+            <div id="map" data-tap-disabled="true" style="height: 300px;"></div>
+
+            <div ng-repeat="user in store">
+              <div style="margin: -10px;display: flex;width: 100%;">
+                <div style="width: 30%; height: 100px; margin-right: 15px;">
+                  <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/alvietjs%20logo.jpg"
+                       style="height: 100%; float: left;"/>
+                </div>
+                <div style="border-right: solid 1px lightgrey;width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">
+                  <h2><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png"/>{{user['company']}}</h2>
+                  <span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/>{{user['address']}}</span><br/>
+                  <span><img style="width: 10%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/>{{user['phone']}}</span><br/>
+                  <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
+                                 ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star',
+                                 iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                </div>
+                <div style="float: right; padding-top: 13%; padding-left: 4%; width: 12%">
+                  <!--<span>{{user['D'].round()}}km</span>-->
+                  <span>{{user['D']}}km</span>
+                </div>
+              </div>
+            </div>
           </ion-item>
         </ion-list>
         <ion-list ng-switch-when="category">
@@ -51,7 +53,6 @@
               <!--</div>-->
               <!--<category-list thumbnail="false" mode="options" selected-category="selectedCategory"></category-list>-->
               <!--</label>-->
-
 
               <label class="item item-input item-select">
                 <div class="input-label" i18n="shop.title_category"></div>
