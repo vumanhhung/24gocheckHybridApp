@@ -217,7 +217,7 @@ angular
           // }
 
 
-          // alert('Done editing');
+          alert(locale.getString('info.edit_customer_successful'));
 
           // $state.reload();
 
@@ -413,7 +413,7 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera, $localStorage, $ionicPopup, locale, CartService, InfoService, ShopService) {
+  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera, $localStorage, $ionicPopup,$cordovaFile, $cordovaFileTransfer, $cordovaDevice,$cordovaActionSheet, locale, CartService, InfoService, ShopService) {
 
     $scope.cates = [];
     ShopService.GetCategories().then(function (data) {
@@ -426,29 +426,154 @@ angular
       // $ionicLoading.hide();
     });
 
-    $scope.takeImage = function() {
+    // $scope.takeImage = function() {
+    //   var options = {
+    //     quality: 80,
+    //     destinationType: Camera.DestinationType.DATA_URL,
+    //     sourceType: Camera.PictureSourceType.CAMERA,
+    //     allowEdit: true,
+    //     encodingType: Camera.EncodingType.JPEG,
+    //     targetWidth: 250,
+    //     targetHeight: 250,
+    //     popoverOptions: CameraPopoverOptions,
+    //     saveToPhotoAlbum: false
+    //   };
+    //
+    //   $cordovaCamera.getPicture(options).then(function(imageData) {
+    //     $scope.srcImage = "data:image/jpeg;base64," + imageData;
+    //   }, function(err) {
+    //     // error
+    //   });
+    // }
+
+    $scope.image = null;
+
+    $scope.showAlert = function(title, msg) {
+      var alertPopup = $ionicPopup.alert({
+        title: title,
+        template: msg
+      });
+    };
+
+    $scope.loadImage = function() {
       var options = {
-        quality: 80,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
+        title: 'Select Image Source',
+        buttonLabels: ['Load from Library', 'Use Camera'],
+        addCancelButtonWithLabel: 'Cancel',
+        androidEnableCancelButton : true,
+      };
+      $cordovaActionSheet.show(options).then(function(btnIndex) {
+        var type = null;
+        if (btnIndex === 1) {
+          type = Camera.PictureSourceType.PHOTOLIBRARY;
+        } else if (btnIndex === 2) {
+          type = Camera.PictureSourceType.CAMERA;
+        }
+        if (type !== null) {
+          $scope.selectPicture(type);
+        }
+      });
+    };
+
+
+    $scope.selectPicture = function(sourceType) {
+      var options = {
+        quality: 100,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType: sourceType,
+        saveToPhotoAlbum: false,
         allowEdit: true,
-        encodingType: Camera.EncodingType.JPEG,
-        targetWidth: 250,
-        targetHeight: 250,
-        popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 250,
+            targetHeight: 250
       };
 
-      $cordovaCamera.getPicture(options).then(function(imageData) {
-        $scope.srcImage = "data:image/jpeg;base64," + imageData;
-      }, function(err) {
-        // error
+      $cordovaCamera.getPicture(options).then(function(imagePath) {
+          // Grab the file name of the photo in the temporary directory
+          var currentName = imagePath.replace(/^.*[\\\/]/, '');
+
+          //Create a new name for the photo
+          var d = new Date(),
+            n = d.getTime(),
+            newFileName =  n + ".jpg";
+
+          // If you are trying to load image from the gallery on Android we need special treatment!
+          if ($cordovaDevice.getPlatform() == 'Android' && sourceType === Camera.PictureSourceType.PHOTOLIBRARY) {
+            window.FilePath.resolveNativePath(imagePath, function(entry) {
+                window.resolveLocalFileSystemURL(entry, success, fail);
+                function fail(e) {
+                  console.error('Error: ', e);
+                }
+
+                function success(fileEntry) {
+                  var namePath = fileEntry.nativeURL.substr(0, fileEntry.nativeURL.lastIndexOf('/') + 1);
+                  // Only copy because of access rights
+                  $cordovaFile.copyFile(namePath, fileEntry.name, cordova.file.dataDirectory, newFileName).then(function(success){
+                    $scope.image = newFileName;
+                  }, function(error){
+                    $scope.showAlert('Error', error.exception);
+                  });
+                };
+              }
+            );
+          } else {
+            var namePath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+            // Move the file to permanent storage
+            $cordovaFile.moveFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(function(success){
+              $scope.image = newFileName;
+            }, function(error){
+              $scope.showAlert('Error', error.exception);
+            });
+          }
+        },
+        function(err){
+          // Not always an error, maybe cancel was pressed...
+        })
+    };
+
+
+    $scope.pathForImage = function(image) {
+      if (image === null) {
+        return '';
+      } else {
+        return cordova.file.dataDirectory + image;
+      }
+    };
+
+
+
+    $scope.uploadImage = function() {
+      // Destination URL
+      var url = "http://24gocheck.com/index.php?route=api2/upload";
+
+      // File for Upload
+      var targetPath = $scope.pathForImage($scope.image);
+
+      // File name only
+      var filename = $scope.image;
+
+      var options = {
+        fileKey: "file",
+        fileName: filename,
+        httpMethod: "POST",
+        chunkedMode: false,
+        mimeType: "image/jpeg",
+        params : {userid: $localStorage.user.user_id}
+      };
+
+      $cordovaFileTransfer.upload(url, targetPath, options).then(function(result) {
+        // $scope.showAlert('Success', 'Image upload finished.'+ JSON.stringify(result.response));
+        // $scope.showAlert('Success', 'Image upload finished.'+ result.headers);
+        var res = JSON.parse(result.response);
+        alert('Id '+ res.filename);
+      },function(err) {
+        // Error
       });
+
     }
 
-    // $scope.shika = function () {
-    //   alert('Source image '+ $scope.srcImage);
-    // }
+
+
 
     $scope.countryChanged = function () {
       // $ionicLoading.show();
@@ -472,50 +597,139 @@ angular
     $scope.add.product_location = $localStorage.user.user_address.address_1;
     $scope.postProductData = function () {
 
-      $scope.validations =[];
-      // sync user data to localstorage
+      //=============================================
 
-      if ($scope.forms.addProductForm.$invalid) {
-        $ionicPopup.alert({
-          title: locale.getString('modals.registration_validations_title'),
-          cssClass: 'desc-popup',
-          scope: $scope,
-          templateUrl: 'templates/popups/add-product-validation.html'
-        });
-      } else {
+      // Destination URL
+      var url = "http://24gocheck.com/index.php?route=api2/upload";
 
-        InfoService.AddProductByUser($scope.add).then(function (data) {
-          $scope.validations.createErrors = [];
-          ["error_product_name", "error_product_price", "error_product_quantity", "error_product_description", "error_product_weight", "error_product_meta_title", "error_product_model"].forEach(function (e) {
-            var msg = data[e];
-            if (msg) {
-              $scope.validations.createErrors.push(msg);
+      // File for Upload
+      var targetPath = $scope.pathForImage($scope.image);
+
+      // File name only
+      var filename = $scope.image;
+
+      var options = {
+        fileKey: "file",
+        fileName: filename,
+        httpMethod: "POST",
+        chunkedMode: false,
+        mimeType: "image/jpeg",
+        params : {userid: $localStorage.user.user_id}
+      };
+
+      $cordovaFileTransfer.upload(url, targetPath, options).then(function(result) {
+        // $scope.showAlert('Success', 'Image upload finished.'+ JSON.stringify(result.response));
+        // $scope.showAlert('Success', 'Image upload finished.'+ result.headers);
+        var res = JSON.parse(result.response);
+        // alert('Id '+ res.filename);
+
+
+        $scope.validations =[];
+        // sync user data to localstorage
+
+        if ($scope.forms.addProductForm.$invalid) {
+          $ionicPopup.alert({
+            title: locale.getString('modals.registration_validations_title'),
+            cssClass: 'desc-popup',
+            scope: $scope,
+            templateUrl: 'templates/popups/add-product-validation.html'
+          });
+        } else {
+          $scope.add.image = res.filename;
+          $scope.add.status = 1;
+          InfoService.AddProductByUser($scope.add).then(function (data) {
+            $scope.validations.createErrors = [];
+            ["error_product_name", "error_product_price", "error_product_quantity", "error_product_description", "error_product_weight", "error_product_meta_title", "error_product_model"].forEach(function (e) {
+              var msg = data[e];
+              if (msg) {
+                $scope.validations.createErrors.push(msg);
+              }
+            })
+
+            if ($scope.validations.createErrors.length > 0) {
+              $ionicPopup.alert({
+                title: locale.getString('modals.registration_validations_title'),
+                cssClass: 'desc-popup',
+                scope: $scope,
+                templateUrl: 'templates/popups/add-product-validation.html'
+              });
+
+              // alert('Length'+ $scope.validations.createErrors.length);
+            } else {
+              // var str = JSON.stringify($scope.add);
+              // str = JSON.stringify($scope.add, null, 4); // (Optional) beautiful indented output.
+              // console.log(str); // Logs output to dev tools console.
+              // alert(str); // Displays output using window.alert()
+
+              $scope.add = {};
+              $scope.add.user_id = $localStorage.user.user_id;
+              $scope.add.product_location = $localStorage.user.user_address.address_1;
+              alert(locale.getString('info.add_product_successfull'));
+
             }
-          })
-
-          if ($scope.validations.createErrors.length > 0) {
-            $ionicPopup.alert({
-              title: locale.getString('modals.registration_validations_title'),
-              cssClass: 'desc-popup',
-              scope: $scope,
-              templateUrl: 'templates/popups/add-product-validation.html'
-            });
-
-            // alert('Length'+ $scope.validations.createErrors.length);
-          } else {
-            // var str = JSON.stringify($scope.add);
-            // str = JSON.stringify($scope.add, null, 4); // (Optional) beautiful indented output.
-            // console.log(str); // Logs output to dev tools console.
-            // alert(str); // Displays output using window.alert()
-            alert('Well done');
-
-          }
 
 
-        }, function (data) {
-          alert('Cant do shit');
-        });
-      }
+          }, function (data) {
+            alert(locale.getString('info.add_product_failed'));
+          });
+        }
+
+
+
+      },function(err) {
+        // Error
+      });
+
+
+
+      //========================================================================
+
+
+        // $scope.validations =[];
+        // // sync user data to localstorage
+        //
+        // if ($scope.forms.addProductForm.$invalid) {
+        //   $ionicPopup.alert({
+        //     title: locale.getString('modals.registration_validations_title'),
+        //     cssClass: 'desc-popup',
+        //     scope: $scope,
+        //     templateUrl: 'templates/popups/add-product-validation.html'
+        //   });
+        // } else {
+        //
+        //   InfoService.AddProductByUser($scope.add).then(function (data) {
+        //     $scope.validations.createErrors = [];
+        //     ["error_product_name", "error_product_price", "error_product_quantity", "error_product_description", "error_product_weight", "error_product_meta_title", "error_product_model"].forEach(function (e) {
+        //       var msg = data[e];
+        //       if (msg) {
+        //         $scope.validations.createErrors.push(msg);
+        //       }
+        //     })
+        //
+        //     if ($scope.validations.createErrors.length > 0) {
+        //       $ionicPopup.alert({
+        //         title: locale.getString('modals.registration_validations_title'),
+        //         cssClass: 'desc-popup',
+        //         scope: $scope,
+        //         templateUrl: 'templates/popups/add-product-validation.html'
+        //       });
+        //
+        //       // alert('Length'+ $scope.validations.createErrors.length);
+        //     } else {
+        //       // var str = JSON.stringify($scope.add);
+        //       // str = JSON.stringify($scope.add, null, 4); // (Optional) beautiful indented output.
+        //       // console.log(str); // Logs output to dev tools console.
+        //       // alert(str); // Displays output using window.alert()
+        //       alert('Well done');
+        //
+        //     }
+        //
+        //
+        //   }, function (data) {
+        //     alert('Cant do shit');
+        //   });
+        // }
+
     }
 
 
