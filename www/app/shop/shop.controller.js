@@ -141,19 +141,18 @@ angular
         mapOptions);
 
       // Marker + infowindow + angularjs compiled ng-click
-      var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-      var compiled = $compile(contentString)($scope);
+      // var contentString = "<div><a ng-click='clickTest()'>" + $scope.item.company + "</a></div>";
+      // var compiled = $compile(contentString)($scope);
 
-      var infowindow = new google.maps.InfoWindow({
-        content: compiled[0]
-      });
+      // var infowindow = new google.maps.InfoWindow({
+      //   content: compiled[0]
+      // });
 
-      // var infowindow = new google.maps.InfoWindow();
+      var infowindow = new google.maps.InfoWindow();
 
       var marker = new google.maps.Marker({
         position: myLatlng,
-        map: map,
-        title: 'Uluru (Ayers Rock)'
+        map: map
       });
 
       //Search Nearby
@@ -201,7 +200,8 @@ angular
       // }
 
       google.maps.event.addListener(marker, 'click', function () {
-        infowindow.open(map, marker1);
+        infowindow.setContent('<strong>' + $scope.item.company || $scope.item.firstname + '</strong>');
+        infowindow.open(map, marker);
       });
       $scope.map = map;
 
@@ -633,11 +633,9 @@ angular
     $scope.init = function () {
 
       var myLatlng = new google.maps.LatLng(21.012187, 105.806705);
-
       var locations = [];
-
       var marker, i;
-
+      var listlocationsbycat = [];
       var infowindow = new google.maps.InfoWindow();
 
 
@@ -662,10 +660,10 @@ angular
         //Shop Service get All User Information.
         ShopService.LoadAllUsers($scope.mylat, $scope.mylng).then(function (data) {
           data.users.forEach(function (element) {
-            locations.push([element.company, element.latitude, element.longitude]);
+            locations.push([element.company, element.latitude, element.longitude, element.address, element.user_id, element.category_id, element.category_name, element.user_id]);
           });
           // console.log(data.users[1].company);
-          // console.log(data.users[1].address_1);
+          // console.log(data.users[1].category_name);
           $scope.store = data.users;
 
         }, function (data) {
@@ -692,30 +690,40 @@ angular
 
       //Callback function in NearbySearch Service:
       function callback() {
+
         var image = {
           url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/greenmarker.png',
           scaledSize: new google.maps.Size(40, 40)
         };
 
         for (i = 0; i < locations.length; i++) {
+          var category = locations[i][5];
+
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             map: map,
+            category: category,
             icon: image,
             title: locations[i][0]
           });
+
+          listlocationsbycat.push(marker);
 
           google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
               map.setZoom(14);
               map.setCenter(marker.getPosition());
-              infowindow.setContent("<strong style='overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'>" + locations[i][0] + "</strong>");
-              // infowindow.setColor(black);
+              // infowindow.setContent("<strong style='overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'>" + locations[i][0] + "</strong>");
+              infowindow.setContent('<div><strong>' + 'Place: ' + locations[i][0] + '</strong><br>' +
+                'Place ID: ' + locations[i][4] + '<br>' +
+                'User ID: ' + locations[i][7] + '<br>' +
+                locations[i][3] + '<br>' + 'Category: ' + locations[i][6] + '</div>');
               infowindow.open(map, marker);
             }
           })(marker, i));
         }
       } //end callback Function.
+
 
 
       //Get MyPosition.
@@ -788,6 +796,26 @@ angular
         handleLocationError(false, infowindow, map.getCenter());
       } //end Get myPosition.
 
+
+      $scope.filterMarkers = function (category) {
+        for (i = 0; i < locations.length; i++) {
+          marker = listlocationsbycat[i];
+          // If is same category or category not picked
+          if (marker.category == category || category.length === 0) {
+            marker.setVisible(true);
+          }
+          // Categories don't match
+          else {
+            marker.setVisible(false);
+          }
+        }
+      }
+
+      // $scope.filterbyCategories = function (category_id) {
+      //   for(i=0; i < store.length; i++) {
+      //
+      //   }
+      // }
 
       $scope.map = map;
 
