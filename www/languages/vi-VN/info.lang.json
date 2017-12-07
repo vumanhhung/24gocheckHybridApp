@@ -57,6 +57,8 @@
   "quantity": "Số lượng",
   "total": "Tổng tiền",
 
+  "edit_customer_successful": "Sửa thông tin thành công!",
+
   "product_name": "Tên sản phẩm",
   "product_price": "Giá",
   "product_quantity": "Số lượng",
@@ -64,5 +66,7 @@
   "product_description": "Thông tin chi tiết sản phẩm",
   "product_meta_title": "Tiêu đề mở rộng",
   "product_model": "Model",
-  "addProduct": "Thêm sản phẩm"
+  "addProduct": "Thêm sản phẩm",
+  "add_product_successfull": "Thêm sản phẩm thành công!",
+  "add_product_failed": "Thêm sản phẩm không thành công!"
 }
