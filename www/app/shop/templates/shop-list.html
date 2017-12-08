@@ -23,7 +23,7 @@
     <!--</ion-slide>-->
     <!--</ion-slide-box>-->
 
-    <div class="slider-banner">
+    <div>
       <ion-slide-box id="example-elastic-header" show-pager="true" class="home-slider" does-continue="true"
                      auto-play="true">
         <ion-slide ng-repeat="slide in data.slides">
@@ -35,32 +35,32 @@
         </ion-slide>
       </ion-slide-box>
 
-      <div class="suggest">
-        <div class="suggest promotion">
-          <a href="#/app/menu/shop/promotion">
-            <div class="item-promition">
-              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
-            </div>
-            <span i18n="shop.offer_promotion"></span>
-          </a>
-        </div>
-        <div class="suggest topproduct">
-          <a href="#/app/menu/shop/top">
-            <div class="item-topproduct">
-              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png"/>
-            </div>
-            <span i18n="shop.best_sellers"></span>
-          </a>
-        </div>
-        <div class="suggest trend">
-          <a href="#/app/menu/shop/trend">
-            <div class="item-trend">
-              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png"/>
-            </div>
-            <span i18n="shop.offer_trend"></span>
-          </a>
-        </div>
-      </div>
+      <!--<div class="suggest">-->
+        <!--<div class="suggest promotion">-->
+          <!--<a href="#/app/menu/shop/promotion">-->
+            <!--<div class="item-promition">-->
+              <!--<img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>-->
+            <!--</div>-->
+            <!--<span i18n="shop.offer_promotion"></span>-->
+          <!--</a>-->
+        <!--</div>-->
+        <!--<div class="suggest topproduct">-->
+          <!--<a href="#/app/menu/shop/top">-->
+            <!--<div class="item-topproduct">-->
+              <!--<img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png"/>-->
+            <!--</div>-->
+            <!--<span i18n="shop.best_sellers"></span>-->
+          <!--</a>-->
+        <!--</div>-->
+        <!--<div class="suggest trend">-->
+          <!--<a href="#/app/menu/shop/trend">-->
+            <!--<div class="item-trend">-->
+              <!--<img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png"/>-->
+            <!--</div>-->
+            <!--<span i18n="shop.offer_trend"></span>-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
 
     <category-list thumbnail="false" mode="icons"></category-list>
@@ -86,7 +86,7 @@
 
     <div class="recent-items-list list-home" style="background-color: #f7f7f7" ng-class="{'row grid_mode': !grid_mode}">
       <div class="list-home item col-50" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">
-        <item-template item="item" mode="3"></item-template>
+        <item-template item="item" mode="1"></item-template>
       </div>
       <ion-infinite-scroll ng-if="!endOfRecentItems" on-infinite="loadNextRecentPage()"
                            distance="5%"></ion-infinite-scroll>

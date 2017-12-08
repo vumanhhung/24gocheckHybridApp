@@ -55,5 +55,19 @@
   "shops": "Shops",
   "products": "Products",
   "quantity": "Quantity",
-  "total":"Total"
+  "total":"Total",
+
+  "edit_customer_successful": "Edit successfull",
+
+  "product_name": "Product name",
+  "product_price": "Product price",
+  "product_quantity": "Quantity",
+  "product_weight": "Weight",
+  "product_description": "Description",
+  "product_meta_title": "Meta title",
+  "product_model": "Model",
+  "addProduct": "Add Product",
+  "add_product_successfull": "Add product successfull!",
+  "add_product_failed": "Add product failed!"
+
 }

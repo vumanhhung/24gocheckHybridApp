@@ -249,8 +249,7 @@
 
 /*STYLE FOR SLIDE*/
 .home-slider .slider-slide img {
-  margin-left: -22%;
-  width: 145%;
+  width: 100%;
 }
 
 .home-slider.slider .slider-slide {
@@ -564,4 +563,8 @@ ion-infinite-scroll{
 
 input[type=text]{
   font-size: 16px;
+}
+
+.maptext{
+  font-weight: bold;
 }
