@@ -22,8 +22,8 @@
           <ion-item style="background-color: #f7f7f7;" ng-init="init()">
             <div id="map" data-tap-disabled="true" style="height: 300px;"></div>
             <div id="controls">
-              <select id="country" ng-model="selectedCategory" ng-change="filterMarkers(selectedCategory)">
-                <option ng-repeat="locate in store" ng-value="{{locate['category_id']}}">{{locate['category_name']}}</option>
+              <select id="country" ng-model="selectedCategory" ng-change="filterMarkers(selectedCategory);filterbyCategories(selectedCategory)">
+                <option ng-repeat="locate in dat" ng-value="{{locate['category_id']}}">{{locate['category_name']}}</option>
               </select>
             </div>
             <div class="list">

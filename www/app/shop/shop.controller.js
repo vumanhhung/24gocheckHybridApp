@@ -651,21 +651,109 @@ angular
 
       $scope.store = [];
 
+
+      console.log('Before Navigator geolocation');
       //Get current Position
       navigator.geolocation.getCurrentPosition(function (position) {
-
+        console.log('navigator.geolocation');
         $scope.mylat = position.coords.latitude;
         $scope.mylng = position.coords.longitude;
 
         //Shop Service get All User Information.
         ShopService.LoadAllUsers($scope.mylat, $scope.mylng).then(function (data) {
+
+          var tes=[];
           data.users.forEach(function (element) {
-            locations.push([element.company, element.latitude, element.longitude, element.address, element.user_id, element.category_id, element.category_name, element.user_id]);
+            tes.push([element.company, element.latitude, element.longitude, element.address, element.user_id, element.category_id, element.category_name, element.user_id]);
           });
+locations = tes.slice();
+          // locations = data.users;
+
+          // console.log('Loca' +locations[0].company);
+          console.log(locations);
           // console.log(data.users[1].company);
           // console.log(data.users[1].category_name);
-          $scope.store = data.users;
+          // $scope.store = data.users;
+          // $scope.dat = data.users;
+          $scope.dat = JSON.parse(JSON.stringify(data.users));
+          $scope.store = JSON.parse(JSON.stringify(data.users));
+          console.log('Comparing ');
+          console.log($scope.store === $scope.dat);
+          console.log('Load all users and get locations '+ locations.length);
 
+
+
+          if (navigator.geolocation) {
+            console.log(navigator.geolocation);
+            console.log('If navigator.geolocation');
+            navigator.geolocation.getCurrentPosition(function (position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+
+              var image = {
+                url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/bluemarker.png', // image is 512 x 512
+                scaledSize: new google.maps.Size(36, 36)
+              };
+
+              var marker = new google.maps.Marker({
+                position: pos,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                icon: image,
+                map: map,
+                title: locale.getString('shop.my_location')
+              });
+              marker.addListener('click', toggleBounce);
+
+              function toggleBounce() {
+                if (marker.getAnimation() !== null) {
+                  marker.setAnimation(null);
+                } else {
+                  marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+              }
+
+              var request = {
+                location: pos,
+                radius: 5000,
+                type: ['restaurant']
+              };
+
+              var service = new google.maps.places.PlacesService(map);
+              console.log('Call me?');
+              service.nearbySearch(request, callback);
+
+              marker.addListener('click', function () {
+                map.setZoom(14);
+                var circle = new google.maps.Circle({
+                  center: pos,
+                  // radius: position.coords.accuracy,
+                  radius: 1500,
+                  map: map,
+                  fillColor: '#78b5f6',
+                  fillOpacity: 0.5,
+                  strokeColor: '#78b5f6',
+                  strokeOpacity: 1.0
+                });
+                map.fitBounds(circle.getBounds());
+                map.setCenter(marker.getPosition());
+              });
+
+              infowindow.setPosition(pos);
+              infowindow.setContent(locale.getString('shop.my_location'));
+              infowindow.open(map, marker);
+              map.setCenter(pos);
+
+            }, function () {
+              handleLocationError(true, infowindow, map.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infowindow, map.getCenter());
+          } //end Get myPosition.
         }, function (data) {
           // $ionicLoading.hide();
         });
@@ -690,12 +778,13 @@ angular
 
       //Callback function in NearbySearch Service:
       function callback() {
-
+        console.log('Callback called');
         var image = {
           url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/greenmarker.png',
           scaledSize: new google.maps.Size(40, 40)
         };
 
+        console.log('Locations '+locations.length);
         for (i = 0; i < locations.length; i++) {
           var category = locations[i][5];
 
@@ -727,74 +816,77 @@ angular
 
 
       //Get MyPosition.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-
-          var image = {
-            url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/bluemarker.png', // image is 512 x 512
-            scaledSize: new google.maps.Size(36, 36)
-          };
-
-          var marker = new google.maps.Marker({
-            position: pos,
-            draggable: true,
-            animation: google.maps.Animation.DROP,
-            icon: image,
-            map: map,
-            title: locale.getString('shop.my_location')
-          });
-          marker.addListener('click', toggleBounce);
-
-          function toggleBounce() {
-            if (marker.getAnimation() !== null) {
-              marker.setAnimation(null);
-            } else {
-              marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
-          }
-
-          var request = {
-            location: pos,
-            radius: 5000,
-            type: ['restaurant']
-          };
-
-          var service = new google.maps.places.PlacesService(map);
-          service.nearbySearch(request, callback);
-
-          marker.addListener('click', function () {
-            map.setZoom(14);
-            var circle = new google.maps.Circle({
-              center: pos,
-              // radius: position.coords.accuracy,
-              radius: 1500,
-              map: map,
-              fillColor: '#78b5f6',
-              fillOpacity: 0.5,
-              strokeColor: '#78b5f6',
-              strokeOpacity: 1.0
-            });
-            map.fitBounds(circle.getBounds());
-            map.setCenter(marker.getPosition());
-          });
-
-          infowindow.setPosition(pos);
-          infowindow.setContent(locale.getString('shop.my_location'));
-          infowindow.open(map, marker);
-          map.setCenter(pos);
-
-        }, function () {
-          handleLocationError(true, infowindow, map.getCenter());
-        });
-      } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infowindow, map.getCenter());
-      } //end Get myPosition.
+      // if (navigator.geolocation) {
+      //   console.log(navigator.geolocation);
+      //   console.log('If navigator.geolocation');
+      //   navigator.geolocation.getCurrentPosition(function (position) {
+      //     var pos = {
+      //       lat: position.coords.latitude,
+      //       lng: position.coords.longitude
+      //     };
+      //
+      //
+      //     var image = {
+      //       url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/bluemarker.png', // image is 512 x 512
+      //       scaledSize: new google.maps.Size(36, 36)
+      //     };
+      //
+      //     var marker = new google.maps.Marker({
+      //       position: pos,
+      //       draggable: true,
+      //       animation: google.maps.Animation.DROP,
+      //       icon: image,
+      //       map: map,
+      //       title: locale.getString('shop.my_location')
+      //     });
+      //     marker.addListener('click', toggleBounce);
+      //
+      //     function toggleBounce() {
+      //       if (marker.getAnimation() !== null) {
+      //         marker.setAnimation(null);
+      //       } else {
+      //         marker.setAnimation(google.maps.Animation.BOUNCE);
+      //       }
+      //     }
+      //
+      //     var request = {
+      //       location: pos,
+      //       radius: 5000,
+      //       type: ['restaurant']
+      //     };
+      //
+      //     var service = new google.maps.places.PlacesService(map);
+      //     console.log('Call me?');
+      //     service.nearbySearch(request, callback);
+      //
+      //     marker.addListener('click', function () {
+      //       map.setZoom(14);
+      //       var circle = new google.maps.Circle({
+      //         center: pos,
+      //         // radius: position.coords.accuracy,
+      //         radius: 1500,
+      //         map: map,
+      //         fillColor: '#78b5f6',
+      //         fillOpacity: 0.5,
+      //         strokeColor: '#78b5f6',
+      //         strokeOpacity: 1.0
+      //       });
+      //       map.fitBounds(circle.getBounds());
+      //       map.setCenter(marker.getPosition());
+      //     });
+      //
+      //     infowindow.setPosition(pos);
+      //     infowindow.setContent(locale.getString('shop.my_location'));
+      //     infowindow.open(map, marker);
+      //     map.setCenter(pos);
+      //
+      //   }, function () {
+      //     handleLocationError(true, infowindow, map.getCenter());
+      //   });
+      // } else {
+      //   // Browser doesn't support Geolocation
+      //   handleLocationError(false, infowindow, map.getCenter());
+      // } //end Get myPosition.
 
 
       $scope.filterMarkers = function (category) {
@@ -811,16 +903,20 @@ angular
         }
       }
 
-      // $scope.filterbyCategories = function (category_id) {
-      //   for(i=0; i < store.length; i++) {
-      //
-      //   }
-      // }
+      $scope.filterbyCategories = function (category_id) {
+        $scope.store = [];
+        for(i=0; i < $scope.dat.length; i++) {
+          if($scope.dat[i].category_id == category_id){
+            $scope.store.push($scope.dat[i]);
+          }
+        }
+        // console.log($scope.dat);
+      }
 
       $scope.map = map;
 
-      $scope.locations = locations;
-      $scope.test = 'Shit';
+      // $scope.locations = locations;
+
 
     }
 
