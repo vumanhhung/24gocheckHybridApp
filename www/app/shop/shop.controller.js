@@ -25,8 +25,9 @@ angular
     $scope.data = $localStorage.home;
     $scope.data.latestPage = 1;
 
-    if (!$scope.data.slides)
+    if (!$scope.data.slides){
       $scope.data.slides = [{image: "app/shop/images/logo.png"}];
+    }
 
     $scope.refreshUI = function () {
       $scope.data.latestPage = 1;

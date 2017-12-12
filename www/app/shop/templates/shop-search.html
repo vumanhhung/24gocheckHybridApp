@@ -21,11 +21,15 @@
         <ion-list ng-switch-when="nearby">
           <ion-item style="background-color: #f7f7f7;" ng-init="init()">
             <div id="map" data-tap-disabled="true" style="height: 300px;"></div>
-            <div id="controls">
-              <select id="country" ng-model="selectedCategory" ng-change="filterMarkers(selectedCategory);filterbyCategories(selectedCategory)">
-                <option ng-repeat="locate in dat" ng-value="{{locate['category_id']}}">{{locate['category_name']}}</option>
+            <label class="item item-input item-select" style="margin: 5px 5px 0 5px;">
+              <div class="input-label" i18n="shop.filter"></div>
+              <select ng-model="selectedCat" ng-change="resetOption();changeCategory(selectedCat);">
+                <option ng-repeat="category in cates"
+                        ng-selected="selectedCat == category.category_id"
+                        ng-value="category.category_id" ng-bind-html="category.name.slice(0, -4)">
+                </option>
               </select>
-            </div>
+            </label>
             <div class="list">
               <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 15px;"
                    ng-repeat="user in store">
@@ -39,11 +43,11 @@
                              src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"/> {{user['address']}}</span><br>
                   <span><img style="width: 8%;"
                              src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user['phone']}}</span><br>
-                  <span><img style="width: 8%;"
-                             src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user['category_name']}}</span><br>
-                  <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
-                                 ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star',
-                                 iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                  <!--<span><img style="width: 8%;"-->
+                             <!--src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"/> {{user['category_name']}}</span><br>-->
+                  <!--<ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"-->
+                                 <!--ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star',-->
+                                 <!--iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
 
                 </a>
                 <div style="padding-top: 10%; padding-left: 4%;">
