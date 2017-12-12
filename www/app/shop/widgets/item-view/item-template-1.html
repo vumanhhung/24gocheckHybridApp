@@ -1,40 +1,32 @@
-﻿<a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="item-template-link">
-  <div class="item-template-image-wrapper">
-    <img preload-image class="full-image" ng-src="{{::item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
-    <img preload-image class="side-image-1" ng-src="{{::item.images[0]}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" ng-if="::item.images[0]" />
-    <img preload-image class="side-image-2" ng-src="{{::item.images[1]}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
+﻿<div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
+  <div ng-if="showoverlay" style="opacity: .5;">
+    <div class="row" ng-style="userLoggedIn() && {} || {'margin-top':'-34px'}">
+      <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}"
+         class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
+    color: #FFFFFF; font-size: 13px;" ng-style="userLoggedIn() && {} || {'margin-left':'auto', 'margin-right':'auto'}">
+        <i class="icon ion-ios-eye-outline"></i> {{ 'shop.item_view_button' | i18n }}
+      </a>
+      <button ng-if="userLoggedIn()" style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;"
+              analytics-click="Wishlist" data-product-name="{{item.name}}"
+              class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+
+        <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
+      </button>
+      -->
+    </div>
   </div>
-  <h2 style="margin: 0 2%;" ng-bind-html="item.name"></h2>
-  <!--<p class="product-description" ng-bind-html="item.description"></p>-->
-  <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
-</a>
-<div class="detail-content">
-  <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}"><h2
-    ng-bind-html="item.shop_name"></h2></a>
-  <p>
-    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
-    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
-    <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
-            <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
-    <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap; float: right;"
-                   ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,
-                   iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-  </p>
-
- <!--  <hr/>
-  <div style="border-top: 9px;">
-    <img class="icon-image"
-         src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
-         default-image="app/shop/images/placeholder.png"
-         fallback-image="app/shop/images/placeholder.png"/>
-    <h4>Cong ty AlvietJS</h4>
-    <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
-                   ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings> -->
-
-    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
-    <!--class="col-20 button button-full button-clear item-price-button"-->
-    <!--style="margin-top: -30px; float: right;" ng-click="addToWishlist(item.product_id)">-->
-    <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
-    <!--</button>-->
-  <!-- </div> -->
+  <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png"
+       fallback-image="app/shop/images/placeholder.png"/>
+</div>
+<div ng-click="showoverlay = !showoverlay" style="background-color: white; margin-top: -3px;font-size: 13px;padding-left: 10px;padding-right: 10px;
+  overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+  <span ng-bind-html="item.name" style="font-weight: bold;"></span><br/>
+  <span style="color:#ff5c00;">{{ 'shop.view_detail' | i18n}}</span><br/>
+  <span>Address</span>
+  <hr/>
+  <span class="icon ion-ios-heart-outline"> 1</span>
+  <!--<div class="col item-ratings">-->
+  <!--<ionic-ratings style="font-size: 72%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
+  <!--</div>-->
+</div>
 </div>

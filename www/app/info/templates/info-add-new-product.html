@@ -8,10 +8,14 @@
         <!--<input type="hidden" ng-model="add.image" ng-value="srcImage" />-->
         <!--<button class="button icon-left ion-upload" ng-click="uploadImage()" ng-disabled="add.image === null">Upload</button>-->
 
-        <img ng-src="{{pathForImage(image)}}" style="width: 100%; height: 100%;">
 
-        <button class="button icon-left ion-camera" ng-click="loadImage()">Take Photo</button>
-        <button class="button icon-left ion-upload" ng-click="uploadImage()" ng-disabled="image === null">Upload</button>
+        <img ng-src="{{pathForImage(image)}}" width="150" height="150"
+             style="display: block; margin-left: 35%; margin-bottom: 10px;" ng-click="loadImage()"/>
+
+
+        <!--<button class="button icon-left ion-camera" ng-click="loadImage()">Take Photo</button>-->
+
+        <!--<button class="button icon-left ion-upload" ng-click="uploadImage()" ng-disabled="image === null">Upload</button>-->
       </div>
       <div class="list">
         <label class="item item-input" style="margin-top: 10px;">
