@@ -23,11 +23,8 @@
             <div id="map" data-tap-disabled="true" style="height: 300px;"></div>
             <label class="item item-input item-select" style="margin: 5px 5px 0 5px;">
               <div class="input-label" i18n="shop.filter"></div>
-              <select ng-model="selectedCat" ng-change="resetOption();changeCategory(selectedCat);">
-                <option ng-repeat="category in cates"
-                        ng-selected="selectedCat == category.category_id"
-                        ng-value="category.category_id" ng-bind-html="category.name.slice(0, -4)">
-                </option>
+              <select id="country" ng-model="selectedCategory" ng-change="filterMarkers(selectedCategory);filterbyCategories(selectedCategory)">
+                -                <option ng-repeat="locate in dat" ng-value="{{locate['category_id']}}">{{locate['category_name']}}</option>
               </select>
             </label>
             <div class="list">

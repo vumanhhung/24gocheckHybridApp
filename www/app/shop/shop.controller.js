@@ -665,7 +665,7 @@ angular
 
           var tes=[];
           data.users.forEach(function (element) {
-            tes.push([element.company, element.latitude, element.longitude, element.address, element.user_id, element.category_id, element.category_name, element.user_id]);
+            tes.push([element.company, element.latitude, element.longitude, element.address, element.user_id, element.category_id, element.category_name, element.user_id, element.fullname]);
           });
 locations = tes.slice();
           // locations = data.users;
@@ -677,7 +677,20 @@ locations = tes.slice();
           // $scope.store = data.users;
           // $scope.dat = data.users;
           $scope.dat = JSON.parse(JSON.stringify(data.users));
-          $scope.store = JSON.parse(JSON.stringify(data.users));
+          // $scope.store = JSON.parse(JSON.stringify(data.users));
+
+
+          //check if $scope.dat has duplicated value if not then add object to $scope.store
+          angular.forEach($scope.dat, function(value, key) {
+            var exists = false;
+            angular.forEach($scope.store, function(val2, key) {
+              if(angular.equals(value.user_id, val2.user_id)){ exists = true };
+            });
+            if(exists == false && value.user_id != "") { $scope.store.push(value); }
+          });
+
+          //===================
+
           console.log('Comparing ');
           console.log($scope.store === $scope.dat);
           console.log('Load all users and get locations '+ locations.length);
@@ -804,7 +817,7 @@ locations = tes.slice();
               map.setZoom(14);
               map.setCenter(marker.getPosition());
               // infowindow.setContent("<strong style='overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'>" + locations[i][0] + "</strong>");
-              infowindow.setContent('<div><strong>' + 'Place: ' + locations[i][0] + '</strong><br>' +
+              infowindow.setContent('<div><strong>' + 'Place: ' + (locations[i][0] ? locations[i][0] : locations[i][8]) + '</strong><br>' +
                 'Place ID: ' + locations[i][4] + '<br>' +
                 'User ID: ' + locations[i][7] + '<br>' +
                 locations[i][3] + '<br>' + 'Category: ' + locations[i][6] + '</div>');
