@@ -78,5 +78,6 @@
 
   "menu_plus" : "Thêm",
   "direction": "Chỉ đường",
-  "my_location": "Vị trí của tôi"
+  "my_location": "Vị trí của tôi",
+  "filter" : "Lọc"
 }

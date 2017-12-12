@@ -78,5 +78,6 @@
 
   "menu_plus" : "More",
   "direction": "Direction",
-  "my_location": "My Location"
+  "my_location": "My Location",
+  "filter" : "Filter"
 }
