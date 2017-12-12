@@ -3,7 +3,6 @@
   "version": "1.1.1",
   "description": "ionicUnlock: An Ionic project",
   "devDependencies": {
-    "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0"
@@ -25,6 +24,7 @@
     "cordova-plugin-file": "^5.0.0",
     "cordova-plugin-file-transfer": "^1.7.0",
     "cordova-plugin-filepath": "^1.1.0",
+    "cordova-plugin-geolocation": "^3.0.0",
     "cordova-plugin-google-analytics": "^0.8.1",
     "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-intercom": "^3.2.2",
@@ -36,6 +36,7 @@
     "cordova-plugin-x-socialsharing": "^5.2.1",
     "es6-promise-plugin": "^4.1.0",
     "geolocation-marker": "^2.0.5",
+    "gulp": "^3.9.1",
     "ionic-plugin-deploy": "^0.5.7",
     "ionic-plugin-keyboard": "^2.2.1",
     "onesignal-cordova-plugin": "^2.2.2",
@@ -67,7 +68,8 @@
       "cordova-plugin-local-notification": {},
       "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},
-      "cordova-plugin-filepath": {}
+      "cordova-plugin-filepath": {},
+      "cordova-plugin-geolocation": {}
     },
     "platforms": [
       "android"
