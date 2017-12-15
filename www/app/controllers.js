@@ -114,6 +114,7 @@ angular.module('starter')
     $scope.forms = {};
     $rootScope.data = $localStorage;
     $rootScope.email = EMAIL;
+    $rootScope.user_notifications = [{title: 'Title',description: 'Description', time: 'July 13, 2014 11:13:00'}];
 
     // override the default alert box
     alert = function (log) {

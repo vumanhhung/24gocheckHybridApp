@@ -21,6 +21,17 @@
             </span>
             <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>
           </div>
+
+          <div class="list">
+            <div ng-repeat="item in user_notifications">
+              <p>{{item.title}}</p>
+              <p>{{item.description}}</p>
+              <p>{{item.time}}</p>
+            </div>
+          </div>
+
+          <button ng-click="shika()">Click</button>
+<button ng-click="show()">Show</button>
         </ion-item>
       </ion-list>
       <ion-list ng-switch-when="own">
