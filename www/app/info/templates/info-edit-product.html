@@ -1,0 +1,74 @@
+<ion-view view-title="{{'info.buttons_add_new_product' | i18n}}">
+  <ion-content>
+    <form name="forms.addProductForm" novalidate>
+      <div style="margin-top: 10px;">
+        <!--<img ng-src="{{srcImage || 'img/dummy.jpg'}}" id="srcImage" width="150" height="150"-->
+        <!--style="display: block; margin-left: 35%; margin-bottom: 10px;" ng-click="takeImage()"/>-->
+        <!--&lt;!&ndash;<button ng-click="takeImage()" style="margin-left: 10px;">Chụp ảnh</button>&ndash;&gt;-->
+        <!--<input type="hidden" ng-model="add.image" ng-value="srcImage" />-->
+        <!--<button class="button icon-left ion-upload" ng-click="uploadImage()" ng-disabled="add.image === null">Upload</button>-->
+
+
+        <img ng-src="{{pathForImage(image)}}" width="150" height="150"
+             style="display: block; margin-left: 35%; margin-bottom: 10px;" ng-click="loadImage()"/>
+
+
+        <!--<button class="button icon-left ion-camera" ng-click="loadImage()">Take Photo</button>-->
+
+        <!--<button class="button icon-left ion-upload" ng-click="uploadImage()" ng-disabled="image === null">Upload</button>-->
+      </div>
+      <div class="list">
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_name" name="product_name" required placeholder="{{'info.product_name' | i18n}}"  />
+        </label>
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_price" name="product_price" required placeholder="{{'info.product_price' | i18n}}"/>
+        </label>
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_quantity" name="product_quantity" required placeholder="{{'info.product_quantity' | i18n}}" />
+        </label>
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="number" class="col-md-9" style="border: none;" ng-model="add.product_weight" name="product_weight" required placeholder="{{'info.product_weight' | i18n}}" />
+        </label>
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_description" name="product_description" required placeholder="{{'info.product_description' | i18n}}"/>
+        </label>
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_meta_title" name="product_meta_title" required placeholder="{{'info.product_meta_title' | i18n}}"/>
+        </label>
+        <label class="item item-input" style="margin-top: 10px;">
+          <input type="text" class="col-md-9" style="border: none;" ng-model="add.product_model" name="product_model" required placeholder="{{'info.product_model' | i18n}}"/>
+        </label>
+        <!--<label class="item item-input">-->
+        <!--<span class="input-label">Thành phố</span>-->
+
+        <!--</label>-->
+        <label class="item item-input item-select" style="margin-top: 10px;">
+          <div class="input-label" i18n="modals.register_region"></div>
+          <select ng-model="add.zone_id" name="zone_id" required ng-init="countryChanged()">
+            <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == add.zone_id" ng-repeat="zone in zones">
+              {{::zone.name}}
+            </option>
+          </select>
+        </label>
+        <!--<label class="item item-input">-->
+        <!--<span class="input-label">Địa chỉ</span>-->
+        <!--<input type="text" class="col-md-9" style="border: none;" hidden="Nhập giá" ng-model="add.product_name" name="product_name">-->
+        <!--</label>-->
+        <label class="item item-input item-select" style="margin-top: 10px;">
+          <div class="input-label" i18n="shop.title_category"></div>
+          <select ng-model="add.product_category">
+            <option ng-repeat="category in cates"
+                    ng-selected="selectedCat == category.category_id"
+                    ng-value="category.category_id" ng-bind-html="category.name.slice(0, -4)">
+            </option>
+          </select>
+        </label>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="button button-full button-positive" ng-click="postProductData()">
+          {{'info.edit.Product' | i18n}}</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

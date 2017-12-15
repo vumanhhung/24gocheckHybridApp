@@ -46,6 +46,7 @@
   "buttons_view_product":"View Product",
   "buttons_add_new_product":"Add New Product",
   "buttons_order_manage":"Order Manager",
+  "buttons_wallet":"Wallet",
 
   "button_edit_account": "Edit account",
   "buttons_transaction_history": "Transaction History",
