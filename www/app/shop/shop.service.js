@@ -787,4 +787,27 @@ angular
       });
     }
 
+
+
+    this.GetShops = function (page) {
+
+      var start = (page - 1) * 10;
+      var limit = 10;
+
+      return dataService.apiSecuredPost('/shops', {start: start, limit: limit}).then(function (data) {
+        // for (var i in data.products) {
+        //   if (data.products[i].special_clear) {
+        //     var s = parseInt(data.products[i].special_clear);
+        //     var p = parseInt(data.products[i].price_clear);
+        //     data.products[i].off = Math.ceil((p - s) / p * 100);
+        //   }
+        // }
+
+        return data;
+      });
+    }
+
+
+
+
   })

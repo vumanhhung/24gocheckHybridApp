@@ -61,19 +61,19 @@ angular
       $scope.loadingLatest = true;
       $scope.data.latestItems = $scope.data.latestItems || [];
 
-      ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+      ShopService.GetShops($scope.data.latestPage).then(function (data) {
         if (refresh) {
-          $scope.data.latestItems = data.products;
+          $scope.data.latestItems = data.shops;
           $scope.data.latestPage = 1;
         } else {
           if ($scope.data.latestPage == 1) {
             $scope.data.latestItems = [];
           }
 
-          $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
+          $scope.data.latestItems = $scope.data.latestItems.concat(data.shops);
           $scope.data.latestPage++;
         }
-        if (data.products && data.products.length < 1)
+        if (data.shops && data.shops.length < 1)
           $scope.endOfRLatestItems = true;
         $scope.loadingLatest = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
