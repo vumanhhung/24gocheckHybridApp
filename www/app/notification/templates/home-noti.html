@@ -19,19 +19,21 @@
                   class="large-app-icon large-app-icon-green">
                 <i class="icon ion-ios-bell-outline"></i>
             </span>
-            <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>
+            <p style="font-size: 16px; color: #45e11b;" i18n="notification.empty_message"></p>
           </div>
-
-          <div class="list">
-            <div ng-repeat="item in user_notifications">
-              <p>{{item.title}}</p>
-              <p>{{item.description}}</p>
-              <p>{{item.time}}</p>
+          <div style="text-align: left; display: flex;border-radius: 5px; border: 1px solid dimgray;" ng-repeat="item in user_notifications">
+            <img class="shop-detail-image"
+                 src="???"
+                 default-image="app/shop/images/placeholder.png"
+                 fallback-image="app/shop/images/placeholder.png" style="width: 25%;"/>
+            <div style="float: right; width: 75%;">
+              <h3 style="padding-left: 5px;"><i class="icon ion-ios-bookmarks-outline"> {{item.title}}</i></h3><!---->
+              <p style="padding-left: 5px;"><i class="icon ion-ios-location-outline"></i> {{item.description}}</p>
+              <p style="padding-left: 5px;"><i class="icon ion-ios-alarm-outline"></i> {{item.time}}</p>
             </div>
           </div>
-
-          <button ng-click="shika()">Click</button>
-<button ng-click="show()">Show</button>
+          <!--<button ng-click="shika()">Click</button>-->
+          <!--<button ng-click="show()">Show</button>-->
         </ion-item>
       </ion-list>
       <ion-list ng-switch-when="own">
@@ -41,19 +43,10 @@
                   class="large-app-icon large-app-icon-green">
                 <i class="icon ion-ios-bell-outline"></i>
             </span>
-            <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>
+            <p style="font-size: 16px; color: #45e11b;" i18n="notification.empty_message"></p>
           </div>
         </ion-item>
       </ion-list>
     </div>
   </ion-content>
-  <!--<div style="text-align: left;">-->
-  <!--<img class="shop-detail-image" src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"-->
-  <!--default-image="app/shop/images/placeholder.png"-->
-  <!--fallback-image="app/shop/images/placeholder.png"/>-->
-  <!--<div style="float: right; width: 75%;">-->
-  <!--<h3><i class="icon ion-ios-bookmarks-outline">  Name Of Event</i></h3>&lt;!&ndash;ng-bind-html="item.name"&ndash;&gt;-->
-  <!--<p><i class="icon ion-ios-location-outline"></i> Description About Event</p>-->
-  <!--<p><i class="icon ion-ios-alarm-outline"></i><span> Start Date</span> - <span>End Date</span></p>-->
-  <!--</div>-->
 </ion-view>
