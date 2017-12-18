@@ -163,7 +163,7 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAccInfo', function ($scope, $rootScope, $http, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService, LANGUAGES) {
+  .controller('InfoAccInfo', function ($scope, $rootScope, $http, locale, $state, $stateParams, $ionicPopup, $localStorage, notificationService,InfoService,NotificationService, LANGUAGES) {
     $scope.edit = $localStorage.user || {};
 
     $scope.edit.address_1 = $localStorage.user.user_address.address_1;
@@ -219,11 +219,13 @@ angular
 
           alert(locale.getString('info.edit_customer_successful'));
 
+          NotificationService.AddNotification(locale.getString('notification.user_info_edited'));
+
           // $state.reload();
 
           cordova.plugins.notification.local.schedule({
-            title: 'Edit profile successfull',
-            text: 'You profile has been edited at '+Date.now(),
+            title: locale.getString('info.edit_customer'),
+            text: locale.getString('info.edit_customer_successful'),
             foreground: true
           });
 
@@ -413,7 +415,7 @@ angular
 
 angular
   .module('info.module')
-  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera, $localStorage, $ionicPopup,$cordovaFile, $cordovaFileTransfer, $cordovaDevice,$cordovaActionSheet, locale, CartService, InfoService, ShopService) {
+  .controller('InfoAddProductCtrl', function ($scope, $cordovaCamera, $localStorage, $ionicPopup,$cordovaFile, $cordovaFileTransfer, $cordovaDevice,$cordovaActionSheet, locale, CartService, InfoService, ShopService, NotificationService) {
 
     $scope.cates = [];
     ShopService.GetCategories().then(function (data) {
@@ -666,6 +668,15 @@ angular
               $scope.add.product_location = $localStorage.user.user_address.address_1;
               alert(locale.getString('info.add_product_successfull'));
 
+              //Add Notification to rootScope
+              NotificationService.AddNotification($scope.add.product_name + ' ' + locale.getString('notification.added_product'));
+
+              //Local notification
+              cordova.plugins.notification.local.schedule({
+                title: locale.getString('notification.addProduct'),
+                text: locale.getString('notification.add_product_successfull'),
+                foreground: true
+              });
             }
 
 

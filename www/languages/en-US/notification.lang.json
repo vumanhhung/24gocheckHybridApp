@@ -2,5 +2,8 @@
   "title_notification_home": "Notification",
   "title_notification_event": "Events",
   "title_notification_own": "Own",
-  "empty_message": "'Your notification is empty!'"
+  "empty_message": "'Your notification is empty!'",
+
+  "product_added": "has been added",
+  "user_info_edited": "Your information has been edited"
 }
