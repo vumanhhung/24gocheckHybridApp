@@ -2,5 +2,11 @@
   "title_notification_home": "Thông báo",
   "title_notification_event": "Sự kiện",
   "title_notification_own": "Của bạn",
-  "empty_message": "Bạn không có thông báo nào !"
+  "empty_message": "Bạn không có thông báo nào !",
+
+  "product_added": "đã được thêm",
+  "user_info_edited": "Thông tin tài khoản của bạn đã được chỉnh sửa",
+
+  "product_successfully_added": "Product successfully added",
+
 }

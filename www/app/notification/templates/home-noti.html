@@ -14,7 +14,7 @@
     <div ng-switch="categories">
       <ion-list ng-switch-when="event">
         <ion-item style="background-color: #f7f7f7; border: none;">
-          <div class="large-icon-message">
+          <div class="large-icon-message" ng-show="user_notifications.length < 1">
             <span style="border-radius: 50%; opacity: .5;width: 200px; height: 200px;padding-top: 2%; font-size: 160px;"
                   class="large-app-icon large-app-icon-green">
                 <i class="icon ion-ios-bell-outline"></i>
@@ -27,9 +27,10 @@
                  default-image="app/shop/images/placeholder.png"
                  fallback-image="app/shop/images/placeholder.png" style="width: 25%;"/>
             <div style="float: right; width: 75%;">
-              <h3 style="padding-left: 5px;"><i class="icon ion-ios-bookmarks-outline"> {{item.title}}</i></h3><!---->
-              <p style="padding-left: 5px;"><i class="icon ion-ios-location-outline"></i> {{item.description}}</p>
+              <h3 style="padding-left: 5px;"><i class="icon ion-ios-bookmarks-outline"> {{item.message}}</i></h3><!---->
+              <!--<p style="padding-left: 5px;"><i class="icon ion-ios-location-outline"></i> {{item.message}}</p>-->
               <p style="padding-left: 5px;"><i class="icon ion-ios-alarm-outline"></i> {{item.time}}</p>
+              <p><a class="btn" ng-click="remove(item)">Delete</a></p>
             </div>
           </div>
           <!--<button ng-click="shika()">Click</button>-->
