@@ -30,7 +30,7 @@
 
   <ion-list class="recent-items-list">
     <ion-item ng-repeat="item in items">
-      <item-template item="item"></item-template>
+      <item-template item="item" mode="3"></item-template>
     </ion-item>
 
     <div ng-if="!noSearchword && !loadingItems && items.length == 0" class="large-icon-message">

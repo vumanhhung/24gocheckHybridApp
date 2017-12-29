@@ -21,7 +21,7 @@ angular.module('shop.module').directive('itemTemplate', function () {
               return $rootScope.userLoggedIn();
             }
 
-            $scope.addToWishlist = function (id) {
+          $scope.addToWishlist = function (id) {
                 $ionicLoading.show();
                 //add to wishlist
                 ShopService.AddToWishlist(id).then(function (data) {

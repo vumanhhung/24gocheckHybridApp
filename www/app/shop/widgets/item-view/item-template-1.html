@@ -32,7 +32,7 @@
 <!--</div>-->
 
 
-<div ng-show="item.company != ''">
+<div>
   <div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
     <div ng-if="showoverlay" style="opacity: .5;">
       <div class="row" ng-style="userLoggedIn() && {} || {'margin-top':'-34px'}">
@@ -54,7 +54,7 @@
 
   <div ng-click="showoverlay = !showoverlay" style="background-color: white; margin-top: -3px;font-size: 11px;padding-left: 10px;padding-right: 10px;display: flex;">
     <div style="width: 80%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
-      <span ng-bind-html="item.company" style="font-weight: bold;"></span><br/>
+      <span ng-bind-html="item.company || item.fullname" style="font-weight: bold;"></span><br/>
       <span>{{item.address}}</span><br/>
       <span style="color:#ff5c00;">{{ 'shop.view_detail' | i18n}}</span>
     </div>
