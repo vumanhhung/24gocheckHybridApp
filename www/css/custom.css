@@ -213,7 +213,7 @@
 }
 .recent-items-list.row.grid_mode .item img {
   border-radius: 2%;
-  padding: 10px;
+  padding: 2px;
 }
 
 
@@ -568,3 +568,12 @@ input[type=text]{
 .maptext{
   font-weight: bold;
 }
+
+.new-tag {
+  width: 20%;
+  min-width: 40px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+

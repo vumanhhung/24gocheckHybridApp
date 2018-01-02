@@ -1,4 +1,4 @@
-﻿<div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
+﻿<div class="product-image-wrapper" ng-click="showoverlay = !showoverlay" style="position: relative">
   <div ng-if="showoverlay" style="opacity: .5;">
     <div class="row" ng-style="userLoggedIn() && {} || {'margin-top':'-34px'}">
       <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
@@ -6,12 +6,13 @@
         <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
       </a>
       <button ng-if="userLoggedIn()" style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
-
         <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
-      </button> -->
+      </button>
     </div>
+    <img class="new-tag" ng-show="item.date_diff < 7" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/tag-new.png"/>
   </div>
   <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
+  <img class="new-tag" ng-if="!showoverlay" ng-show="item.date_diff < 83" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/tag-new.png"/>
 </div>
 <div ng-click="showoverlay = !showoverlay" style="background-color: white; margin-top: -3px;">
   <h2 ng-bind-html="item.name" style="padding: 7px 0 2px 10px;"></h2>
@@ -24,7 +25,18 @@
       <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
                 <i class="icon ion-iphone"></i> {{::item.mobile_special}}
             </span>
+
+      <!--<span>{{item.date_diff }}</span>-->
     </div>
+
+
+    <!--<div class="container-tag-image" style="position: relative; text-align: center; color: white; ">-->
+      <!--<img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/tag-hot.png" width="100%"/>-->
+    <!--</div>-->
+    <!--<div style="position: relative;text-align: center;color: white;">-->
+      <!--<img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/tag-sale.png" width="100%"/>-->
+      <!--<div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">50%</div>-->
+    <!--</div>-->
     <!--<div class="col item-ratings">-->
       <!--<ionic-ratings style="font-size: 72%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
     <!--</div>-->

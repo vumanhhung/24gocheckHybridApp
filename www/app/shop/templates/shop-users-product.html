@@ -1,7 +1,7 @@
 <ion-view view-title="{{ 'shop.title_user_product' | i18n }}">
   <ion-content>
       <ion-slide-box id="item-elastic-header">
-        <ion-slide ng-repeat="badge in badges">
+        <ion-slide ng-repeat="badge in badges track by $index">
           <div style="width: 100%;"><img style="width: 80%" preload-image src="{{badge}}"
                                          default-image="app/shop/images/placeholder.png"
                                          fallback-image="app/shop/images/placeholder.png"/>
@@ -62,7 +62,7 @@
       </button>
     </div>
     <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
-      <div class="item" ng-repeat="item in items" ng-class="{'col-50' : grid_mode}">
+      <div class="item" ng-repeat="item in items track by $index" ng-class="{'col-50' : grid_mode}">
         <item-template item="item" mode="3"></item-template>
       </div>
       <ion-item ng-if="items.length < 1">{{text_empty}}</ion-item>

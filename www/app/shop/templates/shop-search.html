@@ -78,7 +78,7 @@
             </div>
             <div class="list">
               <ion-item ng-repeat="item in items">
-                <item-template item="item"></item-template>
+                <item-template item="item" mode="3"></item-template>
               </ion-item>
               <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
             </div>
@@ -122,7 +122,7 @@
             </div>
             <div class="list">
               <ion-item ng-repeat="item in items">
-                <item-template item="item"></item-template>
+                <item-template item="item" mode="3"></item-template>
               </ion-item>
               <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
             </div>
